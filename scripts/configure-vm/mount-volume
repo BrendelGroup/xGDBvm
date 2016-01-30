@@ -1,0 +1,67 @@
+#!/bin/bash
+# last update: 1-19-2016
+while true; do
+    while read devloc
+	do
+	   stored=$devloc
+	done < /xGDBvm/admin/devloc
+    attached=$(ls $stored)
+    if [ "$stored" == "$attached" ]
+    then
+       status_message="(one appears to be attached at $attached)"
+    else
+       status_message="Make sure to attach it first and note the device location; then proceed"
+    fi
+    
+    echo ""; read -p "Mount an External Volume? $status_message [yn]:  " yn
+    case $yn in
+           [Yy]* ) echo ""; read -p "Enter the device location [default= $stored]:  " location;
+           while true; do
+           case $location in
+               "" ) devloc="$stored";
+               break;;
+               * ) devloc=$location; break;;
+           esac
+           done
+           echo ""
+           echo "Using device location $devloc"
+           echo ""
+           sudo umount $devloc # unmount any device previously there
+           echo ""
+           sudo mount $devloc /xGDBvm/data; 
+           sudo chown root:xgdb /xGDBvm/data
+           sudo chmod g+w /xGDBvm/data
+           #sudo echo "$devloc" > /xGDBvm/admin/devloc # doesn't work
+           sudo sh -c "echo '$devloc' >/xGDBvm/admin/devloc"
+           success=$(df -kh | grep $devloc); 
+           if [ -n "$success" ]
+           then
+            mount=$(df -kh | grep $devloc | awk -F " " '{print $6}' )
+            space=$(df -kh | grep $devloc | awk -F " " '{print $4}' )
+            filepath=$(find /xGDBvm -lname $mount)
+              echo "The volume has been mounted to device $devloc, available on $mount ($filepath)"
+              echo ""
+              echo "Permissions have been updated for $filepath to insure your data can be written to it"
+              echo ""
+              echo "You now have $space available for output data (see below)"
+              echo ""
+              echo "Restarting MySQL server to allow access to any databases on your mounted volume"
+              echo ""
+              sudo /sbin/service mysqld restart
+              echo ""
+              echo "Disk/Filesystem status"
+              df -kh
+              echo ""
+              echo "NOTE: You MUST run 'configure-vm' if you are mounting this volume for the first time"
+              echo ""
+           else
+              echo "The volume could not be mounted to device $devloc"
+              echo ""
+              echo "Make sure it is attached to the VM and that you have correctly noted the device location"
+              echo ""
+           fi
+           break;; 
+           [Nn]* ) exit;;
+           * ) echo "Please answer y or n.";;
+    esac
+done

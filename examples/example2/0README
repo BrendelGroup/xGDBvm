@@ -1,0 +1,19 @@
+Example 2 (Update Option)
+
+This is an example dataset consisting of two Ricinus communis scaffolds, along with the est, cdna, put and related species (Arabidopsis and Medicago) proteins that splice-align to them.
+For this example, we assume additional data is to be added, and these data are contained in a subdirectory called new_data.
+
+Gene models:
+
+Ex2.annot.gff3
+28153.m000272 - 28153.m000288
+29005.m000250 - 29005.m000257
+
+total 25
+
+Ex2_new.annot.gff3
+29005.m000258 - 29005.m000263 
+29154.m000207 - 29154.m000220
+29308.m000175 - 29308.m000187
+
+total 32

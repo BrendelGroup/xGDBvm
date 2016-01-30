@@ -1,0 +1,26 @@
+29154.m000207	histone h2b, putative
+29154.m000208	ATP synthase beta subunit, putative
+29154.m000209	actin depolymerizing factor, putative
+29154.m000210	histone h2a, putative
+29154.m000211	glycine-rich RNA-binding protein, putative
+29154.m000212	histone h2a, putative
+29154.m000213	cold-inducible RNA binding protein, putative
+29154.m000214	histone h2b, putative
+29154.m000215	30S ribosomal protein S8, putative
+29154.m000216	rab15, 13, 10, 1, 35, 5, and, putative
+29154.m000217	DNA binding protein, putative
+29154.m000218	nucleic acid binding protein, putative
+29154.m000219	conserved hypothetical protein
+29154.m000220	hypothetical protein
+29308.m000175	Pectinesterase-3 precursor, putative
+29308.m000176	Pectinesterase-3 precursor, putative
+29308.m000177	alanine transaminase, putative
+29308.m000179	proteasome subunit alpha type, putative
+29308.m000180	RNA polymerase II transcription factor B subunit, putative
+29308.m000181	DNA binding protein, putative
+29308.m000182	conserved hypothetical protein
+29308.m000183	fyve finger-containing phosphoinositide kinase, fyv1, putative
+29308.m000184	GTP binding protein, putative
+29308.m000185	conserved hypothetical protein
+29308.m000186	translation initiation factor eif-2b alpha subunit, putative
+29308.m000187	conserved hypothetical protein

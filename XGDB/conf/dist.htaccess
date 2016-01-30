@@ -1,0 +1,12 @@
+Options -Indexes
+AuthUserFile /xGDBvm/admin/.htpass_admin
+AuthName PRIVATE
+AuthType Basic
+<Limit GET>
+require valid-user
+</Limit>
+<files dbpass>
+order allow,deny
+deny from all
+</files>
+

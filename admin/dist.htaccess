@@ -1,0 +1,5 @@
+Options -Indexes
+AuthUserFile /xGDBvm/admin/.htpass_admin
+AuthName PRIVATE
+AuthType Basic
+Require valid-user

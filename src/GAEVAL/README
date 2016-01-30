@@ -1,0 +1,50 @@
+####I am under /DATA/Product/GAEVAL on dos#####
+####The conf file is hard coded in ./xGAEVAL.pl It is /DATA/Product/GAEVAL/conf/ZMGDBconf.pl
+####command run:
+
+[plantgdb@sunx4600dos GAEVAL]$ ./xGAEVAL.pl --noreport
+
+####I get TABLE records: 
+
+####gseg_maizeorg_cdna_gaeval 169120 
+####gseg_maizeorg_est_gaeval 3117875
+####gseg_maizeorg_gaeval 9704 (stopped)
+####gseg_maizeorg_gaeval_properties 5868 (stopped)
+####
+DBD::mysql::db do failed: Got a packet bigger than 'max_allowed_packet' bytes at perllib/gaeval/sql.pm line 361.
+DBD::mysql::db do failed: Got a packet bigger than 'max_allowed_packet' bytes at perllib/gaeval/sql.pm line 361.
+#####I rerun the followings:#################################
+[plantgdb@sunx4600dos GAEVAL]$ sudo /sbin/service mysqld stop
+[plantgdb@sunx4600dos GAEVAL]$ sudo /sbin/service mysqld start --max_allowed_packet=64M
+[plantgdb@sunx4600dos GAEVAL]$ ./xGAEVAL.pl --noreport --noreload
+###############get the error again#############################
+DBD::mysql::db do failed: Got a packet bigger than 'max_allowed_packet' bytes at perllib/gaeval/sql.pm line 361.
+DBD::mysql::db do failed: Got a packet bigger than 'max_allowed_packet' bytes at perllib/gaeval/sql.pm line 361.
+root     26859 26794  0 09:47 pts/0    00:00:00 /bin/sh ./mysqld_safe
+mysql    26877 26859  0 09:47 pts/0    00:00:00 /usr/libexec/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --pid-file=/var/lib/mysql/sunx4600dos.gdcb.iastate.edu.pid --skip-external-locking
+[root@sunx4600dos bin]# kill -9 26859
+[root@sunx4600dos bin]# kill -9 26877
+[1]-  Killed                  ./mysqld_safe
+[root@sunx4600dos bin]# ps -ef |grep mysql
+root     27029 26794  0 09:48 pts/0    00:00:00 /bin/sh /sbin/service mysqld start
+root     27032 27029  0 09:48 pts/0    00:00:00 /bin/bash /etc/init.d/mysqld start
+root     27199 26794  0 09:50 pts/0    00:00:00 grep mysql
+[root@sunx4600dos bin]# kill -9 27029
+[root@sunx4600dos bin]# kill -9 27032
+bash: kill: (27032) - No such process
+[2]+  Done                    /sbin/service mysqld start
+[root@sunx4600dos bin]# ps -ef |grep mysql
+root     27201 26794  0 09:50 pts/0    00:00:00 grep mysql
+[root@sunx4600dos bin]# /sbin/service mysqld start
+Starting MySQL:                                            [  OK  ]
+[root@sunx4600dos bin]# /sbin/service mysqld stop
+Stopping MySQL:                                            [  OK  ]
+[root@sunx4600dos bin]# ./mysqld_safe --max_allowed_packet=64M&
+[1] 27320
+[root@sunx4600dos bin]# Starting mysqld daemon with databases from /var/lib/mysql
+
+[root@sunx4600dos bin]# exit
+exit
+[plantgdb@sunx4600dos GAEVAL]$ ./xGAEVAL.pl --noreport --noreload
+:wq
+

@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>GAEVAL - Example 1: Single Annotation with Evidence (the simple life)</title>
+  </head>
+  <body>
+    <h1 id="pageTitle">Example 1: Single Annotation with Evidence (the simple life)</h1>
+
+    <div id="navbar">
+          <ul type="none" class="linklist">
+	<li class="linklist">
+	  <a href="/src/GAEVAL/docs/index.html">GAEVAL Introduction</a>
+	</li>
+	<li class="linklist">
+	  <a href="ftp://ftp.plantgdb.org/download/GAEVAL/">GAEVAL Download (ftp)</a>
+	</li>
+	</ul>
+      <h3 class="GroupID">Examples</h3>
+      <ul class="linklist">
+	<li class="linklist">
+	  <a href="example1.html">1: Single Annotation</a>
+	</li>
+	<li class="linklist">
+	  <a href="example2.html">2: Ambiguous Overlap</a>
+	</li>
+	<li class="linklist">
+	  <a href="example3.html">3: Alternative Splicing</a>
+	</li>
+	<li class="linklist">
+	  <a href="example4.html">4: Alternative Termination</a>
+	</li>
+	<li class="linklist">
+	  <a href="example5.html">5: Annotation Fission</a>
+	</li>
+	<li class="linklist">
+	  <a href="example6.html">6: Annotation Fusion</a>
+	</li>
+	<li class="linklist">
+	  <a href="example7.html">7: Pseudo-Introns</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Documents</h3>
+      <ul class="linklist">
+	<li class="linklist">
+	  <a href="integrity.html">Annotation Integrity</a>
+	</li>
+	<li class="linklist">
+	  <a href="intron_incongruence.html">Intron Incongruence</a>
+	</li>
+	<li class="linklist">
+	  <a href="tpeg.html">Three-Prime Groups</a>
+	</li>
+      </ul>
+  <h3 class="GroupID">xGDBvm Links</h3>
+	  <ul class="linklist">
+		<li class="linklist">
+		  <a href="/">xGDBvm Home</a>
+		</li>
+		<li class="linklist">
+		  <a href="/XGDB/help/gaeval.php">GAEVAL Help</a>
+		</li>
+		<li class="linklist">
+		  <a href="/XGDB/help/using_gdb.php">Genome Browser Help</a>
+		</li>
+		<li class="linklist">
+		  <a href="/XGDB/help/yrgate.php">yrGATE Help</a>
+		</li>
+	</ul>
+	</div>
+    <h2 class="code">perl xGAEVAL.pl --clean_db --GFF <a href="../examples/example1.gff3" target="_new">examples/example1.gff3</a></h2>
+    <img id="genomeContext" src="images/example1.png" />
+    <h2>Description:</h2>
+    <p id="description">
+      This example illustrates the least complex and most often encountered 
+      usage of GAEVAL. In this case the example1.gff3 file encodes a single 
+      gene annotation ( the <i>Arabidopsis thaliana</i> locus 
+      <a href='http://www.plantgdb.org/AtGDB/cgi-bin/findRegion.pl?id=At3g20090.1&amp;dbid=1'>At3g20090.1</a>
+      ). In terms of the gff3 format this includes the gene, mRNA, exon, and 
+      CDS lines describing the structure and properties of this gene encoding 
+      transcript. Also included in example1.gff3 are match lines describing
+      the alignments of three cDNA sequences (gi numbers: 42463391, 42460729, 
+      and 17381119) and two EST sequences (gi numbers: 19877306 and 59927596).
+    </p>
+    <h2 class="report">GAEVAL Results:</h2>
+    <h3>Annotation Summary</h3>
+    <pre class="report">
+1: Annotation: At3g20090.1
+2:  Genomic Source: 3
+3:  Structure: join(7015803..7015913,7016352..7016407,7016733..7017561,7017643..7018366)
+4:  Open Reading Frame: 7017052 to 7018293   
+5:  5` UTR length:  484
+6:  CDS length:     1159
+7:  3` UTR length:  73
+8:  Total length:   1716
+    </pre>
+    <p>This section is included in the basic report for each individual 
+      annotation and includes the follow information.
+    </p>
+      <ul>
+	<li>line 1: The geneId / name of the annotation</li>
+	<li>line 2: The id, gi, chromosome number, or name of the genomic region
+	  in which this annotation is located</li>
+	<li>line 3: The GenBank format structure description of this annotation</li>
+	<li>line 4: The open reading frame boundaries defined by the CDS of this
+	  annotation</li>
+	<li>line 5: The length of the 5` untranslated region as defined by the CDS</li>
+	<li>line 6: The length of the CDS (coding sequence)</li>
+	<li>line 7: The length of the 3` untranslated region as defined by the CDS</li>
+	<li>line 8: The total length of the annotated transcript</li>
+      </ul>
+
+    <h3>Structure Analysis</h3>
+    <pre class="report">
+ 1:  Integrity Score (0-1): 0.99
+ 2:  Exon Sequence Coverage: 100%
+ 3:  5` Terminus
+ 4:   Evidence supports the extension of this annotation boundary by 88 bases
+ 5:  3` Terminus
+ 6:   Evidence supports the extension of this annotation boundary by 2382 bases
+ 7:  Introns (total|confirmed|unsupported): 3 | 3 | 0
+ 8:  Individual Intron Support:
+ 9:   Intron 1 ( 7015914..7016351 )
+10:    Supporting Alignments: 1
+11:   Intron 2 ( 7016408..7016732 )
+12:    Supporting Alignments: 1
+13:   Intron 3 ( 7017562..7017642 )
+14:    Supporting Alignments: 3
+    </pre>
+    <p>This section is also included in the basic report for each individual 
+      annotation and includes the follow information.
+    </p>
+      <ul>
+	<li>line 1: An <a href="integrity.html">integrity score</a> 
+	  relating the reliability / stability of the current annotation with 
+	  respect to given evidence alignments</li>
+	<li>line 2: The percentage of the exonic sequence defined by the annotation
+	  which is supported by evidence alignments.</li>
+	<li>line 4: The support clues for the annotated transcription initiation
+	  site</li>
+	<li>line 6: The support clues for the annotated transcription cleavage /
+	  polyadenylation site</li>
+	<li>line 7: The count of introns (total, confirmed, and unconfirmed)</li>
+	<li>line 8+: Support for individual introns defined by the annotation.
+	This includes the count of evidence alignments supporting each intron.</li>
+      </ul>
+
+
+
+    <h3>Incongruency Analysis:</h3>
+    <pre class="report">
+ 1: Incongruency Analysis:
+ 2:  No Ambiguously Overlapping Annotations Detected
+
+ 3:  Incongruent Introns Detected:
+ 4:   7016408..7016732
+ 5:     Conflicting Intron
+ 6:      Conflicting evidence: 1
+ 7:      Supporting evidence: 1
+ 8:   7018300..7018455
+ 9:     Alternative Intron
+10:      Supporting evidence: 1
+11:   7018469..7018493
+12:     Additional Intron
+13:      Supporting evidence: 1
+14:   7018584..7018620
+15:     Additional Intron
+16:      Supporting evidence: 1
+17:   7018701..7019102
+18:     Additional Intron
+19:      Supporting evidence: 1
+20:   7019938..7020031
+21:     Additional Intron
+22:      Supporting evidence: 1
+
+23:  No Complex Transcript Processing Detected
+    </pre>
+    <p>This section describes incongruencies found between the annotation and the 
+      supplied evidence alignments.
+    </p>
+      <ul>
+	<li>line 2: GAEVAL checked for erroneous overlap with adjacent annotations
+	  (if supplied) and found none. For more on this see 
+	  <a href='example2.html'>example 2</a></li>
+	<li>line 3: Incongruent introns were detected</li>
+	<li>lines 4-7: Details about the incongruency found for the intron spanning
+	  genomic region 7016408..7016732
+	  <ul>
+	    <li>line 5: The <a href='intron_incongruence.html'>incongruence
+		type</a> is 'Conflicting Intron'</li>
+	    <li>line 6: The count of evidence alignments conflicting with this
+	      intron</li>
+	    <li>line 7: The count of evidence alignments supporting this intron</li>
+	  </ul>
+	</li>
+	<li>lines 8-22: More details about incongruent introns
+	  <ul>
+	    <li>line 9:  The <a href='intron_incongruence.html'>incongruence
+		type</a> is 'Alternative Intron'</li>
+	    <li>line 12,15,18,21:  The <a href='intron_incongruence.html'>incongruence
+		type</a> is 'Additional Intron'</li>
+	  </ul>
+	</li>
+	<li>line 23: GAEVAL checked for complex annotation structure (Fusion,
+	  Fission, Alternative termination) and found none. For more on this see 
+	  <a href='example6.html'>example 6</a></li>
+      </ul>
+
+    <h2 id="discussion">Discussion:</h2>
+    <p>This example shows how GAEVAL can be used to quickly evaluate evidence for
+      an annotation structure. For example, the At3g20090.1 locus in this scenerio
+      is 100% covered by cDNA/EST alignments with all three of its annotated introns
+      confirmed by at least 1 alignment. This along with the exceptable lengths of
+      484 bases and 73 bases for its 5` and 3` UTRs give this annotation and 
+      exceptional 0.99 integrity score. However, the GAEVAL report also details
+      possible changes / additions applicable to the annotation. Such changes
+      include the support for extending the 5` and 3` annotation boundaries and 
+      the documentation of possible alternatively spliced isoforms or additional 
+      introns.
+    </p>
+  </body>
+</html>

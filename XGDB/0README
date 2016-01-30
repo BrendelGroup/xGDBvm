@@ -1,0 +1,15 @@
+
+annotation -- annotation related files
+cgi-bin -- all perl functions
+css -- all css files
+das -- das function file
+gaeval -- gaeval object
+help -- help 
+htmlExtra --
+images -- all image files
+index.php --xGDB sumarry page
+javascripts  --all javascrist files
+perllib -- perl library
+phplib -- php liberary
+tutorial -- xGDB tutorial
+xGDB_help.php 

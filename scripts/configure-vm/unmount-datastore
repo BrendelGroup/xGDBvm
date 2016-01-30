@@ -1,0 +1,37 @@
+#!/bin/bash
+input_dir="/home/xgdb-input"
+while true; do
+    echo ""; read -p "Unmount your Data Store from /xGDBvm/input? (Make sure no processes are running) [y/n]:  " yn
+    case $yn in
+        [Yy]* ) sudo /usr/bin/fusermount -u $input_dir;
+           mounted=$(df -kh | egrep -o 'fuse|irodsFs'); 
+              echo ""
+              echo "################## Unmount Datastore ##################"           
+           if [ ! -n "$mounted" ]
+           then
+              echo ""
+              echo "The Data Store has been unmounted from $input_dir"
+              echo ""
+              echo "You can remount it at any time using 'mount-datastore' command"
+              echo ""
+              echo "Below is a disk/filesystem summary for your VM:"
+              echo ""
+              df -kh
+           else
+              echo ""
+              echo "The  unmounting from /xGDBvm/input failed"
+              echo ""
+              echo "You can try manually using '$ sudo /usr/bin/fusermount -u -z $input_dir'"
+              echo ""
+              echo "Below is a disk/filesystem summary for your VM:"
+              echo ""
+              df -kh
+           fi
+              echo ""
+              echo "################## end Unmount Datastore ##################"           
+              echo ""
+        break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done

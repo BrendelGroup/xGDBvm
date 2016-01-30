@@ -1,0 +1,10 @@
+#!/bin/bash
+while true; do
+    echo ""; read -p "Configure this VM? New directories/files may be created on your Data Store and/or mounted Volume [y/n]: " yn
+    case $yn in
+        [Yy]* ) sudo /xGDBvm/scripts/iPlantMySQLinit.sh
+        break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done

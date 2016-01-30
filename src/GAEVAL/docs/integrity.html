@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Annotation Integrity Calculation</title>
+      <STYLE TYPE="text/css">
+	H1 {color:#336666; text-align:center; margin-bottom:2px;}
+	H3 {clear:none; color:black; text-align:center; margin-top:2px;}
+	img {float:left;}
+      </STYLE>
+  </head>
+  <body>
+    <h1 id="pageTitle">
+      Calculating Annotation Integrity
+    </h1>
+
+    <div id="navbar">
+          <ul type="none" class="linklist">
+	<li class="linklist">
+	  <a href="/GAEVAL/docs/index.html">GAEVAL Introduction</a>
+	</li>
+	<li class="linklist">
+	  <a href="ftp://ftp.plantgdb.org/download/GAEVAL/">GAEVAL Download (ftp)</a>
+	</li>
+	</ul>
+      <h3 class="GroupID">Examples</h3>
+      <ul id="linklist">
+	<li class="linklist">
+	  <a href="example1.html">1: Single Annotation</a>
+	</li>
+	<li class="linklist">
+	  <a href="example2.html">2: Ambiguous Overlap</a>
+	</li>
+	<li class="linklist">
+	  <a href="example3.html">3: Alternative Splicing</a>
+	</li>
+	<li class="linklist">
+	  <a href="example4.html">4: Alternative Termination</a>
+	</li>
+	<li class="linklist">
+	  <a href="example5.html">5: Annotation Fission</a>
+	</li>
+	<li class="linklist">
+	  <a href="example6.html">6: Annotation Fusion</a>
+	</li>
+	<li class="linklist">
+	  <a href="example7.html">7: Pseudo-Introns</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Documents</h3>
+      <ul type="none" id="linklist">
+	<li class="linklist">
+	  <a href="integrity.html">Annotation Integrity</a>
+	</li>
+	<li class="linklist">
+	  <a href="intron_incongruence.html">Intron Incongruence</a>
+	</li>
+	<li class="linklist">
+	  <a href="tpeg.html">Three-Prime Groups</a>
+	</li>
+      </ul>
+    <h3 class="GroupID">Other Links</h3>
+      <ul class="linklist">
+	<li class="linklist">
+	  <a href="/">xGDBvm Home</a>
+	</li>
+	<li class="linklist">
+	  <a href="/XGDB/index.php">Current Genomes</a>
+	</li>
+	<li class="linklist">
+	  <a href="/XGDB/help/using_gdb.php">Genome Browser Help</a>
+	</li>
+	<li class="linklist">
+	  <a href="/XGDB/help/yrgate.php">Gene Annotation Help</a>
+	</li>	</ul>
+	
+	    </div>
+    <br />
+    <DIV ID='abstract'>
+      <img src="images/integrity.png">
+	<p style="clear:left;">
+	  Gene structure annotation integrity is evaluated by estimating 
+	  the level of annotation support which is required to provide a 
+	  structure unlikely to be significantly altered by reannotation. 
+	  Annotation support is established through the evaluation of 
+	  'Isoform Specific Evidence, (ISE)'. Individual elements of the annotation structure (i.e. 
+	  introns, exons, and UTRs) are compared with each ISE spliced 
+	  alignment. Verification of the individual structural elements is 
+	  used to establish an integrity score. The integrity score '&Phi;' is 
+	  given by the following formula.
+	</p>
+	<h3>&Phi; = (.6 * &alpha;) + (.3 * &beta;) + (.05 * &gamma;) + (.05 * &epsilon;)</h3>
+	<p>
+	  In this equation '&alpha;' is the percentage of confirmed intron structures, 
+	  '&beta;' represents the percentage of the annotated structure overlapped 
+	  by at least one ISE, '&gamma;' the ratio of the observed 5` UTR length 
+	  to its expected length (with a maximum of 1), 
+	  and '&epsilon;' the ratio of the observed 3` UTR length to its expected (with a
+	  maximum of 1). Weights in the above formula are required to sum to 1 and 
+	  all parameters are bounded between 0 and 1 thereby normalizing '&Phi;'. A 
+	  substantial number of gene annotations represent intonless transcripts. 
+	  For these annotations '&Phi;' is calculated as above with '&alpha;'
+	  representing the percent deviation of the predicted CDS length as 
+	  compared with expected length.  Expected lengths for each UTR and the CDS are 
+	  determined empirically. For each, a collection of sequence verified 
+	  lengths are evaluated. An expected length is then determined as the 
+	  length achieved by 95% of the evaluated sequences.
+	</p>
+	
+  </body>
+</html>

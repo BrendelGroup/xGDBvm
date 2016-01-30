@@ -1,0 +1,111 @@
+#!/bin/bash
+# this script will query volume status and give current mount status as a convenience to users. Updated 1/17/16
+
+data_mount_directory="/home/xgdb-data"  # This is the specified mount point for xGDBvm
+
+echo "" 
+echo "" 
+echo "############### Disk/Filesystem Status ###############"
+echo ""
+df -kh
+echo ""
+
+############### Part A. External Volume Status ###############
+
+echo "############### External Volume status ###############"
+echo ""
+
+### 1. Find the stored device location data (on the VM)
+
+while read devloc
+	do
+	   echo "  - Device location saved is: $devloc"
+	   echo ""
+	   device_location=$devloc
+	done < /xGDBvm/admin/devloc
+
+### 2. Find out if a device location is stored in this VM
+   if [ -n "$device_location" ]
+   then
+   	  attach="T"
+   else
+   	  attach="F"
+	  echo "  - ERROR: No device location has been specified for this VM. This probably means to external volume is attached or mounted."
+	  echo ""
+	  echo "  - First attach a volume, note its device location, and then mount it using command 'mount-volume' and specify device location"
+	  echo ""
+   fi
+
+### 3. If device location is recorded in /xGDBvm/admin/devloc, find out if it that device location is active (i.e. it exists in file system meaning it is attached to something)
+
+    dev_loc_active=$(ls /dev/* |grep -s -o "$device_location");  # prints full path and matches dev_loc (suppress error readout, save only the match)
+    
+    if [ -n "$dev_loc_active" ]
+    then
+
+### 4. If device location exists, find out if it is mounted to the filesystem.
+
+	   if [ $attach == "T" ]
+	   then
+		   is_mounted=$(df -kh|grep -s  "$device_location") # suppress errors so null response if not mounted
+	   
+### 5. If mounted, find out if it is mounted to the right directory.
+		   if [ -n "$is_mounted" ]
+		   then 
+	   
+			  mount_location=$(df -kh | grep $device_location | awk -F " " '{print $6}' )  # find the mount location whether /home or /home/xgdb-data/
+		  
+			  if [ $mount_location == "$data_mount_directory" ]
+			  then
+
+				 echo "  - A volume is mounted at $data_mount_directory using device location $device_location. To unmount it, type 'unmount-volume'"
+				 echo ""
+			   else
+				 echo "  - ERROR: The device location '$device_location' is being used for a different mount point, '$mount_location'."
+				 echo ""
+				 echo "  - Your volume is apparently not mounted. Either the wrong device location was specified, or something went wrong in the attachment"
+				 echo ""
+			  fi
+		   else
+			  echo "  - No volume is mounted using device location $device_location. To mount volume, type 'mount-volume' (requires attachment first)"
+			  echo ""
+		   fi    
+		else
+			  echo "  - There is no volume attached at the specified device location $device_location"
+			  echo "    You must first attach it using Atmo control panel, then mount using the 'mount-volume' command."
+			  echo ""
+		fi
+    else
+	   echo "  - The specified device location '$device_location' is not active on this VM. This could mean:"
+	   echo "       1: You haven't yet attached a volume using the Atmosphere control panel; "
+	   echo "       2: The attachment failed; or"
+	   echo "       3: The saved device location is incorrect"
+	   echo ""
+	   echo "  - You might try the attachment procedure again using the Control Panel, then re-run this command ('vm-status')"
+	   echo "    Type 'instructions' for more information, or visit the wiki at http://goo.gl/tke5Yi"
+	   echo ""
+    fi
+    
+############### Part B. Data Store status #################
+
+echo "################## Data Store status ##################"
+echo ""
+
+	datastore=$(df -kh|egrep -s  -o 'irodsFs|fuse') #
+   if [ -n "$datastore" ]
+   then
+	  echo "  - A Data Store is mounted at /xGDBvm/input using $datastore. To unmount it, type 'unmount-datastore'"
+	  echo ""
+   else
+	  echo "  - NO Data Store is mounted to this VM. To mount it, type 'mount-datastore' (requires 'iinit' first)"
+	  echo ""
+   fi    
+   echo "    (Type 'instructions' for a complete guide to setting up your VM)"
+
+echo ""
+echo "################### end vm-status ######################"
+echo ""
+echo "" 
+
+   
+

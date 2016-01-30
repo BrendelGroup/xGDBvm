@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>
+      GAEVAL - Example 7: Pseudo-Introns
+    </title>
+  </head>
+  <body>
+    <h1 id="pageTitle">
+      Example 7: Pseudo-Introns
+    </h1>
+
+    <div id="navbar">
+      <h3 class="GroupID">Examples</h3>
+      <ul type="none" id="linklist">
+	<li class="linklist">
+	  <a href="example1.html">1: Single Annotation</a>
+	</li>
+	<li class="linklist">
+	  <a href="example2.html">2: Ambiguous Overlap</a>
+	</li>
+	<li class="linklist">
+	  <a href="example3.html">3: Alternative Splicing</a>
+	</li>
+	<li class="linklist">
+	  <a href="example4.html">4: Alternative Termination</a>
+	</li>
+	<li class="linklist">
+	  <a href="example5.html">5: Annotation Fission</a>
+	</li>
+	<li class="linklist">
+	  <a href="example6.html">6: Annotation Fusion</a>
+	</li>
+	<li class="linklist">
+	  <a href="example7.html">7: Pseudo-Introns</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Documents</h3>
+      <ul type="none" id="linklist">
+	<li class="linklist">
+	  <a href="integrity.html">Annotation Integrity</a>
+	</li>
+	<li class="linklist">
+	  <a href="intron_incongruence.html">Intron Incongruence</a>
+	</li>
+	<li class="linklist">
+	  <a href="tpeg.html">Three-Prime Groups</a>
+	</li>
+      </ul>
+    </div>
+
+    <h2 class="code">perl xGAEVAL.pl --clean_db --GFF <a href="../examples/example7.gff3" target="_new">examples/example7.gff3</a></h2>
+    <img id="genomeContext" src="images/example7.png" />
+    <h2>Description:</h2>
+    <p id="description">This example illustrates the ability of GAEVAL to detect annotation 
+      structures resulting from the use of noncognate / homologous sequence 
+      alignments which are incongruent with cognate evidence alignments. In this
+      example, the Arabidopsis gene locus ( 
+      <a href='http://www.plantgdb.org/AtGDB-cgi/getRegion.pl?chr=1&l_pos=993300&r_pos=995800&dbid=1'>
+	At1g03905.1</a> ) is annotated with the structure represented by noncognate
+      cDNA evidence instead of the more accurate cognate cDNA alignments.
+    </p>
+    <h2 class="report">GAEVAL Results:</h2>
+    <h3>Incongruency Analysis (At1g03905.1)</h3>
+    <pre class="report">
+1:  Incongruent Introns Detected:
+2:   993631..993704
+3:     Alternative Intron
+4:      Supporting evidence: 1
+5:   993631..994044
+6:     Conflicting Intron
+7:      Conflicting evidence: 1
+8:      Supporting evidence: 0
+9:     Erroneous (Pseudo) Intron
+    </pre>
+    <p>For an explanation of the introns categories used in this section see the
+      folowing document on <a href='intron_incongruence.html'>incongruent introns</a>.
+      <ul>
+	<li>line 9: GAEVAL has detected a 'Pseudo' Intron</li>
+      </ul>
+    </p>
+    <h2 id="discussion">Discussion:</h2>
+    <p>In this example the annotated gene structure is taken from the alignment
+      of the noncognate cDNA sequence (gi number 42459253). In the absence of
+      cognate evidence for this region, gene structure established by noncognate
+      / homologous evidence is better than <I>ab-initio</I> prediction alone.
+      However, in this example the pressence of the cognate cDNA (gi number 
+      42472210) establishes an incongruent and contradictory intron. This provides
+      GAEVAL the neccessary criteria to consider this a 'Pseudo-Intron'.
+    </p>
+  </body>
+</html>

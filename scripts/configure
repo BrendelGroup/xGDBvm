@@ -1,0 +1,48 @@
+#!/bin/sh
+USE="Usage: configure [SMGDB]\n
+	-s pserver_usergdb \n
+	-d DBNAME
+	-c COMMONORGN \n
+	-l LATINORGN \n\n";
+
+usergdb='';
+corgn='';
+lorgn='';
+
+while getopts s:d:c:l: OPTION
+do
+  case "$OPTION" in
+    s) usergdb="$OPTARG";;
+    d) dbname="$OPTARG";;
+    c) corgn="$OPTARG";;
+    l) lorgn="$OPTARG";;
+    \?) echo -e $USE; exit 2;;
+  esac
+done
+
+if [ $# -lt 1 ];
+then
+  sed 's:#__PSERVER_USER_GDB__#::' < /xGDBvm/scripts/TEMPLATE_SITEDEF.pl | sed 's:#__COMMONORGN__#:$commonorgn = "";:' | sed 's:#__LATINORGN__#:$latinorgn   = "";:' > /xGDBvm/data/${usergdb}/conf/SITEDEF.pl
+  sed 's:#__PSERVER_USER_GDB__#::' < /xGDBvm/scripts/TEMPLATE_SITEDEF.php | sed 's:#__COMMONORGN__#:  $commonorgn = "";:' | sed 's:#__LATINORGN__#:  $latinorgn   = "";:' > /xGDBvm/data/${usergdb}/conf/SITEDEF.php
+	sed "s:GDB###:${usergdb}:" < /xGDBvm/scripts/TEMPLATE_yrGATE_conf.pl > /xGDBvm/src/yrGATE/conf_${usergdb}/yrGATE_conf.pl
+	sed "s:###GDB###:${usergdb}:" </xGDBvm/scripts/TEMPLATE_gaeval.conf.pl >/xGDBvm/data/${usergdb}/conf/${usergdb}_gaeval_conf.pl
+	sed "s:###GDB###:${usergdb}:" </xGDBvm/scripts/TEMPLATE_CpGAT_gaeval.conf.pl >/xGDBvm/data/${usergdb}/conf/${usergdb}_cpgat_gaeval_conf.pl
+	sed "s:GDB###:${usergdb}:" </xGDBvm/scripts/TEMPLATE_AnnoPipe_conf.pl >/xGDBvm/data/${usergdb}/conf/AnnoPipe_conf.pl
+else
+  if [ $usergdb != '' ]
+  then
+    sed "s:#__PSERVER_USER_GDB__#:\$pserver_usergdb     = \"${usergdb}\";:" < /xGDBvm/scripts/TEMPLATE_SITEDEF.pl | sed "s:#__COMMONORGN__#:\$commonorgn = \"${corgn}\";:" | sed "s:#__LATINORGN__#:\$latinorgn   = \"${lorgn}\";:" | sed "s:#__DBNAME__#:\$dbname   = \"${dbname}\";:" > /xGDBvm/data/${usergdb}/conf/SITEDEF.pl
+    sed "s:#__PSERVER_USER_GDB__#:  \$pserver_usergdb     = \"${usergdb}\";:" < /xGDBvm/scripts/TEMPLATE_SITEDEF.php | sed "s:#__COMMONORGN__#:  \$commonorgn = \"${corgn}\";:" | sed "s:#__LATINORGN__#:  \$latinorgn   = \"${lorgn}\";:" > /xGDBvm/data/${usergdb}/conf/SITEDEF.php
+	sed "s:GDB###:${usergdb}:" </xGDBvm/scripts/TEMPLATE_yrGATE_conf.pl >/xGDBvm/data/${usergdb}/conf/yrGATE_conf.pl
+	sed "s:###GDB###:${usergdb}:" </xGDBvm/scripts/TEMPLATE_gaeval.conf.pl >/xGDBvm/data/${usergdb}/conf/${usergdb}_gaeval_conf.pl
+	sed "s:###GDB###:${usergdb}:" </xGDBvm/scripts/TEMPLATE_CpGAT_gaeval.conf.pl >/xGDBvm/data/${usergdb}/conf/${usergdb}_cpgat_gaeval_conf.pl
+	sed "s:GDB###:${usergdb}:" </xGDBvm/scripts/TEMPLATE_AnnoPipe_conf.pl >/xGDBvm/data/${usergdb}/conf/AnnoPipe_conf.pl
+  else
+    sed "s:#__PSERVER_USER_GDB__#:\$pserver_usergdb     = \"\";:" < TEMPLATE_SITEDEF.pl | sed "s:#__COMMONORGN__#:\$commonorgn = \"Common Name\";:" | sed "s:#__LATINORGN__#:\$latinorgn   = \"Latin Name\";:" | sed "s:#__DBNAME__#:\$dbname   = \"Database Name\";:"  > SITEDEF.pl
+    sed "s:#__PSERVER_USER_ID__#:  \$pserver_usergdb     = \"\";:" < TEMPLATE_SITEDEF.php | sed "s:#__COMMONORGN__#:  \$commonorgn = \"Common Name\";:" | sed "s:#__LATINORGN__#:  \$latinorgn   = \"Latin Name\";:" > SITEDEF.php
+	sed "s:GDB###:${usergdb}:" </xGDBvm/scripts/TEMPLATE_yrGATE_conf.pl >/xGDBvm/data/${usergdb}/conf/yrGATE_conf.pl
+	sed "s:###GDB###:${usergdb}:" </xGDBvm/scripts/TEMPLATE_gaeval.conf.pl >/xGDBvm/data/${usergdb}/conf/${usergdb}_gaeval_conf.pl
+	sed "s:###GDB###:${usergdb}:" </xGDBvm/scripts/TEMPLATE_CpGAT_gaeval.conf.pl >/xGDBvm/data/${usergdb}/conf/${usergdb}_cpgat_gaeval_conf.pl
+	sed "s:GDB###:${usergdb}:" </xGDBvm/scripts/TEMPLATE_AnnoPipe_conf.pl >/xGDBvm/data/${usergdb}/conf/AnnoPipe_conf.pl
+  fi
+fi

@@ -1,0 +1,145 @@
+/*-----------------------------------
+--  XGDB Menus using superfish.js  --
+-------------------------------------
+
+   Color Glossary:
+
+-------------------------------------*/
+
+/******** Add Track GUI *********/
+.ui-sortable-placeholder { border: 1px dotted black; visibility: visible !important; height: 50px !important; }
+.ui-sortable-placeholder * { visibility: hidden; }
+.ui-selected { background-color:#006400; color:white; }
+.ui-selectable { cursor:pointer; }
+.ui-selectable:hover { background-color:#90EE90; /* =lightgreen */ color:black; }
+.ui-selectable.ui-selected:hover { background-color:#D3D3D3; /* =lightgrey */ color:black;}
+
+.context_ruler_header { min-height:30px; }
+.context_track_header { margin:0.3em; padding-bottom:4px; padding-left:0.2em; }
+
+.CTR_ctrl { height:23px; } /*zoom button*/
+
+/******** Context Region Header Menu *********/
+
+#CRHmenu { position:relative; top:6px; margin-bottom:2em; z-index:2; } /*6-10-10 to improve button wrap behavior*/
+#CRHmenu * { font-size:12px; }
+#CRHmenu li.current, #CRHmenu li.current a { font-size:11px; background-color:#D9EEFC; color:#0A4F2D; }
+#CRHmenu li:hover ul, #CRHmenu li.sfHover ul { top:22px; left:-1px;} /* adjust this parameter to change submenu displacement below top menu item*/
+#CRHmenu li li:hover ul, #CRHmenu li li.sfHover ul { top:-1px; left:9.5em;}
+#CRHmenu a:link, #CRHmenu a:link i,  #CRHmenu a:visited, #CRHmenu a:visited i { text-decoration:none; color:white; }
+#CRHmenu #CRHmenu a:hover, #CRHmenu a:hover i  {background-color: #F0FF6F; color: #0A4F2D; }
+#CRHmenu a:hover, #CRHmenu a:hover i {background-color: #F0FF6F;  color: #0A4F2D;} /*light yellow. Should match a:hover in plantgdb.css*/
+
+#CRHbuttons { position:relative; top:-1px; left: 5px; z-index:1; }/*changed top from 6 to -5px ; z-index from 2 to 1, 11-17-09*/
+#CRHbuttons * { text-align:center; font-size:9px; font: red; padding: .1em 0 .1em 0; width:80px; }
+#CRHbuttons ul { border:1px solid #6CB2DD; }
+#CRHbuttons li { z-index:2; margin-left:5px;}
+#CRHbuttons li, #CRHbuttons a { background-color: #8487D6; border:1px solid #8487D6; color:white; font-weight:bold; cursor:pointer; }
+#CRHbuttons li.darkblue, #CRHbuttons a.darkblue {background-color: #2C3952; border:1px solid #2C3952; }
+#CRHbuttons li.ltgreen, #CRHbuttons a.ltgreen {background-color: #33CC33; border:1px solid #33CC33; }
+#CRHbuttons li.greyblue, #CRHbuttons a.greyblue {background-color: #808FAA; border:1px solid #808FAA; }
+#CRHbuttons li.darkgrey, #CRHbuttons a.darkgrey {background-color: #59595A; border:1px solid #59595A; }
+#CRHbuttons li.bluegreen, #CRHbuttons a.bluegreen {background-color: #15AFAC; border:1px solid #15AFAC; }
+#CRHbuttons li.darkorange, #CRHbuttons a.darkorange {background-color: #E5CA00; border:1px solid #E5CA00; }
+#CRHbuttons li:hover, #CRHbuttons li.sfHover, 
+#CRHbuttons li:hover a, #CRHbuttons li.sfHover a, #CRHbuttons a:hover { color: #005F5D; text-decoration: none; background-color: #F0FF6F; border-color: #F0FF6F; } /*light yellow. Should match a:hover in plantgdb.css*/
+
+
+#CRH_coord_ctrl { float:left; position:relative; top:6px; }
+#zoom_menu { display:inline; float:none; width:4em; }
+#zoom_menu ul { width:inherit; }
+#zoom_menu li {	padding: 0.25em; font-size:12px; margin:0 2px 0 0; color:#F3FF8F; border-color:#E87C00;
+		background-color: #E87C00; width:inherit; cursor:default; z-index:2; }
+#zoom_menu li li { cursor:w-resize; }
+#zoom_menu li.current {  background-color: #BFEFFC; color:#055789; border-bottom: #6CB2DD;}/* color changed 11-17-09*/
+#zoom_menu li:hover, #zoom_menu li.sfHover { color:#0A4F2D; background-color: #F3FF8F; }
+#zoom_menu li:hover ul, #zoom_menu li.sfHover ul { top:18px;  }
+
+/******** track menus **********/
+
+.cth-name, .cth-track-name { color:#111; font-size:12px;}
+ul.cth-name-menu, .cth-name-menu * { text-align:left; font-size:12px; width:auto; cursor:default; z-index:1; } /*some tracks have hover-over menu*/
+ul.cth-name-menu li { text-align:left; width:auto; background-color: #FFF; border:none; padding-left:0.25em; } /* top level */
+ul.cth-name-menu ul li { background-color: #E58413; border:1px #AAA solid; width:100%; color:white; }
+ul.cth-name-menu ul li li { background-color: #E58431; border:1px #AAA solid; color:white; width:100%; }
+
+ul.cth-name-menu li:hover, ul.cth-name-menu li.sfHover { background-color:#F0FF6F; color:#005F5D; }
+
+ul.cth-name-menu li.current, ul.cth-name-menu li.current a { background-color:white; color:#055789; }
+ul.cth-name-menu li:hover ul, ul.cth-name-menu li.sfHover ul { top:auto; left:5px; }
+ul.cth-name-menu li li:hover ul, ul.cth-name-menu li li.sfHover ul { top:0px; left:100%; }
+.cth-action { cursor:pointer; }
+
+.cth-button { display:inline; width:1em; height:1em; margin:0 0.5em; cursor:pointer; }
+.cth-toggle:hover { 	display:block; float:left; margin-right:0.5em; height:10px; width:10px; cursor:pointer; 
+		background: url('/XGDB/images/downtriangle_yel.gif') no-repeat scroll 0 0.5em; }
+.cth-toggle { 	display:block; float:left; margin-right:0.5em; height:10px; width:10px; cursor:pointer; 
+		background: url('/XGDB/images/downtriangle.gif') no-repeat scroll 0 0.5em; }.cth-toggle.toggle-up { background: url('/XGDB/images/triangle.gif') no-repeat scroll; }
+.cth-toggle.toggle-up:hover { background: url('/XGDB/images/triangle_yel.gif') no-repeat scroll; }
+
+div.context_track_header.toggle-up ul.cth-name-menu li.cth-name ul { display:none !important; visibility:hidden !important; }
+div.context_track_header.toggle-up ul.cth-name-menu li:hover,
+div.context_track_header.toggle-up ul.cth-name-menu li.sfHover { background-color:#fff; color:#999; }
+.xgdb-track-image-option { display:none; }
+
+/******* Menu ids configured in GSQDB.pm ********/
+
+#view_menu li a, #tools_menu li a, #configure_menu li a, #configure_menu li li a {color:white; text-decoration:none }
+
+/****** General styling for xGDB menus *******/
+
+.xgdb-menu a, .xgdb-menu a:visited, .xgdb-menu a i, .xgdb-menu a:visited i { 
+	color: white;  /* Font */
+	font-weight: normal;
+	background-color: #E87C00;
+	padding: 0.25em 1.0em 0.25em 1em;  /* MENU ITEM HEIGHT; use left padding to set non-subindicator pad*/
+	text-decoration:none;
+}
+
+.xgdb-menu a.sf-with-ul {
+	cursor:default;
+}
+
+.xgdb-menu ul {
+}
+
+.xgdb-menu li, .xgdb-menu li li, .xgdb-menu li li li {
+	background-color: #E87C00;
+	color: white;  /* Topmenu Font */
+	cursor:pointer;
+	border: 1px solid #E87C00;
+}
+
+.xgdb-menu li {
+	margin-right: 2px;
+	width: auto;
+	z-index: 1;
+}
+
+.xgdb-menu li:hover, .xgdb-menu li.sfHover {
+	background-color: #F3FF8F; /* Light Yellow */
+	border-bottom: 1px solid #E87C00;
+	color: white;
+	text-decoration: none;
+}
+
+.xgdb-menu li:hover ul li, .xgdb-menu li.sfHover ul li {
+	border-bottom: none;
+}
+
+.xgdb-menu li:hover ul li.last a, .xgdb-menu li.sfHover ul li.last a {
+	border-bottom: #6CB2DD;
+}
+
+.xgdb-menu li:hover a, .xgdb-menu li.sfHover a, .xgdb-menu a:hover {
+	color:#006F4E text-decoration:none;  
+}
+
+.xgdb-menu li:hover, .xgdb-menu li.sfHover, .xgdb-menu a:focus, .xgdb-menu a:hover, .xgdb-menu a:active, .xgdb-menu a:hover i {
+	font-weight: normal;
+}
+
+.xgdb-menu li li.last a { /*puts border after last list item*/
+	border-bottom:		1px solid #6CB2DD;
+}
+

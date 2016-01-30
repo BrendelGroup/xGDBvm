@@ -1,0 +1,8 @@
+Contents of /xGDBvm/examples/refpep/
+
+This directory contains one or more indexed protein dataset, to be used as CpGATE reference protein datasets for examples, or for user-generated GDB in cases where no custom RefPep is specified.
+
+File	Description	Source	Date added
+
+cegma_core.fasta	2748 core eucaryotic protein	http://korflab.ucdavis.edu/Datasets/cegma/index.html#SCT3	1-9-12 JPD
+

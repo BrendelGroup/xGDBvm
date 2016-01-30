@@ -1,0 +1,62 @@
+DBname	Example 9 - Remote HPC (protein spliced alignments)
+Organism	Ricinus communis
+Common_Name	Castor Bean
+Create_Date	
+Input_Data_Path	/xGDBvm/examples/example9/
+Status	Development
+Genome_Type	Scaffold
+Genome_Source	TIGR/JCVI via Phytozome
+Genome_Source_Link	http://www.phytozome.net/ricinus.php
+Genome_Comments	Example dataset consisting of 4 Ricinus communis scaffolds (total length: 413,383 bp), selected from the 25878 scaffolds in this genome assembly
+Genome_Version	release v0.1
+Genome_Count	4
+Chromosome_Count	
+Unlinked_Chromosome_Count	
+Scaffold_Count	4
+BAC_Count	
+GeneModel_Version	v0.1
+GeneModel_Source	TIGR/JCVI via Phytozome
+GeneModel_Link	http://www.phytozome.net/ricinus.php
+GeneModel_Comments	Using a portion of the GFF3 table published with the Ricinus communis v0.1 assembly/annotation
+EST_Align_sp	Ricinus communis
+EST_Align_Version	GenBank Release 179
+EST_Align_Comments	Subset already known to align to these scaffolds
+cDNA_Align_sp	
+cDNA_Align_Version	
+cDNA_Align_Comments	
+PUT_Align_sp	Test
+PUT_Align_Version	
+PUT_Align_Comments	
+Prot_Align_sp	Arabidopsis thaliana, Medicago truncatula
+Prot_Align_Comments	Subset already known to align to these scaffolds
+Prot_Align_Version	TAIR9m Mt4.0
+Default_GSEG	scaff_29308
+Default_lpos	1
+Default_rpos	50000
+Update_Status	
+Update_Data_Path	
+Update_Data_EST	
+Update_Data_cDNA	
+Update_Data_TrAssembly	
+Update_Data_Protein	
+Update_Data_GSEG	
+Update_Data_GeneModel	
+Update_Date	
+Species_Model	maize
+Alignment_Stringency	Moderate
+Gth_Species_Model	rice
+Update_Comments	
+CpGAT_Status	Yes
+CpGAT_ReferenceProt_File	/xGDBvm/examples/referenceprotein/cegma_core.fa
+RepeatMask_File	
+CpGAT_BGF	
+CpGAT_Augustus	
+CpGAT_GeneMark	
+CpGAT_Skip_Mask	
+CpGAT_Relax_UniRef	Yes
+CpGAT_Skip_PASA	
+CpGAT_Skip_Blast	
+Update_Data_CpGAT	
+RepeatMask_Status	
+GSQ_CompResources	Local
+GTH_CompResources	Remote

@@ -1,0 +1,418 @@
+Copyright (c) 2006 Matt Wilkerson (mwilkers@iastate.edu)
+
+--------------------------------
+yrGATE Installation Instructions
+--------------------------------
+
+This document describes how to install the yrGATE package on a local machine.  
+Local installation of yrGATE is appropriate for those interested in maintaining 
+their own annotation commmunity and in customizing input data.  A local 
+installation is not required to use the yrGATE Annotation Tool.  Open access to 
+several yrGATE implementations is provided over the web at 
+http://www.plantgdb.org/yrGATE/.  This document contains installation 
+instructions, and a brief description of the yrGATE components.  Linux is the 
+recommended operating system for yrGATE.  Other operating systems may be tested 
+and accomodated in the future.
+
+LICENSE
+-------
+This software is copyrighted.  A license is granted for academic, personal, or nonprofit use.  Commercial users are required to contact annotation@iastate.edu for a different license.
+
+
+REQUIREMENTS
+------------
+
+The following are required for a full yrGATE installation with the included 
+template data.
+
+1. Apache web server
+- http://www.apache.org
+- minimum version tested 2.0.49
+
+2. Perl
+- minimum version tested 5.8.7
+		
+3. Perl Modules.  
+- Some of these modules are included in linux installations.  
+        - quick check to see if you have the module installed
+	% perl -e "use xxx;"
+	- if the response is 'Cant locate XXX in @INC ....' then you
+	need to install this module
+- All of the can be obtained from http://www.cpan.org or using the cpan shell:
+	% cpan
+	cpan> install xxx  
+
+	where xxx is one of the following:
+
+	a. CGI
+
+	b. DBI **
+
+	c. LWP::Simple, LWP::UserAgent
+
+	d. HTTP::Request::Common
+
+	e. Bioperl (specifically, Bio::Graphics, Bio::SeqFeature::Generic,
+		Bio::Graphics::Feature)
+		- version 1.5.1 is required (http://www.bioperl.org)
+		- version 1.4 will work, if the version 1.5.1 file 
+		Bio/Graphics/panel.pm substitutes that of version 1.4
+
+	f. GD
+		- GD has several prerequisites.  
+		- It is recommended to install GD according to 
+		the README at http://search.cpan.org/dist/GD/.
+				
+	g. PHP::Session**
+
+	h. Bio::Das *
+
+4. Mysql**
+	- http://www.mysql.com
+	- minimum version tested 4.1.9
+
+
+* not required for yrGATE functionality
+** not required if there is no community and output is not to a database.
+
+
+
+yrGATE INSTALLATION
+-------------------
+yrGATE is a collection of perl scripts, which provide web interfaces and 
+database interaction, and javascript/html files.
+yrGATE has the following directories:
+	conf
+	db
+	docs
+	yrGATE_cgi
+	yrGATE_html
+
+The yrGATE_cgi directory needs to be handled as CGI scripts by your apache 
+webserver.  The yrGATE_html directory needs to be handled as static files by 
+your apache webserver.  One way to achieve this is to edit your apache 
+configuration file.  This method will be described below. (Alternatively, one 
+could move the directories into the default CGI and html directories on your 
+machine.)
+
+
+0.  Confirm you have the requirements listed in the requirements section.
+
+1. cd to the directory where you would like to install yrGATE.
+
+	% cd /
+or
+	% cd /usr/local/src
+
+2. unpack the archive:
+
+	% tar -zxvf yrGATE.tar.gz
+
+3. Change ownership of tmp directory to apache.  This directory will contain 
+evidence plot images of the Annotation Tool.
+	
+	% mkdir yrGATE/yrGATE_html/tmp
+	% chown apache yrGATE/yrGATE_html/tmp
+
+4. Edit the apache configuration file.
+
+	Append the following to your httpd.conf file (this is often located at 
+/etc/httpd/conf/httpd.conf):
+
+
+ # yrGATE
+  Alias /yrGATE "/yrGATE/yrGATE_html/"
+  ScriptAlias /yrGATE-cgi "/yrGATE/yrGATE_cgi/"
+  <LocationMatch "/yrGATE-cgi">
+      SetEnv PERL5LIB .:/yrGATE/conf:/yrGATE/yrGATE_cgi
+  </LocationMatch>
+
+
+Note:
+The aliases can be prefixed with an additional path for the URL or for the 
+local yrGATE directory on your machine.  This readme presents an example for a 
+directory installed at /yrGATE/ on your machine, that is accessed with URLs of 
+the form http://localhost/yrGATE.  You can change either of these paths to your 
+liking.
+
+For example, if yrGATE was located at /usr/local/src/ the apache configuration 
+file would be:
+ # yrGATE
+  Alias /yrGATE "/usr/local/src/yrGATE/yrGATE_html/"
+  ScriptAlias /yrGATE-cgi "/usr/local/src/yrGATE/yrGATE_cgi/"
+  <LocationMatch "/yrGATE-cgi">
+      SetEnv PERL5LIB .:/usr/local/src/yrGATE/conf:/usr/local/src/yrGATE/yrGATE_cgi
+  </LocationMatch>
+
+
+
+ANNOTATION DATABASE SETUP
+--------------------------------
+yrGATE stores annotation and user information in a Mysql database.
+This procedure describes how to set up this database.  
+
+
+1. Create yrgate database. (You will probably need to be root.)
+	% mysql -u root -p
+	mysql> create database yrgate;
+
+2. Add a user with full priveledges to the database. This can be 'yrgateUser' 
+or something different.
+
+	mysql> grant all on yrgate.* to yrgateUser;
+	mysql> grant all on yrgate.* to yrgateUser@localhost;
+	mysql> exit;
+
+3. Load the yrgate schema.
+	% mysql -u root -p yrgate < yrGATE/db/yrGATE.community.db.sql
+
+
+
+EVIDENCE DATABASE INSTALLATION
+------------------------------
+The input to yrGATE consists of genome sequence, exon evidence, and exon 
+references. The yrGATE distribution includes a small database of exon evidence 
+for testing purposes. This database is portion of PlantGDB's maize database, 
+ZmGDB.  This procedure describes how to set up and load this database.
+
+1. Create local_maize database. (You will probably need to be root.)
+	% mysql -u root -p
+	mysql> create database local_maize;
+
+2. Add a user with select priveledges to the database.  This can be 
+'yrgateUser' or something different.
+
+	mysql> grant select on local_maize.* to yrgateUser@localhost;
+	mysql> exit;
+
+3. Load the local_maize schema and data.
+	% mysql -u root -p local_maize < yrGATE/db/local_maize.sql
+
+
+The included genome sequence for this evidence database is found at: 
+yrGATE/db/zm.fsa.
+The included exon references for this evidence database are GeneSeqer alignment 
+files found at : yrGATE/yrGATE_html/local_maize_evidence
+These does not need to be adjusted for this setup.
+
+
+CONFIGURING yrGATE
+------------------
+The conf directory contains the configuration file for yrGATE.  The 
+configuration file is a perl script that is mainly two hashes.  The hash GV 
+contains the configuration variables. There are many options for configuring 
+yrGATE.  Two example configuration files are provided.  One is configured for 
+das input. (yrGATE_das_community.pl) Another is configured for using the 
+database local_maize as input. (yrGATE_conf_local_maize.pl) The active 
+configuration file is the file that is named yrGATE_conf.pl.
+
+
+A. DAS INPUT DATA CONFIGURATION:
+
+To use the das input configuration file:
+	
+	% cp yrGATE/conf/yrGATE_conf_das_input.pl yrGATE/conf/yrGATE_conf.pl
+
+That is all that is needed for the 'das input' configuration.
+
+
+B. LOCAL DATABASE INPUT DATA CONFIGURATION
+
+Here, the necessary lines that need to be edited for your installation using 
+the database local_maize as the input, are described.  A moderate understanding 
+of perl is beneficial for this procedure.  
+
+	Copy the template configuration file.
+	% cp yrGATE/conf/yrGATE_conf_local_maize.pl yrGATE/conf/yrGATE_conf.pl
+	
+	Open the configuration file in a text editor, such as vi.
+	% vi yrGATE/conf/yrGATE_conf.pl
+
+
+1. PATHS.
+
+rootPATH is the root URL of your machine.  This needs to begin with 'http://' 
+and end with a forward slashes.  The following will be appropriate for most 
+cases.
+	rootPATH => "http://localhost/",
+
+CGIPATH and HTMLPATH are the Alias paths specificed in the apache configuration 
+file for yrGATE.  These paths need to begin and end with forward slashes.  If 
+you used the root directory, this will be:
+	CGIPATH => "/yrGATE-cgi/",
+	HTMLPATH => "/yrGATE/",
+
+
+tempImageWebDir is the path to the directory that images are written and whose 
+ownership was changed in the yrGATE installation section.  If you used the
+ /usr/local/src as the root directory, it will be:
+       tempImageWebDir => "/usr/local/src/yrGATE/yrGATE_html/tmp/",
+
+
+2. EVIDENCE DATABASE CONNECTIONS
+ These are the connections to the Login, Annotation, and Evidence databases.  
+These are in the form of Perl DBI connections.  If you used the example 
+database name, and user please adjust these according.  Otherwise you do not 
+need to adjust these.  (The attribute for the Annotation and User Database 
+needs to be {PrintError=>1,RaiseErrror=>1} in order to work correctly.)
+
+  	LDBH => 
+DBI->connect("DBI:mysql:yrgate:localhost",'yrgateUser','',\%attr), # connection 
+to users, and admin_session table
+	ADBH => 
+DBI->connect("DBI:mysql:yrgate:localhost",'yrgateUser','',\%attr), # connection 
+to annotation database
+        DBH => 
+DBI->connect("DBI:mysql:local_maize:localhost",'yrgateUser','',\%attr), # 
+connection to evidence database
+
+
+3. CONFIGURE LOGIN
+
+The following lines are already set for active login, in the template 
+yrGATE_conf files.  session_path refers to the path where php sets session 
+variables on your machine.  This may need to be changed on some systems.  
+Session variables are created in perl using PHP::Session, to accomodate php to 
+have reading/writing of this session variable.		
+
+  	login_required => 1,
+    	SessCookieName => "yrGATEsession",
+      	SessLoginParam => "yrGATElogin",
+     	session_path => "/tmp",
+
+
+4. CONFIGURE EMAIL COMMUNICATION OF ANNOTATIONS (optional)
+
+Email communication of new, accepted, and rejected annotations is deactivated 
+in the template yrGATE_conf files.  To activate email, adjust the following 
+lines.  email, when set to 1, will try to send emails.  AdminEmail is an 
+administrator email list.  emailBin is the path to sendmail.  You will want to 
+confirm that sendmail is working on your machine, before activating this.
+
+       	email => 1,
+       	AdminEmail => "annotation\@iastate.edu",
+       	emailbin => "/usr/sbin/sendmail",
+
+
+
+C. ADVANCED: ADDITIONAL CONFIGURATION OF CUSTOM EVIDENCE DATABASES
+
+This is appropriate for those wishing to use their own Mysql database for input 
+data.  The following information is needed for exon evidence:
+
+[dbName,evidence method,evidence unique id,evidence 
+name,start,stop,score,number of exon, reference]
+
+Number of exon is optional.  Reference is a url to the primary reference for 
+the evidence such as an alignment and is optional.
+
+Assuming you have a query that returns the above information, you can specify 
+this in the following function, replacing 'your query' with your query.  This 
+query should return evidence bounded by the genome segment, start, and end 
+parameters. For example, ((a.l_pos <= 
+$PRM->{end})&&(a.r_pos>=$PRM->{start})&&(a.chr='$PRM->{chr}')).  Refer to the 
+example in the in yrGATE_conf_local_maize.pl for further information.
+		
+               	evidenceSources => sub {
+                                       my $arr = [
+                                                 ["cdna","red",your query],
+                                                 ["est","blue",your query]
+                                                 ];
+					},
+
+
+The genome sequence input also needs to be adjusted for custom input.  The 
+provided genome sequence function is indicated in the configuration file.
+
+	GenomeSeqFunction => "getGenomeSequence_ex"
+
+This subroutine getGenomeSequence_ex is an example and should only be used for 
+testing.  This should be edited to return the genome segment corresponding to 
+the genome segment name, start and stop.  Fastacmd, of the blast package, can 
+be easily configured to accomplish this on your machine.
+
+
+
+testing yrGATE
+--------------
+You should be ready to test your installation.
+The main url for your installation is:
+
+http://localhost/yrGATE-cgi/CommunityCentral.pl
+
+(You may need to adjust the path to reflect any changes you made in the 
+configuration.)
+
+Two default accounts are provided with the database for testing.
+The usernames are 'testuser' and 'testadmin', and they have no password.
+These accounts are only included for testing and should be removed after 
+testing.
+
+The following instructions describe how to quickly create, submit, and accept a 
+gene annotation.
+
+1. Click the login button, and login as 'testuser'.
+2. To create an annotation, click on the 'sample genome entry' link, which will 
+open a new window with the Annotation Tool.
+3. Create a gene annotation.
+   a. Select some exons from the Evidence Table or Evidence Plot
+   b. Assign a protein coding region using the 'ORF Finder' button.
+   c. Give your annotation a name in the 'Gene Name' field.
+4. Click the 'Submit' button at the top of the Annotation Tool window.
+5. Close the Annotation Tool Window.
+6. Click the 'Annotation Account' button at the top of the Community Central 
+page.
+7. Notice your annotation is now listed under the status 'SUBMITTED_FOR_REVIEW'.
+8. Logout by clicking the logout button at the top of the window.
+9. Click on the login button and login as 'testadmin'
+10. Click on the 'Administrate Annotations' button at the top of the window.
+11. Click on the Annotation ID of the annotation that you submitted while 
+logged as 'testuser'.  This will open the Annotation Tool.
+12. Accept the annotation by clicking on the 'ACCEPT' button.
+13. Click on 'the Community Central' button at the top of the 'Administrate 
+Annotations' window.
+14. Notice the annotation you just accepted is now listed under accepted.
+15. Logout by clicking the logout button.
+16. Notice the annotation is still presented on the 'Community Central' window.
+
+After you are satisfied with your testing, remove the user accounts from the 
+yrgate database:
+
+	% mysql yrgate -u yrgateUset
+	mysql> delete from users where userName = 'testuser' or username = 
+'testadmin';
+
+New administrator accounts can be created using the command (replacing the 
+relevant fields).
+
+mysql> insert into users (user_name,pword,account_type,fullname,email,phone) 
+VALUES ('admin',password('some password'),'ADMIN','administrator 1' , 
+'admin@somehost.com','1234567');
+
+New user accounts can be created with the 'Annotator Registration' button 
+accessible through the 'Community Central' page.
+
+
+
+
+using yrGATE with a Genome Database
+-----------------------------------
+
+yrGATE can be used for multiple organisms, and databases. A different 
+configuration file is required for each organism/database.
+
+One way to distinguish configuration files is to create different aliases in 
+your apache configuration.  These aliases will also reference different conf 
+directories.  These different yrGATE_conf.pl files will need to be adjusted for 
+the information described in the yrGATE installation section.
+
+However, the same yrgate database can store annotations for multiple organisms 
+and genome databases.  These are distinguished by the organism and dbName 
+fields in the user_gene_annotation table.
+
+A genome browser can be linked to yrGATE at the entry points of the Community 
+Annotation Central or the Annotation Tool.  The Annotation Tool can be used 
+seperately from the Community Utilities.  The file 'utility.diagram.pdf' 
+contains a link diagram, which can aid in incorporating yrGATE with a genome 
+browser.   
+

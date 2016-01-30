@@ -1,0 +1,30 @@
+#!/bin/bash
+# latest update: 1-20-2016
+echo ""; echo ""; echo "";
+
+echo "
+
+Quick start commands for configuring xGDBvm. For details, type 'instructions'
+
+Type these commands at the $ prompt in this order; required responses in [brackets]:
+
+     1. $ update [y] [password] (updates VM to the latest xGDBvm code)  
+     2. $ setup-vm [y] [password] [enter new Web access password for 'user']
+        (sets up VM environment; required for new VM or resumed VM with a new IP address)
+     3. $ iinit [y]  [username] [password]  (login to IRODS user acct; 1-time only)
+     4. $ mount-datastore  [y] (optional; mounts user's Data Store at /xGDBvm/input/)
+     5. $ mount-volume [y] [password] [/dev/vdc] (optional; mounts attached volume at /xGDBvm/data)
+     6. $ configure-vm [y] [iplant-password] (do this last; configures databases & directories)
+
+To unmount volume and Data Store, e.g. before terminating a VM (make sure no processes are running) 
+
+     1. $ vm-status (displays volume / Data Store mount status, storage capacity)
+     2. $ unmount-volume [y] [password]
+     3. $ unmount-datastore [y] [password]
+        - to remount and configure, run steps 4, 5, and 6 above
+
+Forgot your VM's Web password? 
+     1. Remove the password flag: $ sudo rm /xGDBvm/admin/xgdbpassword [password]
+     2. Re-run the 'setup-vm' script and enter a new Web password
+     
+"

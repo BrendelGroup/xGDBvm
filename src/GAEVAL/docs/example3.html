@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>
+      GAEVAL - Example 3: Alternative Splicing
+    </title>
+  </head>
+  <body>
+    <h1 id="pageTitle">
+      Example 3: Alternative Splicing
+    </h1>
+
+    <div id="navbar">
+          <ul type="none" class="linklist">
+	<li class="linklist">
+	  <a href="/src/GAEVAL/docs/index.html">GAEVAL Introduction</a>
+	</li>
+	<li class="linklist">
+	  <a href="ftp://ftp.plantgdb.org/download/GAEVAL/">GAEVAL Download (ftp)</a>
+	</li>
+	</ul>
+      <h3 class="GroupID">Examples</h3>
+      <ul class="linklist">
+	<li class="linklist">
+	  <a href="example1.html">1: Single Annotation</a>
+	</li>
+	<li class="linklist">
+	  <a href="example2.html">2: Ambiguous Overlap</a>
+	</li>
+	<li class="linklist">
+	  <a href="example3.html">3: Alternative Splicing</a>
+	</li>
+	<li class="linklist">
+	  <a href="example4.html">4: Alternative Termination</a>
+	</li>
+	<li class="linklist">
+	  <a href="example5.html">5: Annotation Fission</a>
+	</li>
+	<li class="linklist">
+	  <a href="example6.html">6: Annotation Fusion</a>
+	</li>
+	<li class="linklist">
+	  <a href="example7.html">7: Pseudo-Introns</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Documents</h3>
+      <ul class="linklist">
+	<li class="linklist">
+	  <a href="integrity.html">Annotation Integrity</a>
+	</li>
+	<li class="linklist">
+	  <a href="intron_incongruence.html">Intron Incongruence</a>
+	</li>
+	<li class="linklist">
+	  <a href="tpeg.html">Three-Prime Groups</a>
+	</li>
+      </ul>
+  <h3 class="GroupID">xGDBvm Links</h3>
+	  <ul class="linklist">
+		<li class="linklist">
+		  <a href="/">xGDBvm Home</a>
+		</li>
+		<li class="linklist">
+		  <a href="/XGDB/help/gaeval.php">GAEVAL Help</a>
+		</li>
+		<li class="linklist">
+		  <a href="/XGDB/help/using_gdb.php">Genome Browser Help</a>
+		</li>
+		<li class="linklist">
+		  <a href="/XGDB/help/yrgate.php">yrGATE Help</a>
+		</li>
+	</ul>
+	    </div>
+    <h2 class="code">perl xGAEVAL.pl --clean_db --GFF <a href="../examples/example3.gff3" target="_new">examples/example3.gff3</a></h2>
+    <img id="genomeContext" src="images/example3.png" />
+    <h2>Description:</h2>
+    <p id="description">This example illustrates the use of GAEVAL in evaluating alternative 
+      splicing. In addition to the standard evaluation of observed incongruent
+      introns, this example also showcases the ability of GAEVAL to determine 
+      if an incongruent structure has previously been documented by an 
+      alternatively spliced isoform (alternative transcript of the evaluated 
+      annotation). In this example, An Arabidopsis gene locus (
+      <a href='http://www.plantgdb.org/AtGDB/cgi-bin/getRegion.pl?chr=3&amp;l_pos=7007800&amp;r_pos=7014000&amp;dbid=1'>At3g20080</a>
+      ) encodes three transcripts showing evidence of alternative splicing.
+    </p>
+    <h2 class="report">GAEVAL Results:</h2>
+    <h3>Incongruency Analysis (At3g20080.1)</h3>
+    <pre class="report">
+ 1:  Incongruent Introns Detected:
+ 2:   7008467..7008910
+ 3:     Alternative Intron
+ 4:      Supporting evidence: 1
+ 5:      Documented by Local Annotation Isoforms: 1
+ 6:       LOCAL:At3g20080.3
+ 7:   7009426..7009445
+ 8:     Alternative Intron
+ 9:      Supporting evidence: 1
+10:   7009740..7009818
+11:     Alternatively Annotated Intron
+12:      Supporting evidence: 2
+13:   7010477..7010978
+14:     Alternative Intron
+15:      Supporting evidence: 2
+16:      Documented by Local Annotation Isoforms: 2
+17:       LOCAL:At3g20080.3
+18:       LOCAL:At3g20080.2
+19:   7011158..7012037
+20:     Additional Intron
+21:      Supporting evidence: 2
+22:      Documented by Local Annotation Isoforms: 1
+23:       LOCAL:At3g20080.2
+24:   7012875..7012977
+25:     Additional Intron
+26:      Supporting evidence: 2
+27:      Documented by Local Annotation Isoforms: 1
+28:       LOCAL:At3g20080.2
+    </pre>
+    <p>For an explanation of the introns categories used in this section see the
+      folowing document on <a href='intron_incongruence.html'>incongruent 
+	introns</a>.
+    </p>
+      <ul>
+	<li>line 3: GAEVAL has found an 'Alternative Intron'</li>
+	<li>line 5: This incongruent intron has been documented (used as part of the
+	  annotated structure) for 1 isoform of the current annotation</li>
+	<li>line 6: The transcript using this intron is 'At3g20080.3'</li>
+	<li>line 11: GAEVAL found an 'Alternatively Annotated Intron'</li>
+	<li>line 20: GAEVAL found an 'Additional Intron'</li>
+      </ul>
+
+    <h3>Incongruency Analysis (At3g20080.2)</h3>
+    <pre class="report">
+ 1:  Incongruent Introns Detected:
+ 2:   7008467..7008910
+ 3:     Alternative Intron
+ 4:      Supporting evidence: 1
+ 5:      Documented by Local Annotation Isoforms: 1
+ 6:       LOCAL:At3g20080.3
+ 7:   7009426..7009445
+ 8:     Alternative Intron
+ 9:      Supporting evidence: 1
+10:   7009740..7009818
+11:     Alternatively Annotated Intron
+12:      Supporting evidence: 1
+13:   7010477..7010978
+14:     Alternatively Annotated Intron
+15:      Supporting evidence: 1
+16:     Conflicting Intron
+17:      Conflicting evidence: 1
+18:      Supporting evidence: 1
+19:   7011158..7012037
+20:     Alternatively Annotated Intron
+21:      Supporting evidence: 1
+22:   7012875..7012977
+23:     Alternatively Annotated Intron
+24:      Supporting evidence: 1
+    </pre>
+    <p>For an explanation of the introns categories used in this section see the
+      folowing document on <a href='intron_incongruence.html'>incongruent 
+	introns</a>.
+    </p>
+      <ul>
+	<li>line 16: GAEVAL has found a 'Conflicting Intron'</li>
+      </ul>
+
+    <h2 id="discussion">Discussion:</h2>
+    <p>
+	Five alternative intron structures were determined to exists for this locus.
+	When documented by alternative transcript isoforms these introns are noted
+	as such in the GAEVAL output. Interestingly the 7010477..7010978 intron 
+	appears to be involved in the selection of an alternative transcriptional 
+	termination site.
+    </p>
+  </body>
+</html>

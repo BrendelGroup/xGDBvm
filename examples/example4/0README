@@ -1,0 +1,45 @@
+Example 4 (CpGAT option).
+
+This is an example dataset consisting of four Ricinus communis scaffolds, along with the est, cdna, put and related species (Arabidopsis and Medicago) proteins that splice-align to them. 
+Also included is a custom reference protein dataset for CpGAT annotation.
+
+
+Input Data Directory contents: /xGDBvm/examples/Example4/
+
+	GenomesExample4.txt - this is the configuration data that will be loaded when user selects this example.
+
+Data files
+
+	Rc_4scaff_GDBcdna.fasta
+	my.gff
+	Rc_4scaff_GDBscaffold.fasta
+	Rc_4scaff_GDBput.fasta
+	Rc_4scaff_GDBpep.fasta
+	Rc4scaff_GDBtranslation.fasta
+	Description.txt
+
+CpGAT Reference Protein Directory contents: /xGDBvm/examples/Example4/cpgat/
+
+	Rc_REFPEP.fasta - (Reference Protein dataset: ) This is simply the same set of peptides as Rc_4scaff_GDBprotein.fasta
+	(index files derived from above)
+
+
+__________
+
+Note- this example uses filename conventions, where [identifier] refers to any user-specified text string (alphanumeric only).
+	
+	FASTA files for spliced allignment:
+		[identifier]scaffold.fasta  - genome
+		[identifier]est.fasta - EST (for GeneSeqer spliced alignment)
+		[identifier]cdna.fasta  - cDNA (for GeneSeqer spliced alignment)
+		[identifier]put.fasta  - Transcript Assembly (for GeneSeqer spliced alignment)
+		[identifier]pep.fasta  - related species protein (Arabidopsis; Medicago) (for GenomeThreader spliced alignment)
+
+	FASTA files for gene models:
+		[identifier]translation.fasta  - predicted protein from precomputed gene models
+
+	GFF files:
+		[identifier].gff
+		
+	text files:
+		[identifier]Description.txt

@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>GAEVAL Optional Configurations</title>
+      <style type="text/css">
+	h4 {margin:15px 5px 2px 5px;}
+	div {border:1px dotted red; margin-left:15px;}
+	span.code {margin-left:10px; font:italic 16px monotype;background:#DCDCDC;}
+      </style>
+  </head>
+  <body>
+    <h1 id="pageTitle">
+      Configuring GAEVAL and Extending the GAEVAL Object Code
+    </h1>
+    <p>GAEVAL is installed from distribution pre-configured to operate 
+      as a stand-alone utility. Optionally GAEVAL may be configured to
+      interact with existing databases and as part of a database package.
+      This may or may not necessitate extending the GAEVAL object code.
+      Discussed below are the optional configuration / database wrappers
+      currently available to GAEVAL.
+    </p>
+    <h3>xGDB - The eXtensible Genome Data Broker</h3>
+    <p>GAEVAL may be configured to operate alongside an xGDB database
+      by using the following configuration options. All configuration
+      options presented in this section are available at runtime by
+      executing the xGAEVAL.pl command with the optional 
+      '--configuration' parameter. For example:
+    </p>
+    <h2 class="code" style="margin:10px;">perl xGAEVAL.pl --configuration <a href="../conf/xGDB.conf">conf/xGDB.conf</a></h2>
+    <p>The configuration options found in this file are in the form
+      of a perl data structures. At this time the accepted objects are:
+    </p>
+    <div>
+      <h4>$dbUSER</h4>
+      <p>$dbUSER should be set to a string containing the MySQL account 
+	username of a user with select, delete, and insert privileges to
+	the database with which GAEVAL will be interacting.
+      </p>
+      <h4>$dbPASS</h4>
+      <p>$dbPASS should be set to the password required for the $dbUSER
+	MySQL account.
+      </p>
+      <h4>$argHR (HASH REFERENCE)</h4>
+      <p>$argHR is the data structure passed to the majority of the 
+	GAEVAL initialization and process functions. Here is where most
+	configuration options will be found. The currently supported
+	keys are as follows.
+      </p>
+      <div>
+	<h4>$argHR->{dsn}</h4>
+	<p>This is the perl DBI style database source name string.<br>
+	    <span class="code">$argHR->{dsn} = "DBI:mysql:MyGAEVALdb:localhost"</span>
+	</p>
+	<h4>$argHR->{GAEVAL_ANN_TBL}</h4>
+	<p>This should contain the name of the MySQL table storing the primary
+	  annotation data. This table should conform to the minimal
+	  GAEVAL annotation source table scheme.<br>
+	    <span class="code">$argHR->{GAEVAL_ANN_TBL} = 'chr_gene_annotation'</span>
+	</p>
+	<h4>$argHR->{GAEVAL_ANN_TABLES} (ARRAY REFERENCE)</h4>
+	<p>This array contains hash references with the information required
+	  for GAEVAL to recognize external annotation tables.
+	</p>
+	<div>
+	  <h4>$argHR->{GAEVAL_ANN_TABLES}->[0]->{ANN_TBL}</h4>
+	  <p>This should contain the name of the MySQL table storing external
+	    annotations.<br>
+	      <span class="code">$argHR->{GAEVAL_ANN_TABLES}->[0]->{ANN_TBL} = 'user_gene_annotation';</span>
+	  </p>
+	  <h4>$argHR->{GAEVAL_ANN_TABLES}->[0]->{ANN_conditional}</h4>
+	  <p>This SQL conditional is added to the queries involving external
+	    annotations.<br>
+	      <span class="code">$argHR->{GAEVAL_ANN_TABLES}->[0]->{ANN_conditional} = "&&(status = 'ACCEPTED')";</span>
+	  </p>
+	  <h4>$argHR->{GAEVAL_ANN_TABLES}->[0]->{ANNselect}</h4>
+	  <p>This is the SQL select statement used to query external annotations and
+	  should included the fields (uid,geneId,gene_structure,l_pos,r_pos, and 
+	  gseg_gi or chr).<br>
+	      <span class="code">$argHR->{GAEVAL_ANN_TABLES}->[0]->{ANNselect} = 'select uid,geneId,gene_structure,l_pos,r_pos,strand from user_gene_annotation';</span>
+	  </p>
+	  <h4>$argHR->{GAEVAL_ANN_TABLES}->[0]->{dsn}</h4>
+	  <p>This is the perl DBI style database source name string for the 
+	    database storing the external annotations.<br>
+	    <span class="code">$argHR->{dsn} = "DBI:mysql:MyANNOTATIONdb:localhost"</span>
+	  </p>
+	  <h4>$argHR->{GAEVAL_ANN_TABLES}->[0]->{dbPASS}</h4>
+	  <p>dbPASS should be set to the password required for the dbUSER
+	    MySQL account.
+	  </p>
+	  <h4>$argHR->{GAEVAL_ANN_TABLES}->[0]->{dbUSER}</h4>
+	  <p>dbUSER should be set to a string containing the MySQL account 
+	    username of a user with select  privileges to the database containing
+	    the external annotations with which GAEVAL will be interacting.
+	  </p>
+	</div>
+	<h4>$argHR->{GAEVAL_ANNselect}</h4>
+	<p>This is the SQL select statement used to query annotations and
+	  should included the fields (uid,gene_structure,l_pos,r_pos,and 
+	  gseg_gi or chr) additional fields added to this statement will be 
+	  available to the GAEVAL object in the $self->{ann_DBdata} hash.<br>
+	    <span class="code">$argHR->{GAEVAL_ANNselect} = 'select uid,gene_structure,chr,l_pos,r_pos FROM chr_gene_annotation ORDER BY chr,l_pos,r_pos';</span>
+	</p>
+	<h4>$argHR->{GAEVAL_ISO_TABLES} (ARRAY REFERENCE)</h4>
+	<p>This array contains hash references with the information required
+	  for GAEVAL to recognize multiple evidence types.<br>
+	    NOTE: When using only a single source of evidence, this configuration
+	    is still the only way to set custom table names.<br>
+	</p>
+	<div>
+	  <h4>$argHR->{GAEVAL_ISO_TABLES}->[0]->{ISO_TBL}</h4>
+	  <p>This should contain the name of the MySQL table storing evidence to
+	    annotation assignments. This table is usually generated by GAEVAL.<br>
+	      <span class="code">$argHR->{GAEVAL_ISO_TABLES}->[0]->{ISO_TBL} = 'gbk_cdna_gaeval';</span>
+	  </p>
+	  <h4>$argHR->{GAEVAL_ISO_TABLES}->[0]->{PGS_TBL}</h4>
+	  <p>This should contain the name of the MySQL table storing evidence
+	    alignments. This table should conform to the minimal GAEVAL evidence
+	    table scheme.<br>
+	      <span class="code">$argHR->{GAEVAL_ISO_TABLES}->[0]->{PGS_TBL} = 'cdna_good_pgs';</span>
+	  </p>
+	  <h4>$argHR->{GAEVAL_ISO_TABLES}->[0]->{PGSselect}</h4>
+	  <p>This is the SQL select statement used to query evidence and
+	    should included the fields (uid,pgs,l_pos,r_pos,isCognate, and 
+	    gseg_gi or chr)<br>
+	      <span class="code">$argHR->{GAEVAL_ISO_TABLES}->[0]->{PGSselect} = 'select uid,pgs,chr,l_pos,r_pos,isCognate FROM cdna_good_pgs ORDER BY chr,l_pos,r_pos';</span>
+	  </p>
+	  <h4>$argHR->{GAEVAL_ISO_TABLES}->[0]->{SEQ_TBL}</h4>
+	  <p>This should contain the name of the MySQL table storing evidence
+	    source information. This table should conform to the minimal GAEVAL 
+	    evidence source table scheme.<br>
+	      <span class="code">$argHR->{GAEVAL_ISO_TABLES}->[0]->{SEQ_TBL} = 'cdna';</span>
+	  </p>
+	  <h4>$argHR->{GAEVAL_ISO_TABLES}->[0]->{TPS_conditional}</h4>
+	  <p>This SQL conditional is added to the queries involving 3` end 
+	    sequences such as 3`ESTs.<br>
+	      <span class="code">$argHR->{GAEVAL_ISO_TABLES}->[0]->{TPS_conditional}="&&(SEQ.type='T')";</span>
+	  </p>
+	  <h4>$argHR->{GAEVAL_ISO_TABLES}->[0]->{_HAS_CLONEPAIRS}</h4>
+	  <p>If an evidence source contains clonepairs such as ESTs offten do,
+	    adding this option will activate the use of these clonepairs. This
+	    requires that the evidence table (PGS_TBL) contain the pairUID field
+	    and that this field contain the uid for the PGS of the alternate 
+	    member of the clonepair.<br>
+	      <span class="code">$argHR->{GAEVAL_ISO_TABLES}->[0]->{_HAS_CLONEPAIRS}=1;</span>
+	  </p>
+	</div>
+	<h4>$argHR->{GAEVAL_PROPERTIES_TBL}</h4>
+	<p>This should contain the name of the MySQL table that will be used to
+	  store the property flags issued by GAEVAL for each annotation.<br>
+	    <span class="code">$argHR->{GAEVAL_PROPERTIES_TBL} = 'gbk_gaeval_properties'</span>
+	</p>
+	<h4>$argHR->{GAEVAL_SUPPORT_TBL}</h4>
+	<p>This should contain the name of the MySQL table that will be used to
+	  store the annotation support results calculated by GAEVAL.<br>
+	    <span class="code">$argHR->{GAEVAL_SUPPORT_TBL} = 'gbk_gaeval'</span>
+	</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>
+      GAEVAL - Example 2: Erroneously Overlaping Annotations
+    </title>
+  </head>
+  <body>
+    <h1 id="pageTitle">
+      Example 2: Erroneously Overlaping Annotations
+    </h1>
+
+    <div id="navbar">
+      <h3 class="GroupID">Examples</h3>
+      <ul type="none" id="linklist">
+	<li class="linklist">
+	  <a href="example1.html">1: Single Annotation</a>
+	</li>
+	<li class="linklist">
+	  <a href="example2.html">2: Ambiguous Overlap</a>
+	</li>
+	<li class="linklist">
+	  <a href="example3.html">3: Alternative Splicing</a>
+	</li>
+	<li class="linklist">
+	  <a href="example4.html">4: Alternative Termination</a>
+	</li>
+	<li class="linklist">
+	  <a href="example5.html">5: Annotation Fission</a>
+	</li>
+	<li class="linklist">
+	  <a href="example6.html">6: Annotation Fusion</a>
+	</li>
+	<li class="linklist">
+	  <a href="example7.html">7: Pseudo-Introns</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Documents</h3>
+      <ul type="none" id="linklist">
+	<li class="linklist">
+	  <a href="integrity.html">Annotation Integrity</a>
+	</li>
+	<li class="linklist">
+	  <a href="intron_incongruence.html">Intron Incongruence</a>
+	</li>
+	<li class="linklist">
+	  <a href="tpeg.html">Three-Prime Groups</a>
+	</li>
+      </ul>
+    </div>
+
+    <h2 class="code">perl xGAEVAL.pl --clean_db --GFF <a href="../examples/example2.gff3" target="_new">examples/example2.gff3</a></h2>
+    <img id="genomeContext" src="images/example2.png" />
+    <h2>Description:</h2>
+    <p id="description">This example illustrates a specific case of incongruence GAEVAL is trained
+      to observe. In this example, two Arabidopsis gene loci (
+      <a href='http://www.plantgdb.org/AtGDB-cgi/getRegion.pl?chr=2&l_pos=450000&r_pos=455000&dbid=1'>
+	At2g01960.1 and At2g01970.1</a> ) are annotated as overlapping genes.
+      While genes do sometimes overlap, this instance is the result of ambiguity
+      in the automated annotation pipeline used to annotated these loci. This
+      example includes two 'full-length' cDNA which show the actual extent of
+      the processed transcript from each gene. Also included are two EST alignments.
+      One which is obviously associated with the At2g01970.1 gene based on a shared
+      intron prediction. The second is 'ambiguous' however and reviewed outside
+      of the context of the other evidence alignments could be associated with
+      either gene annotation.
+    </p>
+    <h2 class="report">GAEVAL Results:</h2>
+    <h3>Incongruency Analysis (At2g01960.1)</h3>
+    <pre class="report">
+1:  Ambiguously Overlapping Annotations Detected:
+2:   At2g01970.1
+3:    Ambiguous evidence:
+4:     gaeval_evidence (1 alignments)
+    </pre>
+    <h3>Incongruency Analysis (At2g01970.1)</h3>
+    <pre class="report">
+1:  Ambiguously Overlapping Annotations Detected:
+2:   At2g01960.1
+3:    Ambiguous evidence:
+4:     gaeval_evidence (1 alignments)
+    </pre>
+    <p>This section describes incongruencies found between the annotation and the 
+      supplied evidence alignments.
+      <ul>
+	<li>line 1: GAEVAL has found an erroneous overlap with an adjacent 
+	  annotations</li>
+	<li>line 2: The id of the overlaping annotation
+	<li>line 4: The source and count of evidence alignments contributing
+	    to the erroneous overlap</li>
+      </ul>
+    </p>
+
+    <h2 id="discussion">Discussion:</h2>
+    <p>Gene structure prediction programs often form a structure prediction based
+      on contiging and clustering of all available sequence alignments in a given
+      genomic region. These programs seldom consider adjacent annotations. As such,
+      under the circumstances of having available a sequence completely contained
+      within an exon and within close proximity to the adjacent gene these 
+      sequences will be ambiguously used to define the structure of both gene
+      annotations. This situation will create an artifical overlap.
+    </p>
+  </body>
+</html>

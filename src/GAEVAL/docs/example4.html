@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>
+      GAEVAL - Example 4: Alternative Transcript Termination
+    </title>
+  </head>
+  <body>
+    <h1 id="pageTitle">
+      Example 4: Alternative Transcript Termination
+    </h1>
+
+    <div id="navbar">
+          <ul type="none" class="linklist">
+	<li class="linklist">
+	  <a href="/src/GAEVAL/docs/index.html">GAEVAL Introduction</a>
+	</li>
+	<li class="linklist">
+	  <a href="ftp://ftp.plantgdb.org/download/GAEVAL/">GAEVAL Download (ftp)</a>
+	</li>
+	</ul>
+      <h3 class="GroupID">Examples</h3>
+      <ul class="linklist">
+	<li class="linklist">
+	  <a href="example1.html">1: Single Annotation</a>
+	</li>
+	<li class="linklist">
+	  <a href="example2.html">2: Ambiguous Overlap</a>
+	</li>
+	<li class="linklist">
+	  <a href="example3.html">3: Alternative Splicing</a>
+	</li>
+	<li class="linklist">
+	  <a href="example4.html">4: Alternative Termination</a>
+	</li>
+	<li class="linklist">
+	  <a href="example5.html">5: Annotation Fission</a>
+	</li>
+	<li class="linklist">
+	  <a href="example6.html">6: Annotation Fusion</a>
+	</li>
+	<li class="linklist">
+	  <a href="example7.html">7: Pseudo-Introns</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Documents</h3>
+      <ul class="linklist">
+	<li class="linklist">
+	  <a href="integrity.html">Annotation Integrity</a>
+	</li>
+	<li class="linklist">
+	  <a href="intron_incongruence.html">Intron Incongruence</a>
+	</li>
+	<li class="linklist">
+	  <a href="tpeg.html">Three-Prime Groups</a>
+	</li>
+      </ul>
+  <h3 class="GroupID">xGDBvm Links</h3>
+	  <ul class="linklist">
+		<li class="linklist">
+		  <a href="/">xGDBvm Home</a>
+		</li>
+		<li class="linklist">
+		  <a href="/XGDB/help/gaeval.php">GAEVAL Help</a>
+		</li>
+		<li class="linklist">
+		  <a href="/XGDB/help/using_gdb.php">Genome Browser Help</a>
+		</li>
+		<li class="linklist">
+		  <a href="/XGDB/help/yrgate.php">yrGATE Help</a>
+		</li>
+	</ul>
+	</div>
+    <h2 class="code">perl xGAEVAL.pl --clean_db --GFF <a href="../examples/example4.gff3" target="_new">examples/example4.gff3</a></h2>
+    <img id="genomeContext" src="images/example4.png" />
+    <h2>Description:</h2>
+    <p id="description">This example illustrates the ability of GAEVAL to determine the presence of
+      alternative cleavage/polyadenylation site usage based on the clustering of
+      end defining evidence such as three-prime EST alignments. In this example, 
+      An Arabidopsis gene locus (
+      <a href='http://www.plantgdb.org/AtGDB/cgi-bin/getRegion.pl?chr=3&amp;l_pos=7007800&amp;r_pos=7014000&amp;dbid=1'>At3g20080</a>
+      ) shows evidence of alternative transcriptional termination in connection
+      with alternative splicing.
+    </p>
+    <h2 class="report">GAEVAL Results:</h2>
+    <h3>Incongruency Analysis (At3g20080.1)</h3>
+    <pre class="report">
+1:  Alternative Cleavage / PolyA site detected:
+2:   7013701
+3:    Supporting Evidence: 2
+4:    Documented by 'LOCAL' annotations:
+5:     At3g20080.2
+    </pre>
+    <h3>Incongruency Analysis (At3g20080.2)</h3>
+    <pre class="report">
+  Alternative Cleavage / PolyA site detected:
+   7010654
+    Supporting Evidence: 3
+    Documented by 'LOCAL' annotations:
+     At3g20080.1
+    </pre>
+    <h3>Incongruency Analysis (At3g20080.3)</h3>
+    <pre class="report">
+  Alternative Cleavage / PolyA site detected:
+   7013701
+    Supporting Evidence: 2
+    Documented by 'LOCAL' annotations:
+     At3g20080.2
+   7010654
+    Supporting Evidence: 3
+    Documented by 'LOCAL' annotations:
+     At3g20080.1
+    </pre>
+    <p>For an explanation of the analysis used to cluster end-defining evidence
+      refer to the folowing document on 
+      <a href="tpeg.html">'Three-Prime Evidence Groups'</a>.
+    </p>
+      <ul>
+	<li>line 1: GAEVAL has found a putative alternative cleavage/polyA site</li>
+	<li>line 2: The average genomic location of the TPEG</li>
+	<li>line 3: Count of end-defining evidence involved in this TPEG</li>
+	<li>line 4: This cleavage/polyA site is used by annotation isoform</li>
+	<li>line 5: The annotation isoforms using this cleavage/polyA site</li>
+      </ul>
+
+    <h2 id="discussion">Discussion:</h2>
+    <p>This region shows evidence suggesting that both cleavage/polyA sites
+      as defined by the At3g20080.1 and At3g20080.2 annotations are valid sites 
+      of transcriptional termination. The terminal boundary of At3g20080.3
+      however is not supported by an end-defining evidence group.
+    </p>
+  </body>
+</html>

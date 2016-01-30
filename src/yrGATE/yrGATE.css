@@ -1,0 +1,530 @@
+/* $Id: yrGATE.css, J Duvick version 12-24-08 $ */
+
+.noshow { /* Was using .hidden, but it conflicted with plantgdb.css */
+	display: none;
+}
+.testing {
+	display: none;
+}
+
+/* -- Apply to everything -- */
+/* -- These styles should be synchronized with plantgdb.css -- */
+
+* {
+	color: #545454;
+	margin:0;
+	padding:0;
+}
+
+body {
+	font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+	font-size:62.5%; /* Sets 1em = 10px */
+}
+
+img {
+	border: none;
+}
+
+p  { /* TODO: remove this styling from generic p and make class-specific!!*/
+	font-size:12px;
+	line-height:1.5em; /* seems about right for readability*/
+	margin:0.5em;
+	text-align: justify;
+}
+
+
+
+b, i, li, p {
+	color: #545454;
+}
+
+.attention_text {
+	color:red;
+}
+
+.smaller_white {
+	font-size:10px;
+	color:white;
+	}
+
+	
+.edit_text {
+	color:#BF176D;
+}
+
+.nbsp, #anno_type_options, #category_options, #locus_id_options, #transcript_id_options, #working_group_options {
+	margin-right: .5em;
+}
+
+.nbsp {
+ white-space: nowrap; 
+}
+
+.wwbw {
+word-wrap: break-word;
+}
+
+.indent {
+	margin-left: 20px;
+}
+.block {
+	display: block;
+}
+
+textarea {
+	display: block;
+	font-size:12px;
+	padding: 5px 0 0 5px;
+}
+textarea .morepadding {
+	padding: 5px 0 0 5px;
+}
+
+.larger {
+	font-size:14px;
+	padding-top: 20px;
+}
+
+.larger a, .larger a:visited {
+	text-decoration:none;
+}
+.smaller {
+	font-size:10px;
+}
+
+/*
+a:link, a:visited, a:link i, a:visited i  {
+	color: #238F79; /*#083F24 #006F39; /*GREEN; WAS #117F4A;
+	text-decoration: underline;
+}
+*/
+
+span.info, span.info b {
+	color: #444450;
+}
+span.info {
+	font-size: 12px;
+	font-style:normal; /*italic;*/
+	font-weight:normal;
+}
+
+span.info a {
+	color: #238F79;
+	text-decoration:none;
+}
+
+
+td.contextview a {
+	background: url('/XGDB/images/contextview.gif') no-repeat center;
+	padding:8px;
+}
+
+td.contextview a:hover { 
+	background: url('/XGDB/images/contextview_hov.gif') no-repeat center;
+	padding:8px;
+}
+
+
+/* Annotation Tool */
+.preview_struct{vertical-align:middle;padding:0;border:0;width:100%;}
+.previewImage{position:absolute;z-index:1}
+.previewIntron{position:absolute;z-index:0}
+.seqTextArea{font-family:Courier;font-size:12px;display:block;}/*change from 10 px jd 8-5-10*/
+.seqLength{font-size:11px;color:#666;border: none}
+.manual{font-family:Verdana,Arial;}
+.buttons{border:outset 2px;background-color:#F9D052;border-color:#CC9;font-family:Arial;font-size:10px;color:black}
+.buttons:hover{color: #CF0C14;}
+#gene_id_minus_user{background-color:#E6E6FA; border:none;text-align:right;font-size:12px; color:black; font-weight:bold;}
+.no_entry {background-color:white; border:1px solid #AAA; text-align:left;font-size:12px;}/* for no-entry text boxes; added JPD 7-12-10*/
+.mainTable{font-family:Arial;padding:25px;border:0;margin:0; background:#F7E1A0;}
+.evidenceTable{background-color:#F9D052;}
+#eTable td {background.-color:#BFDFFC;}
+.annoToolHeader { margin:15px; background: none;} /*added JPD 6-25-10*/
+.anno_property {
+	color: #444450;
+	font-size: 12px;
+	font-weight:bold;
+	margin-right: 1em;
+}
+#UCAannid_txt, #locus_id_txt {
+	background:#F7E1A0;
+	padding:2px;
+	font-size:12px;
+	font-weight:bold;
+	color:#444450;
+	border:none;
+	}
+.anno_id {
+	color:#545454; /*dark blue*/
+	font-weight:bold;
+	font-size:16px;
+	margin-right:1em;
+}
+
+#dataColumn {padding-right:20px; width:400px;}
+#userBox {overflow:auto; height:88px; width:200px; padding-left:10px;}
+#EvidenceCell {
+	background-color: #F7EFD7;
+}
+#genomePlot {
+	background-color: white;
+	border:1px solid gray;
+	margin:15px;
+	padding-left:15px;
+	width: 493px;
+}
+#locus_id, #new_locus_id, #transcript_id {
+	padding-left:25px;
+}
+#quickstart {
+	width:1030px;
+}
+#your_structure {
+	padding:0 0 18px 0;
+}
+.instructions {font-size:12px; color: #666; font-weight:normal; font-style: italic;}
+s1{text-decoration: none; color: #545454; font-weight:bold; font-size: 12px; padding-right: 10px;}
+s1:hover{ cursor:pointer}
+.s0{color: #545454; font-weight:bold; font-size: 16px;}
+.s2{color: #545454; font-weight:bold;font-size:12px; padding-left:15px;}
+.s3{color: #545454; font-size:12px}
+a.portallink{text-decoration:none;background-color:#F9D052;padding: 0 2px; color:black;border: 2px outset #CC9;line-height:18px;font-size:10px;}
+a:hover.portallink{color: #CF0C14;}
+.grT{color:gray}
+.funcButton{border:outset 2px;background-color:#F9D052;border-color:black;font-family:Arial;font-size:12px;color:black;font-weight:bold;}
+.funcButton:hover {border:outset 2px;background-color:#FF9;border-color:black;font-family:Arial;font-size:12px;color:#CF0C14;font-weight:bold;}
+.utButton{border:outset 2px;background-color:#f9f9d4;border-color:#CC9;font-family:Arial;font-size:12px;color:black;font-weight:bold}
+.utButton:hover{color:#CF0C14;}
+.popupLink { color: red; outline: none }
+.Loadingpopup {
+	position: absolute; visibility: hidden; left: 5px; top: 90px; font-family:Arial; font-size: 24px;
+	background-color: #ADD8E6; /* =lightblue */
+	width: 100%; height:2000px;
+	border: solid black 1px 3px 3px 1px;
+	padding: 3px; z-index: 10;
+}
+.warning{
+	background:red;
+	color:yellow;
+	font-size:14px;
+	padding:5px;
+}
+.success{background:#008000 /* =darkgreen */;color:white;font-size:14px; padding:10px;}
+.fieldspace{padding:10px 0;}
+
+.navlink {
+	/*border:1px solid #CCC;*/
+	padding:4px 8px;
+	white-space:nowrap;
+	background: white;
+	width:98%;
+}
+
+.navlink a:link, .navlink a:visited {
+	cursor: pointer;
+	color: #C45601; /* was: #238F79;*/
+	text-decoration:none;
+	font-family:Arial;
+	font-size:13px;
+	margin:0 8px;
+	padding:2px 4px;
+	white-space:nowrap;
+	line-height:1.5em;
+
+}
+
+.navlink a:hover {
+font-weight:normal; color: yellow; background: #08508E; padding:5px 4px 6px 4px; border: none;
+}
+
+.navlink li a:hover {/*The GDB dropdown superfish menu items*/
+font-weight:normal; color: yellow; background: #08508E; padding:2px 0 2px 12px; margin: 0; border: none;
+}
+
+ul.gdb_menu li { /*superfish dropdown menu*/
+background:white;
+margin:0;
+width:88px;
+}
+
+.citation {
+	font-size:11px;
+	line-height:15px;
+}
+
+.button-like { /*reverse colors for link to make it stand out*/
+background:#238F79;
+color: white;
+font-weight:bold;
+text-decoration:none;
+padding:0 2px 0 2px;
+line-height:1.5em;
+}
+
+/*.button-like:hover {
+background:#F3FF8F;
+color: #CF0C14;
+padding:0 2px 0 2px;
+border:1px solid #CF0C14;
+}*/
+
+*:target { /* See /css/plantgdb.css implementation. */
+	background: #FEFEFE;/* #DDD; */
+	border: 2px solid black;
+	padding: 2px;
+}
+
+#loginfrm label {display: block; width: 100px;}
+.fieldpadd{font-size: 12px;} /* position:absolute; left: 150px; */
+
+/* general headers */
+.myLink a {background:white; color:#238F79; text-decoration:underline;}
+.myLink a:hover {background:#FEFFBF; cursor:pointer;}
+.mainT {
+	font-family:Arial;
+	font-size:12px;
+	margin:30px 0 0 30px;
+	border-collapse:collapse;
+	text-align:left;
+	background:#80D9F7; /* blue */
+	width:95%;
+}
+.mainT td {
+ white-space: nowrap; 
+}
+
+.maintT th {
+	cursor:pointer;
+}
+
+.mainT.community { /*set by variable from yrGATE_functions*/
+	background: white;
+}
+
+.mainT.user { /*set by variable passed to yrGATE_function.pl*/
+	background: #80D9F7;
+}
+
+
+tr.headRow th {
+ white-space: wrap; 
+}
+
+tr.recordRow td {
+padding: 10px 5px;
+text-align:center;
+}
+
+.mainT td, .mainT th {
+	padding:3px 6px;
+	border:1px solid #AAA
+}
+
+.mainT td a, .mainT td a:visited {
+text-decoration:none;
+}
+
+.mainT tr.highlight, .mainT tr.highlight b { /* for table class striped*/
+background: #FEFFBF !important;
+}
+
+.reject_txt {
+background-color:#FFCFDB; /* red */
+color:#DF2940;
+}
+.annofeature {
+
+font-size:12px;
+line-height:1.4em;
+padding:1em 0;
+text-align:left;
+}
+.admin {
+	background: none; /*admin table light yellow*/
+}
+.checked_row {font-size:11px;background-color: #FFFFE0; /* =lightyellow */}
+.headRow {background:none repeat scroll 0 0 #175A7F;font-size:12px; padding:4px;}
+.headRow th, .headRow th a {color:white; font-weight:bold; text-decoration:none; background:#175A7F}
+.headRow th {padding: 6px; text-align:center}
+.headRow th a:hover {color:yellow; background:none}
+.catRow {font-family:Arial;font-size:13px;font-weight:normal; padding: 0 10px; background-color: #CF5AA3;}
+
+.catRow td#ACCEPTED {
+	background:#1FE5A9;
+}
+.catRow td#REJECTED {
+	background:#EB5678;
+}
+.catRow td#SAVED {
+	background:#2CBCEF;
+}
+.catRow td#SUBMITTED_FOR_REVIEW {
+	background:#DF9829;
+}
+span.ACCEPTED {
+	color:#00CF7D;
+}
+span.REJECTED {
+	color:#DF2941;
+}
+span.SAVED {
+	color:#1FD1E5;
+}
+span.SUBMITTED_FOR_REVIEW {
+	color:#DF9829;
+}
+span.NEW_ANNOTATION_NOT_SAVED {
+	color:red;
+}
+
+tr.SUBMITTED_FOR_REVIEW.recent_anno, tr.SUBMITTED_FOR_REVIEW.recent_anno b{
+	font-weight:bold;
+	background:#FFD493;/*lighter orange*/
+}
+tr.ACCEPTED.recent_anno, tr.ACCEPTED.recent_anno b{
+	font-weight:bold;
+	background:#8CFFDC; /*lighter green*/
+}
+tr.REJECTED.recent_anno, tr.REJECTED.recent_anno b{
+	font-weight:bold;
+	background:#FFB7C8;/*lighter red*/
+}
+tr.SAVED.recent_anno, tr.SAVED.recent_anno b{
+	font-weight:bold;
+	background:#99E5FF;/*lighter blue*/
+}
+
+tr.SUBMITTED_FOR_REVIEW.old_anno, tr.SUBMITTED_FOR_REVIEW.old_anno b{
+	font-weight:bold;
+	background:#FFE1B5;/*even lighter orange*/
+}
+tr.ACCEPTED.old_anno, tr.ACCEPTED.old_anno b{
+	font-weight:bold;
+	background:#BFFFEA; /*even lighter green*/
+}
+tr.REJECTED.old_anno, tr.REJECTED.old_anno b{
+	font-weight:bold;
+	background:#FCD9E1;/*even lighter red*/
+
+}
+tr.SAVED.old_anno, tr.SAVED.old_anno b{
+	font-weight:bold;
+	background:#D3F4FF;/*even lighter blue*/
+
+}
+
+
+.catRow td {color:white; text-align:left;}
+.userlog td {
+	border-width:0;
+	font-size:12px;
+}
+.button {
+	height:16px;
+	width:16px;
+	text-align:center;
+	background:#DCDCDC;
+	border:2px outset gray;
+}
+
+/*added for jquery ui dialog functions -Jduvick */
+
+#image_dialog { /*this id is used by jquery-ui dialog to create an image window */
+	background-color:#999;
+}
+
+#image_bckgd img {
+	padding:5px;
+	width:100%;
+	height:100%;
+}
+
+a.help_link /* Image icon for links to help pages and images called by jquery-ui dialog. Synchronize with plantgdb.css and Chr_GDBstyle.css, GDBstyle.css*/
+{
+	background-image:url('/XGDB/images/help-icon.png');
+	background-repeat:no-repeat;
+	color: #238F79;
+	/*background-position:0;*/
+	padding: 2px 0 2px 18px;
+	text-decoration: none;
+}
+
+a.help_link:hover {
+	background: #F3FF8F; /*#F3FF8F; /*light yellow*/
+	background-image:url('/XGDB/images/help-icon_hover.png');
+	background-repeat:no-repeat;
+	color: #CF0C14;/*dark red*/
+	text-decoration:none;
+}
+
+
+img.xgdb-help-button { /* the "?" button that opens either a normal- or small-sized div for dialog jquery ui*/
+	margin-bottom: -4px;
+}
+
+.annotation_form {
+background-color:white;
+padding:10px;
+margin-top:5em;
+}
+
+.center {
+	text-align: center;
+}
+
+/* BEGIN COPIED STRAIGHT FROM plantgdb.css */
+	#footer {
+		float:left;
+		width:100%;
+		margin: 0;
+		padding-bottom: 1em;
+		background: #35bae0;
+		text-align: center;
+	}
+
+	#footer ul {
+		width: 75em; /* adjust to total width of footer text; otherwise it won't center correctly */
+		margin-right:auto;
+		margin-left:auto;
+	}
+	
+	#footer ul, #header ul, #userlogin ul {
+		list-style-image:none;
+		list-style-position:outside;
+		list-style-type:none;
+		margin-top:10px;
+	}
+	
+	#footer li.last, #header li.last, #userlogin li.last {
+		border-right:none;
+	}
+		
+	#footer li {
+		border-right:1px solid #BBB;
+		display:inline;
+		padding-left:0.5em;
+		padding-right:1.0em;
+		font-size:12px;
+		white-space:nowrap;
+	}
+	
+	
+	#footer p, #header p, #userlogin p {
+		color: #E0EFE8;
+		font-size:0.9em;
+		margin-left:2em;
+	}
+	#footer a, #header a, #userlogin a {
+		color: white; 
+		text-decoration:none;
+	}
+	.topmargin1 {
+		margin-top: 1em;
+	}
+	/*.topmargin2 {
+		margin-top: 2em;
+	}*/
+	.bottommargin1 {
+		margin-bottom: 1em;
+	}
+

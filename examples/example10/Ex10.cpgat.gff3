@@ -1,0 +1,669 @@
+##gff-version 3
+# CpGAT 0.9.9 (2011-09-16)
+# Date run: 2014-08-18 18:46:21
+# Arguments: -o /xGDBvm/data/scratch/GDB005/data/CpGAT -i /xGDBvm/data/scratch/GDB005/data/CpGAT/SCFDIR/scaff_28153.fsa -trans /xGDBvm/data/scratch/GDB005/data/CpGAT/scaff_28153.mRNAgth.tab -prot /xGDBvm/data/scratch/GDB005/data/CpGAT/scaff_28153.protgth.tab -refprotdb /xGDBvm/data/scratch/GDB005/data/CpGAT/BLASTDIR/cegma_core.fa -nomask T -bgf Arabidopsis -augustus arabidopsis -genemark a_thaliana -nogth T -config_file /xGDBvm/src/CpGAT/CpGAT.conf
+#=============================================================================================================
+
+scaff_28153	CpGAT	gene	8730	9707	.	+	.	ID=scaff_28153.g1
+scaff_28153	CpGAT	mRNA	8730	9707	.	+	.	ID=scaff_28153.g1.t1;Parent=scaff_28153.g1;Note=ab initio model
+scaff_28153	CpGAT	exon	8730	9707	.	+	.	ID=scaff_28153.g1.t1.e1;Parent=scaff_28153.g1.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	8730	9707	.	+	0	ID=scaff_28153.g1.t1.cds1;Parent=scaff_28153.g1.t1
+scaff_28153	CpGAT	gene	13172	14756	.	-	.	ID=scaff_28153.g2
+scaff_28153	CpGAT	mRNA	13172	14756	.	-	.	ID=scaff_28153.g2.t1;Parent=scaff_28153.g2;Note=ab initio model
+scaff_28153	CpGAT	exon	13743	14756	.	-	.	ID=scaff_28153.g2.t1.e1;Parent=scaff_28153.g2.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	13287	13574	.	-	.	ID=scaff_28153.g2.t1.e2;Parent=scaff_28153.g2.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	13172	13189	.	-	.	ID=scaff_28153.g2.t1.e3;Parent=scaff_28153.g2.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	13743	14756	.	-	0	ID=scaff_28153.g2.t1.cds1;Parent=scaff_28153.g2.t1
+scaff_28153	CpGAT	CDS	13287	13574	.	-	0	ID=scaff_28153.g2.t1.cds2;Parent=scaff_28153.g2.t1
+scaff_28153	CpGAT	CDS	13172	13189	.	-	0	ID=scaff_28153.g2.t1.cds3;Parent=scaff_28153.g2.t1
+scaff_28153	CpGAT	gene	15010	16053	.	-	.	ID=scaff_28153.g3
+scaff_28153	CpGAT	mRNA	15010	16053	.	-	.	ID=scaff_28153.g3.t1;Parent=scaff_28153.g3;Note=ab initio model
+scaff_28153	CpGAT	exon	15834	16053	.	-	.	ID=scaff_28153.g3.t1.e1;Parent=scaff_28153.g3.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	15618	15761	.	-	.	ID=scaff_28153.g3.t1.e2;Parent=scaff_28153.g3.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	15192	15340	.	-	.	ID=scaff_28153.g3.t1.e3;Parent=scaff_28153.g3.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	15010	15018	.	-	.	ID=scaff_28153.g3.t1.e4;Parent=scaff_28153.g3.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	15834	16053	.	-	0	ID=scaff_28153.g3.t1.cds1;Parent=scaff_28153.g3.t1
+scaff_28153	CpGAT	CDS	15618	15761	.	-	2	ID=scaff_28153.g3.t1.cds2;Parent=scaff_28153.g3.t1
+scaff_28153	CpGAT	CDS	15192	15340	.	-	2	ID=scaff_28153.g3.t1.cds3;Parent=scaff_28153.g3.t1
+scaff_28153	CpGAT	CDS	15010	15018	.	-	0	ID=scaff_28153.g3.t1.cds4;Parent=scaff_28153.g3.t1
+scaff_28153	CpGAT	gene	17307	18476	.	-	.	ID=scaff_28153.g4
+scaff_28153	CpGAT	mRNA	17307	18476	.	-	.	ID=scaff_28153.g4.t1;Parent=scaff_28153.g4;Note=ab initio model
+scaff_28153	CpGAT	exon	17307	18476	.	-	.	ID=scaff_28153.g4.t1.e1;Parent=scaff_28153.g4.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	17307	18476	.	-	0	ID=scaff_28153.g4.t1.cds1;Parent=scaff_28153.g4.t1
+scaff_28153	CpGAT	gene	23831	24262	.	-	.	ID=scaff_28153.g5
+scaff_28153	CpGAT	mRNA	23831	24262	.	-	.	ID=scaff_28153.g5.t1;Parent=scaff_28153.g5;Note=ab initio model
+scaff_28153	CpGAT	exon	23831	24262	.	-	.	ID=scaff_28153.g5.t1.e1;Parent=scaff_28153.g5.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	23831	24262	.	-	0	ID=scaff_28153.g5.t1.cds1;Parent=scaff_28153.g5.t1
+scaff_28153	CpGAT	gene	25865	26596	.	-	.	ID=scaff_28153.g6
+scaff_28153	CpGAT	mRNA	25865	26596	.	-	.	ID=scaff_28153.g6.t1;Parent=scaff_28153.g6;Note=ab initio model
+scaff_28153	CpGAT	exon	25865	26596	.	-	.	ID=scaff_28153.g6.t1.e1;Parent=scaff_28153.g6.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	25865	26596	.	-	0	ID=scaff_28153.g6.t1.cds1;Parent=scaff_28153.g6.t1
+scaff_28153	CpGAT	gene	27588	28793	.	-	.	ID=scaff_28153.g7
+scaff_28153	CpGAT	mRNA	27588	28793	.	-	.	ID=scaff_28153.g7.t1;Parent=scaff_28153.g7;Note=Evidence from spliced alignment: fully supported by transcript: pasa assembly_2(PUT-163a-Ricinus-communis-8201,111143271,111155618,...)
+scaff_28153	CpGAT	exon	27588	28793	.	-	.	ID=scaff_28153.g7.t1.e1;Parent=scaff_28153.g7.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	27864	28793	.	-	0	ID=scaff_28153.g7.t1.cds1;Parent=scaff_28153.g7.t1
+scaff_28153	CpGAT	gene	30742	31492	.	-	.	ID=scaff_28153.g8
+scaff_28153	CpGAT	mRNA	30742	31492	.	-	.	ID=scaff_28153.g8.t1;Parent=scaff_28153.g8;Note=ab initio model
+scaff_28153	CpGAT	exon	31023	31492	.	-	.	ID=scaff_28153.g8.t1.e1;Parent=scaff_28153.g8.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	30742	30967	.	-	.	ID=scaff_28153.g8.t1.e2;Parent=scaff_28153.g8.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	31023	31492	.	-	0	ID=scaff_28153.g8.t1.cds1;Parent=scaff_28153.g8.t1
+scaff_28153	CpGAT	CDS	30742	30967	.	-	1	ID=scaff_28153.g8.t1.cds2;Parent=scaff_28153.g8.t1
+scaff_28153	CpGAT	gene	32428	32775	.	+	.	ID=scaff_28153.g9
+scaff_28153	CpGAT	mRNA	32428	32775	.	+	.	ID=scaff_28153.g9.t1;Parent=scaff_28153.g9;Note=ab initio model
+scaff_28153	CpGAT	exon	32428	32775	.	+	.	ID=scaff_28153.g9.t1.e1;Parent=scaff_28153.g9.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	32428	32775	.	+	0	ID=scaff_28153.g9.t1.cds1;Parent=scaff_28153.g9.t1
+scaff_28153	CpGAT	gene	34654	39166	.	+	.	ID=scaff_28153.g10
+scaff_28153	CpGAT	mRNA	34654	39166	.	+	.	ID=scaff_28153.g10.t1;Parent=scaff_28153.g10;Note=Evidence from spliced alignment: fully supported by transcript: pasa assembly_0(PUT-163a-Ricinus-communis-2612859,PUT-163a-Ricinus-communis-2612858,117335957,...)
+scaff_28153	CpGAT	exon	34654	34994	.	+	.	ID=scaff_28153.g10.t1.e1;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117359163
+scaff_28153	CpGAT	exon	35096	35172	.	+	.	ID=scaff_28153.g10.t1.e2;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117335957, 117348853, PUT-163a-Ricinus-communis-2612858
+scaff_28153	CpGAT	exon	35273	35356	.	+	.	ID=scaff_28153.g10.t1.e3;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117335957, 117348853, PUT-163a-Ricinus-communis-2612858
+scaff_28153	CpGAT	exon	35449	35562	.	+	.	ID=scaff_28153.g10.t1.e4;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117335957, 117348853, PUT-163a-Ricinus-communis-2612858
+scaff_28153	CpGAT	exon	35748	35831	.	+	.	ID=scaff_28153.g10.t1.e5;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117335957, PUT-163a-Ricinus-communis-2612858
+scaff_28153	CpGAT	exon	35934	36005	.	+	.	ID=scaff_28153.g10.t1.e6;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117335957, PUT-163a-Ricinus-communis-2612858
+scaff_28153	CpGAT	exon	36477	36544	.	+	.	ID=scaff_28153.g10.t1.e7;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117335957, PUT-163a-Ricinus-communis-2612858
+scaff_28153	CpGAT	exon	37103	37190	.	+	.	ID=scaff_28153.g10.t1.e8;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117335957, PUT-163a-Ricinus-communis-2612858
+scaff_28153	CpGAT	exon	37303	37376	.	+	.	ID=scaff_28153.g10.t1.e9;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117353680, PUT-163a-Ricinus-communis-2612859
+scaff_28153	CpGAT	exon	37468	37822	.	+	.	ID=scaff_28153.g10.t1.e10;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117335956, 117353680, PUT-163a-Ricinus-communis-2612859
+scaff_28153	CpGAT	exon	38008	38054	.	+	.	ID=scaff_28153.g10.t1.e11;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117348852, 117353680, PUT-163a-Ricinus-communis-2612859
+scaff_28153	CpGAT	exon	38155	38236	.	+	.	ID=scaff_28153.g10.t1.e12;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117348852, 117353680, PUT-163a-Ricinus-communis-2612859
+scaff_28153	CpGAT	exon	38679	39166	.	+	.	ID=scaff_28153.g10.t1.e13;Parent=scaff_28153.g10.t1;Note=Supported by spliced alignment: 117348852, PUT-163a-Ricinus-communis-2612859
+scaff_28153	CpGAT	CDS	34754	34994	.	+	0	ID=scaff_28153.g10.t1.cds1;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	CDS	35096	35172	.	+	2	ID=scaff_28153.g10.t1.cds2;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	CDS	35273	35356	.	+	0	ID=scaff_28153.g10.t1.cds3;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	CDS	35449	35562	.	+	0	ID=scaff_28153.g10.t1.cds4;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	CDS	35748	35831	.	+	0	ID=scaff_28153.g10.t1.cds5;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	CDS	35934	36005	.	+	0	ID=scaff_28153.g10.t1.cds6;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	CDS	36477	36544	.	+	0	ID=scaff_28153.g10.t1.cds7;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	CDS	37103	37190	.	+	1	ID=scaff_28153.g10.t1.cds8;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	CDS	37303	37376	.	+	0	ID=scaff_28153.g10.t1.cds9;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	CDS	37468	37822	.	+	1	ID=scaff_28153.g10.t1.cds10;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	CDS	38008	38054	.	+	0	ID=scaff_28153.g10.t1.cds11;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	CDS	38155	38236	.	+	1	ID=scaff_28153.g10.t1.cds12;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	CDS	38679	38726	.	+	0	ID=scaff_28153.g10.t1.cds13;Parent=scaff_28153.g10.t1
+scaff_28153	CpGAT	gene	41349	45415	.	+	.	ID=scaff_28153.g11
+scaff_28153	CpGAT	mRNA	41349	45415	.	+	.	ID=scaff_28153.g11.t1;Parent=scaff_28153.g11;Note=ab initio model
+scaff_28153	CpGAT	exon	41349	41396	.	+	.	ID=scaff_28153.g11.t1.e1;Parent=scaff_28153.g11.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	41594	41756	.	+	.	ID=scaff_28153.g11.t1.e2;Parent=scaff_28153.g11.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	41867	42660	.	+	.	ID=scaff_28153.g11.t1.e3;Parent=scaff_28153.g11.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	42929	43102	.	+	.	ID=scaff_28153.g11.t1.e4;Parent=scaff_28153.g11.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	43211	43327	.	+	.	ID=scaff_28153.g11.t1.e5;Parent=scaff_28153.g11.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	44154	44333	.	+	.	ID=scaff_28153.g11.t1.e6;Parent=scaff_28153.g11.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	44432	44478	.	+	.	ID=scaff_28153.g11.t1.e7;Parent=scaff_28153.g11.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	45073	45415	.	+	.	ID=scaff_28153.g11.t1.e8;Parent=scaff_28153.g11.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	41349	41396	.	+	0	ID=scaff_28153.g11.t1.cds1;Parent=scaff_28153.g11.t1
+scaff_28153	CpGAT	CDS	41594	41756	.	+	0	ID=scaff_28153.g11.t1.cds2;Parent=scaff_28153.g11.t1
+scaff_28153	CpGAT	CDS	41867	42660	.	+	2	ID=scaff_28153.g11.t1.cds3;Parent=scaff_28153.g11.t1
+scaff_28153	CpGAT	CDS	42929	43102	.	+	0	ID=scaff_28153.g11.t1.cds4;Parent=scaff_28153.g11.t1
+scaff_28153	CpGAT	CDS	43211	43327	.	+	0	ID=scaff_28153.g11.t1.cds5;Parent=scaff_28153.g11.t1
+scaff_28153	CpGAT	CDS	44154	44333	.	+	0	ID=scaff_28153.g11.t1.cds6;Parent=scaff_28153.g11.t1
+scaff_28153	CpGAT	CDS	44432	44478	.	+	0	ID=scaff_28153.g11.t1.cds7;Parent=scaff_28153.g11.t1
+scaff_28153	CpGAT	CDS	45073	45415	.	+	1	ID=scaff_28153.g11.t1.cds8;Parent=scaff_28153.g11.t1
+scaff_28153	CpGAT	gene	46876	48100	.	+	.	ID=scaff_28153.g12
+scaff_28153	CpGAT	mRNA	46876	48100	.	+	.	ID=scaff_28153.g12.t1;Parent=scaff_28153.g12;Note=Evidence from spliced alignment: fully supported by transcript: pasa assembly_3(PUT-163a-Ricinus-communis-9151,111142686,111155606,...), fully supported by protein: Medtr4g033160.1
+scaff_28153	CpGAT	exon	46876	47100	.	+	.	ID=scaff_28153.g12.t1.e1;Parent=scaff_28153.g12.t1;Note=Supported by spliced alignment: 111142686, PUT-163a-Ricinus-communis-9151
+scaff_28153	CpGAT	exon	47226	48100	.	+	.	ID=scaff_28153.g12.t1.e2;Parent=scaff_28153.g12.t1;Note=Supported by spliced alignment: Medtr4g033160.1
+scaff_28153	CpGAT	CDS	46905	47100	.	+	0	ID=scaff_28153.g12.t1.cds1;Parent=scaff_28153.g12.t1
+scaff_28153	CpGAT	CDS	47226	48100	.	+	2	ID=scaff_28153.g12.t1.cds2;Parent=scaff_28153.g12.t1
+scaff_28153	CpGAT	gene	51019	51365	.	-	.	ID=scaff_28153.g13
+scaff_28153	CpGAT	mRNA	51019	51365	.	-	.	ID=scaff_28153.g13.t1;Parent=scaff_28153.g13;Note=ab initio model
+scaff_28153	CpGAT	exon	51312	51365	.	-	.	ID=scaff_28153.g13.t1.e1;Parent=scaff_28153.g13.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	51019	51186	.	-	.	ID=scaff_28153.g13.t1.e2;Parent=scaff_28153.g13.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	51312	51365	.	-	0	ID=scaff_28153.g13.t1.cds1;Parent=scaff_28153.g13.t1
+scaff_28153	CpGAT	CDS	51019	51186	.	-	0	ID=scaff_28153.g13.t1.cds2;Parent=scaff_28153.g13.t1
+scaff_28153	CpGAT	gene	56671	63036	.	-	.	ID=scaff_28153.g14
+scaff_28153	CpGAT	mRNA	56671	63036	.	-	.	ID=scaff_28153.g14.t1;Parent=scaff_28153.g14;Note=Evidence from spliced alignment: partially supported by transcript: pasa assembly_4(117332771,PUT-163a-Ricinus-communis-12772,212279059,...) sn:sp 1:0.216594
+scaff_28153	CpGAT	exon	61004	63036	.	-	.	ID=scaff_28153.g14.t1.e1;Parent=scaff_28153.g14.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	60316	60778	.	-	.	ID=scaff_28153.g14.t1.e2;Parent=scaff_28153.g14.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	59509	59617	.	-	.	ID=scaff_28153.g14.t1.e3;Parent=scaff_28153.g14.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	59322	59434	.	-	.	ID=scaff_28153.g14.t1.e4;Parent=scaff_28153.g14.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	59044	59231	.	-	.	ID=scaff_28153.g14.t1.e5;Parent=scaff_28153.g14.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	58481	58955	.	-	.	ID=scaff_28153.g14.t1.e6;Parent=scaff_28153.g14.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	57946	58381	.	-	.	ID=scaff_28153.g14.t1.e7;Parent=scaff_28153.g14.t1;Note=Supported by spliced alignment: 117332771, 212279059, PUT-163a-Ricinus-communis-12772
+scaff_28153	CpGAT	exon	57654	57830	.	-	.	ID=scaff_28153.g14.t1.e8;Parent=scaff_28153.g14.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	57050	57126	.	-	.	ID=scaff_28153.g14.t1.e9;Parent=scaff_28153.g14.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	56671	56745	.	-	.	ID=scaff_28153.g14.t1.e10;Parent=scaff_28153.g14.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	61004	63036	.	-	0	ID=scaff_28153.g14.t1.cds1;Parent=scaff_28153.g14.t1
+scaff_28153	CpGAT	CDS	60316	60778	.	-	1	ID=scaff_28153.g14.t1.cds2;Parent=scaff_28153.g14.t1
+scaff_28153	CpGAT	CDS	59509	59617	.	-	0	ID=scaff_28153.g14.t1.cds3;Parent=scaff_28153.g14.t1
+scaff_28153	CpGAT	CDS	59322	59434	.	-	2	ID=scaff_28153.g14.t1.cds4;Parent=scaff_28153.g14.t1
+scaff_28153	CpGAT	CDS	59044	59231	.	-	0	ID=scaff_28153.g14.t1.cds5;Parent=scaff_28153.g14.t1
+scaff_28153	CpGAT	CDS	58481	58955	.	-	1	ID=scaff_28153.g14.t1.cds6;Parent=scaff_28153.g14.t1
+scaff_28153	CpGAT	CDS	57946	58381	.	-	0	ID=scaff_28153.g14.t1.cds7;Parent=scaff_28153.g14.t1
+scaff_28153	CpGAT	CDS	57654	57830	.	-	2	ID=scaff_28153.g14.t1.cds8;Parent=scaff_28153.g14.t1
+scaff_28153	CpGAT	CDS	57050	57126	.	-	2	ID=scaff_28153.g14.t1.cds9;Parent=scaff_28153.g14.t1
+scaff_28153	CpGAT	CDS	56671	56745	.	-	0	ID=scaff_28153.g14.t1.cds10;Parent=scaff_28153.g14.t1
+scaff_28153	CpGAT	gene	68248	68951	.	-	.	ID=scaff_28153.g15
+scaff_28153	CpGAT	mRNA	68248	68951	.	-	.	ID=scaff_28153.g15.t1;Parent=scaff_28153.g15;Note=ab initio model
+scaff_28153	CpGAT	exon	68826	68951	.	-	.	ID=scaff_28153.g15.t1.e1;Parent=scaff_28153.g15.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	68248	68328	.	-	.	ID=scaff_28153.g15.t1.e2;Parent=scaff_28153.g15.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	68826	68951	.	-	0	ID=scaff_28153.g15.t1.cds1;Parent=scaff_28153.g15.t1
+scaff_28153	CpGAT	CDS	68248	68328	.	-	0	ID=scaff_28153.g15.t1.cds2;Parent=scaff_28153.g15.t1
+scaff_28153	CpGAT	gene	73560	74399	.	+	.	ID=scaff_28153.g16
+scaff_28153	CpGAT	mRNA	73560	74399	.	+	.	ID=scaff_28153.g16.t1;Parent=scaff_28153.g16;Note=ab initio model
+scaff_28153	CpGAT	exon	73560	74399	.	+	.	ID=scaff_28153.g16.t1.e1;Parent=scaff_28153.g16.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	73560	74399	.	+	0	ID=scaff_28153.g16.t1.cds1;Parent=scaff_28153.g16.t1
+scaff_28153	CpGAT	gene	77327	84495	.	+	.	ID=scaff_28153.g17
+scaff_28153	CpGAT	mRNA	77327	84495	.	+	.	ID=scaff_28153.g17.t1;Parent=scaff_28153.g17;Note=ab initio model
+scaff_28153	CpGAT	exon	77327	77640	.	+	.	ID=scaff_28153.g17.t1.e1;Parent=scaff_28153.g17.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	78073	78222	.	+	.	ID=scaff_28153.g17.t1.e2;Parent=scaff_28153.g17.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	78793	78928	.	+	.	ID=scaff_28153.g17.t1.e3;Parent=scaff_28153.g17.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	79859	79960	.	+	.	ID=scaff_28153.g17.t1.e4;Parent=scaff_28153.g17.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	80197	80316	.	+	.	ID=scaff_28153.g17.t1.e5;Parent=scaff_28153.g17.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	80441	80521	.	+	.	ID=scaff_28153.g17.t1.e6;Parent=scaff_28153.g17.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	81430	81770	.	+	.	ID=scaff_28153.g17.t1.e7;Parent=scaff_28153.g17.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	82646	82891	.	+	.	ID=scaff_28153.g17.t1.e8;Parent=scaff_28153.g17.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	83139	83463	.	+	.	ID=scaff_28153.g17.t1.e9;Parent=scaff_28153.g17.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	83676	83909	.	+	.	ID=scaff_28153.g17.t1.e10;Parent=scaff_28153.g17.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	84274	84495	.	+	.	ID=scaff_28153.g17.t1.e11;Parent=scaff_28153.g17.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	77327	77640	.	+	0	ID=scaff_28153.g17.t1.cds1;Parent=scaff_28153.g17.t1
+scaff_28153	CpGAT	CDS	78073	78222	.	+	1	ID=scaff_28153.g17.t1.cds2;Parent=scaff_28153.g17.t1
+scaff_28153	CpGAT	CDS	78793	78928	.	+	1	ID=scaff_28153.g17.t1.cds3;Parent=scaff_28153.g17.t1
+scaff_28153	CpGAT	CDS	79859	79960	.	+	0	ID=scaff_28153.g17.t1.cds4;Parent=scaff_28153.g17.t1
+scaff_28153	CpGAT	CDS	80197	80316	.	+	0	ID=scaff_28153.g17.t1.cds5;Parent=scaff_28153.g17.t1
+scaff_28153	CpGAT	CDS	80441	80521	.	+	0	ID=scaff_28153.g17.t1.cds6;Parent=scaff_28153.g17.t1
+scaff_28153	CpGAT	CDS	81430	81770	.	+	0	ID=scaff_28153.g17.t1.cds7;Parent=scaff_28153.g17.t1
+scaff_28153	CpGAT	CDS	82646	82891	.	+	1	ID=scaff_28153.g17.t1.cds8;Parent=scaff_28153.g17.t1
+scaff_28153	CpGAT	CDS	83139	83463	.	+	1	ID=scaff_28153.g17.t1.cds9;Parent=scaff_28153.g17.t1
+scaff_28153	CpGAT	CDS	83676	83909	.	+	0	ID=scaff_28153.g17.t1.cds10;Parent=scaff_28153.g17.t1
+scaff_28153	CpGAT	CDS	84274	84495	.	+	0	ID=scaff_28153.g17.t1.cds11;Parent=scaff_28153.g17.t1
+scaff_28153	CpGAT	gene	86537	89155	.	+	.	ID=scaff_28153.g18
+scaff_28153	CpGAT	mRNA	86537	89155	.	+	.	ID=scaff_28153.g18.t1;Parent=scaff_28153.g18;Note=Evidence from spliced alignment: partially supported by transcript: pasa assembly_6(212281709) sn:sp 1:0.311951
+scaff_28153	CpGAT	exon	86537	89155	.	+	.	ID=scaff_28153.g18.t1.e1;Parent=scaff_28153.g18.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	86537	89155	.	+	0	ID=scaff_28153.g18.t1.cds1;Parent=scaff_28153.g18.t1
+scaff_28153	CpGAT	gene	90218	90752	.	-	.	ID=scaff_28153.g19
+scaff_28153	CpGAT	mRNA	90218	90752	.	-	.	ID=scaff_28153.g19.t1;Parent=scaff_28153.g19;Note=ab initio model
+scaff_28153	CpGAT	exon	90573	90752	.	-	.	ID=scaff_28153.g19.t1.e1;Parent=scaff_28153.g19.t1;Note=ab initio exon
+scaff_28153	CpGAT	exon	90218	90451	.	-	.	ID=scaff_28153.g19.t1.e2;Parent=scaff_28153.g19.t1;Note=ab initio exon
+scaff_28153	CpGAT	CDS	90573	90752	.	-	0	ID=scaff_28153.g19.t1.cds1;Parent=scaff_28153.g19.t1
+scaff_28153	CpGAT	CDS	90218	90451	.	-	0	ID=scaff_28153.g19.t1.cds2;Parent=scaff_28153.g19.t1
+##gff-version 3
+# CpGAT 0.9.9 (2011-09-16)
+# Date run: 2014-08-18 18:46:46
+# Arguments: -o /xGDBvm/data/scratch/GDB005/data/CpGAT -i /xGDBvm/data/scratch/GDB005/data/CpGAT/SCFDIR/scaff_29005.fsa -trans /xGDBvm/data/scratch/GDB005/data/CpGAT/scaff_29005.mRNAgth.tab -prot /xGDBvm/data/scratch/GDB005/data/CpGAT/scaff_29005.protgth.tab -refprotdb /xGDBvm/data/scratch/GDB005/data/CpGAT/BLASTDIR/cegma_core.fa -nomask T -bgf Arabidopsis -augustus arabidopsis -genemark a_thaliana -nogth T -config_file /xGDBvm/src/CpGAT/CpGAT.conf
+#=============================================================================================================
+
+scaff_29005	CpGAT	gene	229	772	.	-	.	ID=scaff_29005.g1
+scaff_29005	CpGAT	mRNA	229	772	.	-	.	ID=scaff_29005.g1.t1;Parent=scaff_29005.g1;Note=ab initio model
+scaff_29005	CpGAT	exon	628	772	.	-	.	ID=scaff_29005.g1.t1.e1;Parent=scaff_29005.g1.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	229	483	.	-	.	ID=scaff_29005.g1.t1.e2;Parent=scaff_29005.g1.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	628	772	.	-	0	ID=scaff_29005.g1.t1.cds1;Parent=scaff_29005.g1.t1
+scaff_29005	CpGAT	CDS	229	483	.	-	2	ID=scaff_29005.g1.t1.cds2;Parent=scaff_29005.g1.t1
+scaff_29005	CpGAT	gene	12196	13848	.	+	.	ID=scaff_29005.g2
+scaff_29005	CpGAT	mRNA	12196	13848	.	+	.	ID=scaff_29005.g2.t1;Parent=scaff_29005.g2;Note=Evidence from spliced alignment: fully supported by transcript: pasa assembly_3(PUT-163a-Ricinus-communis-4074,117370398,117362681,...)
+scaff_29005	CpGAT	exon	12196	12341	.	+	.	ID=scaff_29005.g2.t1.e1;Parent=scaff_29005.g2.t1;Note=Supported by spliced alignment: 117370398, PUT-163a-Ricinus-communis-4074
+scaff_29005	CpGAT	exon	13147	13848	.	+	.	ID=scaff_29005.g2.t1.e2;Parent=scaff_29005.g2.t1;Note=Supported by spliced alignment: 117362681, PUT-163a-Ricinus-communis-4074
+scaff_29005	CpGAT	CDS	12288	12341	.	+	0	ID=scaff_29005.g2.t1.cds1;Parent=scaff_29005.g2.t1
+scaff_29005	CpGAT	CDS	13147	13593	.	+	0	ID=scaff_29005.g2.t1.cds2;Parent=scaff_29005.g2.t1
+scaff_29005	CpGAT	gene	15868	17150	.	-	.	ID=scaff_29005.g3
+scaff_29005	CpGAT	mRNA	15868	17150	.	-	.	ID=scaff_29005.g3.t1;Parent=scaff_29005.g3;Note=ab initio model
+scaff_29005	CpGAT	exon	17133	17150	.	-	.	ID=scaff_29005.g3.t1.e1;Parent=scaff_29005.g3.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	16608	16817	.	-	.	ID=scaff_29005.g3.t1.e2;Parent=scaff_29005.g3.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	15868	16122	.	-	.	ID=scaff_29005.g3.t1.e3;Parent=scaff_29005.g3.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	17133	17150	.	-	0	ID=scaff_29005.g3.t1.cds1;Parent=scaff_29005.g3.t1
+scaff_29005	CpGAT	CDS	16608	16817	.	-	0	ID=scaff_29005.g3.t1.cds2;Parent=scaff_29005.g3.t1
+scaff_29005	CpGAT	CDS	15868	16122	.	-	0	ID=scaff_29005.g3.t1.cds3;Parent=scaff_29005.g3.t1
+scaff_29005	CpGAT	gene	18299	22397	.	-	.	ID=scaff_29005.g4
+scaff_29005	CpGAT	mRNA	18299	22397	.	-	.	ID=scaff_29005.g4.t1;Parent=scaff_29005.g4;Note=ab initio model
+scaff_29005	CpGAT	exon	22383	22397	.	-	.	ID=scaff_29005.g4.t1.e1;Parent=scaff_29005.g4.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	22235	22284	.	-	.	ID=scaff_29005.g4.t1.e2;Parent=scaff_29005.g4.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	21435	22163	.	-	.	ID=scaff_29005.g4.t1.e3;Parent=scaff_29005.g4.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	20338	20634	.	-	.	ID=scaff_29005.g4.t1.e4;Parent=scaff_29005.g4.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	19209	19587	.	-	.	ID=scaff_29005.g4.t1.e5;Parent=scaff_29005.g4.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	18934	19128	.	-	.	ID=scaff_29005.g4.t1.e6;Parent=scaff_29005.g4.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	18626	18778	.	-	.	ID=scaff_29005.g4.t1.e7;Parent=scaff_29005.g4.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	18299	18325	.	-	.	ID=scaff_29005.g4.t1.e8;Parent=scaff_29005.g4.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	22383	22397	.	-	0	ID=scaff_29005.g4.t1.cds1;Parent=scaff_29005.g4.t1
+scaff_29005	CpGAT	CDS	22235	22284	.	-	0	ID=scaff_29005.g4.t1.cds2;Parent=scaff_29005.g4.t1
+scaff_29005	CpGAT	CDS	21435	22163	.	-	1	ID=scaff_29005.g4.t1.cds3;Parent=scaff_29005.g4.t1
+scaff_29005	CpGAT	CDS	20338	20634	.	-	1	ID=scaff_29005.g4.t1.cds4;Parent=scaff_29005.g4.t1
+scaff_29005	CpGAT	CDS	19209	19587	.	-	1	ID=scaff_29005.g4.t1.cds5;Parent=scaff_29005.g4.t1
+scaff_29005	CpGAT	CDS	18934	19128	.	-	0	ID=scaff_29005.g4.t1.cds6;Parent=scaff_29005.g4.t1
+scaff_29005	CpGAT	CDS	18626	18778	.	-	0	ID=scaff_29005.g4.t1.cds7;Parent=scaff_29005.g4.t1
+scaff_29005	CpGAT	CDS	18299	18325	.	-	0	ID=scaff_29005.g4.t1.cds8;Parent=scaff_29005.g4.t1
+scaff_29005	CpGAT	gene	28947	30567	.	-	.	ID=scaff_29005.g5
+scaff_29005	CpGAT	mRNA	28947	30567	.	-	.	ID=scaff_29005.g5.t1;Parent=scaff_29005.g5;Note=ab initio model
+scaff_29005	CpGAT	exon	30543	30567	.	-	.	ID=scaff_29005.g5.t1.e1;Parent=scaff_29005.g5.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	30030	30388	.	-	.	ID=scaff_29005.g5.t1.e2;Parent=scaff_29005.g5.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	29847	29939	.	-	.	ID=scaff_29005.g5.t1.e3;Parent=scaff_29005.g5.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	29164	29256	.	-	.	ID=scaff_29005.g5.t1.e4;Parent=scaff_29005.g5.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	28947	29060	.	-	.	ID=scaff_29005.g5.t1.e5;Parent=scaff_29005.g5.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	30543	30567	.	-	0	ID=scaff_29005.g5.t1.cds1;Parent=scaff_29005.g5.t1
+scaff_29005	CpGAT	CDS	30030	30388	.	-	2	ID=scaff_29005.g5.t1.cds2;Parent=scaff_29005.g5.t1
+scaff_29005	CpGAT	CDS	29847	29939	.	-	0	ID=scaff_29005.g5.t1.cds3;Parent=scaff_29005.g5.t1
+scaff_29005	CpGAT	CDS	29164	29256	.	-	0	ID=scaff_29005.g5.t1.cds4;Parent=scaff_29005.g5.t1
+scaff_29005	CpGAT	CDS	28947	29060	.	-	0	ID=scaff_29005.g5.t1.cds5;Parent=scaff_29005.g5.t1
+scaff_29005	CpGAT	gene	32844	33495	.	+	.	ID=scaff_29005.g6
+scaff_29005	CpGAT	mRNA	32844	33495	.	+	.	ID=scaff_29005.g6.t1;Parent=scaff_29005.g6;Note=ab initio model
+scaff_29005	CpGAT	exon	32844	33287	.	+	.	ID=scaff_29005.g6.t1.e1;Parent=scaff_29005.g6.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	33400	33495	.	+	.	ID=scaff_29005.g6.t1.e2;Parent=scaff_29005.g6.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	32844	33287	.	+	0	ID=scaff_29005.g6.t1.cds1;Parent=scaff_29005.g6.t1
+scaff_29005	CpGAT	CDS	33400	33495	.	+	0	ID=scaff_29005.g6.t1.cds2;Parent=scaff_29005.g6.t1
+scaff_29005	CpGAT	gene	33741	47766	.	-	.	ID=scaff_29005.g7
+scaff_29005	CpGAT	mRNA	33741	47766	.	-	.	ID=scaff_29005.g7.t1;Parent=scaff_29005.g7;Note=Evidence from spliced alignment: fully supported by transcript: pasa assembly_2(PUT-163a-Ricinus-communis-2932,94449065,117328074,...)
+scaff_29005	CpGAT	exon	47442	47766	.	-	.	ID=scaff_29005.g7.t1.e1;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 117328074, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	47015	47120	.	-	.	ID=scaff_29005.g7.t1.e2;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 117328074, 94449065, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	46690	46747	.	-	.	ID=scaff_29005.g7.t1.e3;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 117328074, 94449065, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	46575	46592	.	-	.	ID=scaff_29005.g7.t1.e4;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 117328074, 94449065, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	41402	41732	.	-	.	ID=scaff_29005.g7.t1.e5;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 117328074, 94449065, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	40668	40774	.	-	.	ID=scaff_29005.g7.t1.e6;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 94449065, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	40493	40556	.	-	.	ID=scaff_29005.g7.t1.e7;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 94449065, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	38297	38375	.	-	.	ID=scaff_29005.g7.t1.e8;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 94449065, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	38029	38069	.	-	.	ID=scaff_29005.g7.t1.e9;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 94449065, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	37527	37572	.	-	.	ID=scaff_29005.g7.t1.e10;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 117348821, 94449065, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	35123	35217	.	-	.	ID=scaff_29005.g7.t1.e11;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 117348821, 94449065, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	34527	34630	.	-	.	ID=scaff_29005.g7.t1.e12;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 117348821, 94449065, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	34403	34450	.	-	.	ID=scaff_29005.g7.t1.e13;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 117348821, 94449065, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	exon	33741	34165	.	-	.	ID=scaff_29005.g7.t1.e14;Parent=scaff_29005.g7.t1;Note=Supported by spliced alignment: 117348821, PUT-163a-Ricinus-communis-2932
+scaff_29005	CpGAT	CDS	47442	47688	.	-	0	ID=scaff_29005.g7.t1.cds1;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	47015	47120	.	-	2	ID=scaff_29005.g7.t1.cds2;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	46690	46747	.	-	1	ID=scaff_29005.g7.t1.cds3;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	46575	46592	.	-	0	ID=scaff_29005.g7.t1.cds4;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	41402	41732	.	-	0	ID=scaff_29005.g7.t1.cds5;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	40668	40774	.	-	2	ID=scaff_29005.g7.t1.cds6;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	40493	40556	.	-	0	ID=scaff_29005.g7.t1.cds7;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	38297	38375	.	-	2	ID=scaff_29005.g7.t1.cds8;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	38029	38069	.	-	1	ID=scaff_29005.g7.t1.cds9;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	37527	37572	.	-	2	ID=scaff_29005.g7.t1.cds10;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	35123	35217	.	-	1	ID=scaff_29005.g7.t1.cds11;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	34527	34630	.	-	2	ID=scaff_29005.g7.t1.cds12;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	34403	34450	.	-	0	ID=scaff_29005.g7.t1.cds13;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	CDS	34112	34165	.	-	0	ID=scaff_29005.g7.t1.cds14;Parent=scaff_29005.g7.t1
+scaff_29005	CpGAT	gene	52548	56896	.	+	.	ID=scaff_29005.g8
+scaff_29005	CpGAT	mRNA	52548	56896	.	+	.	ID=scaff_29005.g8.t1;Parent=scaff_29005.g8;Note=Evidence from spliced alignment: partially supported by transcript: PUT-163a-Ricinus-communis-7512867 sn:sp 0.802985:0.974638
+scaff_29005	CpGAT	exon	52548	52760	.	+	.	ID=scaff_29005.g8.t1.e1;Parent=scaff_29005.g8.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	53666	53809	.	+	.	ID=scaff_29005.g8.t1.e2;Parent=scaff_29005.g8.t1;Note=Supported by spliced alignment: 117336219, 117336220, 117344412
+scaff_29005	CpGAT	exon	53893	53961	.	+	.	ID=scaff_29005.g8.t1.e3;Parent=scaff_29005.g8.t1;Note=Supported by spliced alignment: 117336219, 117336220, 117337193
+scaff_29005	CpGAT	exon	55614	55801	.	+	.	ID=scaff_29005.g8.t1.e4;Parent=scaff_29005.g8.t1;Note=Supported by spliced alignment: 117336219, 117337193, 117344412
+scaff_29005	CpGAT	exon	56341	56391	.	+	.	ID=scaff_29005.g8.t1.e5;Parent=scaff_29005.g8.t1;Note=Supported by spliced alignment: 117336219, 117337193, 117344412
+scaff_29005	CpGAT	exon	56734	56896	.	+	.	ID=scaff_29005.g8.t1.e6;Parent=scaff_29005.g8.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	52548	52760	.	+	0	ID=scaff_29005.g8.t1.cds1;Parent=scaff_29005.g8.t1
+scaff_29005	CpGAT	CDS	53666	53809	.	+	0	ID=scaff_29005.g8.t1.cds2;Parent=scaff_29005.g8.t1
+scaff_29005	CpGAT	CDS	53893	53961	.	+	0	ID=scaff_29005.g8.t1.cds3;Parent=scaff_29005.g8.t1
+scaff_29005	CpGAT	CDS	55614	55801	.	+	0	ID=scaff_29005.g8.t1.cds4;Parent=scaff_29005.g8.t1
+scaff_29005	CpGAT	CDS	56341	56391	.	+	1	ID=scaff_29005.g8.t1.cds5;Parent=scaff_29005.g8.t1
+scaff_29005	CpGAT	CDS	56734	56896	.	+	1	ID=scaff_29005.g8.t1.cds6;Parent=scaff_29005.g8.t1
+scaff_29005	CpGAT	gene	58468	58875	.	-	.	ID=scaff_29005.g9
+scaff_29005	CpGAT	mRNA	58468	58875	.	-	.	ID=scaff_29005.g9.t1;Parent=scaff_29005.g9;Note=ab initio model
+scaff_29005	CpGAT	exon	58468	58875	.	-	.	ID=scaff_29005.g9.t1.e1;Parent=scaff_29005.g9.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	58468	58875	.	-	0	ID=scaff_29005.g9.t1.cds1;Parent=scaff_29005.g9.t1
+scaff_29005	CpGAT	gene	62039	62975	.	-	.	ID=scaff_29005.g10
+scaff_29005	CpGAT	mRNA	62039	62975	.	-	.	ID=scaff_29005.g10.t1;Parent=scaff_29005.g10;Note=ab initio model
+scaff_29005	CpGAT	exon	62289	62975	.	-	.	ID=scaff_29005.g10.t1.e1;Parent=scaff_29005.g10.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	62039	62068	.	-	.	ID=scaff_29005.g10.t1.e2;Parent=scaff_29005.g10.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	62289	62975	.	-	0	ID=scaff_29005.g10.t1.cds1;Parent=scaff_29005.g10.t1
+scaff_29005	CpGAT	CDS	62039	62068	.	-	0	ID=scaff_29005.g10.t1.cds2;Parent=scaff_29005.g10.t1
+scaff_29005	CpGAT	gene	68360	69980	.	+	.	ID=scaff_29005.g11
+scaff_29005	CpGAT	mRNA	68360	69980	.	+	.	ID=scaff_29005.g11.t1;Parent=scaff_29005.g11;Note=ab initio model
+scaff_29005	CpGAT	exon	68360	68612	.	+	.	ID=scaff_29005.g11.t1.e1;Parent=scaff_29005.g11.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	68735	68862	.	+	.	ID=scaff_29005.g11.t1.e2;Parent=scaff_29005.g11.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	68979	69105	.	+	.	ID=scaff_29005.g11.t1.e3;Parent=scaff_29005.g11.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	69194	69306	.	+	.	ID=scaff_29005.g11.t1.e4;Parent=scaff_29005.g11.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	69389	69638	.	+	.	ID=scaff_29005.g11.t1.e5;Parent=scaff_29005.g11.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	69745	69980	.	+	.	ID=scaff_29005.g11.t1.e6;Parent=scaff_29005.g11.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	68360	68612	.	+	0	ID=scaff_29005.g11.t1.cds1;Parent=scaff_29005.g11.t1
+scaff_29005	CpGAT	CDS	68735	68862	.	+	2	ID=scaff_29005.g11.t1.cds2;Parent=scaff_29005.g11.t1
+scaff_29005	CpGAT	CDS	68979	69105	.	+	0	ID=scaff_29005.g11.t1.cds3;Parent=scaff_29005.g11.t1
+scaff_29005	CpGAT	CDS	69194	69306	.	+	2	ID=scaff_29005.g11.t1.cds4;Parent=scaff_29005.g11.t1
+scaff_29005	CpGAT	CDS	69389	69638	.	+	0	ID=scaff_29005.g11.t1.cds5;Parent=scaff_29005.g11.t1
+scaff_29005	CpGAT	CDS	69745	69980	.	+	2	ID=scaff_29005.g11.t1.cds6;Parent=scaff_29005.g11.t1
+scaff_29005	CpGAT	gene	73933	74316	.	+	.	ID=scaff_29005.g12
+scaff_29005	CpGAT	mRNA	73933	74316	.	+	.	ID=scaff_29005.g12.t1;Parent=scaff_29005.g12;Note=Evidence from spliced alignment: almost fully supported by transcript: 117368256 sn:sp 0.422311:1
+scaff_29005	CpGAT	exon	73933	73992	.	+	.	ID=scaff_29005.g12.t1.e1;Parent=scaff_29005.g12.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	74059	74316	.	+	.	ID=scaff_29005.g12.t1.e2;Parent=scaff_29005.g12.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	73933	73992	.	+	0	ID=scaff_29005.g12.t1.cds1;Parent=scaff_29005.g12.t1
+scaff_29005	CpGAT	CDS	74059	74316	.	+	0	ID=scaff_29005.g12.t1.cds2;Parent=scaff_29005.g12.t1
+scaff_29005	CpGAT	gene	82424	85908	.	-	.	ID=scaff_29005.g13
+scaff_29005	CpGAT	mRNA	82424	85908	.	-	.	ID=scaff_29005.g13.t1;Parent=scaff_29005.g13;Note=Evidence from spliced alignment: partially supported by transcript: pasa assembly_5(117333531,PUT-163a-Ricinus-communis-4151) sn:sp 1:0.510378
+scaff_29005	CpGAT	exon	85824	85908	.	-	.	ID=scaff_29005.g13.t1.e1;Parent=scaff_29005.g13.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	85605	85668	.	-	.	ID=scaff_29005.g13.t1.e2;Parent=scaff_29005.g13.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	83061	84418	.	-	.	ID=scaff_29005.g13.t1.e3;Parent=scaff_29005.g13.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	82938	82965	.	-	.	ID=scaff_29005.g13.t1.e4;Parent=scaff_29005.g13.t1;Note=Supported by spliced alignment: 117333531, PUT-163a-Ricinus-communis-4151
+scaff_29005	CpGAT	exon	82424	82767	.	-	.	ID=scaff_29005.g13.t1.e5;Parent=scaff_29005.g13.t1;Note=Supported by spliced alignment: 117333531, PUT-163a-Ricinus-communis-4151
+scaff_29005	CpGAT	CDS	85824	85908	.	-	0	ID=scaff_29005.g13.t1.cds1;Parent=scaff_29005.g13.t1
+scaff_29005	CpGAT	CDS	85605	85668	.	-	2	ID=scaff_29005.g13.t1.cds2;Parent=scaff_29005.g13.t1
+scaff_29005	CpGAT	CDS	83061	84418	.	-	1	ID=scaff_29005.g13.t1.cds3;Parent=scaff_29005.g13.t1
+scaff_29005	CpGAT	CDS	82938	82965	.	-	2	ID=scaff_29005.g13.t1.cds4;Parent=scaff_29005.g13.t1
+scaff_29005	CpGAT	CDS	82614	82767	.	-	1	ID=scaff_29005.g13.t1.cds5;Parent=scaff_29005.g13.t1
+scaff_29005	CpGAT	gene	88198	88404	.	+	.	ID=scaff_29005.g14
+scaff_29005	CpGAT	mRNA	88198	88404	.	+	.	ID=scaff_29005.g14.t1;Parent=scaff_29005.g14;Note=ab initio model
+scaff_29005	CpGAT	exon	88198	88404	.	+	.	ID=scaff_29005.g14.t1.e1;Parent=scaff_29005.g14.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	88198	88404	.	+	0	ID=scaff_29005.g14.t1.cds1;Parent=scaff_29005.g14.t1
+scaff_29005	CpGAT	gene	98651	98965	.	+	.	ID=scaff_29005.g15
+scaff_29005	CpGAT	mRNA	98651	98965	.	+	.	ID=scaff_29005.g15.t1;Parent=scaff_29005.g15;Note=ab initio model
+scaff_29005	CpGAT	exon	98651	98965	.	+	.	ID=scaff_29005.g15.t1.e1;Parent=scaff_29005.g15.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	98651	98965	.	+	0	ID=scaff_29005.g15.t1.cds1;Parent=scaff_29005.g15.t1
+scaff_29005	CpGAT	gene	101208	106229	.	+	.	ID=scaff_29005.g16
+scaff_29005	CpGAT	mRNA	101208	106229	.	+	.	ID=scaff_29005.g16.t1;Parent=scaff_29005.g16;Note=ab initio model
+scaff_29005	CpGAT	exon	101208	101365	.	+	.	ID=scaff_29005.g16.t1.e1;Parent=scaff_29005.g16.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	101463	101514	.	+	.	ID=scaff_29005.g16.t1.e2;Parent=scaff_29005.g16.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	101737	101931	.	+	.	ID=scaff_29005.g16.t1.e3;Parent=scaff_29005.g16.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	102043	102191	.	+	.	ID=scaff_29005.g16.t1.e4;Parent=scaff_29005.g16.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	102317	102350	.	+	.	ID=scaff_29005.g16.t1.e5;Parent=scaff_29005.g16.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	103531	103943	.	+	.	ID=scaff_29005.g16.t1.e6;Parent=scaff_29005.g16.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	104031	104079	.	+	.	ID=scaff_29005.g16.t1.e7;Parent=scaff_29005.g16.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	104146	104271	.	+	.	ID=scaff_29005.g16.t1.e8;Parent=scaff_29005.g16.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	104456	104560	.	+	.	ID=scaff_29005.g16.t1.e9;Parent=scaff_29005.g16.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	104693	104784	.	+	.	ID=scaff_29005.g16.t1.e10;Parent=scaff_29005.g16.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	104865	105018	.	+	.	ID=scaff_29005.g16.t1.e11;Parent=scaff_29005.g16.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	105963	106229	.	+	.	ID=scaff_29005.g16.t1.e12;Parent=scaff_29005.g16.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	101208	101365	.	+	0	ID=scaff_29005.g16.t1.cds1;Parent=scaff_29005.g16.t1
+scaff_29005	CpGAT	CDS	101463	101514	.	+	1	ID=scaff_29005.g16.t1.cds2;Parent=scaff_29005.g16.t1
+scaff_29005	CpGAT	CDS	101737	101931	.	+	0	ID=scaff_29005.g16.t1.cds3;Parent=scaff_29005.g16.t1
+scaff_29005	CpGAT	CDS	102043	102191	.	+	0	ID=scaff_29005.g16.t1.cds4;Parent=scaff_29005.g16.t1
+scaff_29005	CpGAT	CDS	102317	102350	.	+	1	ID=scaff_29005.g16.t1.cds5;Parent=scaff_29005.g16.t1
+scaff_29005	CpGAT	CDS	103531	103943	.	+	0	ID=scaff_29005.g16.t1.cds6;Parent=scaff_29005.g16.t1
+scaff_29005	CpGAT	CDS	104031	104079	.	+	1	ID=scaff_29005.g16.t1.cds7;Parent=scaff_29005.g16.t1
+scaff_29005	CpGAT	CDS	104146	104271	.	+	0	ID=scaff_29005.g16.t1.cds8;Parent=scaff_29005.g16.t1
+scaff_29005	CpGAT	CDS	104456	104560	.	+	0	ID=scaff_29005.g16.t1.cds9;Parent=scaff_29005.g16.t1
+scaff_29005	CpGAT	CDS	104693	104784	.	+	0	ID=scaff_29005.g16.t1.cds10;Parent=scaff_29005.g16.t1
+scaff_29005	CpGAT	CDS	104865	105018	.	+	1	ID=scaff_29005.g16.t1.cds11;Parent=scaff_29005.g16.t1
+scaff_29005	CpGAT	CDS	105963	106229	.	+	0	ID=scaff_29005.g16.t1.cds12;Parent=scaff_29005.g16.t1
+scaff_29005	CpGAT	gene	126434	128439	.	-	.	ID=scaff_29005.g17
+scaff_29005	CpGAT	mRNA	126434	128439	.	-	.	ID=scaff_29005.g17.t1;Parent=scaff_29005.g17;Note=ab initio model
+scaff_29005	CpGAT	exon	128307	128439	.	-	.	ID=scaff_29005.g17.t1.e1;Parent=scaff_29005.g17.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	127858	127987	.	-	.	ID=scaff_29005.g17.t1.e2;Parent=scaff_29005.g17.t1;Note=ab initio exon
+scaff_29005	CpGAT	exon	126434	127205	.	-	.	ID=scaff_29005.g17.t1.e3;Parent=scaff_29005.g17.t1;Note=ab initio exon
+scaff_29005	CpGAT	CDS	128307	128439	.	-	0	ID=scaff_29005.g17.t1.cds1;Parent=scaff_29005.g17.t1
+scaff_29005	CpGAT	CDS	127858	127987	.	-	2	ID=scaff_29005.g17.t1.cds2;Parent=scaff_29005.g17.t1
+scaff_29005	CpGAT	CDS	126434	127205	.	-	1	ID=scaff_29005.g17.t1.cds3;Parent=scaff_29005.g17.t1
+##gff-version 3
+# CpGAT 0.9.9 (2011-09-16)
+# Date run: 2014-08-18 18:47:26
+# Arguments: -o /xGDBvm/data/scratch/GDB005/data/CpGAT -i /xGDBvm/data/scratch/GDB005/data/CpGAT/SCFDIR/scaff_29154.fsa -trans /xGDBvm/data/scratch/GDB005/data/CpGAT/scaff_29154.mRNAgth.tab -prot /xGDBvm/data/scratch/GDB005/data/CpGAT/scaff_29154.protgth.tab -refprotdb /xGDBvm/data/scratch/GDB005/data/CpGAT/BLASTDIR/cegma_core.fa -nomask T -bgf Arabidopsis -augustus arabidopsis -genemark a_thaliana -nogth T -config_file /xGDBvm/src/CpGAT/CpGAT.conf
+#=============================================================================================================
+
+scaff_29154	CpGAT	gene	1431	1839	.	-	.	ID=scaff_29154.g1
+scaff_29154	CpGAT	mRNA	1431	1839	.	-	.	ID=scaff_29154.g1.t1;Parent=scaff_29154.g1;Note=ab initio model
+scaff_29154	CpGAT	exon	1826	1839	.	-	.	ID=scaff_29154.g1.t1.e1;Parent=scaff_29154.g1.t1;Note=ab initio exon
+scaff_29154	CpGAT	exon	1431	1629	.	-	.	ID=scaff_29154.g1.t1.e2;Parent=scaff_29154.g1.t1;Note=ab initio exon
+scaff_29154	CpGAT	CDS	1826	1839	.	-	0	ID=scaff_29154.g1.t1.cds1;Parent=scaff_29154.g1.t1
+scaff_29154	CpGAT	CDS	1431	1629	.	-	1	ID=scaff_29154.g1.t1.cds2;Parent=scaff_29154.g1.t1
+scaff_29154	CpGAT	gene	2693	2893	.	-	.	ID=scaff_29154.g2
+scaff_29154	CpGAT	mRNA	2693	2893	.	-	.	ID=scaff_29154.g2.t1;Parent=scaff_29154.g2;Note=ab initio model
+scaff_29154	CpGAT	exon	2693	2893	.	-	.	ID=scaff_29154.g2.t1.e1;Parent=scaff_29154.g2.t1;Note=ab initio exon
+scaff_29154	CpGAT	CDS	2693	2893	.	-	0	ID=scaff_29154.g2.t1.cds1;Parent=scaff_29154.g2.t1
+scaff_29154	CpGAT	gene	11645	11866	.	-	.	ID=scaff_29154.g3
+scaff_29154	CpGAT	mRNA	11645	11866	.	-	.	ID=scaff_29154.g3.t1;Parent=scaff_29154.g3;Note=Evidence from spliced alignment: fully supported by protein: Medtr2g080780.1
+scaff_29154	CpGAT	exon	11645	11866	.	-	.	ID=scaff_29154.g3.t1.e1;Parent=scaff_29154.g3.t1;Note=Supported by spliced alignment: Medtr2g080780.1
+scaff_29154	CpGAT	CDS	11645	11866	.	-	0	ID=scaff_29154.g3.t1.cds1;Parent=scaff_29154.g3.t1
+scaff_29154	CpGAT	gene	14364	14741	.	+	.	ID=scaff_29154.g4
+scaff_29154	CpGAT	mRNA	14364	14741	.	+	.	ID=scaff_29154.g4.t1;Parent=scaff_29154.g4;Note=ab initio model, best hit to http://www.uniprot.org/uniref/AtCh030___KOG1350 e_value 1e-74
+scaff_29154	CpGAT	exon	14364	14741	.	+	.	ID=scaff_29154.g4.t1.e1;Parent=scaff_29154.g4.t1;Note=ab initio exon
+scaff_29154	CpGAT	CDS	14364	14741	.	+	0	ID=scaff_29154.g4.t1.cds1;Parent=scaff_29154.g4.t1
+scaff_29154	CpGAT	gene	17943	18545	.	-	.	ID=scaff_29154.g5
+scaff_29154	CpGAT	mRNA	17943	18545	.	-	.	ID=scaff_29154.g5.t1;Parent=scaff_29154.g5;Note=Evidence from spliced alignment: partially supported by transcript: pasa assembly_0(PUT-163a-Ricinus-communis-11309,111156001,111155481,...) sn:sp 0.445989:0.992857, partially supported by protein: AT5G59880.1 sn:sp 0.992857:0.992857
+scaff_29154	CpGAT	exon	18543	18545	.	-	.	ID=scaff_29154.g5.t1.e1;Parent=scaff_29154.g5.t1;Note=ab initio exon
+scaff_29154	CpGAT	exon	18194	18459	.	-	.	ID=scaff_29154.g5.t1.e2;Parent=scaff_29154.g5.t1;Note=Supported by spliced alignment: 111155481, 111156001, AT5G59880.1
+scaff_29154	CpGAT	exon	17943	18093	.	-	.	ID=scaff_29154.g5.t1.e3;Parent=scaff_29154.g5.t1;Note=Supported by spliced alignment: AT5G59880.1, AT5G59890.2, Medtr4g149850.1
+scaff_29154	CpGAT	CDS	18543	18545	.	-	0	ID=scaff_29154.g5.t1.cds1;Parent=scaff_29154.g5.t1
+scaff_29154	CpGAT	CDS	18194	18459	.	-	0	ID=scaff_29154.g5.t1.cds2;Parent=scaff_29154.g5.t1
+scaff_29154	CpGAT	CDS	17943	18093	.	-	1	ID=scaff_29154.g5.t1.cds3;Parent=scaff_29154.g5.t1
+scaff_29154	CpGAT	gene	24698	25609	.	+	.	ID=scaff_29154.g6
+scaff_29154	CpGAT	mRNA	24698	25609	.	+	.	ID=scaff_29154.g6.t1;Parent=scaff_29154.g6;Note=Evidence from spliced alignment: fully supported by transcript: 111155508, fully supported by protein: Medtr2g114590.1
+scaff_29154	CpGAT	exon	24698	24907	.	+	.	ID=scaff_29154.g6.t1.e1;Parent=scaff_29154.g6.t1;Note=Supported by spliced alignment: Medtr2g114590.1
+scaff_29154	CpGAT	exon	25367	25609	.	+	.	ID=scaff_29154.g6.t1.e2;Parent=scaff_29154.g6.t1;Note=Supported by spliced alignment: Medtr2g114590.1
+scaff_29154	CpGAT	CDS	24698	24907	.	+	0	ID=scaff_29154.g6.t1.cds1;Parent=scaff_29154.g6.t1
+scaff_29154	CpGAT	CDS	25367	25609	.	+	0	ID=scaff_29154.g6.t1.cds2;Parent=scaff_29154.g6.t1
+scaff_29154	CpGAT	gene	33524	33868	.	+	.	ID=scaff_29154.g7
+scaff_29154	CpGAT	mRNA	33524	33868	.	+	.	ID=scaff_29154.g7.t1;Parent=scaff_29154.g7;Note=ab initio model
+scaff_29154	CpGAT	exon	33524	33712	.	+	.	ID=scaff_29154.g7.t1.e1;Parent=scaff_29154.g7.t1;Note=ab initio exon
+scaff_29154	CpGAT	exon	33821	33868	.	+	.	ID=scaff_29154.g7.t1.e2;Parent=scaff_29154.g7.t1;Note=ab initio exon
+scaff_29154	CpGAT	CDS	33524	33712	.	+	0	ID=scaff_29154.g7.t1.cds1;Parent=scaff_29154.g7.t1
+scaff_29154	CpGAT	CDS	33821	33868	.	+	0	ID=scaff_29154.g7.t1.cds2;Parent=scaff_29154.g7.t1
+scaff_29154	CpGAT	gene	36721	37735	.	+	.	ID=scaff_29154.g8
+scaff_29154	CpGAT	mRNA	36721	37735	.	+	.	ID=scaff_29154.g8.t1;Parent=scaff_29154.g8;Note=Evidence from spliced alignment: fully supported by transcript: pasa assembly_5(111155508,PUT-163a-Ricinus-communis-11814), fully supported by protein: AT5G02560.1
+scaff_29154	CpGAT	exon	36721	36955	.	+	.	ID=scaff_29154.g8.t1.e1;Parent=scaff_29154.g8.t1;Note=Supported by spliced alignment: 111155508, PUT-163a-Ricinus-communis-11814
+scaff_29154	CpGAT	exon	37303	37735	.	+	.	ID=scaff_29154.g8.t1.e2;Parent=scaff_29154.g8.t1;Note=Supported by spliced alignment: 111155508, PUT-163a-Ricinus-communis-11814
+scaff_29154	CpGAT	CDS	36746	36955	.	+	0	ID=scaff_29154.g8.t1.cds1;Parent=scaff_29154.g8.t1
+scaff_29154	CpGAT	CDS	37303	37545	.	+	0	ID=scaff_29154.g8.t1.cds2;Parent=scaff_29154.g8.t1
+scaff_29154	CpGAT	gene	46262	46708	.	-	.	ID=scaff_29154.g9
+scaff_29154	CpGAT	mRNA	46262	46708	.	-	.	ID=scaff_29154.g9.t1;Parent=scaff_29154.g9;Note=Evidence from spliced alignment: fully supported by protein: AT3G09480.1
+scaff_29154	CpGAT	exon	46262	46708	.	-	.	ID=scaff_29154.g9.t1.e1;Parent=scaff_29154.g9.t1;Note=ab initio exon
+scaff_29154	CpGAT	CDS	46262	46708	.	-	0	ID=scaff_29154.g9.t1.cds1;Parent=scaff_29154.g9.t1
+scaff_29154	CpGAT	gene	51051	51924	.	+	.	ID=scaff_29154.g10
+scaff_29154	CpGAT	mRNA	51051	51924	.	+	.	ID=scaff_29154.g10.t1;Parent=scaff_29154.g10;Note=Evidence from spliced alignment: fully supported by protein: AT2G39590.1, best hit to http://www.uniprot.org/uniref/At2g39590___KOG1754 e_value 3e-85
+scaff_29154	CpGAT	exon	51051	51183	.	+	.	ID=scaff_29154.g10.t1.e1;Parent=scaff_29154.g10.t1;Note=ab initio exon
+scaff_29154	CpGAT	exon	51271	51431	.	+	.	ID=scaff_29154.g10.t1.e2;Parent=scaff_29154.g10.t1;Note=Supported by spliced alignment: AT2G39590.1
+scaff_29154	CpGAT	exon	51826	51924	.	+	.	ID=scaff_29154.g10.t1.e3;Parent=scaff_29154.g10.t1;Note=Supported by spliced alignment: AT2G39590.1
+scaff_29154	CpGAT	CDS	51051	51183	.	+	0	ID=scaff_29154.g10.t1.cds1;Parent=scaff_29154.g10.t1
+scaff_29154	CpGAT	CDS	51271	51431	.	+	2	ID=scaff_29154.g10.t1.cds2;Parent=scaff_29154.g10.t1
+scaff_29154	CpGAT	CDS	51826	51924	.	+	0	ID=scaff_29154.g10.t1.cds3;Parent=scaff_29154.g10.t1
+scaff_29154	CpGAT	gene	62038	62295	.	+	.	ID=scaff_29154.g11
+scaff_29154	CpGAT	mRNA	62038	62295	.	+	.	ID=scaff_29154.g11.t1;Parent=scaff_29154.g11;Note=ab initio model
+scaff_29154	CpGAT	exon	62038	62295	.	+	.	ID=scaff_29154.g11.t1.e1;Parent=scaff_29154.g11.t1;Note=ab initio exon
+scaff_29154	CpGAT	CDS	62038	62295	.	+	0	ID=scaff_29154.g11.t1.cds1;Parent=scaff_29154.g11.t1
+scaff_29154	CpGAT	gene	65103	68826	.	+	.	ID=scaff_29154.g12
+scaff_29154	CpGAT	mRNA	65103	68826	.	+	.	ID=scaff_29154.g12.t1;Parent=scaff_29154.g12;Note=Evidence from spliced alignment: fully supported by transcript: pasa assembly_2(117324719,PUT-163a-Ricinus-communis-6724,212278428,...), fully supported by protein: AT3G46060.3, best hit to http://www.uniprot.org/uniref/SPBC1703.10___KOG0084 e_value 4e-80
+scaff_29154	CpGAT	exon	65103	65282	.	+	.	ID=scaff_29154.g12.t1.e1;Parent=scaff_29154.g12.t1;Note=Supported by spliced alignment: 212278428, 212279393, 212280867
+scaff_29154	CpGAT	exon	66520	66592	.	+	.	ID=scaff_29154.g12.t1.e2;Parent=scaff_29154.g12.t1;Note=Supported by spliced alignment: 117324719, 212278428, 212280867
+scaff_29154	CpGAT	exon	66690	66790	.	+	.	ID=scaff_29154.g12.t1.e3;Parent=scaff_29154.g12.t1;Note=Supported by spliced alignment: 117324719, 212278428, 212280867
+scaff_29154	CpGAT	exon	67562	67627	.	+	.	ID=scaff_29154.g12.t1.e4;Parent=scaff_29154.g12.t1;Note=Supported by spliced alignment: 117324719, 212278428, 212280867
+scaff_29154	CpGAT	exon	67898	67995	.	+	.	ID=scaff_29154.g12.t1.e5;Parent=scaff_29154.g12.t1;Note=Supported by spliced alignment: 117324719, 212278428, AT3G46060.3
+scaff_29154	CpGAT	exon	68272	68334	.	+	.	ID=scaff_29154.g12.t1.e6;Parent=scaff_29154.g12.t1;Note=Supported by spliced alignment: 117324719, 212278428, AT3G46060.3
+scaff_29154	CpGAT	exon	68406	68498	.	+	.	ID=scaff_29154.g12.t1.e7;Parent=scaff_29154.g12.t1;Note=Supported by spliced alignment: 117324719, 212278428, AT3G46060.3
+scaff_29154	CpGAT	exon	68594	68826	.	+	.	ID=scaff_29154.g12.t1.e8;Parent=scaff_29154.g12.t1;Note=Supported by spliced alignment: 117324719, PUT-163a-Ricinus-communis-6724
+scaff_29154	CpGAT	CDS	65210	65282	.	+	0	ID=scaff_29154.g12.t1.cds1;Parent=scaff_29154.g12.t1
+scaff_29154	CpGAT	CDS	66520	66592	.	+	2	ID=scaff_29154.g12.t1.cds2;Parent=scaff_29154.g12.t1
+scaff_29154	CpGAT	CDS	66690	66790	.	+	1	ID=scaff_29154.g12.t1.cds3;Parent=scaff_29154.g12.t1
+scaff_29154	CpGAT	CDS	67562	67627	.	+	2	ID=scaff_29154.g12.t1.cds4;Parent=scaff_29154.g12.t1
+scaff_29154	CpGAT	CDS	67898	67995	.	+	2	ID=scaff_29154.g12.t1.cds5;Parent=scaff_29154.g12.t1
+scaff_29154	CpGAT	CDS	68272	68334	.	+	0	ID=scaff_29154.g12.t1.cds6;Parent=scaff_29154.g12.t1
+scaff_29154	CpGAT	CDS	68406	68498	.	+	0	ID=scaff_29154.g12.t1.cds7;Parent=scaff_29154.g12.t1
+scaff_29154	CpGAT	CDS	68594	68677	.	+	0	ID=scaff_29154.g12.t1.cds8;Parent=scaff_29154.g12.t1
+scaff_29154	CpGAT	gene	69658	72551	.	-	.	ID=scaff_29154.g13
+scaff_29154	CpGAT	mRNA	69658	72551	.	-	.	ID=scaff_29154.g13.t1;Parent=scaff_29154.g13;Note=Evidence from spliced alignment: partially supported by transcript: pasa assembly_4(117325226,PUT-163a-Ricinus-communis-872,212278694,...) sn:sp 1:0.51101
+scaff_29154	CpGAT	exon	72335	72551	.	-	.	ID=scaff_29154.g13.t1.e1;Parent=scaff_29154.g13.t1;Note=Supported by spliced alignment: 117325226, PUT-163a-Ricinus-communis-872
+scaff_29154	CpGAT	exon	72101	72170	.	-	.	ID=scaff_29154.g13.t1.e2;Parent=scaff_29154.g13.t1;Note=Supported by spliced alignment: 117325226, 212278694, PUT-163a-Ricinus-communis-872
+scaff_29154	CpGAT	exon	70328	71281	.	-	.	ID=scaff_29154.g13.t1.e3;Parent=scaff_29154.g13.t1;Note=ab initio exon
+scaff_29154	CpGAT	exon	70178	70243	.	-	.	ID=scaff_29154.g13.t1.e4;Parent=scaff_29154.g13.t1;Note=ab initio exon
+scaff_29154	CpGAT	exon	69902	70100	.	-	.	ID=scaff_29154.g13.t1.e5;Parent=scaff_29154.g13.t1;Note=Supported by spliced alignment: 117354444, PUT-163a-Ricinus-communis-3150
+scaff_29154	CpGAT	exon	69658	69695	.	-	.	ID=scaff_29154.g13.t1.e6;Parent=scaff_29154.g13.t1;Note=ab initio exon
+scaff_29154	CpGAT	CDS	72101	72103	.	-	0	ID=scaff_29154.g13.t1.cds1;Parent=scaff_29154.g13.t1
+scaff_29154	CpGAT	CDS	70328	71281	.	-	0	ID=scaff_29154.g13.t1.cds2;Parent=scaff_29154.g13.t1
+scaff_29154	CpGAT	CDS	70178	70243	.	-	0	ID=scaff_29154.g13.t1.cds3;Parent=scaff_29154.g13.t1
+scaff_29154	CpGAT	CDS	69902	70100	.	-	0	ID=scaff_29154.g13.t1.cds4;Parent=scaff_29154.g13.t1
+scaff_29154	CpGAT	CDS	69658	69695	.	-	2	ID=scaff_29154.g13.t1.cds5;Parent=scaff_29154.g13.t1
+scaff_29154	CpGAT	gene	74720	75052	.	+	.	ID=scaff_29154.g14
+scaff_29154	CpGAT	mRNA	74720	75052	.	+	.	ID=scaff_29154.g14.t1;Parent=scaff_29154.g14;Note=ab initio model
+scaff_29154	CpGAT	exon	74720	75052	.	+	.	ID=scaff_29154.g14.t1.e1;Parent=scaff_29154.g14.t1;Note=ab initio exon
+scaff_29154	CpGAT	CDS	74720	75052	.	+	0	ID=scaff_29154.g14.t1.cds1;Parent=scaff_29154.g14.t1
+scaff_29154	CpGAT	gene	78737	79577	.	-	.	ID=scaff_29154.g15
+scaff_29154	CpGAT	mRNA	78737	79577	.	-	.	ID=scaff_29154.g15.t1;Parent=scaff_29154.g15;Note=Evidence from spliced alignment: fully supported by transcript: pasa assembly_1(PUT-163a-Ricinus-communis-3621,117340430,117340057,...)
+scaff_29154	CpGAT	exon	78737	79577	.	-	.	ID=scaff_29154.g15.t1.e1;Parent=scaff_29154.g15.t1;Note=Supported by spliced alignment: PUT-163a-Ricinus-communis-3621
+scaff_29154	CpGAT	CDS	79001	79480	.	-	0	ID=scaff_29154.g15.t1.cds1;Parent=scaff_29154.g15.t1
+scaff_29154	CpGAT	gene	86913	87089	.	+	.	ID=scaff_29154.g16
+scaff_29154	CpGAT	mRNA	86913	87089	.	+	.	ID=scaff_29154.g16.t1;Parent=scaff_29154.g16;Note=ab initio model
+scaff_29154	CpGAT	exon	86913	87089	.	+	.	ID=scaff_29154.g16.t1.e1;Parent=scaff_29154.g16.t1;Note=ab initio exon
+scaff_29154	CpGAT	CDS	86913	87089	.	+	0	ID=scaff_29154.g16.t1.cds1;Parent=scaff_29154.g16.t1
+##gff-version 3
+# CpGAT 0.9.9 (2011-09-16)
+# Date run: 2014-08-18 18:47:53
+# Arguments: -o /xGDBvm/data/scratch/GDB005/data/CpGAT -i /xGDBvm/data/scratch/GDB005/data/CpGAT/SCFDIR/scaff_29308.fsa -trans /xGDBvm/data/scratch/GDB005/data/CpGAT/scaff_29308.mRNAgth.tab -prot /xGDBvm/data/scratch/GDB005/data/CpGAT/scaff_29308.protgth.tab -refprotdb /xGDBvm/data/scratch/GDB005/data/CpGAT/BLASTDIR/cegma_core.fa -nomask T -bgf Arabidopsis -augustus arabidopsis -genemark a_thaliana -nogth T -config_file /xGDBvm/src/CpGAT/CpGAT.conf
+#=============================================================================================================
+
+scaff_29308	CpGAT	gene	5000	9119	.	+	.	ID=scaff_29308.g1
+scaff_29308	CpGAT	mRNA	5000	9119	.	+	.	ID=scaff_29308.g1.t1;Parent=scaff_29308.g1;Note=Evidence from spliced alignment: partially supported by transcript: pasa assembly_4(117350727,117324788) sn:sp 1:0.458634
+scaff_29308	CpGAT	exon	5000	6123	.	+	.	ID=scaff_29308.g1.t1.e1;Parent=scaff_29308.g1.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	8443	9119	.	+	.	ID=scaff_29308.g1.t1.e2;Parent=scaff_29308.g1.t1;Note=ab initio exon
+scaff_29308	CpGAT	CDS	5067	6123	.	+	0	ID=scaff_29308.g1.t1.cds1;Parent=scaff_29308.g1.t1
+scaff_29308	CpGAT	CDS	8443	9119	.	+	2	ID=scaff_29308.g1.t1.cds2;Parent=scaff_29308.g1.t1
+scaff_29308	CpGAT	gene	20624	21913	.	+	.	ID=scaff_29308.g2
+scaff_29308	CpGAT	mRNA	20624	21913	.	+	.	ID=scaff_29308.g2.t1;Parent=scaff_29308.g2;Note=Evidence from spliced alignment: fully supported by transcript: pasa assembly_2(117328928,117347513,117337386,...)
+scaff_29308	CpGAT	exon	20624	21913	.	+	.	ID=scaff_29308.g2.t1.e1;Parent=scaff_29308.g2.t1;Note=ab initio exon
+scaff_29308	CpGAT	CDS	20756	21913	.	+	0	ID=scaff_29308.g2.t1.cds1;Parent=scaff_29308.g2.t1
+scaff_29308	CpGAT	gene	23362	24165	.	+	.	ID=scaff_29308.g3
+scaff_29308	CpGAT	mRNA	23362	24165	.	+	.	ID=scaff_29308.g3.t1;Parent=scaff_29308.g3;Note=Evidence from spliced alignment: fully supported by transcript: pasa assembly_5(117347512,117361678)
+scaff_29308	CpGAT	exon	23362	24165	.	+	.	ID=scaff_29308.g3.t1.e1;Parent=scaff_29308.g3.t1;Note=Supported by spliced alignment: pasa assembly_5 exon
+scaff_29308	CpGAT	CDS	23381	24043	.	+	0	ID=scaff_29308.g3.t1.cds1;Parent=scaff_29308.g3.t1
+scaff_29308	CpGAT	gene	25916	30515	.	+	.	ID=scaff_29308.g4
+scaff_29308	CpGAT	mRNA	25916	30515	.	+	.	ID=scaff_29308.g4.t1;Parent=scaff_29308.g4;Note=Evidence from spliced alignment: partially supported by transcript: pasa assembly_0(158711567,158711383,158711302,...) sn:sp 1:0.833645, partially supported by protein: AT1G17290.1 sn:sp 0.993166:0.814953, best hit to http://www.uniprot.org/uniref/At1g17290___KOG0258 e_value 0.0
+scaff_29308	CpGAT	exon	25916	26110	.	+	.	ID=scaff_29308.g4.t1.e1;Parent=scaff_29308.g4.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	26726	26776	.	+	.	ID=scaff_29308.g4.t1.e2;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: 158711302, 158711383, 158711567
+scaff_29308	CpGAT	exon	26935	26985	.	+	.	ID=scaff_29308.g4.t1.e3;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: 158711302, 158711383, 158711567
+scaff_29308	CpGAT	exon	27340	27405	.	+	.	ID=scaff_29308.g4.t1.e4;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: 158711302, 158711383, 158711567
+scaff_29308	CpGAT	exon	27493	27554	.	+	.	ID=scaff_29308.g4.t1.e5;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: 158711302, 158711383, 158711567
+scaff_29308	CpGAT	exon	27951	28029	.	+	.	ID=scaff_29308.g4.t1.e6;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: 158711302, 158711383, 158711567
+scaff_29308	CpGAT	exon	28136	28240	.	+	.	ID=scaff_29308.g4.t1.e7;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: 158711302, 158711383, 158711567
+scaff_29308	CpGAT	exon	28348	28458	.	+	.	ID=scaff_29308.g4.t1.e8;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: 158711302, 158711383, 158711567
+scaff_29308	CpGAT	exon	28664	28801	.	+	.	ID=scaff_29308.g4.t1.e9;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: 158711302, 158711383, 158711567
+scaff_29308	CpGAT	exon	28881	28955	.	+	.	ID=scaff_29308.g4.t1.e10;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: 158709229, 212279618, AT1G17290.1
+scaff_29308	CpGAT	exon	29046	29166	.	+	.	ID=scaff_29308.g4.t1.e11;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: 158709229, 212279618, AT1G17290.1
+scaff_29308	CpGAT	exon	29273	29427	.	+	.	ID=scaff_29308.g4.t1.e12;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: 158709229, AT1G17290.1
+scaff_29308	CpGAT	exon	29625	29699	.	+	.	ID=scaff_29308.g4.t1.e13;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: 158709229, AT1G17290.1
+scaff_29308	CpGAT	exon	30003	30206	.	+	.	ID=scaff_29308.g4.t1.e14;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: AT1G17290.1
+scaff_29308	CpGAT	exon	30399	30515	.	+	.	ID=scaff_29308.g4.t1.e15;Parent=scaff_29308.g4.t1;Note=Supported by spliced alignment: AT1G17290.1
+scaff_29308	CpGAT	CDS	25916	26110	.	+	0	ID=scaff_29308.g4.t1.cds1;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	26726	26776	.	+	0	ID=scaff_29308.g4.t1.cds2;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	26935	26985	.	+	0	ID=scaff_29308.g4.t1.cds3;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	27340	27405	.	+	0	ID=scaff_29308.g4.t1.cds4;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	27493	27554	.	+	0	ID=scaff_29308.g4.t1.cds5;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	27951	28029	.	+	1	ID=scaff_29308.g4.t1.cds6;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	28136	28240	.	+	0	ID=scaff_29308.g4.t1.cds7;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	28348	28458	.	+	0	ID=scaff_29308.g4.t1.cds8;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	28664	28801	.	+	0	ID=scaff_29308.g4.t1.cds9;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	28881	28955	.	+	0	ID=scaff_29308.g4.t1.cds10;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	29046	29166	.	+	0	ID=scaff_29308.g4.t1.cds11;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	29273	29427	.	+	2	ID=scaff_29308.g4.t1.cds12;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	29625	29699	.	+	0	ID=scaff_29308.g4.t1.cds13;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	30003	30206	.	+	0	ID=scaff_29308.g4.t1.cds14;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	CDS	30399	30515	.	+	0	ID=scaff_29308.g4.t1.cds15;Parent=scaff_29308.g4.t1
+scaff_29308	CpGAT	gene	32577	36487	.	-	.	ID=scaff_29308.g5
+scaff_29308	CpGAT	mRNA	32577	36487	.	-	.	ID=scaff_29308.g5.t1;Parent=scaff_29308.g5;Note=Evidence from spliced alignment: fully supported by transcript: pasa assembly_3(212281440,111156737,158708016,...), fully supported by protein: AT1G53850.1, best hit to http://www.uniprot.org/uniref/At1g53850___KOG0176 e_value 4e-169
+scaff_29308	CpGAT	exon	36399	36487	.	-	.	ID=scaff_29308.g5.t1.e1;Parent=scaff_29308.g5.t1;Note=Supported by spliced alignment: 111156737
+scaff_29308	CpGAT	exon	36202	36283	.	-	.	ID=scaff_29308.g5.t1.e2;Parent=scaff_29308.g5.t1;Note=Supported by spliced alignment: 111156737, 158708016, 212281440
+scaff_29308	CpGAT	exon	35173	35253	.	-	.	ID=scaff_29308.g5.t1.e3;Parent=scaff_29308.g5.t1;Note=Supported by spliced alignment: 111156737, 158708016, 212281440
+scaff_29308	CpGAT	exon	34579	34692	.	-	.	ID=scaff_29308.g5.t1.e4;Parent=scaff_29308.g5.t1;Note=Supported by spliced alignment: 111156737, 158708016, 212281440
+scaff_29308	CpGAT	exon	34395	34496	.	-	.	ID=scaff_29308.g5.t1.e5;Parent=scaff_29308.g5.t1;Note=Supported by spliced alignment: 111156737, 158708016, 212281440
+scaff_29308	CpGAT	exon	33761	33819	.	-	.	ID=scaff_29308.g5.t1.e6;Parent=scaff_29308.g5.t1;Note=Supported by spliced alignment: 111156737, 158708016, 212281440
+scaff_29308	CpGAT	exon	33103	33205	.	-	.	ID=scaff_29308.g5.t1.e7;Parent=scaff_29308.g5.t1;Note=Supported by spliced alignment: 111156737, 158708016, 212281440
+scaff_29308	CpGAT	exon	32873	32938	.	-	.	ID=scaff_29308.g5.t1.e8;Parent=scaff_29308.g5.t1;Note=Supported by spliced alignment: 111156737, 212281440, AT1G53850.1
+scaff_29308	CpGAT	exon	32577	32742	.	-	.	ID=scaff_29308.g5.t1.e9;Parent=scaff_29308.g5.t1;Note=Supported by spliced alignment: 212281440
+scaff_29308	CpGAT	CDS	36399	36412	.	-	0	ID=scaff_29308.g5.t1.cds1;Parent=scaff_29308.g5.t1
+scaff_29308	CpGAT	CDS	36202	36283	.	-	1	ID=scaff_29308.g5.t1.cds2;Parent=scaff_29308.g5.t1
+scaff_29308	CpGAT	CDS	35173	35253	.	-	0	ID=scaff_29308.g5.t1.cds3;Parent=scaff_29308.g5.t1
+scaff_29308	CpGAT	CDS	34579	34692	.	-	0	ID=scaff_29308.g5.t1.cds4;Parent=scaff_29308.g5.t1
+scaff_29308	CpGAT	CDS	34395	34496	.	-	0	ID=scaff_29308.g5.t1.cds5;Parent=scaff_29308.g5.t1
+scaff_29308	CpGAT	CDS	33761	33819	.	-	0	ID=scaff_29308.g5.t1.cds6;Parent=scaff_29308.g5.t1
+scaff_29308	CpGAT	CDS	33103	33205	.	-	1	ID=scaff_29308.g5.t1.cds7;Parent=scaff_29308.g5.t1
+scaff_29308	CpGAT	CDS	32873	32938	.	-	0	ID=scaff_29308.g5.t1.cds8;Parent=scaff_29308.g5.t1
+scaff_29308	CpGAT	CDS	32650	32742	.	-	0	ID=scaff_29308.g5.t1.cds9;Parent=scaff_29308.g5.t1
+scaff_29308	CpGAT	gene	37791	40508	.	+	.	ID=scaff_29308.g6
+scaff_29308	CpGAT	mRNA	37791	40508	.	+	.	ID=scaff_29308.g6.t1;Parent=scaff_29308.g6;Note=ab initio model
+scaff_29308	CpGAT	exon	37791	38107	.	+	.	ID=scaff_29308.g6.t1.e1;Parent=scaff_29308.g6.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	38383	38443	.	+	.	ID=scaff_29308.g6.t1.e2;Parent=scaff_29308.g6.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	38947	38989	.	+	.	ID=scaff_29308.g6.t1.e3;Parent=scaff_29308.g6.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	39240	39387	.	+	.	ID=scaff_29308.g6.t1.e4;Parent=scaff_29308.g6.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	39946	40009	.	+	.	ID=scaff_29308.g6.t1.e5;Parent=scaff_29308.g6.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	40157	40236	.	+	.	ID=scaff_29308.g6.t1.e6;Parent=scaff_29308.g6.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	40310	40508	.	+	.	ID=scaff_29308.g6.t1.e7;Parent=scaff_29308.g6.t1;Note=ab initio exon
+scaff_29308	CpGAT	CDS	37791	38107	.	+	0	ID=scaff_29308.g6.t1.cds1;Parent=scaff_29308.g6.t1
+scaff_29308	CpGAT	CDS	38383	38443	.	+	1	ID=scaff_29308.g6.t1.cds2;Parent=scaff_29308.g6.t1
+scaff_29308	CpGAT	CDS	38947	38989	.	+	0	ID=scaff_29308.g6.t1.cds3;Parent=scaff_29308.g6.t1
+scaff_29308	CpGAT	CDS	39240	39387	.	+	2	ID=scaff_29308.g6.t1.cds4;Parent=scaff_29308.g6.t1
+scaff_29308	CpGAT	CDS	39946	40009	.	+	1	ID=scaff_29308.g6.t1.cds5;Parent=scaff_29308.g6.t1
+scaff_29308	CpGAT	CDS	40157	40236	.	+	0	ID=scaff_29308.g6.t1.cds6;Parent=scaff_29308.g6.t1
+scaff_29308	CpGAT	CDS	40310	40508	.	+	1	ID=scaff_29308.g6.t1.cds7;Parent=scaff_29308.g6.t1
+scaff_29308	CpGAT	gene	51481	54618	.	+	.	ID=scaff_29308.g7
+scaff_29308	CpGAT	mRNA	51481	54618	.	+	.	ID=scaff_29308.g7.t1;Parent=scaff_29308.g7;Note=Evidence from spliced alignment: partially supported by transcript: pasa assembly_9(212283108) sn:sp 0.633886:0.610731
+scaff_29308	CpGAT	exon	51481	51576	.	+	.	ID=scaff_29308.g7.t1.e1;Parent=scaff_29308.g7.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	51667	51940	.	+	.	ID=scaff_29308.g7.t1.e2;Parent=scaff_29308.g7.t1;Note=Supported by spliced alignment: 212283108
+scaff_29308	CpGAT	exon	52123	52169	.	+	.	ID=scaff_29308.g7.t1.e3;Parent=scaff_29308.g7.t1;Note=Supported by spliced alignment: 212283108
+scaff_29308	CpGAT	exon	52334	52371	.	+	.	ID=scaff_29308.g7.t1.e4;Parent=scaff_29308.g7.t1;Note=Supported by spliced alignment: 212283108
+scaff_29308	CpGAT	exon	52465	52510	.	+	.	ID=scaff_29308.g7.t1.e5;Parent=scaff_29308.g7.t1;Note=Supported by spliced alignment: 212283108
+scaff_29308	CpGAT	exon	53298	53351	.	+	.	ID=scaff_29308.g7.t1.e6;Parent=scaff_29308.g7.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	53438	53506	.	+	.	ID=scaff_29308.g7.t1.e7;Parent=scaff_29308.g7.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	53734	53810	.	+	.	ID=scaff_29308.g7.t1.e8;Parent=scaff_29308.g7.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	54094	54238	.	+	.	ID=scaff_29308.g7.t1.e9;Parent=scaff_29308.g7.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	54589	54618	.	+	.	ID=scaff_29308.g7.t1.e10;Parent=scaff_29308.g7.t1;Note=ab initio exon
+scaff_29308	CpGAT	CDS	51481	51576	.	+	0	ID=scaff_29308.g7.t1.cds1;Parent=scaff_29308.g7.t1
+scaff_29308	CpGAT	CDS	51667	51940	.	+	0	ID=scaff_29308.g7.t1.cds2;Parent=scaff_29308.g7.t1
+scaff_29308	CpGAT	CDS	52123	52169	.	+	2	ID=scaff_29308.g7.t1.cds3;Parent=scaff_29308.g7.t1
+scaff_29308	CpGAT	CDS	52334	52371	.	+	0	ID=scaff_29308.g7.t1.cds4;Parent=scaff_29308.g7.t1
+scaff_29308	CpGAT	CDS	52465	52510	.	+	1	ID=scaff_29308.g7.t1.cds5;Parent=scaff_29308.g7.t1
+scaff_29308	CpGAT	CDS	53298	53351	.	+	0	ID=scaff_29308.g7.t1.cds6;Parent=scaff_29308.g7.t1
+scaff_29308	CpGAT	CDS	53438	53506	.	+	0	ID=scaff_29308.g7.t1.cds7;Parent=scaff_29308.g7.t1
+scaff_29308	CpGAT	CDS	53734	53810	.	+	0	ID=scaff_29308.g7.t1.cds8;Parent=scaff_29308.g7.t1
+scaff_29308	CpGAT	CDS	54094	54238	.	+	1	ID=scaff_29308.g7.t1.cds9;Parent=scaff_29308.g7.t1
+scaff_29308	CpGAT	CDS	54589	54618	.	+	0	ID=scaff_29308.g7.t1.cds10;Parent=scaff_29308.g7.t1
+scaff_29308	CpGAT	gene	57848	58069	.	-	.	ID=scaff_29308.g8
+scaff_29308	CpGAT	mRNA	57848	58069	.	-	.	ID=scaff_29308.g8.t1;Parent=scaff_29308.g8;Note=ab initio model
+scaff_29308	CpGAT	exon	57848	58069	.	-	.	ID=scaff_29308.g8.t1.e1;Parent=scaff_29308.g8.t1;Note=ab initio exon
+scaff_29308	CpGAT	CDS	57848	58069	.	-	0	ID=scaff_29308.g8.t1.cds1;Parent=scaff_29308.g8.t1
+scaff_29308	CpGAT	gene	59300	61253	.	-	.	ID=scaff_29308.g9
+scaff_29308	CpGAT	mRNA	59300	61253	.	-	.	ID=scaff_29308.g9.t1;Parent=scaff_29308.g9;Note=ab initio model
+scaff_29308	CpGAT	exon	61200	61253	.	-	.	ID=scaff_29308.g9.t1.e1;Parent=scaff_29308.g9.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	60494	61073	.	-	.	ID=scaff_29308.g9.t1.e2;Parent=scaff_29308.g9.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	59976	60050	.	-	.	ID=scaff_29308.g9.t1.e3;Parent=scaff_29308.g9.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	59300	59814	.	-	.	ID=scaff_29308.g9.t1.e4;Parent=scaff_29308.g9.t1;Note=ab initio exon
+scaff_29308	CpGAT	CDS	61200	61253	.	-	0	ID=scaff_29308.g9.t1.cds1;Parent=scaff_29308.g9.t1
+scaff_29308	CpGAT	CDS	60494	61073	.	-	0	ID=scaff_29308.g9.t1.cds2;Parent=scaff_29308.g9.t1
+scaff_29308	CpGAT	CDS	59976	60050	.	-	2	ID=scaff_29308.g9.t1.cds3;Parent=scaff_29308.g9.t1
+scaff_29308	CpGAT	CDS	59300	59814	.	-	2	ID=scaff_29308.g9.t1.cds4;Parent=scaff_29308.g9.t1
+scaff_29308	CpGAT	gene	67480	68195	.	+	.	ID=scaff_29308.g10
+scaff_29308	CpGAT	mRNA	67480	68195	.	+	.	ID=scaff_29308.g10.t1;Parent=scaff_29308.g10;Note=ab initio model
+scaff_29308	CpGAT	exon	67480	67632	.	+	.	ID=scaff_29308.g10.t1.e1;Parent=scaff_29308.g10.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	67820	67962	.	+	.	ID=scaff_29308.g10.t1.e2;Parent=scaff_29308.g10.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	68060	68195	.	+	.	ID=scaff_29308.g10.t1.e3;Parent=scaff_29308.g10.t1;Note=ab initio exon
+scaff_29308	CpGAT	CDS	67480	67632	.	+	0	ID=scaff_29308.g10.t1.cds1;Parent=scaff_29308.g10.t1
+scaff_29308	CpGAT	CDS	67820	67962	.	+	0	ID=scaff_29308.g10.t1.cds2;Parent=scaff_29308.g10.t1
+scaff_29308	CpGAT	CDS	68060	68195	.	+	1	ID=scaff_29308.g10.t1.cds3;Parent=scaff_29308.g10.t1
+scaff_29308	CpGAT	gene	69086	78374	.	-	.	ID=scaff_29308.g11
+scaff_29308	CpGAT	mRNA	69086	78374	.	-	.	ID=scaff_29308.g11.t1;Parent=scaff_29308.g11;Note=Evidence from spliced alignment: partially supported by transcript: pasa assembly_6(117328024) sn:sp 1:0.154489, best hit to http://www.uniprot.org/uniref/7300184___KOG0364 e_value 3e-25
+scaff_29308	CpGAT	exon	77755	78374	.	-	.	ID=scaff_29308.g11.t1.e1;Parent=scaff_29308.g11.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	76586	77332	.	-	.	ID=scaff_29308.g11.t1.e2;Parent=scaff_29308.g11.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	75763	75916	.	-	.	ID=scaff_29308.g11.t1.e3;Parent=scaff_29308.g11.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	75268	75612	.	-	.	ID=scaff_29308.g11.t1.e4;Parent=scaff_29308.g11.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	74032	74904	.	-	.	ID=scaff_29308.g11.t1.e5;Parent=scaff_29308.g11.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	73627	73958	.	-	.	ID=scaff_29308.g11.t1.e6;Parent=scaff_29308.g11.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	73105	73228	.	-	.	ID=scaff_29308.g11.t1.e7;Parent=scaff_29308.g11.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	72849	73019	.	-	.	ID=scaff_29308.g11.t1.e8;Parent=scaff_29308.g11.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	70680	72236	.	-	.	ID=scaff_29308.g11.t1.e9;Parent=scaff_29308.g11.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	70264	70371	.	-	.	ID=scaff_29308.g11.t1.e10;Parent=scaff_29308.g11.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	69620	69886	.	-	.	ID=scaff_29308.g11.t1.e11;Parent=scaff_29308.g11.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	69086	69412	.	-	.	ID=scaff_29308.g11.t1.e12;Parent=scaff_29308.g11.t1;Note=ab initio exon
+scaff_29308	CpGAT	CDS	77755	78374	.	-	0	ID=scaff_29308.g11.t1.cds1;Parent=scaff_29308.g11.t1
+scaff_29308	CpGAT	CDS	76586	77332	.	-	1	ID=scaff_29308.g11.t1.cds2;Parent=scaff_29308.g11.t1
+scaff_29308	CpGAT	CDS	75763	75916	.	-	1	ID=scaff_29308.g11.t1.cds3;Parent=scaff_29308.g11.t1
+scaff_29308	CpGAT	CDS	75268	75612	.	-	0	ID=scaff_29308.g11.t1.cds4;Parent=scaff_29308.g11.t1
+scaff_29308	CpGAT	CDS	74032	74904	.	-	0	ID=scaff_29308.g11.t1.cds5;Parent=scaff_29308.g11.t1
+scaff_29308	CpGAT	CDS	73627	73958	.	-	0	ID=scaff_29308.g11.t1.cds6;Parent=scaff_29308.g11.t1
+scaff_29308	CpGAT	CDS	73105	73228	.	-	1	ID=scaff_29308.g11.t1.cds7;Parent=scaff_29308.g11.t1
+scaff_29308	CpGAT	CDS	72849	73019	.	-	0	ID=scaff_29308.g11.t1.cds8;Parent=scaff_29308.g11.t1
+scaff_29308	CpGAT	CDS	70680	72236	.	-	0	ID=scaff_29308.g11.t1.cds9;Parent=scaff_29308.g11.t1
+scaff_29308	CpGAT	CDS	70264	70371	.	-	0	ID=scaff_29308.g11.t1.cds10;Parent=scaff_29308.g11.t1
+scaff_29308	CpGAT	CDS	69620	69886	.	-	0	ID=scaff_29308.g11.t1.cds11;Parent=scaff_29308.g11.t1
+scaff_29308	CpGAT	CDS	69086	69412	.	-	0	ID=scaff_29308.g11.t1.cds12;Parent=scaff_29308.g11.t1
+scaff_29308	CpGAT	gene	85042	86193	.	+	.	ID=scaff_29308.g12
+scaff_29308	CpGAT	mRNA	85042	86193	.	+	.	ID=scaff_29308.g12.t1;Parent=scaff_29308.g12;Note=ab initio model
+scaff_29308	CpGAT	exon	85042	85281	.	+	.	ID=scaff_29308.g12.t1.e1;Parent=scaff_29308.g12.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	85503	85739	.	+	.	ID=scaff_29308.g12.t1.e2;Parent=scaff_29308.g12.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	86059	86193	.	+	.	ID=scaff_29308.g12.t1.e3;Parent=scaff_29308.g12.t1;Note=ab initio exon
+scaff_29308	CpGAT	CDS	85042	85281	.	+	0	ID=scaff_29308.g12.t1.cds1;Parent=scaff_29308.g12.t1
+scaff_29308	CpGAT	CDS	85503	85739	.	+	0	ID=scaff_29308.g12.t1.cds2;Parent=scaff_29308.g12.t1
+scaff_29308	CpGAT	CDS	86059	86193	.	+	0	ID=scaff_29308.g12.t1.cds3;Parent=scaff_29308.g12.t1
+scaff_29308	CpGAT	gene	88061	88884	.	-	.	ID=scaff_29308.g13
+scaff_29308	CpGAT	mRNA	88061	88884	.	-	.	ID=scaff_29308.g13.t1;Parent=scaff_29308.g13;Note=ab initio model
+scaff_29308	CpGAT	exon	88729	88884	.	-	.	ID=scaff_29308.g13.t1.e1;Parent=scaff_29308.g13.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	88448	88599	.	-	.	ID=scaff_29308.g13.t1.e2;Parent=scaff_29308.g13.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	88061	88367	.	-	.	ID=scaff_29308.g13.t1.e3;Parent=scaff_29308.g13.t1;Note=ab initio exon
+scaff_29308	CpGAT	CDS	88729	88884	.	-	0	ID=scaff_29308.g13.t1.cds1;Parent=scaff_29308.g13.t1
+scaff_29308	CpGAT	CDS	88448	88599	.	-	0	ID=scaff_29308.g13.t1.cds2;Parent=scaff_29308.g13.t1
+scaff_29308	CpGAT	CDS	88061	88367	.	-	1	ID=scaff_29308.g13.t1.cds3;Parent=scaff_29308.g13.t1
+scaff_29308	CpGAT	gene	89553	91925	.	+	.	ID=scaff_29308.g14
+scaff_29308	CpGAT	mRNA	89553	91925	.	+	.	ID=scaff_29308.g14.t1;Parent=scaff_29308.g14;Note=Evidence from spliced alignment: fully supported by transcript: pasa assembly_1(117328063,117362395,117354016,...), best hit to http://www.uniprot.org/uniref/At1g72340___KOG1466 e_value 0.0
+scaff_29308	CpGAT	exon	89553	90090	.	+	.	ID=scaff_29308.g14.t1.e1;Parent=scaff_29308.g14.t1;Note=Supported by spliced alignment: 117362395
+scaff_29308	CpGAT	exon	90400	90552	.	+	.	ID=scaff_29308.g14.t1.e2;Parent=scaff_29308.g14.t1;Note=Supported by spliced alignment: 117328063, 117362395, 117369300
+scaff_29308	CpGAT	exon	90653	90794	.	+	.	ID=scaff_29308.g14.t1.e3;Parent=scaff_29308.g14.t1;Note=Supported by spliced alignment: 117328063, 117354016, 117369300
+scaff_29308	CpGAT	exon	91219	91460	.	+	.	ID=scaff_29308.g14.t1.e4;Parent=scaff_29308.g14.t1;Note=Supported by spliced alignment: 117341158, 117354016
+scaff_29308	CpGAT	exon	91655	91925	.	+	.	ID=scaff_29308.g14.t1.e5;Parent=scaff_29308.g14.t1;Note=Supported by spliced alignment: 117341159
+scaff_29308	CpGAT	CDS	89638	90090	.	+	0	ID=scaff_29308.g14.t1.cds1;Parent=scaff_29308.g14.t1
+scaff_29308	CpGAT	CDS	90400	90552	.	+	0	ID=scaff_29308.g14.t1.cds2;Parent=scaff_29308.g14.t1
+scaff_29308	CpGAT	CDS	90653	90794	.	+	0	ID=scaff_29308.g14.t1.cds3;Parent=scaff_29308.g14.t1
+scaff_29308	CpGAT	CDS	91219	91460	.	+	2	ID=scaff_29308.g14.t1.cds4;Parent=scaff_29308.g14.t1
+scaff_29308	CpGAT	CDS	91655	91861	.	+	0	ID=scaff_29308.g14.t1.cds5;Parent=scaff_29308.g14.t1
+scaff_29308	CpGAT	gene	92273	92630	.	-	.	ID=scaff_29308.g15
+scaff_29308	CpGAT	mRNA	92273	92630	.	-	.	ID=scaff_29308.g15.t1;Parent=scaff_29308.g15;Note=ab initio model
+scaff_29308	CpGAT	exon	92593	92630	.	-	.	ID=scaff_29308.g15.t1.e1;Parent=scaff_29308.g15.t1;Note=ab initio exon
+scaff_29308	CpGAT	exon	92273	92510	.	-	.	ID=scaff_29308.g15.t1.e2;Parent=scaff_29308.g15.t1;Note=ab initio exon
+scaff_29308	CpGAT	CDS	92593	92630	.	-	0	ID=scaff_29308.g15.t1.cds1;Parent=scaff_29308.g15.t1
+scaff_29308	CpGAT	CDS	92273	92510	.	-	1	ID=scaff_29308.g15.t1.cds2;Parent=scaff_29308.g15.t1

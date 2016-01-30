@@ -1,0 +1,61 @@
+.buttonIMG {
+	border: 0;
+}
+
+ul#GAEVALquery { text-align:left; list-style:none; padding:0; }
+ul#GAEVALquery li { margin-top:4px; }
+
+li.unselected .INCoptions,
+span.unselected,
+img#DISPLAYopen, img#MWopen, img#BOSopen, img#AIopen, img#ISopen, img#SCSopen, img#BSopen, img#APopen, img#INCopen
+{
+	display:none;
+}
+
+ul#DISPLAYoptions, ul#BOSoptions, ul#DISPLAYoptions,  ul#BOSoptions, ul.AIgroup, ul.ISgroup, ul#MWoptions, ul.SCSgroup, ul.BSgroup, ul.APgroup, ul.INCgroup { background:#DCDCDC; padding-left:20px; list-style:none; display:none; }
+ul#DISPLAYoptions li { margin-top:2px; width:98%; font:normal 10px monotype; }
+ul#DISPLAYoptions li.options { margin-top:5px; width:98%; height:25px; font:normal 10px monotype; }
+ul#DISPLAYoptions img.colDesc { margin-left:4px; vertical-align:-25%; }
+ul#DISPLAYoptions img.menubutton { margin:2px; }
+ul#DISPLAYoptions select.sortOrderSELECT { height:15px; font:normal 10px monotype; margin:3px; }
+ul#DISPLAYoptions table.colOrderButtons {
+	/* float:left; */
+	border: 0;
+	display: block;
+	margin:4px;
+}
+
+ul.MWgroup { background:#DCDCDC; padding: 0 0 5px 25px; list-style:none;}
+ul.AIgroup { background:lightblue; padding-left:20px; list-style:none; }
+ul.ISgroup { background:lightgreen; padding-left:20px; list-style:none; }
+ul.SCSgroup { background:lightgrey; padding-left:20px; list-style:none; }
+ul.BSgroup { background:tomato; padding-left:20px; list-style:none; }
+ul.APgroup { background:orchid; padding-left:20px; list-style:none; }
+ul.INCgroup { background:khaki; padding-left:20px; list-style:none; }
+
+p.AIcustom { padding-left:50px; font-size:9pt; }
+p#resultCols { text-align:left; }
+
+table#GAEVALresults { margin:0 auto 0 0; font-size:12px;}
+table#GAEVALresults img.menubutton{ margin:1px; padding:1px; vertical-align:middle }
+table#GAEVALresults td { white-space:nowrap; text-align:center; border:1px dotted lightblue; }
+
+.pageDisplay { font-size:10px; }
+span.pageDisplay { margin-left:50px; }
+img.menubutton { width:10px; margin:0 10px 4px 0; vertical-align:text-bottom;  border:2px inset lightgray; }
+a.world_link { background:lightgrey; }
+a.world_link:visited {background: yellow; }
+td.flag { width:40px; }
+th { padding-right:10px; text-align:center; } /* FOR SOME REASON WHEN I SET th SIZE=10px I GET A RIGHT MARGIN ON THE PAGE!*/
+
+ul#GAEVALquery {
+	font-size: 12px;
+}
+h3.GAEVALresultHeader { padding:10px 0; text-align:left; border-top:2px solid darkblue; }
+.INCoptions { margin:2px 30px; }
+table.INCoptions td { margin-right:12px; }
+li#MWuca { font-weight: bold; font-size:12px; }
+li#MWuca a {color:red; }
+li#BOSuca a {color:green; }
+li#BOSdoc a {color:blue; }
+li#BOSfreak a {color:maroon; }

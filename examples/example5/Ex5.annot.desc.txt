@@ -1,0 +1,33 @@
+28153.m000272	ATP binding protein, putative
+28153.m000273	conserved hypothetical protein
+28153.m000274	conserved hypothetical protein
+28153.m000275	conserved hypothetical protein
+28153.m000276	hypothetical protein
+28153.m000277	conserved hypothetical protein
+28153.m000278	conserved hypothetical protein
+28153.m000279	conserved hypothetical protein
+28153.m000280	conserved hypothetical protein
+28153.m000281	nutrient reservoir, putative
+28153.m000282	conserved hypothetical protein
+28153.m000283	glutathione peroxidase, putative
+28153.m000284	conserved hypothetical protein
+28153.m000285	conserved hypothetical protein
+28153.m000286	conserved hypothetical protein
+28153.m000287	isoamylase, putative
+28153.m000288	PAC, putative
+29005.m000250	hypothetical protein
+29005.m000251	Histone H1, putative
+29005.m000252	conserved hypothetical protein
+29005.m000253	DNA repair protein xp-C / rad4, putative
+29005.m000254	calcium ion binding protein, putative
+29005.m000255	conserved hypothetical protein
+29005.m000256	conserved hypothetical protein
+29005.m000257	RNA and export factor binding protein, putative
+29005.m000258	calmodulin-binding heat-shock protein, putative
+29005.m000259	zinc finger protein, putative
+29005.m000260	Glucan endo-1,3-beta-glucosidase precursor, putative
+29005.m000261	conserved hypothetical protein
+29005.m000262	conserved hypothetical protein
+29005.m000263	conserved hypothetical protein
+29005.m000264	DNA binding protein, putative
+29005.m000265	r2r3-myb transcription factor, putative

@@ -1,0 +1,26 @@
+/* utility.css
+  Dan Rasmussen. 2010-04-06.
+  Used in error message pages to control form appearance.
+  See /utility/500.php for an example of how to embed this stylesheet.
+*/
+
+input {
+	/* clear: right;
+	float: left; */
+}
+input[readonly] {
+	color: gray;
+}
+label {
+	clear:left;
+	display:block;
+	float:left;
+	margin-top:0.5em;
+	padding-right:10px;
+	text-align:right;
+	width: 100px;
+}
+.warning {
+	color: #f00;
+	text-align: center;
+}

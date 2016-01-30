@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Classes of Incongruent Introns</title>
+      <STYLE TYPE="text/css">
+	H1 {color:#336666; text-align:center; margin-bottom:2px;}
+	img {float:left;}
+      </STYLE>
+  </head>
+  <body>
+    <h1 id="pageTitle">
+      Alternative Splicing & Intron Incongruence
+    </h1>
+
+    <div id="navbar">
+      <h3 class="GroupID">Examples</h3>
+      <ul type="none" id="linklist">
+	<li class="linklist">
+	  <a href="example1.html">1: Single Annotation</a>
+	</li>
+	<li class="linklist">
+	  <a href="example2.html">2: Ambiguous Overlap</a>
+	</li>
+	<li class="linklist">
+	  <a href="example3.html">3: Alternative Splicing</a>
+	</li>
+	<li class="linklist">
+	  <a href="example4.html">4: Alternative Termination</a>
+	</li>
+	<li class="linklist">
+	  <a href="example5.html">5: Annotation Fission</a>
+	</li>
+	<li class="linklist">
+	  <a href="example6.html">6: Annotation Fusion</a>
+	</li>
+	<li class="linklist">
+	  <a href="example7.html">7: Pseudo-Introns</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Documents</h3>
+      <ul type="none" id="linklist">
+	<li class="linklist">
+	  <a href="integrity.html">Annotation Integrity</a>
+	</li>
+	<li class="linklist">
+	  <a href="intron_incongruence.html">Intron Incongruence</a>
+	</li>
+	<li class="linklist">
+	  <a href="tpeg.html">Three-Prime Groups</a>
+	</li>
+      </ul>
+    </div>
+
+    <img src="images/introns.png">
+    <h2 style="clear:left;">Using Intron Incongruence</h2>
+    <p>
+      GAEVAL uses the analysis of introns both to determine the support for a
+      given annotation and to explain inconsistencies between annotation
+      structures and evidence alignments. Inconsistencies such as alternative 
+      splicing are further descibed by GAEVAL using the following incongruent
+      intron flags. GAEVAL extends each flag with a 'documented' property
+      which helps to distinguish novel incongruencies from those already 
+      documented in the current annotation collection.
+    </p>
+    <h3>Alternatively Annotated Introns</h3>
+    <p>The 'Alternatively Annotated Intron' flag is given to an intron defined 
+      by the given annotation which is
+      not found in other available annotation isoforms. Annotation isoforms are
+      considered to be all other annotations in the current annotation set which
+      share at least one common intron with the current annotation or overlap
+      the current annotation by at least one-thousand bases. The 'documented'
+      property of this flag is set when the intron is supported by an isoform 
+      specific evidence (ISE) alignment.
+    </p>
+    <h3>Alternative Introns</h3>
+    <p>The 'Alternative Intron' flag is given to an intron defined by an ISE 
+      alignment which is not present in the current annotation and is within
+      the boundaries of the current annotation. The 'documented' property of
+      this flag is set when this intron is present in the structure of one
+      or more annotation isoforms as defined above.
+    </p>
+    <h3>Additional Introns</h3>
+    <p>The 'Additional Intron' flag is given to an intron defined by an ISE 
+      alignment which is not present in the current annotation yet is also outside
+      the boundaries of the current annotation. The 'documented' property of
+      this flag is set when this intron is present in the structure of one
+      or more annotation isoforms as defined above.
+    </p>
+    <h3>Conflicting Introns</h3>
+    <p>The 'Conflicting Intron' flag is given to an intron defined by the
+      given annotation which is inconsistent with a cognate ISE alignment.
+      The 'documented' property of
+      this flag is set when this intron is present in the structure of one
+      or more annotation isoforms as defined above.
+    </p>
+    <h3>Pseudo Introns</h3>
+    <p>The 'Pseudo-Intron' flag is given to an intron defined by the given
+      annotation which is inconsistent with a cognate ISE alignment and is
+      supported by a noncognate evidence alignment. The 'documented' property
+      is not used for this flag.
+    </p>
+
+  </body>
+</html>

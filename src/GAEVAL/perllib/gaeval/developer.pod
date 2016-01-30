@@ -1,0 +1,141 @@
+=pod
+
+=head1 NAME
+
+gaeval::developer.pod - Developers notes for gaeval
+
+=head1 FUNCTION PROTOTYPES
+
+=head2 OBJECT METHODS
+
+  [gaeval::sql] load_GAEVAL_PROPERTIES_TBL()
+  [gaeval::sql] load_GAEVAL_SUPPORT_TBL()
+  [gaeval::sql] mark_ISO_TBL(\%ISOpair)
+  [gaeval::sql] seed_ALL_ISO_TBLS()
+  [gaeval::sql] seed_ISO_TBL(\%ISOpair)
+  [gaeval::sql] update_GaevalProperties_TBL($annUID)
+  [gaeval::sql] update_GaevalSupport_TBL($annUID)
+
+=head2 PRIVATE FUNCTIONS
+
+  [gaeval::sql] byPGS_SCORE()
+
+=head1 FUNCTION DEPENDENCIES, OBJECTS & POLYMORPHISM
+
+=over
+
+=item byPGS_SCORE 
+
+
+=over
+
+=item Z<>
+
+=back
+
+=item load_GAEVAL_PROPERTIES_TBL
+
+=over
+
+=item B<&>update_GaevalProperties_TBL
+
+=item B<[DBI]>
+
+=item B<< $self->{dbh}-> >>do
+
+=item B<< $self->{dbh}-> >>selectcol_arrayref
+
+=item Z<>
+
+=back
+
+=item load_GAEVAL_SUPPORT_TBL
+
+=over
+
+=item B<&>update_GaevalSupport_TBL
+
+=item B<[DBI]>
+
+=item B<< $self->{dbh}-> >>do
+
+=item B<< $self->{dbh}-> >>selectcol_arrayref
+
+=item Z<>
+
+=back
+
+=item mark_ISO_TBL
+
+=over
+
+=item Z<>
+
+=back
+
+=item seed_ALL_ISO_TBLS
+
+=over
+
+=item B<&>seed_ISO_TBL
+
+=item B<&>mark_ISO_TBL
+
+=item Z<>
+
+=back
+
+=item seed_ISO_TBL
+
+=over
+
+=item B<[gaeval]>
+
+=item B<< $self-> >>STRmatch
+
+=item B<[DBI]>
+
+=item B<< $self->{dbh}-> >>do
+
+=item B<< $self->{dbh}-> >>execute
+
+=item B<< $self->{dbh}-> >>fetchall_arrayref
+
+=item B<< $self->{dbh}-> >>prepare
+
+=item Z<>
+
+=back
+
+=item update_GaevalProperties_TBL
+
+=over
+
+=item B<[DBI]>
+
+=item B<< $self->{dbh}-> >>do
+
+=item Z<>
+
+=back
+
+=item update_GaevalSupport_TBL
+
+=over
+
+=item B<[gaeval]>
+
+=item B<< $self-> >>calc_integrity
+
+=item B<< $self-> >>eval_annotation_support
+
+=item B<[DBI]>
+
+=item B<< $self->{dbh}-> >>do
+
+=item Z<>
+
+=back
+
+=back
+

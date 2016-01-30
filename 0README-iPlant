@@ -1,0 +1,184 @@
+0README-iPlant
+
+##############################################################################
+##    INSTRUCTIONS for xGDBvm-iPlant SETUP, CONFIGURATION, and OPERATION    ##
+##############################################################################
+
+For xGDBvm instances on iPlant Atmosphere (https://atmo.iplantcollaborative.org/application/)
+
+See also:       http://goblinx.soic.indiana.edu/wiki/doku.php?id=user_instructions (xGDBvm wiki)
+                TROUBLESHOOTING tips at end of this document
+
+Latest update: 20-Jan-2016 J Duvick. For xGDBvm-v1.11 or greater.
+
+ 1) CONFIGURE YOUR VM USING SHELL COMMANDS:
+
+ 1A) Log in to your VM using a terminal emulator (ssh username@123.456.78.90) or use Atmosphere's 'Access by Shell'
+ 
+ 1B) Carry out steps listed below IN ORDER by typing commands at the $ prompt. Required responses are in [brackets]
+
+     1.    Update xGDBvm code from SVN repository:    $ update [y] [password] (updated files are listed)  
+     2.    Run a setup script for your (new) VM       $ setup-vm [password][NOTE: You will also be
+                                                       required to set a sitewide Web password for 'user']+++
+     3.    Initialize IRODS/FUSE:                     $ iinit [y]  [username] [password]  (1-time only)
+     4.    Mount your iPlant DataStore (for INPUT)+:  $ mount-datastore  [y] (mounts at /xGDBvm/input/)
+     5.    Mount an external volume (for OUTPUT)++:   $ mount-volume [y] [password] [device location, e.g. /dev/vdc]               
+     6.    Complete VM configuration:                 $ configure-vm [y] [password]
+     7.    Check VM status:                           $ vm-status (shows volume attachment, storage capacity)
+     
+  +  Data Store mount is optional, but REQUIRED if you will be using High Performance Compute processing.
+  
+  ++ Volume mount is optional, but RECOMMENDED for data portability. The volume must already be attached to the VM to mount it.
+  
+  ++ NOTE: The remote storage volume will be populated with all OUTPUT data, configurations, and archives.
+           You can unmount it and remount to a different VM to reproduce the entire GDB display instantly.
+           DO NOT attach a volume if you have already created one or more GDB on this VM using local storage.
+
+  +++ Forgot your VM's Web password? 
+     1. Remove the password flag: $ sudo rm /xGDBvm/admin/xgdbpassword
+     2. Re-run the 'setup-vm' script and enter a new password
+
+ 1C) To unmount volume and Data Store, e.g. before you terminate a VM (make sure no processes are running) 
+
+     1.    Unmount external volume        $ unmount-volume [y] [password]
+     2.    Unmount Data Store             $ unmount-datastore [y] [password]
+          - to remount and reconfigure to the same VM follow steps 4, 5, and 6 above    
+ 
+2) ACCESS YOUR VM ONLINE. Type the IP address of your instance (the same one you used for ssh) into
+    your web browser, e.g. 123.456.78.90
+   
+    NOTE: xGDBvm will always connect over https (secure connection), so you will need to click 
+    through several Web browser alerts to persuade your Web browser to accept the
+    unverified iPlant certificate (procedure varies by Web browser). This is normal behavior.
+
+*** Your xGDBvm instance is now configured and online. Be sure to password-protect it appropriately (Step 3)  ***
+    
+  A quick summary of steps you will take to prepare and annotate a genome using xGDBvm:
+     1.    Complete the VM configuration process online (steps 3 - 5 below)       
+     2.    Test your VM with sample data provided (step 6)  
+     3.    Prepare your input data an iPlant Data Store directory, e.g. /username/myData/ = /xGDBvm/input/myData/ (step 7)
+     4.    Create a GDB configuration, e.g. GDB001 (enter GDB name, path to input data, parameter choices) and save it (step 8)
+     5.    Initiate the GDB pipeline and monitor for errors; if necessary, terminate process and start over (step 9)
+     6.    When complete, verify results by reviewing output reports and process logs; address any errors (step 10)                 
+     7.    Archive your output and copy the archive back to your Data Store if desired (step 11)
+     8.    Re-annotate manually or regionally using built-in tools; add or replace track data using Update feature (step 12)
+    
+*** The following steps are carried out via Web connection (or vpn) to your Instance:***
+
+ 3) (OPTIONAL) CHANGE INTERNET PASSWORD PROTECTION ON YOUR VM:
+    -  Visit 'Manage -> Admin -> Set Up Passwords'
+      -  Option 2 (protect entire Website, username='user') is the default and should be in effect for all NEW VMs
+      -  Option 1 (protect Admin pages; username='admin') can be implemented if data are public (but first remove sitewide password)
+    -  Share the password only with persons who have valid reason to access protected pages
+
+ 4) INSTALL LICENSE KEYS:
+    - Visit Manage -> Config -> License Keys
+    - Follow directions to obtain license keys, store them on your Data store and add them to your xGDBvm 
+    - Note that if you store copies on your Data Store you can easily install them on a new VM
+
+ 5) CONFIGURE REMOTE HPC (optional) 
+    - Visit Manage -> Jobs -> Getting Started and check status flags for configuration and job running
+    - If VM is new, you MUST register it via Agave API (click 'Authorize/Login), using your credentials.
+    - Once registered (a one-time event), you should be able to log in with the same credentials and submit jobs.
+    - Update App IDs if needed (click 'Configure Apps') - check at http://goblinx.soic.indiana.edu/wiki/doku.php?id=hpc#current_app_ids 
+    - Update API settings if needed (click 'Configure API') - check at http://goblinx.soic.indiana.edu/wiki/doku.php?id=agave&#current_api_settings
+    
+ 6) TEST YOUR VM WITH "TOY" DATA 
+   - LOAD EXAMPLE: Visit 'Manage -> Config -> Create New GDB'  and click 'Examples' to view test datasets
+   - SELECT a dataset and click 'Save Example __'. Your GDB is now 'Development' status
+   - PROCESS: On GDB config page, click 'Data Options... -> Create GDB' to run pipeline
+   - CHECK OUTPUT: When completed, GDB will be 'Current' status and you can check output track counts
+   - VERIFY: Visit 'View -> GDB' (home page) and click 'View Sample Region' to verify track visibility
+   - TROUBLESHOOT if necessary by viewing pipeline log and error log 
+        - GDB Home Page: 'GDBnnn -> Resources -> Pipeline Logs'
+        - GDB Config Page: 'Logfile'
+        
+ 7) PREPARE DATA: Once familiar with the process and prerequisites, prepare your GDB data as follows:
+    - REVIEW DATA SOURCES (Manage -> Config -> Data Sources) and choose input data files,
+      according to what you want to accomplish and what data are available
+    - REVIEW DATA REQUIREMENTS and naming conventions for xGDBvm (Manage -> Config -> Data Requirements)
+    - RENAME INPUT FILES accordingly and double check their FASTA headers and IDs
+    - MOVE INPUT DATA TO DATA STORE (create a new directory under your Data Store username root)
+    - CHECK VOLUME CAPACITY (Manage -> Config -> Data Volumes) to confirm adequate capacity.
+    - DETERMINE REMOTE COMPUTE RESOURCES (optional) (Manage -> Jobs -> Estimate Resources)
+    - ADJUST REMOTE COMPUTE PARAMS (optional) (Manage -> Jobs -> Configure) depending on data size
+
+ 8) CONFIGURE GDB PIPELINE: 
+    - CONFIGURE A NEW GDB (Manage -> Config -> Create New GDB)
+       - Enter GDB Name, Species, Input Directory
+       - Select any non-default Spliced Alignment parameters (Transcript/Protein)
+       - Select 'Remote Compute' option if desired for High Performance Computing (HPC) of spliced alignments
+       - Select Predict Genes = 'Yes' if you want to compute gene models using CpGAT
+       - Enter optional configuration data as desired and click 'Save' at top of form.
+    - VALIDATE INPUTS, EXPECTED OUTPUTS for your 'Development' GDB Configuration 
+       - Review lists of valid-named inputs and expected outputs, error flags (at top of config form)
+       - Validate file contents by clicking 'i' icon (detects duplicate or invalid IDs, enumerates counts)
+       - Verify storage capacity to handle outputs (required: 5x-10x input data size)
+    - PRE-RUN HPC job(s) as 'standalone' procedures if desired (Remote jobs -> Manage Jobs)
+       - GDB input data (genome, transcript, protein) is automatically recognized when you select a GDB
+       - Monitor HPC output in Remote Jobs -> List All Jobs, and click to tranfer output to GDB input directory
+       - HPC outputs can then be used as inputs for the 'regular' GDB pipeline
+       
+ 9) RUN GDB PIPELINE
+    - INITIATE PIPELINE by clicking Data Process Options -> Create GDB
+    - MONITOR PROGRESS by viewing the Logfile (accessible from the GDB Config page)
+       - Note that while pipeline is running you will NOT be able to create any additional GDB.
+       - If necessary, you can ABORT the pipeline by clicking 'Config page -> Data Process Options -> Abort'
+    - HPC JOBS are monitored in Remote Jobs -> List Jobs
+    - JOB FINISHED - GDB Config status will be 'Current' and you can access genome browser, tools, data.
+    
+10) CHECK OUTPUT
+    - VERIFY TRACK DATA- check if tracks and feature counts are as expected ('GDB Config -> General Info -> Features)
+    - VERIFY TRACK DISPLAY: Visit 'View -> GDB' (home page) and click 'View Sample Region' to verify track visibility
+    - TROUBLESHOOT if necessary by viewing pipeline log and error log 
+        - GDB Home Page: 'GDBnnn -> Resources -> Pipeline Logs'
+        - GDB Config Page: 'Logfile'
+ 
+11) MANAGE OUTPUT DATA
+    - ARCHIVE GDB if OK: On GDB Config page click 'Data Process Options... -> Archive GDB' to
+      save all data to a GDB archive (/xGDBvm/data/ArchiveGDB/GDBnnn/) on your External Volume
+        - This allows you to restore the GDB if the VM is disconnected or data are corrupted.
+    - DROP GDB to start pipeline over: Click 'Data Process Options... -> Drop GDB' to
+      remove data tables, output directory and revert to 'Development' status
+        - Now change input parameters or data inputs as appropriate and repeat steps 12, 13.
+    - DELETE GDB to remove all output data AND configuration: visit 'Manage -> Config -> Archive/Delete'
+      and click 'Delete Latest GDB'. THIS WILL ALSO DELETE ANY GDB ARCHIVE!!!
+      
+ 12) EDIT/UPDATE GDB DATA
+    - REANNOTATE gene models manually online using the yrGATE tool 
+    - ADD ANNOTATIONS to a region or globally using CpGAT tool
+    - ADD/MODIFY input data by selecting Update='Yes' in configuration page, and specifying update actions/data path.
+    
+NOTE: Help documents are available along with contextual help on each Web page (the '?' icon)
+
+For additional information and help, consult the xGDBvm Wiki at http://goblinx.soic.indiana.edu/wiki/
+
+
+########################  TROUBLESHOOTING your xGDBvm configuration    ###########################
+
+1) Problem:	I get a "no database" error when accessing site over HTTP.
+
+   Solution: try restarting MySQL (as sudo):
+
+    $ sudo /sbin/service mysqld restart
+  
+  Or, run the configuration script again:
+  
+    $ configure-vm
+    $ sudo /xGDBvm/scripts/iPlantMySQLinit.sh (manual)
+	
+2) Problem:	After I create a genome browser (e.g. GDB001), I cannot view it
+     over HTTPS (I get an error message)
+
+   Solution: Make sure there is a 'tmp' file under /xGDBvm/data/, and
+     that it has correct permissions. All image and
+     other temporary files generated by the genome browser are cached there and
+     must be accessible to the Web server.
+
+3) Problem: I am unable to successfully mount an External Volume at e.g. /dev/vdc
+
+   Solution: Make sure /dev/vdc (or other device location) exists on your VM; it is created when you attach
+   the Volume from Atmosphere control panel, but it may take several minutes to appear. 
+   It is also possible the Volume is damaged and you may have to delete it and create a new one.
+
+For more solutions, visit http://goblinx.soic.indiana.edu/wiki/doku.php?id=troubleshooting

@@ -1,0 +1,68 @@
+
+ 
+######### CONTENTS ###########
+
+index.php - blank file
+
+#### Initialization scripts for xGDBvm-iPlant
+
+xGDB_MYSQL_DataPathIni.sh
+xGDB_MYSQL_Ini.sh
+
+start_EBS.sh
+start_IRODS.sh
+
+#### Current xGDBvm scripts ####
+
+AbortGDB.sh
+AdminFrame.sql
+AnnoPipe_conf.pl
+configure
+CpGAT_GAEVALconf.php
+cpgat_lociFrame.sql
+CpGAT_TEMPLATE_gaeval.conf.pl
+DropAllGDB.pl
+DropGDB.sh
+fasta-validate.pl
+FastaSplit.pl
+formatdb.pl
+GAEVALconf.php
+GenomesFrame.sql
+GenomesMySQLupdate.sh
+getDBandRunGSQ.pl
+GFF_to_XGDB_Standard.pl
+lociFrame.sql
+ParseAndUploadDes.pl
+splitMakearryGSQ.pl
+TEMPLATE_gaeval.conf.pl
+TEMPLATE_SITEDEF.php
+TEMPLATE_SITEDEF.pl
+TemplateFrame.sql
+xGDB_Archive.sh
+xGDB_ArchiveOneGDB.sh
+xGDB_deleteAdminpass.sh
+xGDB_deleteXGDBpass.sh
+xGDB_newAdminpass.sh
+xGDB_newDbpass.sh
+xGDB_newXGDBpass.sh
+xGDB_markClonePairs.pl
+xGDB_markCognate.pl
+xGDB_markESTprimality.sh
+xGDB_Procedure.sh
+xGDB_Recover.sh
+xGDB_RecoverOneGDB.sh
+xGDB_yrgateAdmin.sh
+xGDBload_PgsFromGSQ.pl
+xGDBload_PgsFromGTH.pl
+xGDBload_SeqFromFasta.pl
+xGDBvm_start.sh
+yrGATE_conf.pl
+yrgateFrame.sql
+
+
+#### Temporary update scripts - do not run unless so instructed! ####
+
+yrgateFrameUpdate.sql 10-3-12
+yrgateMySQLupdate.sh 10-9-12
+AdminHtaccessUpate.sh 11-12-12
+AdminMySQLupdate.sh

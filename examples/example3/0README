@@ -1,0 +1,4 @@
+Example 3 (Pre-Computed Data)
+
+This is an example dataset consisting of four Ricinus communis scaffolds, along with the est, cdna, put and related species (Arabidopsis and Medicago) proteins that splice-align to them.
+For this example, we assume spliced alignments (GeneSeqer and GenomeThreader) have already been run separately, and the output files are included in the same directory.

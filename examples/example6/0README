@@ -1,0 +1,20 @@
+Example 6 (Repeat Mask/CpGAT option). This is an example dataset consisting of four Ricinus communis scaffolds, along with the est, cdna, put and related species (Arabidopsis and Medicago) proteins that splice-align to them. Included is a reference protein index for CpGAT and a small "fake" repeat mask index (consisting of several genic regions from Rc)
+
+Directory: /xGDBvm/examples/Example6/
+
+	GenomesExample6.txt - this is the configuration data that will be loaded when user selects this example.
+	Rc_4scaff_GDBcdna.fasta
+	my.gff
+	Rc_4scaff_GDBscaffold.fasta
+	Rc_4scaff_GDBput.fasta
+	Rc_4scaff_GDBpep.fasta
+
+Directory: /xGDBvm/examples/Example6/cpgat/
+
+	Rc_REFPEP.fasta - (Reference Protein dataset: ) This is simply the same set of peptides as Rc_4scaff_GDBprotein.fasta
+	(index files derived from above)
+
+Directory: /xGDBvm/examples/Example6/repeat/
+
+	Rc_28153_Repeat.fasta (Repeat Mask input) - consisting of three EST-spanning regions from scaffold 28153 arbirarily chosen for repeat masking.
+	(index files derived from the above using /usr/local/bin/mkvtree  -db Rc_28153_Repeat.fasta -dna -pl -allout  -v

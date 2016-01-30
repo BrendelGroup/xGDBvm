@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Three-prime evidence groups</title>
+      <STYLE TYPE="text/css">
+	.breakout {color:#336666; font:bold 150% stencil,cursive;}
+	.ref {font:small-caps 100% monospace;}
+	.super {vertical-align:super; font:normal 0.5em monotype;}
+	.footnote {font:normal 0.75em monotype; margin-left:5px;}
+	#tfig { float:right;  margin:2px; border:2px solid #336666; background:#CCCC99;}
+	
+	H1 {color:#336666; text-align:center; margin-bottom:2px;}
+
+	p.note {width:850px; border:2px dotted red; border-right:none; margin:5px; padding:2px; font:normal 14px monotype;}
+
+	DIV.methods {float:left; text-align:justify; margin:4px; width:450px;}
+	DIV.methods H3 {padding:0px; border:1px solid maroon; margin-bottom:2px; background:#336666; color:#FFFFFF; font:bold 100% stencil,cursive;}
+	DIV.methods P.synopsis {margin-top:2px; margin-left:0px;}
+
+	DIV.figure {clear:both; min-height:450px; margin:5px 0px; border:2px solid #336666; background:#CCCC99;}
+	DIV.figure H3 {text-align:left; padding:2px 25px; margin:0px 0px 2px 0px; background:#999966; color:#FFFFFF; font:bold 100% stencil,cursive;}
+	DIV.figure IMG { float:right; margin:2px; }
+	DIV.figure P {}
+	
+	DIV#abstract {width:850px;}
+
+	DIV#discussion {width:100%;}
+	DIV#discussion H2 {clear:both; padding:2px; margin-left:25px; margin-bottom:2px; background:#999966; color:#336666; font:bold 1em sans-serif}
+	DIV#discussion H2 A.list_cases {position:absolute; right:8%; font-size:75%;}
+	DIV#discussion IMG {margin-right:4px; vertical-align:bottom; padding:2px; border:1px solid grey; background:#FFFFFF;}
+	DIV#discussion IMG.inline {float:right; clear:right; vertical-align:text-top; margin:2px 10px; border:1px solid #336666;}
+	DIV#discussion P {margin:10px 5px 15px 25px; text-align:justify;}
+	DIV#discussion P.sub {margin-top:1.5em; clear:right;}
+	DIV#discussion H4 {margin:5px 0px 2px 25px;}
+	
+      </STYLE>
+  </head>
+  <body>
+    <h1 id="pageTitle">
+      Three-prime Evidence Groups &<br>
+	Alternative Cleavage / Polyadenylation Site Usage
+    </h1>
+
+     <div id="navbar">
+          <ul type="none" class="linklist">
+	<li class="linklist">
+	  <a href="/GAEVAL/docs/index.html">GAEVAL Introduction</a>
+	</li>
+	<li class="linklist">
+	  <a href="ftp://ftp.plantgdb.org/download/GAEVAL/">GAEVAL Download (ftp)</a>
+	</li>
+	</ul>
+      <h3 class="GroupID">Examples</h3>
+      <ul type="none" id="linklist">
+	<li class="linklist">
+	  <a href="example1.html">1: Single Annotation</a>
+	</li>
+	<li class="linklist">
+	  <a href="example2.html">2: Ambiguous Overlap</a>
+	</li>
+	<li class="linklist">
+	  <a href="example3.html">3: Alternative Splicing</a>
+	</li>
+	<li class="linklist">
+	  <a href="example4.html">4: Alternative Termination</a>
+	</li>
+	<li class="linklist">
+	  <a href="example5.html">5: Annotation Fission</a>
+	</li>
+	<li class="linklist">
+	  <a href="example6.html">6: Annotation Fusion</a>
+	</li>
+	<li class="linklist">
+	  <a href="example7.html">7: Pseudo-Introns</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Documents</h3>
+      <ul type="none" id="linklist">
+	<li class="linklist">
+	  <a href="integrity.html">Annotation Integrity</a>
+	</li>
+	<li class="linklist">
+	  <a href="intron_incongruence.html">Intron Incongruence</a>
+	</li>
+	<li class="linklist">
+	  <a href="tpeg.html">Three-Prime Groups</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Other Links</h3>
+      <ul class="linklist">
+	<li class="linklist">
+	  <a href="/">xGDBvm Home</a>
+	</li>
+	<li class="linklist">
+	  <a href="/XGDB/index.php">Current Genomes</a>
+	</li>
+	<li class="linklist">
+	  <a href="/XGDB/help/using_gdb.php">Genome Browser Help</a>
+	</li>
+	<li class="linklist">
+	  <a href="/XGDB/help/yrgate.php">Gene Annotation Help</a>
+	</li>	</ul>
+	
+	    </div>
+<br />
+    <p class="note">The analysis of transcriptional termination sites requires
+      evidence alignments related to such sites. In terms of the GAEVAL algorithm 
+      the evidence currently used includes 'full-length' cDNA sequences and 
+      'three-prime' EST sequences. In order to capture this information in the GFF 
+      file input it is REQUIRED that these sequences include the attributes 
+      'full_length_transcript=1' and 'end_type=T' respectively. For an example of 
+      this format see <a href="../examples/example4.gff3">example4.gff3</a>
+    </p>
+    <br />
+    <img src="images/tpeg.png">
+
+    <DIV ID='abstract'>
+      <P>Determining the exact nucleotide (or nucleotide region) at which transcription concludes for a gene
+	has been an active field of study for over three decades. However, with the increased availability of genomic sequence,
+	and thus an inherent need for gene annotation, tools and methods for accurate prediction of the downstream extent
+	of a gene are in demand now more than ever. Herein we discuss current knowledge of the biological properties
+	of the cleavage / polyadenylation site as well as methods for locating an approximate region of termination given available EST and cDNA evidence.
+      </P>
+    </DIV>
+    <DIV class='methods' style="clear:left;">
+      <H3>The Biology</H3>
+      <P CLASS='synopsis'>In eukaryotes, the common RNA-POL II transcribed gene undergoes the processes of maturation
+	(ie. capping, splicing, and polyadenylation) concurrent with transcription. While the exact mechanism which
+	terminates transcription is unproven, the common assumption is that a lack of processivity of the RNA-POL II 
+	caused by dissociation of stabilizing elongation factors in concert with cleavage/polyadenylation allow termination
+	to occur at the next thermodynamically favorable location (Zhao, 1999). Thus the exact point of pre-mRNA transcript termination
+	may or may not be conserved. However the site of cleavage/poyladenylation is generally static as shown by mutation
+	studies which produce transcriptional run-off when this site is altered. While the extent of transcriptional excess
+	may have regulatory consequences, identification of the cleavage/polyadenylation site is sufficient to determine the 
+	sequence extent of mature mRNA as related to the annotation of a given transcriptional unit.
+      </P>
+    </DIV>
+    <DIV class='methods'>
+      <H3>Genomic Landmarks for Locating a CPS</H3>
+      <P CLASS='synopsis'>Cleavage / Polyadenylation sites are largely difficult to predict based
+	on sequence motifs due to their short and often degenerate nature. 3' Expressed Sequence Tags (ESTs) however, provide 
+	an empirical method for locating the CPS. By accurate spliced alignment of the 3' ESTs, cluster groups can be used to 
+	determine a localized region containing the CPS (Gautheret, 1998). For this analysis, 98,313 3' ESTs were clustered into 13,148 multi-member
+	clusters. Variation of the aligned 3' boundary within these Three-Prime EST Groups (TPEGs) is shown in figure 1. 
+	As previously observed (Graber, 1999), multiple CPS signals closely spaced (on the order of tens of nucleotides) 
+	result in variation of the 3' EST aligned ends (again on the order of tens of nucleotides). This analysis confirms
+	that over 95% of the current gene-model annotations containing TPEGs have 3' boundaries within 150 nucleotides of the TPEG defined
+	CPS (the vast majority have less than a 10 base difference). However exceptions do exists and have been flagged as 
+	possible alternative polyadenylation sites, false gene extensions, and false intronic gene mergers.
+      </P>
+    </DIV>
+    
+    <DIV CLASS='figure'>
+      <H3>Figure 1: Three-Prime EST Group Variance</H3>
+      <IMG SRC='images/tpeg_fig1.png'>
+	<P CLASS='footnote'>This graph represents the difference in nucleotide position of each Three-Prime EST Group member 
+	  (ie. each 3' EST) as compared to the median 3' boundary of the cluster. Values range from 0 to 93. The most prevalent 
+	  positional difference is 0 representing alignment termination at a common nucleotide. 95% of the TPEG member ESTs have
+	  variance of less than 16 nucleotides.
+	</P>
+	<span style='clear:right;' /><!-- hack to get IE to extend the DIV -->
+    </DIV>
+    
+    <DIV CLASS='figure'>
+      <H3>Figure 2: TPEG CPS -vs- GeneModel Boundary</H3>
+      <IMG SRC='images/tpeg_fig2.png'>
+	<P CLASS='footnote'>This graph represents the difference in nucleotide position of each predicted TPEG defined CPS as compared 
+	  to the annotated 3' boundary of the containing Gene Model. 95% of all TPEG defined CPSs lie within 150 nucleotides of the 
+	  annotated 3' gene boundary. Variations much larger than this threshold are considered flagable events (alternative polyadenylation,
+	  , false gene extensions, and false intronic gene mergers).
+	</P>
+	<span style='clear:right;' /> <!-- hack to get IE to extend the DIV -->
+    </DIV>
+  </body>
+</html>

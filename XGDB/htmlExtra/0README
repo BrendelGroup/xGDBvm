@@ -1,0 +1,8 @@
+/xGDBvm/XGDB/htmlExtras
+
+This directory contains scripts used by the showCluster.pl script to display nucleotide-level alignments.
+
+clear.png
+CL_infoPlus.php
+CL_info.php
+blank.html

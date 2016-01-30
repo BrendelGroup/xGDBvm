@@ -1,0 +1,174 @@
+scaff_28153	working_models	gene	8720	9707	.	+	.	Gene 28153.t000001; Note "ATP binding protein, putative"; Alias "28153.t000001"
+scaff_28153	working_models	mRNA	8720	9707	.	+	.	mRNA 28153.m000272; Gene 28153.t000001; Note "28153.m000272"
+scaff_28153	working_models	CDS	8720	9707	.	+	0	mRNA 28153.m000272
+scaff_28153	working_models	gene	12796	14363	.	-	.	Gene 28153.t000002; Note "conserved hypothetical protein"; Alias "28153.t000002"
+scaff_28153	working_models	mRNA	12796	14363	.	-	.	mRNA 28153.m000273; Gene 28153.t000002; Note "28153.m000273"
+scaff_28153	working_models	CDS	13743	14363	.	-	0	mRNA 28153.m000273
+scaff_28153	working_models	CDS	13206	13574	.	-	0	mRNA 28153.m000273
+scaff_28153	working_models	CDS	12796	12825	.	-	0	mRNA 28153.m000273
+scaff_28153	working_models	gene	17307	18518	.	-	.	Gene 28153.t000003; Note "conserved hypothetical protein"; Alias "28153.t000003"
+scaff_28153	working_models	mRNA	17307	18518	.	-	.	mRNA 28153.m000274; Gene 28153.t000003; Note "28153.m000274"
+scaff_28153	working_models	CDS	17307	18518	.	-	0	mRNA 28153.m000274
+scaff_28153	working_models	gene	23831	24262	.	-	.	Gene 28153.t000004; Note "conserved hypothetical protein"; Alias "28153.t000004"
+scaff_28153	working_models	mRNA	23831	24262	.	-	.	mRNA 28153.m000275; Gene 28153.t000004; Note "28153.m000275"
+scaff_28153	working_models	CDS	23831	24262	.	-	0	mRNA 28153.m000275
+scaff_28153	working_models	gene	25865	26596	.	-	.	Gene 28153.t000005; Note "hypothetical protein"; Alias "28153.t000005"
+scaff_28153	working_models	mRNA	25865	26596	.	-	.	mRNA 28153.m000276; Gene 28153.t000005; Note "28153.m000276"
+scaff_28153	working_models	CDS	25865	26596	.	-	0	mRNA 28153.m000276
+scaff_28153	working_models	gene	27588	28710	.	+	.	Gene 28153.t000006; Note "conserved hypothetical protein"; Alias "28153.t000006"
+scaff_28153	working_models	mRNA	27588	28710	.	+	.	mRNA 28153.m000277; Gene 28153.t000006; Note "28153.m000277"
+scaff_28153	working_models	five_prime_UTR	27588	27865	.	+	.	mRNA 28153.m000277
+scaff_28153	working_models	CDS	27866	28303	.	+	0	mRNA 28153.m000277
+scaff_28153	working_models	three_prime_UTR	28304	28710	.	+	.	mRNA 28153.m000277
+scaff_28153	working_models	gene	30742	32714	.	-	.	Gene 28153.t000007; Note "conserved hypothetical protein"; Alias "28153.t000007"
+scaff_28153	working_models	mRNA	30742	32714	.	-	.	mRNA 28153.m000278; Gene 28153.t000007; Note "28153.m000278"
+scaff_28153	working_models	CDS	32709	32714	.	-	0	mRNA 28153.m000278
+scaff_28153	working_models	CDS	32329	32431	.	-	0	mRNA 28153.m000278
+scaff_28153	working_models	CDS	31054	31800	.	-	1	mRNA 28153.m000278
+scaff_28153	working_models	CDS	30742	30920	.	-	1	mRNA 28153.m000278
+scaff_28153	working_models	gene	34719	39169	.	+	.	Gene 28153.t000008; Note "conserved hypothetical protein"; Alias "28153.t000008"
+scaff_28153	working_models	mRNA	34719	39169	.	+	.	mRNA 28153.m000279; Gene 28153.t000008; Note "28153.m000279"
+scaff_28153	working_models	five_prime_UTR	34719	34753	.	+	.	mRNA 28153.m000279
+scaff_28153	working_models	CDS	34754	34994	.	+	0	mRNA 28153.m000279
+scaff_28153	working_models	CDS	35096	35172	.	+	1	mRNA 28153.m000279
+scaff_28153	working_models	CDS	35273	35356	.	+	0	mRNA 28153.m000279
+scaff_28153	working_models	CDS	35449	35562	.	+	0	mRNA 28153.m000279
+scaff_28153	working_models	CDS	35748	35831	.	+	0	mRNA 28153.m000279
+scaff_28153	working_models	CDS	35934	36005	.	+	0	mRNA 28153.m000279
+scaff_28153	working_models	CDS	36477	36544	.	+	0	mRNA 28153.m000279
+scaff_28153	working_models	CDS	37103	37190	.	+	2	mRNA 28153.m000279
+scaff_28153	working_models	CDS	37303	37376	.	+	0	mRNA 28153.m000279
+scaff_28153	working_models	CDS	37468	37822	.	+	2	mRNA 28153.m000279
+scaff_28153	working_models	CDS	38008	38054	.	+	0	mRNA 28153.m000279
+scaff_28153	working_models	CDS	38155	38236	.	+	2	mRNA 28153.m000279
+scaff_28153	working_models	CDS	38679	38726	.	+	0	mRNA 28153.m000279
+scaff_28153	working_models	three_prime_UTR	38727	39169	.	+	.	mRNA 28153.m000279
+scaff_28153	working_models	gene	41349	45415	.	+	.	Gene 28153.t000009; Note "conserved hypothetical protein"; Alias "28153.t000009"
+scaff_28153	working_models	mRNA	41349	45415	.	+	.	mRNA 28153.m000280; Gene 28153.t000009; Note "28153.m000280"
+scaff_28153	working_models	CDS	41349	41396	.	+	0	mRNA 28153.m000280
+scaff_28153	working_models	CDS	41594	41756	.	+	0	mRNA 28153.m000280
+scaff_28153	working_models	CDS	41930	42660	.	+	1	mRNA 28153.m000280
+scaff_28153	working_models	CDS	42929	43102	.	+	0	mRNA 28153.m000280
+scaff_28153	working_models	CDS	43211	43327	.	+	0	mRNA 28153.m000280
+scaff_28153	working_models	CDS	44154	44333	.	+	0	mRNA 28153.m000280
+scaff_28153	working_models	CDS	44432	44478	.	+	0	mRNA 28153.m000280
+scaff_28153	working_models	CDS	45073	45415	.	+	2	mRNA 28153.m000280
+scaff_28153	working_models	gene	46876	48100	.	+	.	Gene 28153.t000010; Note "nutrient reservoir, putative"; Alias "28153.t000010"
+scaff_28153	working_models	mRNA	46876	48100	.	+	.	mRNA 28153.m000281; Gene 28153.t000010; Note "28153.m000281"
+scaff_28153	working_models	five_prime_UTR	46876	46904	.	+	.	mRNA 28153.m000281
+scaff_28153	working_models	CDS	46905	47100	.	+	0	mRNA 28153.m000281
+scaff_28153	working_models	CDS	47226	48100	.	+	1	mRNA 28153.m000281
+scaff_28153	working_models	gene	51019	51365	.	-	.	Gene 28153.t000011; Note "conserved hypothetical protein"; Alias "28153.t000011"
+scaff_28153	working_models	mRNA	51019	51365	.	-	.	mRNA 28153.m000282; Gene 28153.t000011; Note "28153.m000282"
+scaff_28153	working_models	CDS	51312	51365	.	-	0	mRNA 28153.m000282
+scaff_28153	working_models	CDS	51019	51186	.	-	0	mRNA 28153.m000282
+scaff_28153	working_models	gene	52871	68951	.	-	.	Gene 28153.t000012; Note "glutathione peroxidase, putative"; Alias "28153.t000012"
+scaff_28153	working_models	mRNA	52871	68951	.	-	.	mRNA 28153.m000283; Gene 28153.t000012; Note "28153.m000283"
+scaff_28153	working_models	CDS	68826	68951	.	-	0	mRNA 28153.m000283
+scaff_28153	working_models	CDS	68252	68328	.	-	0	mRNA 28153.m000283
+scaff_28153	working_models	CDS	61004	63016	.	-	2	mRNA 28153.m000283
+scaff_28153	working_models	CDS	60316	60745	.	-	2	mRNA 28153.m000283
+scaff_28153	working_models	CDS	59509	59617	.	-	0	mRNA 28153.m000283
+scaff_28153	working_models	CDS	59322	59434	.	-	1	mRNA 28153.m000283
+scaff_28153	working_models	CDS	59044	59231	.	-	0	mRNA 28153.m000283
+scaff_28153	working_models	CDS	58481	58955	.	-	2	mRNA 28153.m000283
+scaff_28153	working_models	CDS	57946	58381	.	-	0	mRNA 28153.m000283
+scaff_28153	working_models	CDS	57654	57830	.	-	1	mRNA 28153.m000283
+scaff_28153	working_models	CDS	55779	55855	.	-	1	mRNA 28153.m000283
+scaff_28153	working_models	CDS	55597	55673	.	-	0	mRNA 28153.m000283
+scaff_28153	working_models	CDS	55442	55503	.	-	2	mRNA 28153.m000283
+scaff_28153	working_models	CDS	54602	54720	.	-	1	mRNA 28153.m000283
+scaff_28153	working_models	CDS	53015	53182	.	-	0	mRNA 28153.m000283
+scaff_28153	working_models	CDS	52871	52900	.	-	0	mRNA 28153.m000283
+scaff_28153	working_models	gene	73560	74399	.	+	.	Gene 28153.t000013; Note "conserved hypothetical protein"; Alias "28153.t000013"
+scaff_28153	working_models	mRNA	73560	74399	.	+	.	mRNA 28153.m000284; Gene 28153.t000013; Note "28153.m000284"
+scaff_28153	working_models	CDS	73560	74399	.	+	0	mRNA 28153.m000284
+scaff_28153	working_models	gene	77327	84495	.	+	.	Gene 28153.t000014; Note "conserved hypothetical protein"; Alias "28153.t000014"
+scaff_28153	working_models	mRNA	77327	84495	.	+	.	mRNA 28153.m000285; Gene 28153.t000014; Note "28153.m000285"
+scaff_28153	working_models	CDS	77327	77640	.	+	0	mRNA 28153.m000285
+scaff_28153	working_models	CDS	78073	78222	.	+	2	mRNA 28153.m000285
+scaff_28153	working_models	CDS	78793	78928	.	+	2	mRNA 28153.m000285
+scaff_28153	working_models	CDS	79859	79960	.	+	0	mRNA 28153.m000285
+scaff_28153	working_models	CDS	80197	80316	.	+	0	mRNA 28153.m000285
+scaff_28153	working_models	CDS	80441	80521	.	+	0	mRNA 28153.m000285
+scaff_28153	working_models	CDS	81430	81770	.	+	0	mRNA 28153.m000285
+scaff_28153	working_models	CDS	82646	82891	.	+	2	mRNA 28153.m000285
+scaff_28153	working_models	CDS	83139	83463	.	+	2	mRNA 28153.m000285
+scaff_28153	working_models	CDS	83676	83909	.	+	0	mRNA 28153.m000285
+scaff_28153	working_models	CDS	84274	84495	.	+	0	mRNA 28153.m000285
+scaff_28153	working_models	gene	84784	85325	.	+	.	Gene 28153.t000015; Note "conserved hypothetical protein"; Alias "28153.t000015"
+scaff_28153	working_models	mRNA	84784	85325	.	+	.	mRNA 28153.m000286; Gene 28153.t000015; Note "28153.m000286"
+scaff_28153	working_models	CDS	84784	84847	.	+	0	mRNA 28153.m000286
+scaff_28153	working_models	CDS	84961	84971	.	+	1	mRNA 28153.m000286
+scaff_28153	working_models	CDS	85080	85325	.	+	0	mRNA 28153.m000286
+scaff_28153	working_models	gene	86537	89155	.	+	.	Gene 28153.t000016; Note "isoamylase, putative"; Alias "28153.t000016"
+scaff_28153	working_models	mRNA	86537	89155	.	+	.	mRNA 28153.m000287; Gene 28153.t000016; Note "28153.m000287"
+scaff_28153	working_models	CDS	86537	89155	.	+	0	mRNA 28153.m000287
+scaff_28153	working_models	gene	90218	90752	.	-	.	Gene 28153.t000017; Note "PAC, putative"; Alias "28153.t000017"
+scaff_28153	working_models	mRNA	90218	90752	.	-	.	mRNA 28153.m000288; Gene 28153.t000017; Note "28153.m000288"
+scaff_28153	working_models	CDS	90573	90752	.	-	0	mRNA 28153.m000288
+scaff_28153	working_models	CDS	90218	90451	.	-	0	mRNA 28153.m000288
+scaff_29005	working_models	gene	146	772	.	-	.	Gene 29005.t000001; Note "hypothetical protein"; Alias "29005.t000001"
+scaff_29005	working_models	mRNA	146	772	.	-	.	mRNA 29005.m000250; Gene 29005.t000001; Note "29005.m000250"
+scaff_29005	working_models	CDS	628	772	.	-	0	mRNA 29005.m000250
+scaff_29005	working_models	CDS	233	450	.	-	1	mRNA 29005.m000250
+scaff_29005	working_models	CDS	146	154	.	-	0	mRNA 29005.m000250
+scaff_29005	working_models	gene	12288	13593	.	+	.	Gene 29005.t000002; Note "Histone H1, putative"; Alias "29005.t000002"
+scaff_29005	working_models	mRNA	12288	13593	.	+	.	mRNA 29005.m000251; Gene 29005.t000002; Note "29005.m000251"
+scaff_29005	working_models	CDS	12288	12341	.	+	0	mRNA 29005.m000251
+scaff_29005	working_models	CDS	13147	13593	.	+	0	mRNA 29005.m000251
+scaff_29005	working_models	gene	15868	16110	.	-	.	Gene 29005.t000003; Note "conserved hypothetical protein"; Alias "29005.t000003"
+scaff_29005	working_models	mRNA	15868	16110	.	-	.	mRNA 29005.m000252; Gene 29005.t000003; Note "29005.m000252"
+scaff_29005	working_models	CDS	15868	16110	.	-	0	mRNA 29005.m000252
+scaff_29005	working_models	gene	16185	30140	.	-	.	Gene 29005.t000004; Note "DNA repair protein xp-C / rad4, putative"; Alias "29005.t000004"
+scaff_29005	working_models	mRNA	16185	30140	.	-	.	mRNA 29005.m000253; Gene 29005.t000004; Note "29005.m000253"
+scaff_29005	working_models	CDS	30030	30140	.	-	0	mRNA 29005.m000253
+scaff_29005	working_models	CDS	29847	29939	.	-	0	mRNA 29005.m000253
+scaff_29005	working_models	CDS	29164	29256	.	-	0	mRNA 29005.m000253
+scaff_29005	working_models	CDS	28959	29060	.	-	0	mRNA 29005.m000253
+scaff_29005	working_models	CDS	27966	28024	.	-	0	mRNA 29005.m000253
+scaff_29005	working_models	CDS	21435	22163	.	-	2	mRNA 29005.m000253
+scaff_29005	working_models	CDS	19484	19587	.	-	2	mRNA 29005.m000253
+scaff_29005	working_models	CDS	19209	19342	.	-	1	mRNA 29005.m000253
+scaff_29005	working_models	CDS	18934	19128	.	-	0	mRNA 29005.m000253
+scaff_29005	working_models	CDS	18626	18778	.	-	0	mRNA 29005.m000253
+scaff_29005	working_models	CDS	16608	16817	.	-	0	mRNA 29005.m000253
+scaff_29005	working_models	CDS	16185	16253	.	-	0	mRNA 29005.m000253
+scaff_29005	working_models	gene	32844	33495	.	+	.	Gene 29005.t000005; Note "calcium ion binding protein, putative"; Alias "29005.t000005"
+scaff_29005	working_models	mRNA	32844	33495	.	+	.	mRNA 29005.m000254; Gene 29005.t000005; Note "29005.m000254"
+scaff_29005	working_models	CDS	32844	33287	.	+	0	mRNA 29005.m000254
+scaff_29005	working_models	CDS	33400	33495	.	+	0	mRNA 29005.m000254
+scaff_29005	working_models	gene	33728	47819	.	-	.	Gene 29005.t000006; Note "conserved hypothetical protein"; Alias "29005.t000006"
+scaff_29005	working_models	mRNA	33728	47819	.	-	.	mRNA 29005.m000255; Gene 29005.t000006; Note "29005.m000255"
+scaff_29005	working_models	five_prime_UTR	47689	47819	.	-	.	mRNA 29005.m000255
+scaff_29005	working_models	CDS	47442	47688	.	-	0	mRNA 29005.m000255
+scaff_29005	working_models	CDS	47015	47120	.	-	1	mRNA 29005.m000255
+scaff_29005	working_models	CDS	46690	46747	.	-	2	mRNA 29005.m000255
+scaff_29005	working_models	CDS	46575	46592	.	-	0	mRNA 29005.m000255
+scaff_29005	working_models	CDS	41402	41732	.	-	0	mRNA 29005.m000255
+scaff_29005	working_models	CDS	40668	40774	.	-	1	mRNA 29005.m000255
+scaff_29005	working_models	CDS	40493	40556	.	-	0	mRNA 29005.m000255
+scaff_29005	working_models	CDS	38297	38375	.	-	1	mRNA 29005.m000255
+scaff_29005	working_models	CDS	38029	38069	.	-	2	mRNA 29005.m000255
+scaff_29005	working_models	CDS	37527	37572	.	-	1	mRNA 29005.m000255
+scaff_29005	working_models	CDS	35123	35217	.	-	2	mRNA 29005.m000255
+scaff_29005	working_models	CDS	34527	34630	.	-	1	mRNA 29005.m000255
+scaff_29005	working_models	CDS	34403	34450	.	-	0	mRNA 29005.m000255
+scaff_29005	working_models	CDS	34112	34165	.	-	0	mRNA 29005.m000255
+scaff_29005	working_models	three_prime_UTR	33728	34111	.	-	.	mRNA 29005.m000255
+scaff_29005	working_models	gene	50895	51826	.	-	.	Gene 29005.t000007; Note "conserved hypothetical protein"; Alias "29005.t000007"
+scaff_29005	working_models	mRNA	50895	51826	.	-	.	mRNA 29005.m000256; Gene 29005.t000007; Note "29005.m000256"
+scaff_29005	working_models	CDS	51707	51826	.	-	0	mRNA 29005.m000256
+scaff_29005	working_models	CDS	51096	51227	.	-	0	mRNA 29005.m000256
+scaff_29005	working_models	CDS	50895	51035	.	-	0	mRNA 29005.m000256
+scaff_29005	working_models	gene	52496	57200	.	+	.	Gene 29005.t000008; Note "RNA and export factor binding protein, putative"; Alias "29005.t000008"
+scaff_29005	working_models	mRNA	52496	57200	.	+	.	mRNA 29005.m000257; Gene 29005.t000008; Note "29005.m000257"
+scaff_29005	working_models	five_prime_UTR	52496	52547	.	+	.	mRNA 29005.m000257
+scaff_29005	working_models	CDS	52548	52739	.	+	0	mRNA 29005.m000257
+scaff_29005	working_models	CDS	53666	53809	.	+	0	mRNA 29005.m000257
+scaff_29005	working_models	CDS	53893	53961	.	+	0	mRNA 29005.m000257
+scaff_29005	working_models	CDS	55614	55801	.	+	0	mRNA 29005.m000257
+scaff_29005	working_models	CDS	56341	56391	.	+	2	mRNA 29005.m000257
+scaff_29005	working_models	CDS	56734	56896	.	+	2	mRNA 29005.m000257
+scaff_29005	working_models	three_prime_UTR	56897	57200	.	+	.	mRNA 29005.m000257
+

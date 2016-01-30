@@ -1,0 +1,49 @@
+Example 7 (Pre-Computed Data)
+
+This is an example dataset consisting of four Ricinus communis scaffolds, along with the est, cdna, put and related species (Arabidopsis and Medicago) proteins that splice-align to them.
+For this example, we assume spliced alignments (GeneSeqer and GenomeThreader) have already been run separately, and the output files are included in the same directory.
+Also, this example is configured to allow the user to Update using the "CpGAT replace" option.
+	
+Input Data Directory Contents: /xGDBvm/examples/Example3/
+
+		GenomesExample7.txt - this is the configuration data that will be loaded when user selects this example.
+		Rc_4scaff_GDBscaffold.fasta
+		Rc_4scaff_GDBest.fasta
+		Rc_4scaff_GDBcdna.fasta
+		Rc_4scaff_GDBput.fasta
+		Rc_4scaff_GDBpep.fasta 
+		Rc_4scaff_GDBtranslation.fasta 
+		Rc_4scaff_GDBtranscript.fasta
+		my.gff
+		gsq.ESTresult
+		gsq.PUTresult
+		gsq.cDNAresult
+		gtp.PEPresult
+		Description.txt - tab-delimited file matching gene IDs with functional descriptions, from the R. communis JGI genome annotation. These descriptions are loaded to the GDB database for display along with the gene models.
+
+__________
+
+Note- this example uses filename conventions, where [identifier] refers to any user-specified text string (alphanumeric only).
+	
+	FASTA files for spliced allignment:
+		[identifier]scaffold.fasta  - genome
+		[identifier]est.fasta - EST (for GeneSeqer spliced alignment)
+		[identifier]cdna.fasta  - cDNA (for GeneSeqer spliced alignment)
+		[identifier]put.fasta  - Transcript Assembly (for GeneSeqer spliced alignment)
+		[identifier]pep.fasta  - related species protein (Arabidopsis; Medicago) (for GenomeThreader spliced alignment)
+
+	FASTA files for gene models:
+		[identifier]translation.fasta  - predicted protein from precomputed gene models
+
+	GFF files:
+		[identifier].gff
+
+	GeneSeqer and GenomeThreader output files:
+
+		[identifier].ESTresult - EST (GeneSeqer)
+		[identifier].PUTresult - Transcript Assembly (GeneSeqer)
+		[identifier].cDNAresult - cDNA (GeneSeqer)
+		[identifier].PEPresult - related species protein (GenomeThreader)
+		
+	text files:
+		[identifier]Description.txt

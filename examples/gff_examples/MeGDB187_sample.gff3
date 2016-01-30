@@ -1,0 +1,17 @@
+scaffold00005	phytozome8_0	gene	34993	37484	.	-	.	ID=cassava4.1_003195m.g;Name=cassava4.1_003195m.g
+scaffold00005	phytozome8_0	mRNA	34993	37484	.	-	.	ID=PAC:17967872;Name=cassava4.1_003195m;pacid=17967872;longest=1;Parent=cassava4.1_003195m.g
+scaffold00005	phytozome8_0	CDS	35367	37166	.	-	0	ID=PAC:17967872.CDS.1;Parent=PAC:17967872;pacid=17967872
+scaffold00005	phytozome8_0	five_prime_UTR	37167	37484	.	-	.	ID=PAC:17967872.five_prime_UTR.1;Parent=PAC:17967872;pacid=17967872
+scaffold00005	phytozome8_0	CDS	35230	35275	.	-	0	ID=PAC:17967872.CDS.2;Parent=PAC:17967872;pacid=17967872
+scaffold00005	phytozome8_0	CDS	34993	35126	.	-	2	ID=PAC:17967872.CDS.3;Parent=PAC:17967872;pacid=17967872
+scaffold00005	phytozome8_0	gene	2612	5455	.	+	.	ID=cassava4.1_022599m.g;Name=cassava4.1_022599m.g
+scaffold00005	phytozome8_0	mRNA	2612	5455	.	+	.	ID=PAC:17967873;Name=cassava4.1_022599m;pacid=17967873;longest=1;Parent=cassava4.1_022599m.g
+scaffold00005	phytozome8_0	CDS	2612	2928	.	+	0	ID=PAC:17967873.CDS.1;Parent=PAC:17967873;pacid=17967873
+scaffold00005	phytozome8_0	CDS	3016	3187	.	+	1	ID=PAC:17967873.CDS.2;Parent=PAC:17967873;pacid=17967873
+scaffold00005	phytozome8_0	CDS	4388	4563	.	+	0	ID=PAC:17967873.CDS.3;Parent=PAC:17967873;pacid=17967873
+scaffold00005	phytozome8_0	CDS	4769	4927	.	+	1	ID=PAC:17967873.CDS.4;Parent=PAC:17967873;pacid=17967873
+scaffold00005	phytozome8_0	CDS	5167	5455	.	+	1	ID=PAC:17967873.CDS.5;Parent=PAC:17967873;pacid=17967873
+scaffold00005	phytozome8_0	gene	25077	26923	.	+	.	ID=cassava4.1_028923m.g;Name=cassava4.1_028923m.g
+scaffold00005	phytozome8_0	mRNA	25077	26923	.	+	.	ID=PAC:17967871;Name=cassava4.1_028923m;pacid=17967871;longest=1;Parent=cassava4.1_028923m.g
+scaffold00005	phytozome8_0	CDS	25077	25667	.	+	0	ID=PAC:17967871.CDS.1;Parent=PAC:17967871;pacid=17967871
+scaffold00005	phytozome8_0	CDS	26303	26923	.	+	0	ID=PAC:17967871.CDS.2;Parent=PAC:17967871;pacid=17967871

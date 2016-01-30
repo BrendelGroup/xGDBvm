@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>An Introduction to GAEVAL</title>
+      <STYLE TYPE="text/css">
+	h3 {clear:none; margin-top:15px;}
+      </STYLE>
+  </head>
+  <body>
+    <h1 id="pageTitle">
+      An Introduction to GAEVAL: 
+	A Tool for <U>G</U>ene <U>A</U>nnotation <U>Eval</U>uation 
+    </h1>
+
+    <div id="navbar">
+          <ul class="linklist">
+	<li class="linklist">
+	  <a href="/src/GAEVAL/docs/index.html">GAEVAL Introduction</a>
+	</li>
+	<li class="linklist">
+	  <a href="ftp://ftp.plantgdb.org/download/GAEVAL/">GAEVAL Download (ftp)</a>
+	</li>
+	</ul>
+      <h3 class="GroupID">Examples</h3>
+      <ul type="none" class="linklist">
+	<li class="linklist">
+	  <a href="example1.html">1: Single Annotation</a>
+	</li>
+	<li class="linklist">
+	  <a href="example2.html">2: Ambiguous Overlap</a>
+	</li>
+	<li class="linklist">
+	  <a href="example3.html">3: Alternative Splicing</a>
+	</li>
+	<li class="linklist">
+	  <a href="example4.html">4: Alternative Termination</a>
+	</li>
+	<li class="linklist">
+	  <a href="example5.html">5: Annotation Fission</a>
+	</li>
+	<li class="linklist">
+	  <a href="example6.html">6: Annotation Fusion</a>
+	</li>
+	<li class="linklist">
+	  <a href="example7.html">7: Pseudo-Introns</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Documents</h3>
+      <ul type="none" class="linklist">
+	<li class="linklist">
+	  <a href="integrity.html">Annotation Integrity</a>
+	</li>
+	<li class="linklist">
+	  <a href="intron_incongruence.html">Intron Incongruence</a>
+	</li>
+	<li class="linklist">
+	  <a href="tpeg.html">Three-Prime Groups</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Other Links</h3>
+      <ul class="linklist">
+	<li class="linklist">
+	  <a href="/">xGDBvm Home</a>
+	</li>
+	<li class="linklist">
+	  <a href="/XGDB/index.php">Current Genomes</a>
+	</li>
+	<li class="linklist">
+	  <a href="/XGDB/help/using_gdb.php">Genome Browser Help</a>
+	</li>
+	<li class="linklist">
+	  <a href="/XGDB/help/yrgate.php">Gene Annotation Help</a>
+	</li>	</ul>
+	</div>
+
+    <p>
+      These pages serve as both a detailed description of GAEVAL output and as a guide to those wanting to download and implement it locally.<br />
+      Included in the GAEVAL package are example annotations and evidence alignments 
+      provided in <a href="http://song.sourceforge.net/gff3.shtml">GFF3 format</a>. <br />Each 
+      example is included to highlight features of the GAEVAL algorithm and
+      considerations for 'real-world' application.<br />
+      Detailed descriptions
+      of each example as well as highlights of the GAEVAL output for each
+      are available using the links on the left side of these pages.<br />
+      Links to additional documents describing GAEVAL features are also found to the left.
+    </p>
+    <h2>GAEVAL Workflow:</h2>
+    <br />
+    <img src="images/overview.png">
+	<br />
+    <h3>Downloading and configuring GAEVAL</h3>
+    <ul>
+    <li><a href="ftp://ftp.plantgdb.org/download/GAEVAL/">Download GAEVAL from PlantGDB ftp site</a></li>
+    <li><a href="/src/GAEVAL/docs/commandline_options.html">Command line options for GAEVAL</a>.</li>
+	<li><a href="/src/GAEVAL/docs/configuration.html">Configuring GAEVAL and extending the GAEVAL code</a>.</li>
+	</ul>
+    <p>
+      Individual examples can be run using the following command line format.
+    </p>
+    <h2 class="code">% perl xGAEVAL.pl --clean_db --GFF examples/example#.gff3</h2>
+    <br />
+    <h3>Example 1: Single Annotation with Evidence (the simple life)</h3>
+    <p>
+      This example introduces the basic report capabilities of GAEVAL including a
+      summary of each analyzed annotation showing genomic source, structure, ORF,
+      5'UTR, CDS, 3'UTR. Each GAEVAL report also includes a 'Structure Analysis'
+      section detailing the support for the given annotation structure based on
+      supplied evidence alignments. Also available in each GAEVAL report is an
+      'Incongruency Analysis' section describing possible sources of incongruence
+      between the annotation and given evidence alignments.
+    </p>
+    <h3>Example 2: Erroneously Overlaping Annotations</h3>
+    <p>
+      This example illustrates a very specific form of incongruence in which an 
+      automated annotation process has erroneously extended an annotation
+      structure through the ambiguous inclusion of an evidence alignment in
+      multiple adjacent gene structures.
+    </p>
+    <h3>Example 3: Alternative Splicing</h3>
+    <p>
+      This example illustrates the use of GAEVAL in evaluating alternative splicing.
+      In addition to the standard evaluation of observed incongruent introns, this
+      example also showcases the ability of GAEVAL to determine if an incongruent 
+      structure has previously been documented by an alternatively spliced isoform 
+      (alternative transcript of the evaluated annotation) 
+    </p>
+    <h3>Example 4: Alternative Transcript Termination</h3>
+    <p>
+      This example illustrates the ability of GAEVAL to determine the presence of
+      alternative cleavage/polyadenylation site usage based on the clustering of
+      end defining evidence such as three-prime EST alignments.
+    </p>
+    <h3>Example 5: Annotation Fission / Split</h3>
+    <p>
+      This example illustrates the ability of GAEVAL to detect evidence suggesting
+      that an annotation be split into two individual annotations.
+    </p>
+    <h3>Example 6: Annotation Fusion / Merger</h3>
+    <p>
+      This example illustrates the ability of GAEVAL to detect evidence suggesting
+      the merger of adjacent annotations.
+    </p>
+    <h3>Example 7: Pseudo-Introns</h3>
+    <p>
+      This example illustrates the ability of GAEVAL to detect annotation structures
+      resulting from the use of noncognate / homologous sequence alignments which are
+      incongruent with cognate evidence alignments.
+    </p>
+
+  </body>
+</html>

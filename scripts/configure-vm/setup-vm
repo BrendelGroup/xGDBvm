@@ -1,0 +1,10 @@
+#!/bin/bash
+while true; do
+    echo ""; read -p "The 'setup-vm' script will create new directories on the VM and will prompt you to set a Website password. Proceed? [y/n]: " yn
+    case $yn in
+        [Yy]* ) sudo /xGDBvm/scripts/iPlantSetUpVM.sh
+        break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done

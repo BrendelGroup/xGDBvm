@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>
+      GAEVAL - Example 5: Annotation Fission / Split
+    </title>
+  </head>
+  <body>
+    <h1 id="pageTitle">
+      Example 5: Annotation Fission / Split
+    </h1>
+
+    <div id="navbar">
+      <h3 class="GroupID">Examples</h3>
+      <ul type="none" id="linklist">
+	<li class="linklist">
+	  <a href="example1.html">1: Single Annotation</a>
+	</li>
+	<li class="linklist">
+	  <a href="example2.html">2: Ambiguous Overlap</a>
+	</li>
+	<li class="linklist">
+	  <a href="example3.html">3: Alternative Splicing</a>
+	</li>
+	<li class="linklist">
+	  <a href="example4.html">4: Alternative Termination</a>
+	</li>
+	<li class="linklist">
+	  <a href="example5.html">5: Annotation Fission</a>
+	</li>
+	<li class="linklist">
+	  <a href="example6.html">6: Annotation Fusion</a>
+	</li>
+	<li class="linklist">
+	  <a href="example7.html">7: Pseudo-Introns</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Documents</h3>
+      <ul type="none" id="linklist">
+	<li class="linklist">
+	  <a href="integrity.html">Annotation Integrity</a>
+	</li>
+	<li class="linklist">
+	  <a href="intron_incongruence.html">Intron Incongruence</a>
+	</li>
+	<li class="linklist">
+	  <a href="tpeg.html">Three-Prime Groups</a>
+	</li>
+      </ul>
+    </div>
+
+    <h2 class="code">perl xGAEVAL.pl --clean_db --GFF <a href="../examples/example5.gff3" target="_new">examples/example5.gff3</a></h2>
+    <img id="genomeContext" src="images/example5.png" />
+    <h2>Description:</h2>
+    <p id="description">This example illustrates the ability of GAEVAL to detect evidence suggesting
+      that an annotation be split into two individual annotations. In this example,
+      the Arabidopsis gene locus (
+      <a href='http://www.plantgdb.org/AtGDB-cgi/getRegion.pl?chr=1&l_pos=2342200&r_pos=2347000&dbid=1'>
+	At1g07620.1</a> ) should most likely be split into two individual gene
+      annotations.
+    </p>
+    <h2 class="report">GAEVAL Results:</h2>
+    <h3>Incongruency Analysis (At1g07620.1)</h3>
+    <pre class="report">
+1:  Putative 'Fission' site detected:
+2:   2344461
+3:    Supporting Evidence: 2
+    </pre>
+    <p>Fission sites are detected by first finding an alternative cleavage /
+      polyadenylation site as in <a href='example4.html'>example 4</a>. If no
+      evidence suggest transcription through one of these sites, a fission event
+      is considered possible.
+      <ul>
+	<li>line 1: GAEVAL has detected a putative 'Fission' event</li>
+	<li>line 2: Location of each fission event</li>
+	<li>line 3: Count of end-defining evidence supporting this fission event</li>
+      </ul>
+    </p>
+    <h2 id="discussion">Discussion:</h2>
+    <p>In this example a full-length cDNA sequence (gi number 51968419) and a 
+      three-prime EST (gi number 40452728) establish a
+      <a href='tpeg.html'>'Three-Prime Evidence Group'</a>.
+      This cleavage/polyA site is exceptional far from the annotated terminus.
+      In addition, no evidence alignments were found to align across this site.
+      These factors provide GAEVAL the neccessary criteria to consider this a
+      'fission' event.
+    </p>
+  </body>
+</html>

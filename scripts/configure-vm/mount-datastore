@@ -1,0 +1,37 @@
+#!/bin/bash
+input_dir="/home/xgdb-input"
+
+while true; do
+    echo ""; read -p "Mount your Data Store at $input-dir? [y/n]: " yn
+    case $yn in
+        [Yy]* ) irodsFs $input_dir -o max_readahead=0 -o allow_other -o nonempty;
+           success=$(df -kh | egrep -o  -s 'fuse|irodsFs'); 
+              echo ""
+              echo "################## Mount Datastore ##################"
+           if [ -n "$success" ]
+           then
+           mount=$(df -kh | egrep 'fuse|irodsFs' | awk -F " " '{print $6}' )
+           filepath=$(find /xGDBvm -lname $mount)
+              echo ""
+              echo "The Data Store has been mounted to $mount ($filepath)"
+              echo ""
+              echo "Below is a disk/filesystem summary for your VM:"
+              echo ""
+              df -kh
+              echo ""
+              echo "NOTE: You MUST run 'configure-vm' if this Data Store is being mounted for the first time."
+              echo ""
+           else
+              echo "The volume could not be mounted to the Data Store"
+              echo ""
+              echo "Make sure you have initiated IRODS on this VM using the 'iinit' command"
+              echo ""
+           fi
+              echo ""
+              echo "################## end Mount Datastore ##################"
+              echo ""
+         break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done

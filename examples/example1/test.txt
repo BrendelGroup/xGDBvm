@@ -1,0 +1,145 @@
+>gi|111142456|gb|EE256103.1|EE256103 RFAAA61TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFAAA61, mRNA sequence
+>gi|111142686|gb|EE256333.1|EE256333 RFAAB37TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFAAB37, mRNA sequence
+>gi|111142763|gb|EE256410.1|EE256410 RFAAC39TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFAAC39, mRNA sequence
+>gi|111143271|gb|EE256918.1|EE256918 RFAAL83TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFAAL83, mRNA sequence
+>gi|111155606|gb|EE259296.1|EE259296 RFABK61TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFABK61, mRNA sequence
+>gi|111155618|gb|EE259308.1|EE259308 RFABK74TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFABK74, mRNA sequence
+>gi|111155702|gb|EE259392.1|EE259392 RFABG76TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFABG76, mRNA sequence
+>gi|111156443|gb|EE260133.1|EE260133 RFAB705TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFAB705, mRNA sequence
+>gi|117332771|gb|EG664561.1|EG664561 RCLGM64TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLGM64, mRNA sequence
+>gi|117335956|gb|EG667746.1|EG667746 RCRC274TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRC274, mRNA sequence
+>gi|117335957|gb|EG667747.1|EG667747 RCRC274TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRC274, mRNA sequence
+>gi|117348852|gb|EG679446.1|EG679446 RCRDX96TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDX96, mRNA sequence
+>gi|117348853|gb|EG679447.1|EG679447 RCRDX96TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDX96, mRNA sequence
+>gi|117353680|gb|EG684273.1|EG684273 RCRA261TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRA261, mRNA sequence
+>gi|117359162|gb|EG689755.1|EG689755 RCRBN84TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRBN84, mRNA sequence
+>gi|117359163|gb|EG689756.1|EG689756 RCRBN84TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRBN84, mRNA sequence
+>gi|117367255|gb|EG697848.1|EG697848 RCSA581TP Castor bean cDNA library from seeds (12-33 days after pollination), 1.4 kb Ricinus communis cDNA clone RCSA581, mRNA sequence
+>gi|212279059|gb|GE634523.1|GE634523 LINN_XX_011_A03_LINN11.CR_A03 R. communis developing seed Ricinus communis cDNA, mRNA sequence
+>gi|212281709|gb|GE635058.1|GE635058 LINN_XX_014_P10_LINN14.CR_P10 R. communis developing seed Ricinus communis cDNA, mRNA sequence
+>gi|38514408|gb|CF981359.1|CF981359 yaa04a01.y1 RcSeed Ricinus communis cDNA 5', mRNA sequence
+>gi|111143289|gb|EE256936.1|EE256936 RFAAP06TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFAAP06, mRNA sequence
+>gi|111143499|gb|EE257053.1|EE257053 RFAAE55TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFAAE55, mRNA sequence
+>gi|117328074|gb|EG659864.1|EG659864 RCLF846TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLF846, mRNA sequence
+>gi|117328788|gb|EG660578.1|EG660578 RCLFG16TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLFG16, mRNA sequence
+>gi|117333531|gb|EG665321.1|EG665321 RCLE664TO Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLE664, mRNA sequence
+>gi|117333542|gb|EG665332.1|EG665332 RCLE664TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLE664, mRNA sequence
+>gi|117334186|gb|EG665976.1|EG665976 RCRBS67TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRBS67, mRNA sequence
+>gi|117335979|gb|EG667769.1|EG667769 RCRC285TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRC285, mRNA sequence
+>gi|117335980|gb|EG667770.1|EG667770 RCRC285TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRC285, mRNA sequence
+>gi|117336219|gb|EG668009.1|EG668009 RCRC424TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRC424, mRNA sequence
+>gi|117336220|gb|EG668010.1|EG668010 RCRC424TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRC424, mRNA sequence
+>gi|117336821|gb|EG668611.1|EG668611 RCRC789TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRC789, mRNA sequence
+>gi|117336822|gb|EG668612.1|EG668612 RCRC789TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRC789, mRNA sequence
+>gi|117337190|gb|EG668980.1|EG668980 RCRCA15TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRCA15, mRNA sequence
+>gi|117337191|gb|EG668981.1|EG668981 RCRCA15TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRCA15, mRNA sequence
+>gi|117337193|gb|EG668983.1|EG668983 RCRA072TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRA072, mRNA sequence
+>gi|117337304|gb|EG669094.1|EG669094 RCRA072TPB Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRA072, mRNA sequence
+>gi|117341375|gb|EG672641.1|EG672641 RCRCV03TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRCV03, mRNA sequence
+>gi|117341531|gb|EG672797.1|EG672797 RCRCV90TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRCV90, mRNA sequence
+>gi|117342327|gb|EG673593.1|EG673593 RCRD068TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRD068, mRNA sequence
+>gi|117342405|gb|EG673669.1|EG673669 RCRD113TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRD113, mRNA sequence
+>gi|117342430|gb|EG673693.1|EG673693 RCRD126TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRD126, mRNA sequence
+>gi|117342598|gb|EG673843.1|EG673843 RCRD211TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRD211, mRNA sequence
+>gi|117344412|gb|EG675034.1|EG675034 RCRD869TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRD869, mRNA sequence
+>gi|117344803|gb|EG675397.1|EG675397 RCRDA73TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDA73, mRNA sequence
+>gi|117344804|gb|EG675398.1|EG675398 RCRDA73TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDA73, mRNA sequence
+>gi|117346252|gb|EG676846.1|EG676846 RCRDI79TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDI79, mRNA sequence
+>gi|117346253|gb|EG676847.1|EG676847 RCRDI79TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDI79, mRNA sequence
+>gi|117347175|gb|EG677769.1|EG677769 RCRDO46TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDO46, mRNA sequence
+>gi|117347176|gb|EG677770.1|EG677770 RCRDO46TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDO46, mRNA sequence
+>gi|117347835|gb|EG678429.1|EG678429 RCRDS39TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDS39, mRNA sequence
+>gi|117347836|gb|EG678430.1|EG678430 RCRDS39TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDS39, mRNA sequence
+>gi|117347885|gb|EG678479.1|EG678479 RCRDS64TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDS64, mRNA sequence
+>gi|117348815|gb|EG679409.1|EG679409 RCRDX78TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDX78, mRNA sequence
+>gi|117348816|gb|EG679410.1|EG679410 RCRDX78TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDX78, mRNA sequence
+>gi|117348821|gb|EG679415.1|EG679415 RCRAE02TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRAE02, mRNA sequence
+>gi|117348833|gb|EG679427.1|EG679427 RCRAE02TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRAE02, mRNA sequence
+>gi|117349039|gb|EG679633.1|EG679633 RCRDZ05TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDZ05, mRNA sequence
+>gi|117351981|gb|EG682575.1|EG682575 RCRAI75TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRAI75, mRNA sequence
+>gi|117352128|gb|EG682722.1|EG682722 RCRAJ60TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRAJ60, mRNA sequence
+>gi|117353311|gb|EG683904.1|EG683904 RCRAQ43TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRAQ43, mRNA sequence
+>gi|117353312|gb|EG683905.1|EG683905 RCRAQ43TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRAQ43, mRNA sequence
+>gi|117354174|gb|EG684767.1|EG684767 RCRAV20TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRAV20, mRNA sequence
+>gi|117354658|gb|EG685251.1|EG685251 RCRA317TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRA317, mRNA sequence
+>gi|117355141|gb|EG685734.1|EG685734 RCRB042TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRB042, mRNA sequence
+>gi|117355862|gb|EG686455.1|EG686455 RCRB465TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRB465, mRNA sequence
+>gi|117355863|gb|EG686456.1|EG686456 RCRB465TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRB465, mRNA sequence
+>gi|117357697|gb|EG688290.1|EG688290 RCRBF15TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRBF15, mRNA sequence
+>gi|117362681|gb|EG693274.1|EG693274 RCSB156TP Castor bean cDNA library from seeds (12-33 days after pollination), 1.4 kb Ricinus communis cDNA clone RCSB156, mRNA sequence
+>gi|117368256|gb|EG698849.1|EG698849 RCTAH13TP Castor bean cDNA library from seeds (40-61 days after pollination), 1.6 kb Ricinus communis cDNA clone RCTAH13, mRNA sequence
+>gi|117370398|gb|EG700991.1|EG700991 RCTB374TP Castor bean cDNA library from seeds (40-61 days after pollination), 1.6 kb Ricinus communis cDNA clone RCTB374, mRNA sequence
+>gi|111141904|gb|EE255551.1|EE255551 RFAA808TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFAA808, mRNA sequence
+>gi|111141934|gb|EE255581.1|EE255581 RFAA843TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFAA843, mRNA sequence
+>gi|111142343|gb|EE255990.1|EE255990 RFAAY25TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFAAY25, mRNA sequence
+>gi|111155481|gb|EE259171.1|EE259171 RFABV05TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFABV05, mRNA sequence
+>gi|111155508|gb|EE259198.1|EE259198 RFABV37TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFABV37, mRNA sequence
+>gi|111156001|gb|EE259691.1|EE259691 RFAB551TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFAB551, mRNA sequence
+>gi|117324719|gb|EG656509.1|EG656509 RCLE825TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLE825, mRNA sequence
+>gi|117325226|gb|EG657016.1|EG657016 RCLED64TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLED64, mRNA sequence
+>gi|117326975|gb|EG658765.1|EG658765 RCLEW56TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLEW56, mRNA sequence
+>gi|117340057|gb|EG671323.1|EG671323 RCRCN49TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRCN49, mRNA sequence
+>gi|117340058|gb|EG671324.1|EG671324 RCRCN49TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRCN49, mRNA sequence
+>gi|117340428|gb|EG671694.1|EG671694 RCRCP63TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRCP63, mRNA sequence
+>gi|117340430|gb|EG671696.1|EG671696 RCRCP63TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRCP63, mRNA sequence
+>gi|117347811|gb|EG678405.1|EG678405 RCRDS27TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDS27, mRNA sequence
+>gi|117354444|gb|EG685037.1|EG685037 RCRAW62TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRAW62, mRNA sequence
+>gi|117354445|gb|EG685038.1|EG685038 RCRAW62TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRAW62, mRNA sequence
+>gi|119366284|gb|AM267327.1|AM267327 AM267327 Ricinus phloem library Ricinus communis cDNA clone cDNA_007, mRNA sequence
+>gi|158707211|gb|EV520334.1|EV520334 JB2_8_A08 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|212278428|gb|GE632832.1|GE632832 LINN_XX_110_G24_LINN110.CR_G24 R. communis developing seed Ricinus communis cDNA, mRNA sequence
+>gi|212278694|gb|GE632312.1|GE632312 LINN_XX_015_N13_LINN15.CR_N13 R. communis developing seed Ricinus communis cDNA, mRNA sequence
+>gi|212279393|gb|GE633536.1|GE633536 LINN_XX_012_C24_LINN12.CR_C24 R. communis developing seed Ricinus communis cDNA, mRNA sequence
+>gi|212280867|gb|GE635650.1|GE635650 LINN_XX_017_D23_LINN17.CR_D23 R. communis developing seed Ricinus communis cDNA, mRNA sequence
+>gi|212281710|gb|GE635059.1|GE635059 LINN_XX_015_I21_LINN15.CR_I21 R. communis developing seed Ricinus communis cDNA, mRNA sequence
+>gi|111156737|gb|EE260427.1|EE260427 RFABP70TH Castor bean cDNA library from flowers,800bp Ricinus communis cDNA clone RFABP70, mRNA sequence
+>gi|117324788|gb|EG656578.1|EG656578 RCLE906TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLE906, mRNA sequence
+>gi|117326320|gb|EG658110.1|EG658110 RCLEP73TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLEP73, mRNA sequence
+>gi|117328024|gb|EG659814.1|EG659814 RCLF785TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLF785, mRNA sequence
+>gi|117328063|gb|EG659853.1|EG659853 RCLF832TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLF832, mRNA sequence
+>gi|117328928|gb|EG660718.1|EG660718 RCLFH67TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLFH67, mRNA sequence
+>gi|117333176|gb|EG664966.1|EG664966 RCLGQ85TP Castor bean cDNA library from leaves, 1.7 kb Ricinus communis cDNA clone RCLGQ85, mRNA sequence
+>gi|117336038|gb|EG667828.1|EG667828 RCRA722TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRA722, mRNA sequence
+>gi|117336049|gb|EG667839.1|EG667839 RCRA722TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRA722, mRNA sequence
+>gi|117337386|gb|EG669176.1|EG669176 RCRCB37TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRCB37, mRNA sequence
+>gi|117341158|gb|EG672424.1|EG672424 RCRCT79TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRCT79, mRNA sequence
+>gi|117341159|gb|EG672425.1|EG672425 RCRCT80TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRCT80, mRNA sequence
+>gi|117347512|gb|EG678106.1|EG678106 RCRDQ48TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDQ48, mRNA sequence
+>gi|117347513|gb|EG678107.1|EG678107 RCRDQ48TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRDQ48, mRNA sequence
+>gi|117350727|gb|EG681321.1|EG681321 RCRE795TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRE795, mRNA sequence
+>gi|117354016|gb|EG684609.1|EG684609 RCRAU34TO Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRAU34, mRNA sequence
+>gi|117354017|gb|EG684610.1|EG684610 RCRAU34TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRAU34, mRNA sequence
+>gi|117357409|gb|EG688002.1|EG688002 RCRBD35TP Castor bean cDNA library from roots, 1.8 kb Ricinus communis cDNA clone RCRBD35, mRNA sequence
+>gi|117361678|gb|EG692271.1|EG692271 RCSA170TO Castor bean cDNA library from seeds (12-33 days after pollination), 1.4 kb Ricinus communis cDNA clone RCSA170, mRNA sequence
+>gi|117361689|gb|EG692282.1|EG692282 RCSA170TPB Castor bean cDNA library from seeds (12-33 days after pollination), 1.4 kb Ricinus communis cDNA clone RCSA170, mRNA sequence
+>gi|117362395|gb|EG692988.1|EG692988 RCSAY72TP Castor bean cDNA library from seeds (12-33 days after pollination), 1.4 kb Ricinus communis cDNA clone RCSAY72, mRNA sequence
+>gi|117369300|gb|EG699893.1|EG699893 RCTAS25TP Castor bean cDNA library from seeds (40-61 days after pollination), 1.6 kb Ricinus communis cDNA clone RCTAS25, mRNA sequence
+>gi|158706645|gb|EV519777.1|EV519777 JB2_63_E04 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158706910|gb|EV520042.1|EV520042 JB2_63_H10 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158708016|gb|EV521139.1|EV521139 JB2_43_A09 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158709139|gb|EV521414.1|EV521414 JB2_17_C11 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158709229|gb|EV521504.1|EV521504 JB2_38_E11 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158709348|gb|EV521623.1|EV521623 JB2_40_C02 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158709437|gb|EV521712.1|EV521712 JB2_24_A12 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158709550|gb|EV521825.1|EV521825 JB2_51_C03 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158709753|gb|EV522028.1|EV522028 JB2_60_A01 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158709878|gb|EV522153.1|EV522153 JB2_53_E04 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158709980|gb|EV522255.1|EV522255 JB2_31_D06 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158710052|gb|EV522327.1|EV522327 JB2_33_B11 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158710185|gb|EV522460.1|EV522460 JB2_31_C02 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158710279|gb|EV522554.1|EV522554 JB2_10_B05 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158710281|gb|EV522556.1|EV522556 JB2_20_G10 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158710285|gb|EV522560.1|EV522560 JB2_29_A03 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158710311|gb|EV522586.1|EV522586 JB2_13_E11 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158710583|gb|EV522858.1|EV522858 JB2_39_H08 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158710603|gb|EV522878.1|EV522878 JB2_13_C04 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158710830|gb|EV523105.1|EV523105 JB2_33_H04 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158711002|gb|EV523277.1|EV523277 JB2_17_G10 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158711070|gb|EV523345.1|EV523345 JB2_43_B06 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158711193|gb|EV523468.1|EV523468 JB2_48_G04 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158711302|gb|EV523588.1|EV523588 JB2_49_G09 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158711383|gb|EV523669.1|EV523669 JB2_52_G03 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|158711567|gb|EV523853.1|EV523853 JB2_54_D12 Castor seed endosperm Ricinus communis cDNA 5', mRNA sequence
+>gi|212279618|gb|GE633215.1|GE633215 LINN_XX_011_M16_LINN11.CR_M16 R. communis developing seed Ricinus communis cDNA, mRNA sequence
+>gi|212281440|gb|GE635362.1|GE635362 LINN_XX_012_E04_LINN12.CR_E04 R. communis developing seed Ricinus communis cDNA, mRNA sequence
+>gi|212283108|gb|GE636537.1|GE636537 LINN_XX_015_I13_LINN15.CR_I13 R. communis developing seed Ricinus communis cDNA, mRNA sequence

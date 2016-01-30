@@ -1,0 +1,749 @@
+.debug { display:none; }
+
+/**** Hidden Dialogs ****/
+/************************/
+
+#userRegisterDialog { text-align:left; }
+#registrationMSG { text-align:center; }
+.registrationInput { position:absolute; left:150px; }
+
+
+/**** BACKGROUND COLORS ****/
+/***********************/
+
+div#HeaderRow1 {
+	background: #77BF9E url("/XGDB/images/LogoShadow.png") repeat-x bottom left;
+}
+
+div#HeaderRow2, div#HeaderRow3_pCHR, div#HeaderRow3_BAC, #xgdbcontainer  {
+    background: #BFEFFC; /*light blue; was #D1EFE0; #C5E1D5; synchronize with plantgdb.css pagewidth*/
+}
+
+div#HeaderRow4_SPACER { /*see comments in GDBgui.pm on why this is here*/
+	border:1px solid #D1EFE0; /*#C5E1D5;*/
+}
+
+/**** Hidden Dialogs ****/
+/************************/
+
+#userRegisterDialog { text-align:left; }
+#registrationMSG { text-align:center; }
+.registrationInput { position:absolute; left:150px; }
+
+/**** FONT COLORS ****/
+/***********************/
+
+div#HeaderRow2 a.userID, div#HeaderRow3_pCHR a, div#HeaderRow3_BAC a {
+	color: #DF6300; /* orange; was #DF6300;*/
+}
+div#HeaderRow2 p#userID {
+	color: #1B426F; /*blue*/
+}
+
+/**** HEADER STYLES ****/
+/***********************/
+
+img#topLeftLogo {
+	position:absolute;
+	left:15px;
+	top: 125px;
+	margin:0; padding:0; border:0;
+}
+img#topCenterLogo {
+	padding:0;
+	margin:0; border:0;
+	/* margin-top:10px;*/
+	/* margin-bottom:-10px;*/
+}
+img#topRightLogo {
+	position:absolute; top:9px; right:10px;
+	margin:0; padding:0; border:0;
+}
+
+.corner-menu {
+	list-style-image:none; list-style-position:outside; list-style-type:none;
+	color:#333344; margin:0px; padding:0px; z-index:4; 
+	font-family:"Lucida Grande",Arial,Helvetica,sans-serif; font-size:62.5n
+}
+.corner-menu * {
+	border:none; z-index:4; cursor:default;
+}
+.corner-menu a, .corner-menu li.sf-with-ul, .corner-menu li { 
+	border:none; background:none; padding:0px; width:auto;
+	text-align:center; font-weight:bold; font-size:11px;
+	position:static;
+}
+.corner-menu a {
+	cursor:pointer;
+}
+ul#userlogin li:hover {
+	color:#006F4E;
+}
+ul#loginPane {
+    margin:0px; margin-top:0px; width:300px; top:17px; /*changed to close gap with first li - tended to lose the dropdown on mouseover */
+}
+ul#loginPane li {
+	padding-top:2px; padding-bottom:5px; border-right:none;
+}
+
+.loginParam:hover {
+	background: #F3FF8F;
+}
+
+ul#loginPane li #LoginButton {
+	float:right; margin-top:4px; margin-right:10px;
+}
+#LoginButton, #LogoutButton, #RegisterButton {
+	cursor:pointer;
+}
+ul#loginPane li {
+	background: #006F4E;
+}
+#formLogin, #authenticatingLogin {
+	color:white;
+	font-size:12px;
+	font-weight:normal;
+}
+#LoginButton {
+	height:30px;
+	width:75px;
+	text-align:center;
+}
+	
+#LoginButton:hover {
+	background:#F3FF8F;
+	}
+#authenticatingIMG {
+	height:50px; width:200px;
+}
+
+div#HeaderRow2 {
+	margin:0;/*21px;*/ 
+	padding:20px 0 5px 0;
+	margin:0;
+	text-align:center;
+	/*border-top: 1px solid white; removed this 1-15-10*/
+}
+div#HeaderRow2 p#userID { /*color specified above*/
+	display:block; 
+	float:left;
+	margin:0 0 0 24px;
+	padding:0;
+	font-size:12px;
+	font-weight:normal;
+}
+div#HeaderRow2 a.userID { /*color specified above*/
+	font-size: 12px;
+	font-weight: normal;
+	text-decoration:none;
+}
+div#HeaderRow2 p#searchCONTROL {
+	font-size: 12px;
+	/*color:#367D5E;*/
+	white-space:nowrap;
+	margin:0 0 0 210px; /* positions search box to the left*/
+	padding:0;
+	text-align:left;
+}
+div#HeaderRow2 p#searchCONTROL .searchINPUT {
+	vertical-align:bottom;
+}
+div#HeaderRow2 p#searchCONTROL img#searchHELP {
+	vertical-align:bottom; border:0;
+}
+
+div#HeaderRow3_BAC {
+	margin:0;
+	padding:17px 0 10px 0; 
+	text-align:left; 
+	min-width:711px;
+	color:#358F67;
+}
+
+div#HeaderRow3_BAC a{ /*color specified above*/
+	text-decoration:none;
+}
+div#HeaderRow3_pCHR {
+	display:block;
+	margin:0; 
+	padding:17px 0; 
+	text-align:left; 
+	min-width:711px;
+	color:#358F67;
+}
+div#HeaderRow3_pCHR a{ /* controls for login /logout*/
+	color:#DF6300;
+	text-decoration:none;
+}
+div#HeaderRow3_pCHR #dbid { /*the dropdown database ID selector*/
+	font-size:12px;
+	color:#345C8D; /*light blue same as h2*/
+}
+
+p#loginMenu {
+	width:100px; 
+	display:block; 
+	float:left;
+	margin:5px 10px 10px 24px;
+	padding:0;
+	font:12px normal;
+}
+
+p#HR3_Link { /*Feedback Link*/
+	width:130px; display:block; float:right;
+	margin:0 0 0 10px; padding:0;
+	font-size: 12px;
+	font-weight:bold;
+}
+
+p#HR3_Link a { /*Feedback Link*/
+	text-decoration:none;
+}
+
+p.navCONTROL {
+	white-space:nowrap;
+	margin:0 0 0 10px;
+	padding: 0;
+	font-size: 12px;
+	text-align:left;
+}
+
+p.segmentSelect {
+	white-space:nowrap;
+	margin:0 0 0 210px;
+	padding: 0;
+	font-size: 12px;
+	text-align:left;
+}
+
+.navINPUT {
+	margin:1px 2px; padding:0;
+}
+
+/**** LEFT SIDEBAR STYLES ****/
+/*****************************/
+div#LeftSidebar {
+	background:none;
+	width:170px; height:auto;
+	font-size: 12px;
+	line-height:12px;
+	margin: 13px 10px;
+	padding:0 5px;
+	display:block;
+	float:left;
+	vertical-align:top;
+	text-align:left;
+    clear:both;/*fix for Safari 3.1 and FF3.0 JPD080626*/
+}
+div#LeftSidebar ul#LinkList {
+	margin:10px 0; padding:0;
+}
+div#LeftSidebar li.LinkList {
+	margin:0; padding:0 2px 15px 10px;
+}
+
+
+div#LeftSidebar h2.GroupID {
+	margin: 1em 0 0.5em 10px;
+}
+
+/** Nav Menus **/
+div.NavMenu { /* Left navbar links */
+	margin:0 0 0 25px;
+	padding:2px;
+	white-space:nowrap;
+	/*border-bottom: 1px #AAA dotted; JD 7-8-10*/ 
+}
+
+div.NavMenu.searchlink { /* magnifying glass */
+	background: url("/XGDB/images/search_icon_white.png") left no-repeat;
+	margin:0;
+	padding:0 0 0 25px;
+}
+
+div.NavMenu.annolink { /*person icon*/
+	background: url("/XGDB/images/anno_icon_white.png") left no-repeat;
+	margin:0;
+	padding:0 0 0 25px;
+}
+
+div.NavMenu a {
+	display:block;
+	width:100%; /* allows hover highlighting to extend across div width*/
+	padding:2px 0;
+}
+
+/* Start adapted from /css/plantgdb.css */
+	ul.leftmenu a#current, ul.topmenu a#current, ul.rightmenu a#current, ul.leftmenu a#current i, .NavMenu a#current {
+		background: #E8F8FC;  /*#66D8F4; /* #F4F9BD;*/
+		font-weight:bold;
+		color:#1F4B7F;
+	}
+div#LeftSidebar h1.current {
+		background: #E8F8FC; /*#66D8F4; /* #F4F9BD;*/
+		padding: 5px;
+
+}
+
+/* End from /css/plantgdb.css */
+
+div#LeftSidebar div.first {
+	/*border-top: 1px #AAA dotted; /*adds top border to first link in group*/ JD 7-8-10*/
+}
+
+div.NavMenu a, div.NavMenu a:visited {
+	text-decoration:none;
+	font-weight:normal;/*bold;*/
+}
+div.NavMenu a:hover {
+	text-decoration:none;
+}
+
+
+div#LeftSidebar ul.NavLinkGroup { /* popup navigation menu lists */
+	display:none;
+	position:absolute;
+	border:1px dotted #191970;
+	background:#DCDCDC;
+	padding:2px; margin:0 0 0 120px;
+	list-style:inside; white-space:nowrap;
+}
+div#LeftSidebar div>ul.NavLinkGroup { /* IE is STUPID */
+	margin-left:110px;
+}
+div#LeftSidebar li.NLGheader {
+	border-bottom:3px double #191970;
+	list-style:none;
+	text-align:center;
+}
+div#LeftSidebar img#arrow {
+	float:right; position:relative; top:-13px;
+	margin-right:4px;
+}
+div#LeftSidebar img#mo_arrow {
+	float:right; position:relative; top:-11px;
+	display:none; margin-right:2px;
+}
+div#LeftSidebar div.NavMenu:hover ul, div#LeftSidebar div.NavMenu_hover ul {/* lists nested under hovered items */
+/* IE !!SUCKS!! thats why we use javascript to change the class of a hovered item */
+	display: block;
+}
+div#LeftSidebar div.NavMenu:hover img#mo_arrow, div#LeftSidebar div.NavMenu_hover img#mo_arrow {
+	display:block;
+}
+div#LeftSidebar div.NavMenu:hover img#arrow, div#LeftSidebar div.NavMenu_hover img#arrow {
+	display:none;
+}
+
+#LeftSidebar a { /*this styles the LeftSidebar links*/
+	border: none; /*dotted border only for in-text links*/
+	padding-left:5px; /*JD 7-8-10 */
+}
+
+/*
+div#LeftSidebar a.NavLink {
+	color:darkgreen; text-decoration:none; margin:0;
+}
+div#LeftSidebar a.NavLink:hover {
+	color:#000; background:yellow; text-decoration:underline;
+}
+*/
+/**** FOR DisplayGeneAnn.php *****/
+/*********************************/
+div#mainWLS2 {
+	display:block; margin:0 20px 15px 210px; 
+	height:auto;
+	position:relative;
+	border: 1px solid #DDD;
+	background: white; width:auto; /*changed JPD 11-26-08*/
+}
+
+/*#mainWLS2 a:link { color: #0063DC; text-decoration: none; }*/
+/*#mainWLS2 a:visited { color: #2E67C7; text-decoration: none; }*/
+/*#mainWLS2 a:hover { color: #FFF; text-decoration: none; background: #0063DC; }*/
+/*#mainWLS2 a:active { color: #FFF; text-decoration: none; background: #0259C4; }*/
+
+
+#mainWLS2 td.mgm a:link, td.mgm a:visited, td.mgm a:hover, td.mgm a:active { color: blue; font-weight: bold; }
+#mainWLS2 td.medicago a:link, td.medicago a:visited, td.medicago a:hover, td.medicago a:active { color: #D2691E; font-weight: bold; } /* =Orange */
+#mainWLS2 td.rice a:link, td.rice a:visited, td.rice a:hover, td.rice a:active { color: black; font-weight: bold; }
+#mainWLS2 td.arabidopsis a:link, td.arabidopsis a:visited, td.arabidopsis a:hover, td.arabidopsis a:active { color: blue; font-weight: bold; }
+#mainWLS2 td.sorghum a:link, td.sorghum a:visited, td.sorghum a:hover, td.sorghum a:active { color: brown; font-weight: bold; }
+
+#mainHeading { background: white; padding: 2px 5px; text-align: left; border: none; }
+a.redlk:link { color: #f00; text-decoration: underline; }
+a.redlk:hover { color: #fff; background: #f00; }
+.headerRow0 { border: 1px solid #000; border-right: 0; border-left: 0; border-right: 1px solid white; text-align: center; padding:5px;}
+.headerRow1 { border: 1px solid #000; border-left: 0; border-right: 1px solid white; text-align: center; padding:5px;}
+.headerRow2 { border: 1px solid #000; border-left: 0; border-right: 1px solid white; text-align: center; }
+.headerRow3 { border: 1px solid #000; border-left: 0; text-align: center; padding:5px;}
+.resultRow0 { border-left: 1px solid #CCC; border-right: 1px solid #CCC; border-bottom: 1px solid #CCC; text-align: center; padding:4px;}
+.resultRow1 { border-left: 1px solid #CCC; border-right: 1px solid #CCC;  border-bottom: 1px solid #CCC; text-align: center; padding:4px;}
+.resultRow2 { border-right: 1px solid #CCC;  border-bottom: 1px solid #CCC; text-align: right; padding:4px;}
+.resultRow3 { border-right: 1px solid #CCC;  border-bottom: 1px solid #CCC; text-align: right; width: 250px; padding:4px;}
+td.searchRow { border: 1px solid #CCC; border-top: 0; border-right: 0; font-style: italic; font-family: arial; }
+td.searchRow3 { border: 1px solid #CCC; border-top: 0; font-style: italic; font-family: arial; }
+.disabled { color: #666; }
+.centerText, .center, .searchRow { text-align: center; }
+.inline { display: inline; }
+.right { text-align: right; }
+.fDs, .fDs i { color: #f00; }
+#imHelp { margin-left: auto; margin-right: auto; padding: 3px; padding-left: 11px; padding-right: 4px; text-align: center; color: #444; width: 656px; border: 1px dashed #000; background-image: url(backup/help.png); background-position: 3px 50%; background-repeat: no-repeat; }
+.centerDiv { text-align: center; margin-left: auto; margin-right: auto; }
+.tableDefault { border: 0; width: 100%; font-family: arial; font-size: 9pt; margin-bottom: 3px; }
+.tableDefault th {
+background:#175A7F;
+color: white;
+font-weight:normal;
+}
+.tableDefault td {
+font-size:11px;
+}
+.zmarg { margin: 0; }
+.helptxt { font-family: arial; font-size: 9pt; }
+.tdLeft { width: 66%; text-align: left; }
+.tdCent { width: 34%; text-align: center; }
+
+
+/**** Default MAIN CONTENT STYLES ****/
+/*************************************/
+
+/*XGDB-specific styles*/
+
+/*
+#xgdbcontainer {
+	background: white;
+	min-width: 800px;
+	height:1000px;
+	}
+*/
+#xgdbcontainer { /* overall container for xGDB pages. Note: background color is specified separately above*/
+	display:block;
+	float: left;
+	min-width:100%; /*added 12-13-08 due to force div to full width in e.g. BLAST page */
+	clear:none;
+	margin: 0;
+	border: none; /*TESTING JPD: formerly 1px solid #DDD;*/
+	/*border-right: 1px solid #DDD;*/
+	padding:0; /*bottom padding to clear some space before footer*/
+}
+
+#xgdbmaincontentscontainer {
+	display:block; margin:0 10px 15px 200px;
+	width:auto; /*added JPD 11-26-08*/
+	background:white;/*added JPD*/
+	border: 1px solid #DDD;
+	z-index:1;
+}
+
+
+#xgdbmaincontents { /*contains the genome context track glyph images*/
+	padding-left:20px; /* was 1% - check coordinate with width to keep under 100% or else IE7 pushes div down */
+	padding-top: 1em;
+	padding-bottom: 1em;
+	text-align:left;
+	width:auto;
+	background:white;
+}
+
+#xgdbmaincontents h1 {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+	
+#maincontentsleft h1, #maincontentsright h1 {
+	margin-left:0;
+}
+
+div#mainWLS { /*contains the main contents on xGDB home page */
+	display:block; margin:0 200px 15px;
+	height:auto;
+	position:relative;
+	border-top: 1px solid #DDD;
+	border-right: 1px solid #DDD;
+	border-left:1px solid #DDD;
+	background: white; /*url("/XGDB/images/ShadowLeft.png") repeat-y left;*/
+	width:auto; /*changed JPD 11-26-08*/
+}
+
+div#main {
+	display:block;
+}
+img.buttonIMG {
+	background:#DCDCDC; border:outset 1px black;
+}
+
+y{
+position: absolute;
+	display:block;
+	height:auto;
+	margin-left:160px;
+	width:85%;
+	overflow:hidden;
+}
+
+/**** RIGHT SIDEBAR STYLES ****/
+/******************************/
+div#RightSidebar {
+	background:none;/*#cdaa7d*/
+	width:162px; height:auto;
+	padding:0 10px 5px 10px; margin:0;
+	display:block; float:right; vertical-align:top;
+	text-align:left;
+	border-left: none;
+	overflow:hidden;
+}
+
+div#RightSidebar h2.GroupID {
+	margin: 0 0 0.5em 10px;
+}
+
+div#RightSidebar ul.LinkList {
+	list-style:none;
+	margin:0; 
+	padding:0 10px;
+}
+div#RightSidebar li.LinkList {
+	margin:0;
+	padding:0 0 0 10px;
+	font-size: 13px;
+}
+
+div#RightSidebar a {  /* styles right Nav links*/
+	border: none;
+	text-decoration:none;
+	font-weight: normal;
+	display:block;
+	width:100%; /* allows hover highlighting to extend across div width*/
+	padding:2px 0;
+	border-bottom: 1px #AAA dotted;
+}
+
+div#RightSidebar a.first { /*provides dotten line for top of first link */
+	border-top: 1px #AAA dotted;
+}
+
+div#RightSidebar a:hover {
+	text-decoration:underline;
+}
+
+/* Removed JPD - want default a
+div#RightSidebar a {
+        color:#808000; text-decoration:none; margin:0;
+}
+div#RightSidebar a:hover {
+        color:#000; text-decoration:underline;
+}
+*/
+
+/**** FOOTER STYLES ****/
+/***********************/
+hr#footer { 
+	clear:both; height:1px; width:98%;
+	margin:0 13px;
+}
+
+div#xgdbfooter {
+	margin: 0;
+	padding-bottom: 1em;
+	background: #367D5E;
+}
+
+/**** TRACK CONTROL STYLES ****/
+/***********************/
+
+table#trackcontrol {
+	width:200px;
+	height:auto;
+	border: 1px solid #AAA;
+	border-collapse:collapse;
+	padding:0;
+	margin:0;
+	/* background-color:none; "none" not valid here; commenting out. dhrasmus. */
+}
+
+table#trackcontrol tr {
+	border-bottom: 1px solid #AAA;
+	border-collapse:collapse;
+}
+table#trackcontrol td {
+	font-size: 10px;
+}
+
+/**** BLAST PAGE STYLES ****/
+/***********************/
+
+table.gdb_blast th{
+	font-size:12px;
+}
+
+#blastresults {
+	font-size:150%;
+}
+
+
+
+/*new 2/1/11 JD */
+
+div#blast_output {
+	font-family:Verdana,Sans-Serif;
+	font-size:12px;
+	padding:20px;
+	}
+	
+table#blast_summary {
+	font-size:11px;
+	border:1px solid  #BBB;
+	border-collapse:collapse;
+	}
+table#blast_summary th, table#blast_summary td {
+	padding:2px 5px;
+	}
+	
+table#blast_summary caption {
+	font-size:14px;
+	padding:5px;
+	font-weight:bold;
+	}
+
+
+.ajaxSubmit { cursor:pointer; }
+
+/* SDS: the following sf-menu styles are to fix a load order inconsistency. When sf-menu is seperated from visual styling elements this should be altered */
+.sf-menu a:link, .sf-menu a:link i, .sf-menu a:visited, .sf-menu a:visited i { text-decoration:none; color:white; }
+.sf-menu a.current { color:#11116F; }
+.sf-menu li:hover, .sf-menu li.sfHover, .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active, .sf-menu a:hover i { color:#11116F; }
+
+
+/**** getRecord.pl styles (formerly inline) ****/
+/***********************/
+
+td.exURL {
+	padding-right:15px;
+}
+
+
+/***Table styles for getRecord.pl **********/
+
+table#gdb_record {
+	padding:30px;
+	background: #EEE;
+}
+
+table#gdb_record td {
+	padding: 2px;
+}
+
+table#gdb_record a { /* in RecordsView table */
+	font-size:11px;
+}
+
+table#gdb_record, table#gdb_record strong {
+	font-size:13px;
+}
+
+table#loci_table {
+border: 1px solid #CCC;
+width:800px;
+}
+table#loci_table th, table#loci_table td{
+padding:5px;
+}
+
+table#loci_table td{
+border: 1px solid #CCC;
+}
+table#loci_table caption {
+font-size: 14px;
+font-weight:bold;
+color:#1F4B7F;
+text-align:left;
+padding: 1em 0;
+}
+div.record_section {
+padding:5px;
+}
+/*** styling for xGDB Help ****/
+
+img.xgdb-help-button, img.xgdb-help-button-small { /*this is the ? button that opens either a normal or small sized div for dialog jquery ui*/
+	margin-bottom: -3px;
+}
+/*** styling for DisplayLoci.php ****/
+
+col.selected {
+background: #F5FFAF;/* was#CFFFE5;*/
+}
+
+th.selected {
+color:#FEFF8F; /*light yellow*/
+}
+col.selected, span.selected, select.selected, input.selected{
+background:#F8FFBF; /*F5FFAF; /*lighter yellow*/
+}
+.not_selected {
+color:#999;
+}
+
+
+.locustable td {
+vertical-align:middle;
+}
+
+.accepted {
+font-style:bold;
+}
+.not_accepted {
+color:#AAA;
+}
+
+.gdblink a, .gdblink a:visited, .commcent a, .commcent a:visited {
+	align: center;
+	display:block;
+	padding:9px;
+}
+
+.zmgdb a:link, .zmgdb a:visited { /* adds glyph to a text string*/
+	background: transparent url('/XGDB/images/zmgdb.gif') no-repeat center;!important;
+}
+.zmgdb a:hover{
+	background: transparent url('/XGDB/images/zmgdb_hov.gif') no-repeat center; !important;
+}
+
+.xgdb a:link{ /* adds glyph to a text string*/
+	background: transparent url('/XGDB/images/contextview.gif') no-repeat center;!important;
+}
+
+.xgdb a:visited {
+	background: transparent url('/XGDB/images/contextview_vis.gif') no-repeat center;!important;
+}
+.xgdb a:hover{
+        background: transparent url('/XGDB/images/contextview_hov.gif') no-repeat center; !important;
+}
+
+
+.maizeseq a:link, .maizeseq a:visited{
+	background: transparent url('/XGDB/images/maizeseq.gif') no-repeat center;!important;
+}
+.maizeseq a:hover{
+	background: transparent url('/XGDB/images/maizeseq_hov.gif') no-repeat center; !important;
+}
+.maizegdb a:link, .maizegdb a:visited{
+	background: transparent url('/XGDB/images/maizegdb.gif') no-repeat center;!important;
+}
+.maizegdb a:hover{
+	background: transparent url('/XGDB/images/maizegdb_hov.gif') no-repeat center; !important;
+}
+.commcent a, .commcent a:visited{
+	background: transparent url('/XGDB/images/commcentral.gif') no-repeat center; !important;
+}.commcent a:hover{
+	background: transparent url('/XGDB/images/commcentral_hov.gif') no-repeat center; !important;
+}
+.annot a, .annot a:visited{
+	background: transparent url('/XGDB/images/annotate.gif') no-repeat center; !important;
+}
+.annot a:hover{
+	background: transparent url('/XGDB/images/annotate_hov.gif') no-repeat center; !important;
+}
+.gdblink a:visited, .maizeseq a:visited, .zmgdb a:visited, .maizegdb a:visited, .commcent a:visited, .annot a:visited {
+border: 2px solid #CCC;
+}

@@ -1,0 +1,29 @@
+##gff-version   3
+##sequence-region   ATchr1 993300 995800
+1	.	gene	993477	995593	.	+	.	ID=gene00001;Name=At1g03905
+1	.	mRNA	993477	995593	.	+	.	ID=mRNA00001;Parent=gene00001;Name=At1g03905.1
+1	.	exon	993477	993630	.	+	.	Parent=mRNA00001
+1	.	exon	994045	994205	.	+	.	Parent=mRNA00001
+1	.	exon	994353	994404	.	+	.	Parent=mRNA00001
+1	.	exon	994495	994631	.	+	.	Parent=mRNA00001
+1	.	exon	994827	994913	.	+	.	Parent=mRNA00001
+1	.	exon	995312	995593	.	+	.	Parent=mRNA00001
+1	.	CDS	993477	993630	.	+	.	ID=cds000001;Parent=mRNA00001
+1	.	CDS	994045	994205	.	+	.	ID=cds000001;Parent=mRNA00001
+1	.	CDS	994353	994404	.	+	.	ID=cds000001;Parent=mRNA00001
+1	.	CDS	994495	994631	.	+	.	ID=cds000001;Parent=mRNA00001
+1	.	CDS	994827	994913	.	+	.	ID=cds000001;Parent=mRNA00001
+1	.	CDS	995312	995593	.	+	.	ID=cds000001;Parent=mRNA00001
+1	.	cDNA_match	993417	993630	.	+	.	ID=cDNA00001;Name=42472210;cognate=True
+1	.	cDNA_match	993705	993950	.	+	.	ID=cDNA00001;Name=42472210;cognate=True
+1	.	cDNA_match	994045	994205	.	+	.	ID=cDNA00001;Name=42472210;cognate=True
+1	.	cDNA_match	994353	994631	.	+	.	ID=cDNA00001;Name=42472210;cognate=True
+1	.	cDNA_match	994827	994913	.	+	.	ID=cDNA00001;Name=42472210;cognate=True
+1	.	cDNA_match	995312	995730	.	+	.	ID=cDNA00001;Name=42472210;cognate=True
+1	.	cDNA_match	993458	993630	.	+	.	ID=cDNA00002;Name=42459253;cognate=False
+1	.	cDNA_match	994045	994205	.	+	.	ID=cDNA00002;Name=42459253;cognate=False
+1	.	cDNA_match	994353	994404	.	+	.	ID=cDNA00002;Name=42459253;cognate=False
+1	.	cDNA_match	994495	994631	.	+	.	ID=cDNA00002;Name=42459253;cognate=False
+1	.	cDNA_match	994827	994913	.	+	.	ID=cDNA00002;Name=42459253;cognate=False
+1	.	cDNA_match	995312	995514	.	+	.	ID=cDNA00002;Name=42459253;cognate=False
+

@@ -1,0 +1,119 @@
+body {	
+	margin:0; 
+	padding:2px 0 0 0;
+}
+
+h3 {
+	font-family: Verdana,Arial,sans-serif;
+	font-size: 12pt;
+}
+
+p, td, h4, ul { 
+	font-family: Verdana,Arial,sans-serif;
+	font-size: 10pt; 
+}
+
+.debug { display:none; }
+
+p#loginMenu {
+	width:100px; 
+	display:block;
+	float:left;
+	margin:10px 10px 5px 21px;
+	padding:0;
+	font:normal 14px Verdana,Arial,sans-serif;
+}
+p#HR3_Link {
+	width:100px; 
+	display:block; 
+	float:right; 
+	margin:10px 21px 5px 10px; 
+	padding:0;
+	font:normal 14px Verdana,Arial,sans-serif;
+}
+p.navCONTROL {
+	white-space:nowrap;
+	margin:0;
+	padding:0;
+	font:bold 14px Verdana,Arial,sans-serif;
+	text-align:center;
+}
+.navINPUT {
+	margin:1px 2px;
+	padding:0;
+}
+
+
+/**** LEFT SIDEBAR STYLES ****/
+/*****************************/
+div#LeftSidebar {
+	width:120px;
+	height:1000px;
+	font:normal 14px Verdana,Arial,sans-serif;
+	margin:13px 10px 10px 34px;
+	padding:2px 0 5px 0;
+	display:block;
+	float:left;
+	vertical-align:top;
+	clear:both;/*fix for Safari 3.1 and FF3.0 JPD080626*/
+}
+
+/**** Default MAIN CONTENT STYLES ****/
+/*************************************/
+div#mainWLS {
+	display:block; margin:10px 35px 15px 175px;
+}
+div#main {
+	display:block;
+}
+
+div#abstract {
+	display:block;
+	font:normal 10px Verdana,Arial,sans-serif;
+	color:#FFF;
+	text-align: left;
+}
+
+/**** RIGHT SIDEBAR STYLES ****/
+/******************************/
+div#RightSidebar {
+	width:120px;
+	height:1000px;
+	font:normal 14px Verdana,Arial,sans-serif;
+	padding:2px 10px 5px 2px;
+	margin:13px 34px 10px 10px;
+	display:block;
+	float:right;
+	vertical-align:top;
+}
+
+
+/*******abstract div *******/
+
+div#abstract h3.abs,
+div#abstract h4.abs {
+	color:black;
+	font-weight:900; /* 1000 not valid. See http://www.w3.org/TR/CSS2/fonts.html Changed to 900. dhrasmus */ 
+	margin:0;
+	font-family: Verdana;
+}
+div#abstract h3.abs { /* See immediately above */
+	font-size:12pt;
+}
+div#abstract h4.abs { /* See immediately above */
+	font-size:10pt;
+}
+
+
+
+/**** FOOTER STYLES ****/
+/***********************/
+hr#footer {
+	clear:both;
+	height:1px;
+	width:98%;
+}
+
+.ajaxSubmit { 
+	cursor:pointer;
+}

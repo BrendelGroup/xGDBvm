@@ -1,0 +1,2880 @@
+/* plantgdb.css, version 2-20-10  */
+
+
+/* Background Colors */
+#pagewidth {
+	background: #81E1F9; /* light blue; synchronize with GDBstyle.css and HeaderRow2, 3, xgdbcontainer */
+}
+
+#pagewidth.gdb {
+	background: #81E1F9; /* light blue */
+}
+
+#pagewidth.anno {
+	background: #B5FCE6; /* blue-green */
+}
+
+/* -- Apply to everything -- */
+* {
+	color: #444448; /*#444448;*/
+	margin:0;
+	padding:0;
+}
+
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size:62.5%; /* Sets 1em = 10px */
+	min-height:100%;
+	min-width:600px; /* see http://www.andybudd.com/archives/2004/02/css_crib_sheet_3_centering_a_div*/
+	text-align: center; /*TURNED OFF; text-align:center is a hack to allow ie6 to center a div- see http://www.andybudd.com/archives/2004/02/css_crib_sheet_3_centering_a_div*/
+}
+
+img {
+	border: none;
+}
+
+p { /* TODO: remove this styling from generic p and make class-specific!! */
+	font-size:12px;
+	line-height:1.5em; /* seems about right for readability*/
+	margin:0.5em;
+	text-align: justify;
+}
+
+p.nomargin {
+    margin:0em;
+    line-height:1em;
+}
+
+b, i, li, p {
+	color: #444448;
+}
+
+.bold {
+	font-weight:bold;
+}
+
+.nobold {
+	font-weight:normal !important;
+}
+.nowrap {
+white-space:nowrap;
+}
+
+.outline { /*for text */
+	border:1px solid;
+	padding:2px;
+}
+
+.italic, .species {
+	color: inherit;
+	font-style:italic;
+}
+
+a:link, a:visited, a:link i, a:visited i, .link_text  {
+	color: #C45601; /*standard hyperlink color: orange*/
+	text-decoration: underline;
+}
+
+.linkcolor{ /* for non-linked text to mimic linking color*/
+	color: #C45601; /*standard hyperlink color: orange*/
+}
+
+.nolinkstyle{
+    color:#444448;!important
+    text-decoration:none;
+}
+
+.no_underline a, .no_underline a i, .no_underline a b{
+	text-decoration:none;
+}
+
+.underline {
+	text-decoration:underline;
+}
+a.admin:link, a.admin:visited, a.admin:link i, a.admin:visited i {
+	color: #777;
+}
+
+a:hover, a:hover i {
+	color: #CF0C14;/*dark red*/
+	text-decoration:underline;
+	background: #FFFFBF; /*#F3FF8F; /*light yellow*/
+}
+
+.inverse_link { /*reverse colors for link to make it stand out*/
+background:#1A8F77; /*7-6-10 JD*/
+border:1px solid #1A8F77; 
+color: white;
+font-weight:bold;
+text-decoration:none;
+padding:1px 4px;  /*sync with :hover*/
+line-height:1.5em;
+}
+
+.inverse_link:hover {
+background:#FFFFBF;
+color: #CF0C14;
+padding:1px 4px; /*sync with class above*/
+border:1px solid #CF0C14;
+}
+
+.hover_pointer {
+cursor:pointer;
+}
+
+.box_text { /*box border for text to make it stand out*/
+font-size: 12px;
+background:#EEE; /*lt gray default; see others below */
+border:1px solid #444448; 
+color: #444448;
+font-weight:bold;
+text-decoration:none;
+padding:4px 6px;  /*sync with :hover*/
+line-height:2em;
+white-space:nowrap;
+}
+
+.hover_pointer:hover {
+background:#FFFFBF;
+}
+
+a[href^="http:"], a[href^="ftp:"], a[href^="https:"] { /* Icon for external links */
+	background: url("/XGDB/images/Icon_External_Link.png") right center no-repeat;
+	padding-right: 14px;
+}
+
+a[href^="http:"]:hover, a[href^="ftp:"]:hover { /* Hover color for external link icon */
+	background: #FFFFBF url("/XGDB/images/Icon_External_Link_Hover.png") right center no-repeat;
+	padding-right: 14px;
+}
+
+a[href^="mailto:"] { /* mailto: URLs get email icon */
+	background: url("/XGDB/images/Icon_External_Link_E-Mail.png") right center no-repeat;
+	padding-right: 16px;
+}
+
+a[href^="mailto:"].hidelinkicon {
+    background-image: none;
+}
+	
+a[href $=".pdf"] { /* Icon for PDF files */
+	background: url("/XGDB/images/Icon_External_Link_PDF.png") right center no-repeat;
+	padding-right: 12px;
+}
+
+*:target {
+
+	background: #B5EEFC; /*#81E1F9;*/
+	border: 2px dotted #81E1F9;
+	padding: 2px;
+}
+tr:target{
+	background: yellow;!important
+	border: 2px solid black;
+}
+
+a.qtvideo /* QuickTime icon for links to videos encoded in QT, viewed using jquery ui dialog. */
+{
+	background-image:url('/XGDB/images/qtvideo.png');
+	background-repeat:no-repeat;
+	color: #C45601; /*#088F73;*/
+	/*background-position:0;*/
+	padding: 2px 0 2px 22px;
+	text-decoration: underline;
+}
+
+a.qtvideo:hover {
+	background-image:url('/XGDB/images/qtvideo_hover.png');
+}
+
+a.ytvideo /* Youtube icon for links to videos encoded at YouTube, viewed using jquery ui dialog. */
+{
+	background-image:url('/XGDB/images/ytvideo.png');
+	background-repeat:no-repeat;
+}
+
+a.ytvideo:hover {
+	background-image:url('/XGDB/images/ytvideo_hover.png');
+}
+
+
+a.flvideo /* Flash icon for links to videos encoded in Flash, viewed using jquery ui dialog. */
+{
+	background-image:url('/XGDB/images/flvideo.png');
+	background-repeat:no-repeat;
+}
+
+a.flvideo:hover {
+	background-image:url('/XGDB/images/flvideo_hover.png');
+}
+
+a.help_link /* Image icon for links to help pages and images called jquery-ui dialog. Synchronize w/ GDBstyle.css */
+{
+	background-image:url('/XGDB/images/help-icon.png');
+	background-repeat:no-repeat;
+	color: #999;
+	/*background-position:0;*/
+	padding: 2px 0 2px 18px;
+	text-decoration: none;
+}
+
+a.help_link:hover {
+	background: #FFFFBF; /*was more aggressive, *#F3FF8F; /*light yellow*/
+	background-image:url('/XGDB/images/help-icon_hover.png');
+	background-repeat:no-repeat;
+	color: #C45601; /*#088F73; green*/
+	text-decoration:none;
+}
+
+.dialogcontainer { /* for help includes and jquery ui dialog window include files*/
+	padding:40px;
+	text-align: left;
+	background-color:#C4FCF5;
+}
+div.helpsection div.dialogcontainer { /* kill the background */
+	background-color: white;
+}
+.dialogcontainer a, .dialogcontainer a i, .dialogcontainer a b{
+	color: #C45601; !important;
+}
+
+.dialogcontainer a:hover {
+	color: #CF0C14 !important;
+}
+
+.dialogcontainer p, .dialogcontainer b, .dialogcontainer i, .dialogcontainer ul li, .dialogcontainer ul li b, .dialogcontainer ol li, .dialogcontainer ol li b {
+	color:#444448;
+}
+
+.ui-dialog { /*This is a jquery ui div and this is an addendum to its default styling, to allow some background to show through for context. */
+opacity:0.97;
+}
+
+.warningcontainer {
+	padding:10px;
+	background:#FCFC9C;
+	}
+
+.warning { /* text accompanying warnings*/
+	background:  url('/XGDB/images/exclamation.png') no-repeat left;
+	padding-left:20px;
+	}
+
+.caution { /* text accompanying warnings*/
+	background:  url('/XGDB/images/exclamation_orange.png') no-repeat left;
+	padding-left:20px;
+	}
+	
+.warning, .warning b, .warning i, .warning u, a.warning{
+	color: red;
+	}
+
+.caution, .caution b, .caution i, .caution u, a.caution{
+	color: brown;
+	}
+
+	
+h1, h1 i, h1 a:link, h1 a:visited, h1 a:link i, h1 a:visited i{
+	color: #E87C02;
+	font-size:20px;
+	font-weight:bold;
+	font-family:Tahoma;
+	text-decoration:none;
+}
+
+h1.larger, h1.larger a {
+	font-size:30px;
+}
+
+a.headinglink {
+	color: #C45601; /*#088F73;*/
+	font-weight:bold;
+	text-decoration: none;
+}
+
+h1.configure, h1.configure i, h1.configure b, span.configure, h2.configure { /* dk red*/
+	color:#004377; /* dark blue */
+	}
+h1.jobs, h1.jobs i, h1.jobs b, h2.jobs { /* dk magenta*/
+	color:darkmagenta;
+	}
+h1.anno, h1.anno i, h1.anno b  { /* dk green*/
+	color:#16AA7B; /*blue-green*/
+	}
+
+h1.admin, h1.admin i, h1.admin b {  /* dk grey*/
+    color:#666670;
+	}
+	
+h2, h2 i, h2 a {
+	color: #444448; /*was 7F0766*/
+	font-size:16px;
+	font-weight:bold;
+}
+
+h2 a:hover {
+	color: #7F0766;
+}
+
+span.h2_in_anchor {
+	color: #444448; /*was 7F0766*/
+	font-size:16px;
+	font-weight:bold;
+	background: url('/XGDB/images/triangle_yel.gif') no-repeat left;
+	padding-left:1em;
+}
+
+span.h2_in_anchor:hover { /* for showhide hyperlinks*/
+	color:#CF0C14;
+	background: #FFFFBF url('/XGDB/images/downtriangle_yel.gif') no-repeat left;
+}	
+
+span.h3_in_anchor {
+	color: #444448; /*was 7F0766*/
+	font-size:12px;
+	font-weight:bold;
+}
+
+h3, h3 i {
+	color: #444448;
+	font-size: 13px;
+	font-weight:bold;
+}
+
+h4 {
+	color:black;
+	font-size:1.25em;
+	font-weight:bold;
+	margin: 5px 0 25px;
+}
+h6 {
+	font-size:0.8em;
+	margin:38px 0 0;
+}
+
+	
+hr {
+	color: #CCC;
+	height:0.5px;
+	margin: 2em 1em 0 1em;
+	border-style:solid;
+	display:block; /*force ie to obey HTML4!*/
+}
+
+.smallerfont, .smallerfont i, .smallerfont b, .smallerfont li { /*mainly for show/hide tables */
+	font-size: 11px;
+}
+
+.normalfont { /*used in various tables */
+	font-size:12px;
+}
+
+.largerfont, tr.largerfont td { /*used in various tables */
+	font-size:14px;
+}
+
+.bigfont { /*used in various tables */
+	font-size:16px;
+}
+
+.hugefont { /*used in various tables */
+	font-size:20px;
+}
+
+.indent1 {
+	padding-left: 1em !important;
+}
+
+.indent2 {
+	padding-left: 2em !important;
+}
+
+.indent3 {
+	padding-left: 3em !important;
+}
+
+img.nudge2 { /*to center image with larger text*/
+margin-bottom:-2px;
+margin-left:3px;
+}
+
+img.nudge1 { /*to center image with large text*/
+margin-bottom:-1px;
+margin-left:3px;
+}
+
+img.nudge3 { /*push image down a bit*/
+margin-bottom:-3px;
+}
+
+hr.featuredivider {
+	color: #DDD; /*was 7F0766*/
+	border-style:solid;
+	display:block; /* force ie to obey HTML4 */
+	margin: 3px 0 1em 0;
+}
+
+
+hr.plain {
+	border:0;
+	display:block;
+	margin: 3em 0 3em 0;
+	width:99%;
+	background-color:#AAA;
+	height: 1px;
+}
+
+kbd {
+	font-weight: bold;
+	font-style: italic;
+}
+
+pre.large { /*preformatted text for tables*/
+	font-size:14px;
+}
+
+pre.normal { /*preformatted text for tables,*/
+	font-size:12px;
+}
+
+pre.smallish { /*preformatted text for e.g. logfiles,*/
+	font-size:11px;
+}
+pre.small {
+	font-size: 9px;
+}
+
+
+p.monospace {
+	font-family: monospace;
+}
+
+#outercontainer {
+	display:block;
+	position:relative;
+	text-align: left; margin: 0 auto;
+	margin-left:0%;
+	min-height:100%;/*test*/
+}
+
+#pagewidth { /* Used as a nested container inside innercontainer. Allows FF2.0 to handle floated divs with % width*/
+	position: relative;
+	float:left;
+	margin:-2px 0 0 0; /*correction for annoying line 1-8-12 JPD*/
+	padding:0;
+	clear:both;
+	width:100%;
+}
+
+#logomenucontainer {
+	width: 100%;
+	/*margin: 0 1% 0 1%;*/
+	margin: 0;
+	padding-bottom: 0; /*below menu*/
+	background: #81E1F9 url("/XGDB/images/LogoShadow.png") repeat-x bottom left;
+	height:102px; /* was 99px;*/
+	z-index:4;
+}
+
+
+#headerwidth { /*This is used as a nested container inside logomenucontainer, that allows FF2.0 to handle floated divs with % width*/
+	margin:0;
+	padding:0;
+}
+
+
+#pgdblogo {
+ 	/*float:left;*/
+ 	text-align:center;
+ 	clear: both;
+ 	border: 0;
+ 	margin: 0 auto;/*0 0 0 16%;*/
+ 	width: auto; /*66%; /*note: width needs to be adjusted relative to l-margin and topright div, or else overflow:hidden will not work and topright div will wrap. */
+ 	overflow: visible; /*Try hidden to prevent run-over with end*/
+ 	height:75px;
+}
+
+
+#menuwidth { /*Used as nested container outside pgdbmenu. Allows FF2.0 to handle floated divs with % width */
+}
+
+#logowidth, #menuwidth {
+	margin:0;
+	padding:0;
+}
+
+div#message {
+background-color:#DB6F6D;
+padding:30px;
+text-align:center;
+}
+#pgdbmenu {
+ 	padding: 0;
+ 	width:72em; /*was 85. changed from 76.5 to fix IE7. NOTE: adjust according to total length of menu div, and adjust so when browser window is reduced to minimum width the menu is centered L/R*/
+	margin-left: auto; /*should be able to set to auto, which centers as per http://www.andybudd.com/archives/2004/02/css_crib_sheet_3_centering_a_div*/
+	margin-right: auto;
+	text-align:left;
+	z-index: 11;
+}
+
+#fixedleftcolumn { /*This will appear on top of empty leftcolumn div*/
+	position: fixed;
+	top:14em;
+	width:18%;
+	/*max-width: 15em;*/
+	margin: 10px 0 0 0;
+}
+
+
+#leftcolumncontainer { /*for three column format, this is the left container div*/
+	display:inline;
+	float:left;
+	/*clear: left; REMOVED; breaks IE7 */
+	width: 18%;
+	/*max-width: 15em;*/
+	background: none;
+	margin:5em 0;
+	padding:0;
+	border:none;
+	min-height:70%;/*test*/
+	overflow: hidden;
+}
+
+#maincontentscontainer { /*for three column format, this is the center container div*/
+	display:block;
+	float: left;
+	clear:none;
+	/*width:63%;*/
+	border: 1px solid #DDD;
+	border-bottom: none;
+	padding: 0;
+	min-height:100%;/*test*/
+	overflow: hidden; /*was: hidden;*/
+	background: white;/* url("/XGDB/images/ShadowLeft.png") repeat-y top left;*/
+}
+
+#maincontentscontainer.overflow { /*modify behavior for wide tables.*/
+	overflow:auto;
+}
+
+#maincontentscontainer p { /* NOTE: paragraph style inherited by enclosed divs!*/
+	padding: 0.5em 1em 0.5em 1em;
+}
+
+.threecolumn { /*Use for maincontentscontainer WITH right column*/
+	width:63%;
+	min-width:63%;
+	margin: 2.5em 0 3em 0;
+	border-right: 1px solid #DDD;
+}
+
+.twocolumn { /*Use for maincontentscontainer WITH NO right column*/
+	width:80%; /*testing: was 81%*/
+	border-right:none;
+	margin: 2.5em 0 3em 0;
+}
+
+.onecolumn { /*Use for maincontentscontainer WITHOUT right OR left column*/
+	width:98%;
+	border-right:none;
+	border-left:none;
+	margin:2.5em 1em 3em 1em;
+}
+
+.alertnotice  { /* add this class to a div or link related to a special alert or notice */
+	color: #FF001D; /* Same as :target */
+}
+
+.process_notice  { /* orange- add this class to a div or link related to a process alert or notice */
+	background: #EA9533;
+	color:white;
+	padding:2px 0 4px 0;
+	margin:0 0 0 20px;
+}
+#maincontents { 
+	padding:3em;
+	text-align:left;
+/*	width:95%; /*added to get IE7 to work on xGDB home page - 12-2-08 */
+	width:auto; /* screw IE7 */
+	background-color:white;
+}
+
+#maincontents.logfile { /*preformatted text scroll */
+overflow:scroll;
+}
+
+#sitename { /*applied to upper left header site name text*/
+	font-family: Tahoma;
+	font-size:18px;
+	color:#04AAD8; /* darker blue*/
+	font-weight:bold;
+	text-shadow:2px 2px 2px #999;
+}
+
+#video_dialog { /*this id is used by jquery-ui dialog to create a video window */
+	background-color:#eee;
+}
+
+#video_bckgd {
+	color: white;
+}
+
+#video_bckgd h2 { /*this is the video title - background color should complement video_dialog bckgd*/
+	color: white;
+	background: #17507F;
+	padding: 5px 0 6px 0;
+}
+
+#image_dialog { /*this id is used by jquery-ui dialog to create an image window */
+	background-color:#999;
+}
+
+#image_bckgd img { /*this id is used by jquery-ui dialog to style an image window */
+padding:5px;
+width:100%;
+height:100%;
+}
+
+img.thumbnail_1 {
+	border: 1px dotted #CCC;
+	height: 75px;
+	width: 50px;
+	float:left;
+	margin-right:1em;
+	margin-left:1em;
+	margin-bottom:0.75em;
+	opacity: 0.85; /* FF */
+	filter: alpha(opacity=85); /* IE */
+}
+img.thumbnail_1:hover {
+	opacity: 1.0; /* FF */
+	filter: alpha(opacity=100); /* IE */
+}
+
+img.thumbnail_2, img.thumbnail_4{
+	border: none; /*1px solid #CCC;*/
+	float:right;
+	margin-right:1em;
+	margin-left:1em;
+	margin-bottom:0.75em;
+}
+
+img.thumbnail_2 {
+	height: 75px;
+	width: 180px;
+}
+
+img.thumbnail_4 {
+	height: 300px;
+	width: 400px;
+}
+
+
+h2.border { /*top and bottom border*/
+	border-top: 2px solid #CCC;
+	border-bottom: 2px solid #CCC;
+	padding: 3px 0 5px 0;
+} 
+
+#rightcolumncontainer {/*for three column format, this is the right container div*/
+	float:left;
+	width: 18%;
+	background: none;
+	margin: 1em 0 0 0;
+	padding: 0;
+	border:none;
+	min-height:70%;/*test*/
+}
+
+#leftcolumncontainer h2, #rightcolumncontainer h2 {
+	/*font-variant: small-caps;*/
+}
+
+.minicolumnleft {
+	width: 80%;
+	min-width:80%; /*required for IE7 */
+	float:left;
+	margin-left: 14%; /*was:12% testing 8-12-11*/
+	margin-top:10px;
+}
+.minicolumnleft p { 
+	margin: 0 0 0 1em;
+	line-height: 1.75em;
+}
+div.minicolumnleft h2 { /*the left menu header*/
+	text-align:left;
+}
+
+.minicolumnright {
+	background: none;
+	width:88%;/*adjust width and margin-left to center the div*/
+	overflow:hidden; /*test*/
+	float:left;
+	margin-left: 10%;/*adjust width and margin-left to center the div*/
+	margin-top:10px;
+}
+.minicolumnright h2, minicolumnright h2 i {
+	text-align: center;
+	color: #444448; /* #2B3C3F; /*was 7F0766*/ /*#BDBF00; /*4-4-09*/
+}
+
+.ie_alert {
+	display: none;
+}
+
+.new { /* adds "new" glyph to a text string*/
+	background: url('/XGDB/images/new.png') no-repeat left;
+	padding-left:32px;
+}
+
+
+.twitter { /* adds "18x18 twitter" glyph to a text string*/
+	background: url('/XGDB/images/twitter.png') no-repeat left;
+	padding-left:20px;
+}
+
+.facebook { /* adds 16x16 "facebook" glyph to a text string*/
+	background: url('/XGDB/images/facebook.png') no-repeat left;
+	padding-left:20px;
+}
+
+.dotted { /* adds a dotted border*/
+	border: 1px #CCC dotted;
+}
+
+.topmarginhalf {
+	margin-top: .5em;
+}
+.topmargin1 {
+	margin-top: 1em;
+}
+.topmargin2 {
+	margin-top: 2em;
+}
+.bottommargin1 {
+	margin-bottom: 1em;
+}
+.bottommargin2 {
+	margin-bottom: 2em;
+}
+.bottommargin3 {
+	margin-bottom: 3em;
+}
+.bottommargin4 {
+	margin-bottom: 4em;
+}
+.bottommargin5 {
+	margin-bottom: 5em;
+}
+.box_text a, .box_text a i {
+text-decoration:none;
+font-size:12px
+}
+.plaintext {
+font-family: Courier;
+color: #444448;
+font-size:13px;
+border: 1px solid #DDD;
+border-radius:2px;
+}
+
+.yellow {
+	background: #F5FFAF;
+}
+
+.gray {
+	background: #ddd;
+}
+
+.lightgrayfont , .lightgrayfont td, .lightgrayfont i, .lightgrayfont b, ul.lightgrayfont li a, li.lightgrayfont a {
+	color: #BBB;
+}
+.grayfont , .grayfont td, .grayfont i, .grayfont b, ul.grayfont li a, li.grayfont a {
+	color: #888;
+}
+.darkgrayfont, .darkgrayfont i, .darkgrayfont b, ul.darkgrayfont li a, li.darkgrayfont a {
+	color: #555;
+}
+.whitefont {
+	color: white;
+}
+.bluefont {
+	color: blue;
+}
+.redfont {
+	color: red;
+}
+.lightyellow {
+  background: #FBFFE0;
+}
+ 
+.ltblue {
+	background: #C2ECEF;
+}
+
+.ltgreen {
+	background: #D1EFD1;
+}
+
+.white {
+	background: white;
+}
+	
+.bckgd1 {
+	background: #D9C9D0; /*light purple*/
+}
+
+.center {
+	text-align: center;
+}
+
+.shadowbottom {
+	border-bottom: 2px solid #DDD;
+}
+
+span.announcement {
+	margin:1em;
+	font-size: 12px;
+	color: #DF0D0D;
+	font-weight:bold;
+}
+span.announcement a {
+	color: #DF6300;
+	text-decoration: underline;
+}
+/* hidden div using jquery-showhide.js */
+
+span.link a, a.link { /*Use this for inline links within e.g. h1 tag */
+color:#C45601;
+}
+
+span.heading, span.heading b {
+	color: #666;
+}
+span.heading {
+	font-size: 12px;
+	font-style:italic;
+	font-weight:normal;
+}
+
+span.heading a {
+	color: #C45601; /*#088F73;*/
+	font-size: 12px;
+	text-decoration:none;
+}
+
+div.showhide  { /*the div class to place before hidden div. This is the generic styling - use classes to style*/
+	display:block;
+	/*float:left;	no!! if you float it, this messes up the div below between FF3 and ie7 which can't agree*/	
+	width:100%;
+	padding:0;
+}
+
+div.feature .showhide {
+	clear:both;
+	width:100%;
+	padding-left: 1em;
+	padding-top: 0px; /*testing 10-1-09*/
+}
+	
+div.showhide p , div.showhide ol li{
+	text-align:left;
+}
+
+a.label, a.label i, span.label, p.label { /* for showhide hyperlinks*/
+	display:block;
+	color: #C45601; /*synchronize with global a*/
+	font-size: 12px; /* changed from 12px on 7-27-10 JD*/
+	background: url('/XGDB/images/triangle_yel.gif') no-repeat left #BFFAF5;
+	white-space:nowrap;
+	width: auto; /*20%;*/
+	margin-top: 0.5em; /* Was 0.75em */
+	text-decoration:none;
+	font-style:italic;
+	cursor:pointer;
+}
+
+
+a.label:hover, p.label:hover { /* for showhide hyperlinks*/
+	color:#CF0C14;
+	background: #FFFFBF url('/XGDB/images/downtriangle_yel.gif') no-repeat left;
+}	
+
+a.noimage, a.noimage:hover {
+	background-image: none; /* Clear image */
+}
+
+div.hidden { /*add this class to div immed. after div.showhide to hide using jquery-showhide.js. This is generic styling - use classes to style */
+	display:none;
+	background-color:white;
+	padding:1em;
+	margin-top:1em;
+	font-size: 1em;
+	border: 1px #CCC solid;
+	overflow:auto;
+}
+	
+div.hidden a {
+	font-size:1em;
+	font-weight:normal;
+}
+
+div.tablecontainer {
+	float:left;
+	padding-left:2.5%;
+	clear:both;
+	width:95%;
+}
+
+/*home page div colors and hover */
+
+div#create_genomes {
+padding:1em;
+background-color: #81E1F9; /*light blue*/
+-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; 
+}
+div#create_genomes:hover, div#create_genomes:hover span.reverse{
+color:white;
+background-color:#1ED5FF; /*darker blue*/
+}
+
+div#view_genomes {
+padding:1em;
+background-color:#FFB159;/*light orange*/
+-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; 
+}
+div#view_genomes:hover, div#view_genomes:hover span.reverse{
+color:white;
+background-color:#FF9328; /*darker orange*/
+}
+
+div#community_annotation{
+padding:1em;
+background-color:#50EDB8; /*light blue-green*/
+-webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px;
+}
+div#community_annotation:hover, div#community_annotation:hover span.reverse{
+color:white;
+background-color:#00CC9F; /*darker blue-green*/
+}
+
+/* Button Style */
+
+input[type="submit"]{
+        color: #C45601;
+        border:2px solid #BBB;
+    }
+
+
+input[type="submit"]:hover{
+        background-color:#FFFFBF;
+        color:black;
+        border:2px solid #666;
+    }
+
+.xgdb_button { /*see also background color styling below */
+	display: inline-block;
+	font-size:12px;
+	line-height: 1.5;
+	padding: 7px 10px;
+	text-decoration: none;
+	font-weight: normal;
+    text-transform:uppercase;
+    color: #fff !important;
+	text-decoration:none !important;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	border-radius: 8px;
+	min-width:175px;
+	text-align:center;
+}
+
+.xgdb_button:hover {
+    background-color: #BBB;
+    }
+
+.xgdb_button.short {
+min-width: 75px;
+}
+
+a.xgdb_button.video-button, a.xgdb_button.video-button-bl {
+	background-image:url('/XGDB/images/video_bl25.png');
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left center;
+	}
+a.xgdb_button.video-button-dkbl {
+	background-image:url('/XGDB/images/video_dkbl25.png');
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left center;
+	}	
+a.xgdb_button.video-button-gr {
+	background-image:url('/XGDB/images/video_gr25.png');
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left center;
+	}
+a.xgdb_button.video-button-or {
+	background-image:url('/XGDB/images/video_or25.png');
+	padding-left:30px;
+	background-repeat:no-repeat;
+	background-position:left center;
+	}
+	
+.button_div {
+margin-top:20px;
+margin-left:50px;
+margin-bottom: 20px;
+}
+
+.button_rounded {
+border-top-left-radius:7px; border-top-right-radius:7px; border-bottom-left-radius:7px;  border-bottom-right-radius:7px;
+}
+
+.colorB0 {
+background-color:#47C3E6; /*light blue */
+}
+.colorB1 { /*intense light blue-green*/
+background-color:#38B1ED;
+}
+
+.colorB2 { /* muted light blue-green*/
+background-color:#309DD3;
+}
+
+.colorB3 { /* medium blue-green*/
+background-color:#297CA5;
+}
+.colorB4 { /* deep blue-green*/
+background-color:#1B6184;
+} 
+.colorB5 { /* deep deep blue-green*/
+background-color:#175777;
+} 
+.colorB6 { /* deep deep blue-green*/
+background-color:#084563;
+}
+
+
+
+.colorJobs1 { /*light magenta (for config */
+background-color:#C900C9;
+}
+.colorJobs2 { /*medium magenta (for config */
+background-color:#AA00AA;
+}
+.colorJobs3 { /*dark magenta (for config */
+background-color:#930193;
+}
+.colorJobs4 { /*darkest magenta (for config */
+background-color:#6B026B;
+}
+.colorJobs5 { /*darkest magenta (for config */
+background-color:#540054;
+}
+
+
+.colorConf1 { /*light blue (for jobs */
+background-color:#0084EA;
+}
+.colorConf2 { /*medium blue (for jobs */
+background-color:#0275CE;
+}
+.colorConf3 { /*dark blue (for jobs */
+background-color:#0362AA;
+}
+.colorConf4 { /*darkest blue (for jobs */
+background-color:#004E89;
+}
+.colorConf5 { /*darkest blue (for jobs */
+background-color:#004377;
+}
+
+
+
+.colorR5 { /*light red */
+background-color:#F4746E;
+}
+.colorR6 { /*medium light red*/
+background-color:#E05E57;
+}
+.colorR7 { /*medium red*/
+background-color:#D34039;
+}
+.colorR8 { /*dark red */
+background-color:#CE1208;
+}
+.colorR9 { /* deep red */
+background-color:#BD0802;
+} 
+.colorR10 { /* deep deep red */
+background-color:#8E0301;
+} 
+.colorR11 { /* deep deeper red */
+background-color:#6D0000;
+}
+.colorR12 { /* deep deeper red */
+background-color:#650000;
+}
+.colorR13 { /* deep deeper red */
+background-color:#500000;
+}
+.colorR14 { /* deep deeper red */
+background-color:#400000;
+}
+.colorR15 { /* deep deeper red */
+background-color:#300000;
+}
+
+.colorG1 { /* grey light */
+background-color:#BBB;
+} 
+.colorG2 { /* grey med light */
+background-color:#9999A9;
+} 
+.colorG3 { /* grey med */
+background-color:#666670;
+}
+.colorG4 { /* grey dk */
+background-color:#555560;
+}
+.colorG5 { /* grey dker */
+background-color:#444450;
+}
+.colorGR1 { /* blue-green */
+background-color:#1FE5A9;
+} 
+.colorGR2 { /* medium blue-green */
+background-color:#42E5A9;
+}
+.colorGR3 { /* dk blue-green */
+background-color:#15A8A8;
+}
+.colorGR4 { /* dk dk blue-green */
+background-color:#0D7251;
+}
+.colorGR5 { /* dk dk blue-green */
+background-color:#09563C;
+}
+.colorGR6 { /* same as Update Status color */
+background-color:#47F7E2;
+}
+
+.colorGreen1 { /* spring green; Community Central buttons*/
+background-color:#1FE5A9;
+}
+
+
+.colorO1 { /* orange v lt */
+background-color:#EDA92A;
+}
+.colorO2 { /* orange lt */
+background-color:#E58413;
+}
+.colorO3 { /* orange med */
+background-color:#D38B04;
+}
+.colorO4 { /* orange dark */
+background-color:#CC8502;
+}
+.colorO5 { /* orange v dark */
+background-color:#BC7801;
+}
+.colorO6 { /* orange vv dark */
+background-color:#AA6D03;
+}
+.colorO7 { /* orange vvv dark */
+background-color:#915C00;
+}
+.colorO8 { /* almost brown */
+background-color:#7C4F00;
+}
+
+.colorP1 { /*purple, for archive/restore */
+background: #AB9FDD; /* #C77CF9; /*#BC61F9; #B0B0FC;*/
+}
+
+
+.xgdb_button#selected {
+color:yellow !important;
+}
+
+input.xgdb_button, button.xgdb_button {
+	border: 0px none;
+}
+
+.big_button { /*wrap the button anchor in a div or span */
+margin-top:20px;
+margin-left:50px;
+margin-bottom: 20px;
+}
+
+/* main contents divs*/
+#maincontentsfull {
+	margin-left:3em; /*change from 2em 9-10-10*/
+	margin-top:3em;
+	margin-right:3em; 
+	min-height:50em;/* Put some height on pages that only have a few lines of text */
+	overflow:auto;
+}
+
+#maincontentsleft {
+	height:auto;
+	text-align:left;
+	float: left; 
+	width: 46%; 
+	margin: 0; 
+	padding-left: 2em; /*added 11-14-08*/
+	padding-bottom: 1em;/*added 11-14-08*/
+	overflow:hidden;
+	clear:none;
+}
+
+#maincontentsright {
+	height:auto;
+	text-align:left;
+	float: right;
+	width: 46%; 
+	margin-right: 1.5em;
+	padding-left: 0;
+	clear:none; 
+	padding-bottom: 1em;/*added 11-14-08*/
+	overflow:hidden;
+}
+
+.sequence {
+	font-family: Courier, "Courier New", monospace;
+	font-size: 1.2em;
+}
+
+.feature { /*used in maincontentscontainer */
+	float:left;
+	width:95%; /*required for ie */
+	/*margin-left: 1em;*/
+	padding: 1em; /*testing 10-8-12*/
+	line-height: 1.8em;
+	font-size:12px; /*match paragraph size*/
+	text-align:left;/* 8-3-09 was: justify*/
+	/*height:100%;*/
+	clear:both;
+}
+
+div.description { /* Description of a feature. Add class showhide to include hidden div after it, alternatively add indent1 class to indent.*/
+	font-size: 12px; /*TESTING 11-25-08*/
+	padding: 1em;
+	line-height: 1.50em;
+}
+
+div.description a {
+	width:auto;
+}
+	
+	
+.feature p {
+	margin: 0;
+	font-size: 12px;
+}
+	
+.featurelist, .directorylist {
+	/*border: 1px solid #367D5E; */
+	float: left;
+	line-height: 1.8em;
+	border-left: 0;
+	padding:1.5em;
+	width:92%;
+	min-width: 92%; /* can't use width:90% for IE7; but unfortunately this breaks FF2 which needs min-width 90%*/
+	z-index:2;
+	clear:both;
+	background: #EEF3F1; /* url("/XGDB/images/grad2.gif") repeat-x top; /*light green*/
+}
+.featurelist_ends { /*floats above and below featurelist div and adds rounded corners*/
+	float:left;
+	clear:both;
+	width:92%; /*11-19-08 changed from min-width:90 to fix FF2.0*/
+	min-height:10px;
+	margin-left: 1.5em;
+	margin-right:1em;
+	background: #EEF3F1;
+}
+ 
+ .featurelist_ends.top {
+ 	background: #EEF3F1;
+}
+
+.featurelist ul, .directorylist ul, .directorylist ol, ol.referencelist {
+	/*width: 99%;*/
+	margin: 0 0 0 2em;
+	font-size:12px;
+}
+
+.featurelist ul li {
+	list-style:none;
+	/*width: 10em; splits into 2 or more columns*/
+	line-height: 1.5em;
+	padding-bottom:0.0em; /* Ensures that the spacing on a wrapped li will be small compared to line height*/
+	padding-right: 2em;
+	font-size: 12px;
+}
+	
+.row_middle td{
+vertical-align: middle;
+}
+
+.featuretable { /* font size styled separately */
+    background-color:white;
+    border: solid #CCC 1px;
+    border-collapse: collapse;
+    width: 100%;
+    font-size:12px;
+}
+
+.featuretable td {
+    padding: 5px 5px;
+  	border: solid #CCC 1px;
+	vertical-align:middle;
+}
+
+.featuretable tr {
+	vertical-align: top;
+	border-top: 1px solid #CCC;
+}
+
+.featuretable th {
+    padding: 5px;
+    margin-right: auto;
+    vertical-align: middle;
+    background:#999;
+    border: 1px solid white;
+    font-weight:normal; /*was: bold*/
+}
+
+.featuretable th i, .featuretable th b, .featuretable th sup, .featuretable th sub  { 
+	    color: white;
+}
+
+.featuretable td.reverse_1, .featuretable th.reverse_1, .featuretable tr.reverse_1 th, .featuretable td.reverse_1 a { /*dark bckgd white text*/
+	background-color: #006F8E; /*dark blue*/
+	color:white;
+}
+
+.featuretable td.reverse_1 a:hover,  .featuretable td.reverse_2 a:hover{
+	color:yellow;
+}
+
+.featuretable td.reverse_1:hover, .featuretable td.reverse_1:hover a{
+	background-color: #0490D1; /*blue*/
+}
+
+.featuretable td.reverse_2, .featuretable tr.reverse_2 th, .featuretable td.reverse_2 a {
+	background-color: #FCA944; /* light orange */
+	color:white;
+}
+
+.featuretable td.reverse_2:hover, .featuretable td.reverse_2:hover a{
+	background-color: #F99018; /*orange*/
+}
+
+.featuretable td.reverse_3, .featuretable tr.reverse_3 th, .featuretable td.reverse_3 a {
+	background-color: darkmagenta; /* for jobs section */
+	color:white;
+}
+
+.featuretable td.head1, .featuretable th.head1, .featuretable tr.head1 th, .featuretable td.head1 a { /*dark orange bckgd white text*/
+	background-color: #CCC; /**/
+	border:1px solid white;
+}
+
+.featuretable.lightblue {
+	background-color: #81E1F9;
+}
+
+.featuretable tr.reverse_1_jobs th, .featuretable tr.reverse_1_jobs td{
+	background-color:#6B026B;
+	color:white;
+}
+
+.featuretable td.genome, .featuretable td.genome a, .featuretable th.genome {
+	background-color: #F9D084;
+    color: #444448;
+}
+
+.normalheading th
+    background:none;
+    border: 1px solid #CCC;
+    color: #444448;
+
+tr.gray_heading th {
+	background: #CCC;
+	color: #444448;
+	font-weight:bold;
+}
+
+.featuretable p {
+	font-size: 12px;
+}
+
+.featuretable td i {
+	color: #333;
+}
+
+.featuretable td {
+    padding: 5px;
+}
+
+
+.featuretable td a, .featuretable td a i {
+	color: #C45601; /*#088F73; /*somewhat darker green*/
+	text-decoration:none;
+}
+
+.featuretable td a:hover i {
+	color: #2B3C3F; /*was 7F0766*/ /*somewhat darker blue*/
+}
+
+.featuretable tr.highlight, .featuretable tr.highlight i { /*used by stripeTable function to highlight hover row*/
+	background: #FFFFE0;
+}
+
+td.col1 a {
+	font-weight:bold;
+	font-size: 1.0em;
+}
+
+/*Striping for tables with class striped - see http://www.packtpub.com/article/jquery-table-manipulation-part2*/
+tr.even, tr.even i, tr.even b {
+  background-color: #EEE;
+}
+
+tr.odd, tr.odd i, tr.odd b {
+  background-color: #DDD;
+}
+/*DisplayLoci.php styles*/
+#locus_table th {
+color:white;
+}
+
+#locus_table th.th1 {
+background-color:#005972;
+}
+
+#locus_table th.th2 {
+background-color:#006F8E;
+}
+
+#locus_table th.th3 {
+background-color:#008DB5;
+}
+
+#locus_table th.th4 {
+background-color:#00A9D8;
+}
+
+table.tablesorter tbody tr.odd td {
+background-color:#F0F0F6;
+}
+
+ol.orderedlist1 {
+	margin-left:3em;
+	line-height:2em;
+	font-size:12px;
+}
+
+ol.larger li {
+font-size:16px;
+font-weight:bold;
+}
+
+ol.larger li li{
+font-size:13px;
+font-weight:normal;
+}
+
+ol.larger li li li{
+font-size:12px;
+font-weight:normal;
+margin:0;
+}
+
+.directorylist { /*used for download.php lists*/
+	width:95%;
+	float:left;
+	clear:both;
+}
+
+.directorylist li {
+	list-style:none;
+	line-height:1.3em;
+	margin-top: 0.25em;
+}
+
+.directorylist ul {
+	width:95%;
+}
+
+.directorylist p {
+	margin: 0;
+	padding: 0;
+	text-align:left;
+}
+
+.directorylist ol li {
+	list-style-type:decimal;
+	font-size: 1em;
+	margin-left: 2em;
+}
+
+.directorypath p {
+	margin:0;
+	padding:0;
+}
+
+ul.bullet1, ol.bullet1 { /* for lists in paragraphs */
+	margin-left:1em;
+	line-height:1.5em;
+	font-size:12px;
+	margin-bottom:1em;
+}
+
+ul.nobullet {
+    list-style-type: none;
+    }
+
+ul.bullet1 li, ol.bullet1 li {
+	line-height:1.5em;
+	margin-top: 0.5em; /*This sets the space between bullet items in list*/
+	font-size:12px;
+}
+
+ul.bullet1 li li, ol.bullet1 li li {
+	margin-left: 1em;
+}
+
+ul.listbold li a{
+	font-weight: bold;
+	}	
+
+ul.listhelp li {
+	margin-left: 2em;
+	line-height:1.5em;
+	margin-top: 0.5em; /*This sets the space between bullet items in list*/
+	list-style:none;
+	background: url("/XGDB/images/help-icon.png") left top no-repeat;
+	padding-left: 20px;
+	font-size:12px;
+}
+
+a.listhelp { /*for help link in a list of other links*/
+	background: url("/XGDB/images/help-icon.png") left top no-repeat !important;
+	padding-left: 20px !important;
+}
+
+a:hover.listhelp { /*for help link in a list of other links*/
+	background: url("/XGDB/images/help-icon_hover.png") left top #FBFF8F no-repeat !important;
+	padding-left: 20px !important;
+}
+
+
+ul.listhelp li li {
+	background:none;
+	}
+
+ul.condensed li{ 
+	line-height:1.0em;
+	margin-top: 0.75em;
+	}
+	
+ul.contentslist { /* tables of contents within a page */
+	margin:2em 2em 2em 3em;
+	text-align: left;
+}
+
+ul.contentslist li { /* tables of contents within a page */
+	line-height: 1em;
+	font-size:12px;
+	list-style: none;
+	padding-left:1em;
+}
+
+ul.contentslist li a { /* links within table of contents */
+    text-decoration:none;
+}
+
+
+ul.menulist li {
+	text-align: left;
+	line-height: 2em;
+	font-size:12px;
+	list-style: none;
+	padding-left:2em;
+}
+
+ul.menulist.wide li {
+	line-height: 3em;
+}
+
+ul.leftmenu , ul.rightmenu {/* left and right sidebar menu links */
+	list-style:none;
+	margin-top:0.5em;
+	margin-left:1.5em;
+	line-height:2.0em;
+}
+
+ul.leftmenu li, ul.rightmenu li {
+	font-size: 12px; /*4-9-09*/
+	line-height: 1.5em; /* sets menu list item height*/
+	padding-left:0.5em;
+/*	border-bottom: 1px #CCC dotted; */
+}
+
+ul.leftmenu li a, ul.rightmenu li a {
+	font-weight:normal;
+	display:block;
+	margin-left:-0.5em;
+	width:100%; /* allows hover highlighting to extend across div width */
+	border:none; /* removes any dotted border on links for this list */
+	text-decoration:none;
+	color:#444448;
+}
+
+ul.leftmenu li a i, rightmenu li a i {
+	text-decoration:none;
+}
+
+.leftmenu .first, .rightmenu .first {
+/*	border-top: 1px #CCC dotted; */
+}
+
+
+div.minicolumnleft a {
+	padding-left:0.75em;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+/* left menu highlights for current item */
+ul.leftmenu li a.current, ul.leftmenu li span.current { 
+	background:#E8F8FC;
+	font-weight:bold !important;
+	padding-right:10px;
+	background: #E8F8FC url('/XGDB/images/CurrentPointer.png') no-repeat right;
+	color:#444447;
+	overflow:hidden;
+	white-space:nowrap;
+}
+
+a.current_section, span.current_section {
+	padding: 0 5px 0 0;
+	font-weight:bold;
+	color:#E58413;
+}
+
+ul.inline-list { /*used for listing video links among other things*/
+	margin-left:1em;
+	margin-top:0.5em;
+	font-size:12px;
+}
+
+ul.inline-list li{
+	display:inline;
+	margin-left:1em;
+}
+
+a.info {
+	background: #CCC;
+	color: white;
+}
+#searchbox {
+	float:left;
+	width:100%;
+	margin:0;
+}
+
+#searchbox p {
+	color: gray;
+	font-weight:bold;
+	text-align:justify;
+}
+
+#footer {
+	float:left;
+	width:100%;
+	margin: 0;
+	padding-bottom: 1em;
+	background: #35bae0;
+	text-align: center;
+}
+
+#footer ul {
+	width: 75em; /* adjust to total width of footer text; otherwise it won't center correctly */
+	margin-right:auto;
+	margin-left:auto;
+}
+
+#footer ul, #header ul, #submenu ul, #userlogin ul {
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	margin-top:10px;
+}
+
+#footer li.last, #header li.last, #submenu li.last, #userlogin li.last {
+	border-right:none;
+}
+	
+#footer li {
+	border-right:1px solid #BBB;
+	display:inline;
+	padding-left:0.5em;
+	padding-right:1.0em;
+	font-size:12px;
+	white-space:nowrap;
+}
+
+
+#footer p, #header p, #submenu p, #userlogin p {
+	color: white;
+	font-size:0.9em;
+	margin-left:2em;
+}
+#footer a, #header a, #submenu a, #userlogin a {
+	color: white; 
+	text-decoration:none;
+}
+
+#footer a:hover, #header a:hover, #submenu a:hover, #userlogin a:hover {
+	background-color: #47BEE1; /*light blue*/
+	text-decoration:none;
+}
+
+#header li, #userlogin li, #submenu li {
+	border-right:1px solid white;
+	display:inline;
+	padding-left:.75em;
+	padding-right:.75em;
+	font-size:12px;
+}
+
+ /*Styles for Help pages and links to them */
+
+a.help_style, span.help_style { /*style links to help pages differently than normal links */
+	color: #008780 !important; /* greenish blue; syncronize with h1.help_style and h2.help*/
+	text-decoration:none !important;
+	background-image:url('/XGDB/images/help_style.png');
+	padding: 0px 0px 0px 15px;
+	background-repeat:no-repeat;	}
+
+h1.help_style { /* for header on help page */
+	color: #008780 !important;
+	}
+
+.helpsection {
+    float:left;
+    clear:both;
+    padding-left:2em;
+    background-color: #DDD; /*#8DFCF5 /*#A4FCE3; /*blue-green*/;
+    width:95%;
+    margin-bottom:50px;
+}
+
+.helpsection#contents { /* table of contents at top of help page */
+    background-color: #EEE;
+    margin-bottom:50px;
+}
+
+h2.help {
+    font-size: 20px;
+    background: #008780; /* greenish blue; slightly lighter than h1.help_style and h2.help font colors*/
+    color:white;
+    margin:2em 1em 1em 0 ;
+    padding: 10px 20px;
+}
+ 
+h2.help#contents_heading {
+    background: #008780;
+}
+div.help span.linkback { 
+    display:none; /* suppress display of include linkback on help pages */
+}
+
+
+#helpcontentscontainer { 
+/*display:block;*/
+	/*float:left;*/
+	clear:none;
+	background:white;
+	margin-top: 1.5em;
+	margin-left:18%;
+	margin-right:20%; /*4-30-09*/
+	margin-bottom: 3em;
+	border: 1px solid #CCC;
+	min-height:100%;
+	width:auto;
+}
+
+#helpcontentscontainer p, #helpcontentscontainer li { /*wider text spacing for help pages paragraphs*/
+	line-height:1.75em;
+	font-size: 13px;
+}
+
+.introcontainer {
+	padding:25px 0 10px 25px;
+	width: 100%; /*width:575px;*/
+}
+	
+.sectioncontainer {
+	padding:30px 0 10px 30px;
+	width: 90%; /*width:575px;*/
+	text-align:justify;
+}
+	
+.sectioncontainer#start, /* Phase out this ID as it often causes validation errors */
+.sectioncontainer .start {
+	border:none;
+	padding-top:40px;
+}
+
+.subsectioncontainer { /*  subsection below a subsection, has border-top */
+	padding:25px 25px 10px 50px;
+	margin: 0;
+	width: 90%; /*width:550px;*/
+	height:auto; /*was:100%;*/
+	text-align:justify;
+}
+	
+.figure {
+	display: block;
+	clear: right;
+	margin: 2em;
+}
+	
+img.helpfigure {
+	width: auto; /*was:100%;*/
+	max-width: 100% ; /* was: 700px; /*prevents screenshots from getting TOO big! */
+	border: 1px solid #CCC;
+}
+
+.textbox {
+	width:100%;
+}
+
+.bordergray {
+	border:1px solid #555;
+	padding:2px;
+}
+
+/* styles for header links */	
+#topright { 
+	position:absolute;
+	top:2px; right:4px;
+	color: white;
+	margin-top:0.0em;
+}
+
+
+#topleft {
+	position: absolute;
+	top: 2px;
+	left: 5px;
+	width: auto;
+}
+
+#topleft ul, #topright ul, #lowerright ul {
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+}
+	
+#topleft li, #topright li, #lowerright li {
+	line-height: 1.5em;
+	color: white;
+	font-size:11px;
+	font-weight:bold;
+}
+	
+#topleft a,#topleft a:visited, #topright a, topright a:visited, #lowerright a, #lowerright a:visited {
+	color: white;
+	font-size: 10px;
+	text-decoration: none;
+}
+
+#topleft li a:hover, #topright li a:hover, #footer li a:hover, #lowerright li a:hover {
+	color: #306F55;
+	background:#FEFFBF;
+	text-decoration:none;
+}
+
+#nav, #nav ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	line-height: 1.2;
+}
+
+#nav a {
+	display: block;
+	width: 80px;
+}
+
+#nav li {
+	float: left;
+}
+
+#nav li ul a {
+	width: 100px;
+	width: 105px;
+}
+
+#nav li ul {
+	position: absolute;
+	left: -999em;
+	width: 110px;
+	margin: 0 0 0 -40px;
+}
+
+#nav li ul ul {
+	margin: -1.2em 0 0 100px;
+}
+
+#nav li:hover ul ul, #nav li.sfhover ul ul {
+	left: -999em;
+}
+
+#nav li:hover ul, #nav li li:hover ul, #nav li.sfhover ul, #nav li li.sfhover ul {
+	left: auto;
+}
+
+#nav li li a:hover {
+	background: green;
+	color: #abf4ad;
+}
+ul.myMenu li:hover, ul.myMenu li.sfhover
+{
+	background: green;
+	color: #abf4ad;
+}
+#nav li a:hover
+{
+	text-decoration: none;
+	color: #abf4ad;
+}
+#nav li a
+{
+	text-decoration: none;
+	color: black;
+}
+
+table#header_functions { /*various data table pages with search functions*/
+    font-size: 12px;
+}
+table#header_functions td {
+    padding-right: 12px;
+    padding-bottom: 5px;
+}
+
+fieldset.header_functions { /*in DisplayProteins.php and similar */
+    padding: 10px;
+    border:1px solid #999; 
+    background: #EEE; 
+    height:165px;
+}
+
+/**** styles for view.php  expected outcomes (synch with TEMPLATE_SITEDEF.php) ****/
+
+span.scaff_color { /*track color for gseg or scaffold*/
+    background-color: khaki;
+    color:white;
+    padding:3px;
+}
+span.mask_color { /*track color for repeat mask*/
+    background-color: coral;
+    color:white;
+    padding:3px;
+}
+span.est_color { /*track color for est*/
+    background-color: red;
+    color:white;
+    padding:3px;
+}
+span.cdna_color { /*track color for cdna*/
+    background-color: lightblue;
+    color:white;
+    padding:3px;
+}
+span.tsa_color { /*track color for tsa*/
+    background-color: firebrick;
+    color:white;
+    padding:3px;
+}
+span.protein_color, span.prot_color { /*track color for proteins*/
+    background-color: black;
+    color:white;
+    padding:3px;
+}
+span.gene-gff_color { /*track color for gene models*/
+    background-color: blue;
+    color:white;
+    padding:3px;
+}
+span.cpgat-gff_color { /*track color for cpgat models*/
+    background-color: fuchsia;
+    color:white;
+    padding:3px;
+}
+span.cpgat-run_color { /*track color for cpgat run time*/
+    background-color: fuchsia;
+    color:white;
+    padding:3px;
+}
+span.user_color { /*track color for user add track models*/
+    background-color: #FFC642;
+    color:white;
+    padding:3px;
+}
+span.remote { /* color for remote flag*/
+    background-color: yellow;
+    padding:3px;
+}
+
+/* yrGATE annotation class. Synchronize with TEMPLATE_SITEDEF.pl */
+
+.Confirm{
+background-color:LightGreen;
+}
+.Extend{
+background-color:LimeGreen;
+}
+.Improve{
+background-color:Green;
+}
+.Variant{
+background-color:GreenYellow;
+}
+.NewLocus{
+background-color:Aquamarine;
+}
+.NotResolved{
+background-color:DarkGray;
+}
+.Delete{
+background-color:Gainsboro;
+}
+
+/***** Jquery tooltip **********/
+
+.tooltip {
+	display:none;
+	background:transparent url(/tools/img/tooltip/black_arrow.png);
+	font-size:12px;
+	height:70px;
+	width:160px;
+	padding:25px;
+	color:#fff;	
+}
+
+
+span.tip {
+    cursor:pointer;
+    text-decoration: none;
+}
+
+span:hover.tip {
+    cursor:pointer;
+    text-decoration: none;
+    background: #FFFFBF;
+}
+
+/***** Admin and Configure styles ****/
+
+h1.gdb_title {
+background-color: #F2A240; 
+color:white;
+padding:2px;
+}
+
+div.gdb_examples {
+background-color: #DDD;
+padding:10px;
+}
+
+a.topicon {
+	background:transparent url(/XGDB/images/top_arrow.png);
+	height:30px;
+	width:30px;
+}
+
+ul.contents_horizontal {
+    list-style:none outside none;
+}
+
+td.right {
+    text-align:right !important;
+}
+
+td.left {
+    text-align:left !important;
+}
+
+span.showhide_style, legend.showhide_style { /*to match showhide link color for non-linked heading */
+    color:#C45601;
+    font-size:15px;
+    font-style:italic;
+}
+
+span.highlight, div.highlight {
+	background: #F7F799;
+}
+
+tr.Current td, span.Current, legend.Current, h1.Current { /*  configuration page styling using $Status */
+    background: #81E1F9; /* light blue*/
+    padding:3px;
+    color:#004377; /*9-19-14 dark blue*/
+}
+
+tr.Update td, span.Update, legend.Update { /* configuration page styling using $Status */
+    background: #47F7E2 ; /* violet*/
+    padding:3px;
+}
+
+tr.Development td, tr.Development td i, tr.Development td a, span.Development, legend.Development, h1.Development{ /* configuration page styling using $Status */
+    background: #DDD;
+    color: #004377;
+    padding:3px;
+}
+
+tr.Development td.reverse_1, tr.Development td.reverse_1 a {
+    background: #BBB;
+}
+
+tr.Development td.reverse_1:hover, tr.Development td.reverse_1 a:hover, tr.Development td.reverse_1:hover a {
+    background: #555;
+}
+
+
+tr.Locked td.reverse_1, tr.Locked td.reverse_1 a , span.Locked{ /*first column of table */
+    background: #854F99;
+}
+
+tr.Locked td.reverse_1:hover, tr.Locked td.reverse_1 a:hover tr.Locked td.reverse_1:hover a{ /*first column of table */
+    background: #721D93;
+}
+
+tr.Offline td, tr.Offline td i, tr.Offline td a, span.Offline { /* for genome browsers table */
+    color: #666;
+    background: #BBB; /* dark gray */
+    padding:3px;
+}
+
+tr.Locked td, tr.Locked td i, tr.Locked td a, span.Locked, legend.Locked, h1.Locked { /* for genome browsers table */
+    background: #CFA1E0; /* light purple*/
+    padding:3px;
+    color:#444448;
+}
+
+table.empty td, table.empty pre, span.empty{ /* for sections not filled out*/
+    color: #007C34 !important;
+}
+
+fieldset.xgdb_log {
+    border:1px solid #AAA; 
+    padding:20px;
+    width:95%;
+    background:white;
+
+  }
+
+fieldset.xgdb_viewonly {
+    border:1px solid #E87C02; 
+    padding:10px;
+    width:auto;
+}
+
+fieldset.xgdb_log.Current {
+background: #81E1F9;
+}
+
+fieldset.xgdb_log.Development {
+background: #DDDDDD;
+}
+
+fieldset.xgdb_log.Locked {
+background: #CFA1E0; /* light purple*/;
+}
+
+fieldset.xgdb_log.New{
+background: #FFF; /* grey*/
+}
+
+fieldset.xgdb_jobs{
+    border:1px solid #AAA; 
+    padding:20px;
+    width:95%;
+    background:#BBB;
+}
+
+.xgdb_jobs legend{
+    background:#BBB;
+}
+
+
+
+fieldset.empty {
+    border:1px solid #AAA; 
+}
+
+table.xgdb_log {
+    border-collapse:collapse
+}
+
+table.xgdb_log input, table.xgdb_log select, table.xgdb_log option, table.xgdb_log textarea{ 
+    color:#222;
+    font-size:13px;
+}
+
+table.xgdb_log td {
+    padding:10px;
+    font-size:13px;
+    font-weight:normal;
+    border: 1px solid white;
+    background-color:#EEE;
+    min-height:20px;
+}
+
+div.file_list {
+    padding:5px;
+    clear:both;	
+    display:inherit;
+}
+
+table.xgdb_log.new_record td {
+    background: #CCC;
+    border: 1px solid white;
+}
+
+table.tail_display td{ /*for display of logfile lines */
+    padding: 5px;
+}
+table.tail_display tr{
+    background: #CCC;
+}
+.required { /* for xGDB config input*/
+	background: url('/XGDB/images/asterisk.png') no-repeat right;
+	padding-right:15px;
+}
+
+table.xgdb_log td.subhead {
+    padding:5px 0 10px 0;
+    font-size:13px;
+    font-weight:bold;
+    font-style:italic;
+    text-decoration:underline;
+    background-color:#EEE;
+}
+
+table.xgdb_log td.no_edit, table.xgdb_log td.no_edit pre { /* non-editable*/
+    color:#666;
+    font-weight:normal;
+}
+
+table.xgdb_locked td {  /*temporarily grey out table entries while locked */
+    color: #777 !important;
+    background:white;
+}
+
+legend.xgdb_locked {
+background-color: #CFA1E0;
+}
+
+legend.conf, legend.new_gdb, legend.resource  { /* font size for fieldset legend in Conf pages*/
+    font-size:16px;
+    font-weight:bold;
+    padding:8px;
+    /*border:1px solid #AAA;*/
+    border-top-left-radius:6px;
+    border-top-right-radius:6px;
+ }
+
+legend.new_gdb { /* normal style for fieldset legend in New page*/
+    background-color:#FCA8A4; /*light red*/
+}
+
+legend.resource { /* normal style for fieldset legend in Resource*/
+    background-color: #FCAA53; /*orange*/
+    color:white;
+    font-weight:normal;
+}
+
+legend.volumes { /* normal style for fieldset legend in Volumes*/
+    background-color:#DDD;
+}
+
+legend.setup { /*setup page*/
+color: #777;
+font-size:16px;
+font-weight:bold;
+padding:5px;
+background-color:#DDD;
+}
+.xgdb_new {
+    color: #F23A3A; /*red */
+}
+
+table#single_example td {
+padding:10px;
+}
+
+table#all_examples td {
+}
+table#save_and_submit td {
+padding:5px 10px;
+}
+
+.user_entry { /* conf form entry */
+color:#222;
+}
+
+/*classes for validation and other styling in config, admin, jobs scripts*/
+
+
+.tip_style {/*style with image */
+    color:#444448; /* grey */
+    background-image:url('/XGDB/images/lightbulb.png');
+    background-position: left ;
+    padding: 18px;
+    background-repeat:no-repeat;
+    font-style:italic;	
+}
+
+.instruction, .instruction b {
+    color:#727272; /*#444448;*/
+    background-color:white;
+    font-style:italic;
+    font-size: 13px;
+}
+
+span.instruction {	
+    background: url("/XGDB/images/lightbulb.png") left center no-repeat;
+    padding-left: 20px;
+}
+
+.filevalid { /* for file validation styling*/
+    font-weight:bold;
+    color:#44CC22; /* light green*/
+}
+.filenotvalid { /* for file validation styling*/
+    font-weight:bold;
+    color:red; /*  just red*/
+}
+
+.filenoteval { /* for file validation styling*/
+    font-weight:bold;
+    color:#488EC5; /*  blue*/
+}
+
+.checked { /* for validation styling*/
+    font-weight:bold;
+    color:#44CC22; /* light green*/
+    background: url("/XGDB/images/check.png") left center no-repeat;
+    padding-left: 18px;
+}
+
+.contentsvalid { /* for file validation styling*/
+    font-weight:bold;
+    color:#44CC22; /* light green*/
+    background: url("/XGDB/images/check.png") left center no-repeat;
+    padding-left: 18px;
+}
+
+.contentsnotvalid { /* for file validation styling*/
+    font-weight:bold;
+    color:red; /* */
+    background: url("/XGDB/images/check_red.png") left center no-repeat;
+    padding-left: 18px;
+}
+
+.contentsnoteval { /* for file validation styling*/
+    font-weight:bold;
+    color:#488EC5; /* */
+    background: url("/XGDB/images/check_blue.png") left center no-repeat;
+    padding-left: 18px;
+}
+
+.checked_mount, .checked_installed {  /* for file validation styling - mounted*/
+    font-weight:bold;
+    color:#01A592; /* dk bluegreen*/
+    background: url("/XGDB/images/check_mount.png") left center no-repeat;
+    padding-left: 18px;
+}
+.mounted  { /* for volume validation styling*/
+    font-weight:bold;
+    color:#009182; /* dk bluegreen*/
+    background: url("/XGDB/images/drive_mount.png") left center no-repeat;
+    padding-left: 40px;
+}
+.local { /* for volume validation styling*/
+    font-weight:bold;
+    color:red; /* */
+    background: url("/XGDB/images/drive_local.png") left center no-repeat;
+    padding-left: 20px;
+}
+
+.in_progress { /* for file status styling*/
+    font-weight:bold;
+    color:#C54DEA; /* purple*/
+    background: url("/XGDB/images/asterisk_purple.png") left center no-repeat;
+    padding-left: 18px;
+}
+
+
+.locked { /* for admin password styling*/
+    font-weight:bold;
+    color:#44CC22; /* light green*/
+    background: url("/XGDB/images/locked.png") left center no-repeat;
+    padding-left: 18px;
+}
+
+a.update_status, span.update_status { /* for jobs.php refresh status*/
+    background: url("/XGDB/images/update_arrow.png") left center no-repeat;
+    padding-left: 18px;
+}
+a.count_entries, span.count_entries { /* for jobs.php count entries*/
+    background: url("/XGDB/images/count_magnify.png") left center no-repeat;
+    padding-left: 18px;
+}
+a.copy_to_input, span.copy_to_input { /* for jobs.php copy to input dir*/
+    background: url("/XGDB/images/copy_to_input.png") left center no-repeat;
+    padding-left: 18px;
+}
+
+table.xgdb_log td.display_on, table.xgdb_log tr.display_on { /*required to respect padding above td*/
+    display:block;
+    font-weight:normal;
+}
+
+table.xgdb_log td.entry { /*new record entry*/
+    font-weight:normal;
+    color:#222;
+}
+
+/*classes for displaying or hiding buttons, divs, in config menus*/
+.display_on, .display_on pre {
+	display:inline;
+}
+
+.display_on pre, .display_on pre a{
+    font-size:13px;
+    color:#222 !important; /* was #C45601 */
+}
+
+.display_on_block {
+	display:block;
+}
+
+.display_off { /* hide table cells/ buttons */
+	display:none;
+}
+
+/* for form buttons in config menus */
+
+input#save{
+    color: #018960; /*green*/
+}
+
+input#options{
+    background-color: #FFB056; /* orange; was#B9F7D5; /*  was  FCC583; /* orange; was #B9F7D5; /*green; was #FCBA6A; /*orange*/
+    font-size: 14px;
+}
+
+input#edit{
+    background-color: #E8A392; /*#F9C0C0; /*light red  was #F9C0C0; /*/*light red*/
+}
+
+input#new{
+    background-color: #CE1208; /*#D34039; /*#FCBA6A; /*red*/
+    color: white;
+}
+
+input#new:hover{
+    background-color: #F4746E; /*#FCBA6A; /*red*/
+    color: white;
+}
+
+input#archive, input#restore{
+    color:darkblue; /*orange*/
+}
+
+input.archive, input.restore !important {
+    color:#E27A02;/*orange*/
+}
+
+input#creategrp:hover, input#adduser:hover, input#editacct:hover,input#insertuser:hover, input#create:hover, input#clear:hover, input#reset:hover, input#update:hover, input#edit:hover, input#save:hover, input#cancel:hover, input#cancel2:hover, input#options:hover, input#drop:hover, input#abort:hover, input#next:hover, input#prev:hover, input#go:hover, input#delete_all_archives:hover, input#restore_all_archives:hover, input#search:hover,input#restore:hover,input#archive:hover,input#deleteall:hover, input#load_archive:hover   {
+    background-color: #EEE; /* was #F9F986; /* yellow*/
+}
+ 
+input#drop, input#abort{
+    color:red;
+}
+
+input#create, input#update, input#creategrp, input#adduser, input#editacct {
+    color:#018960; /* green*/
+}
+
+input#cancel {
+    color:#999; /* grey*/
+}
+
+input#load_archive{
+    color:#EA02B4; /* purple*/
+}
+
+form.styled input.submit { /* common style for buttons */
+    background-color: #DDD; /*grey; was light blue, same as sidebar */
+    padding:3px;
+    font-weight:bold;
+    font-size: 14px;
+    color:#555;
+    -webkit-border-radius: 6px; -moz-border-radius: 6px; border-radius: 6px; 
+}
+
+.edit_mode, .options_mode, .lockout_mode { /*flag when user clicks "Database Options...*/
+    padding:4px;
+    font-weight:normal;
+    font-size:16px;
+}
+
+.edit_mode {
+    background-color: #FC9997 /*light red */
+}
+
+.edit_bckgd {
+    background-color: #FFF !important; /*lighter red - div color*/
+}
+
+.options_mode {
+    background-color: #FCBA6A; /* light orange*/
+}
+
+.options_bckgd {
+    background-color: #FFF !important; /*lighter orange - div color*/
+}
+
+.locked_bckgd {
+    background-color: #FFF !important; /*lighter purple - div color*/
+}
+
+.lockout_mode {
+    background-color: #CFA1E0; /* purple, same as Status Locked */
+}
+
+.error { /* report pipeline errors */
+    background-color: #FCC1BD !important;
+}
+
+form.styled select { /*dropdowns*/
+    background-color: white;
+}
+
+form.styled option {
+    background-color: white;
+}
+
+/*for validate forms*/
+.empty_field	{
+	color:red;
+	font-weight:bold;
+	font-style:italic;
+}
+
+/*for validate forms*/
+.empty_tbox	{
+	background-color: #FFFFCC ;
+}
+
+
+td.gseg, td.transcript, td.protein, td.model, td.description, td.cpgat, td.index {
+    background-color:#999
+}
+
+td.gseg {
+    color:#F9E04F;
+}
+
+td.transcript {
+    color:#FF0000;
+}
+
+td.protein {
+    color:#000000;
+}
+
+td.model {
+    color:#0000FF;
+}
+td.description {
+    color:#DDD;
+}
+td.cpgat {
+    color:#00FF00;
+}
+td.index {
+    color:#FF9B0F;
+}
+
+/*************** Jobs styles ******************/
+
+.job_error{
+    background-color:#999; /* dark gray*/
+}
+.job_pending {
+    background-color:#A7A5FF; /* blue-purple*/
+}
+.job_processing_inputs {
+    background-color:#A7A5FF; /* blue-purple*/
+}
+.job_staging_inputs {
+    background-color:lightblue; /* light blue*/
+}
+.job_staging_job {
+    background-color:#82E0CA; /*blue-green*/
+}
+.job_staged {
+    background-color:#82E0CA; /* blue-green*/
+}
+.job_submitting {
+    background-color:#A3E9FF; /* blue*/
+}
+.job_queued {
+    background-color:#F9F395; /* yellow */
+}
+.job_running {
+    background-color:#E094F7; /* purple*/
+}
+.job_cleaning_up {
+    background-color:lightgreen; /* lightgreen */
+}
+.job_archiving {
+    background-color:lightgreen; /* light green*/
+}
+.job_archiving_finished {
+    background-color:green; /*  green*/
+}
+.job_finished {
+    background-color:#94F79B; /* green */
+}
+.job_failed {
+    background-color:#F79494; /* dark gray*/
+}
+.job_archiving_failed {
+    background-color:#FC4444; /* dark gray*/
+}
+.job_empty {
+    background-color:#CCC; /* light gray */
+}
+.job_stopped{
+    background-color:#FCC46A; /* light orange */
+}
+.job_timedout {
+    background-color:#FF8049; /* red-orange*/
+}
+.job_deleted {
+    background-color:#AAA; /* medium grey */
+}
+.Standalone {
+color: #999;
+}
+.Pipeline {
+color:#B65FD8; /*light purple*/
+}
+
+/***************xGDB Styles*********************/
+
+legend.GDB {
+padding: 8px;
+font-size: 18px;
+font-weight:bold;
+color:#BB4B00; /*9-19-14 dark orange */
+    border-top-left-radius:6px;
+    border-top-right-radius:6px;
+}
+
+div.GDB {
+background: #EEE;
+padding:25px;
+}
+
+fieldset.GDB {
+    padding:2em;
+    width:auto;
+    background: #FFCA91; /*was: DDD*/
+
+    border: none;
+}
+
+fieldset.GDB#navigation, fieldset.GDB#navigation legend {
+background-color:#81E1F9;
+}
+
+fieldset.GDB#overview, fieldset.GDB#overview legend {
+background-color:#FFBD77;
+}
+
+fieldset.GDB#annotate, fieldset.GDB#annotate legend {
+background-color:#58FCD6;
+}
+
+fieldset.GDB#help, fieldset.GDB#help legend {
+background-color:#8DFCF5; /*#A4FCE3;*/
+}
+
+fieldset.GDB#tools, fieldset.GDB#tools legend {
+background-color:#F78082;
+}
+
+fieldset.GDB#resources, fieldset.GDB#resources legend {
+background-color: #DDD; /*#81E1F9;*/
+}
+
+div.GDBfeature { /* GDB home page */
+	display:block;
+	float:left;
+	width:100%;
+	border: 1px #CCC solid;
+	background:#F1F1F1;/*light grey*/
+	padding:1em; /* */
+}
+
+a#selfReference { /* link to Genome Context */
+	font-size: 10px;
+	color: #999;
+}
+	
+table#ResourceTable, table#DownloadTable {
+	margin-left:2em;
+	border-collapse:collapse;
+	border: none;
+}
+table#ResourceTable td p, table#DownloadTable td, table#DownloadTable th {
+	font-size: 12px;
+	padding:2px;
+}
+table#ResourceTable td h2 {
+	font-size: 15px;
+}
+
+/************* Search.pl in XGDB***************/
+
+table#searchTable td {
+	padding:5px;
+	font-size: 12px;
+}
+
+table#alignTable {
+	margin: 1em 0;
+	border-collapse:collapse;
+	border:1px solid #AAA;
+	width:90%;
+}
+table#alignTable th {
+	background: #297CA5;
+	color:white;
+}
+	
+table#alignTable th, table#alignTable td {
+	font-size:12px;
+	padding:5px;
+	text-align:center;
+}
+
+table#alignTable img { 
+	width:500px; /*changed 7-6-10 JPD from 100%*/
+}
+
+table#optionsTable th, table#optionsTable td { /*from search.pl*/
+	font-size:12px;
+	padding:0px;
+}
+
+table#assemblyTable {
+	border-collapse:collapse;
+	border:none;
+	font-size: 12px;
+	font-weight:normal;
+	margin: 1em;
+}
+
+
+/***color classes for track types in search.pl ********/
+
+span.trackCheck {
+    color:white;
+    font-weight:normal;
+    background:#222;
+    padding:1px 5px;
+    margin:0 10px 0 5px;
+    line-height:1.5em;
+    white-space:nowrap;
+}
+
+/*** styling for xGDB Help ****/
+
+img.help-button, img.help-button-small { /*this is the ? button that opens either a normal or small sized div for dialog jquery ui*/
+}
+
+pre.directory { /*input output table*/
+    font-size:13px;
+}
+
+th pre.directory {
+    color:#888;
+}
+td pre.directory {
+    color:#666;
+}
+
+    td.Track {
+    text-align:left;
+    white-space:nowrap;
+    padding-left: 1em !important;
+}
+
+/*** WebCpGAT Style in XGDB ***/
+
+
+div#cpgat_contents{
+    margin-left:2em;
+    width:650px;
+    height:auto;
+}
+
+#transcript_table, #protein_table {
+	margin-left:160px;
+}
+
+table#transcript_table th, table#protein_table th {
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	font-size:12px;
+}
+
+table#transcript_table td, table#protein_table td {
+	font-size:12px;
+}
+
+tr.row_all { /* style for CpGAT table */
+	background-color:#DDD;
+}
+
+tr.row_all td{ /* style for CpGAT table */
+	font-size:12px;
+}
+
+tr.row_group td { /* style for CpGAT table */
+	border-bottom: 1px solid black;
+	padding-top:10px;
+}
+
+tr.row_group td{ /* style for CpGAT table */
+	font-size:12px;
+}
+

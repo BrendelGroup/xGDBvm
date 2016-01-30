@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>
+      GAEVAL - Example 6: Annotation Fusion / Merger
+    </title>
+  </head>
+  <body>
+    <h1 id="pageTitle">
+      Example 6: Annotation Fusion / Merger
+    </h1>
+
+    <div id="navbar">
+          <ul type="none" class="linklist">
+	<li class="linklist">
+	  <a href="/src/GAEVAL/docs/index.html">GAEVAL Introduction</a>
+	</li>
+	<li class="linklist">
+	  <a href="ftp://ftp.plantgdb.org/download/GAEVAL/">GAEVAL Download (ftp)</a>
+	</li>
+	</ul>
+      <h3 class="GroupID">Examples</h3>
+      <ul class="linklist">
+	<li class="linklist">
+	  <a href="example1.html">1: Single Annotation</a>
+	</li>
+	<li class="linklist">
+	  <a href="example2.html">2: Ambiguous Overlap</a>
+	</li>
+	<li class="linklist">
+	  <a href="example3.html">3: Alternative Splicing</a>
+	</li>
+	<li class="linklist">
+	  <a href="example4.html">4: Alternative Termination</a>
+	</li>
+	<li class="linklist">
+	  <a href="example5.html">5: Annotation Fission</a>
+	</li>
+	<li class="linklist">
+	  <a href="example6.html">6: Annotation Fusion</a>
+	</li>
+	<li class="linklist">
+	  <a href="example7.html">7: Pseudo-Introns</a>
+	</li>
+      </ul>
+      <h3 class="GroupID">Documents</h3>
+      <ul class="linklist">
+	<li class="linklist">
+	  <a href="integrity.html">Annotation Integrity</a>
+	</li>
+	<li class="linklist">
+	  <a href="intron_incongruence.html">Intron Incongruence</a>
+	</li>
+	<li class="linklist">
+	  <a href="tpeg.html">Three-Prime Groups</a>
+	</li>
+      </ul>
+  <h3 class="GroupID">xGDBvm Links</h3>
+	  <ul class="linklist">
+		<li class="linklist">
+		  <a href="/">xGDBvm Home</a>
+		</li>
+		<li class="linklist">
+		  <a href="/XGDB/help/gaeval.php">GAEVAL Help</a>
+		</li>
+		<li class="linklist">
+		  <a href="/XGDB/help/using_gdb.php">Genome Browser Help</a>
+		</li>
+		<li class="linklist">
+		  <a href="/XGDB/help/yrgate.php">yrGATE Help</a>
+		</li>
+	</ul>
+	</div>
+    <h2 class="code">perl xGAEVAL.pl --clean_db --GFF <a href="../examples/example6.gff3" target="_new">examples/example6.gff3</a></h2>
+    <img id="genomeContext" src="images/example6.png" />
+    <h2>Description:</h2>
+    <p id="description">This example illustrates the ability of GAEVAL to detect evidence suggesting
+      the merger of adjacent annotations. In this example, the Arabidopsis gene 
+      loci ( <a href='http://www.plantgdb.org/AtGDB/cgi-bin/getRegion.pl?chr=1&amp;l_pos=2583500&amp;r_pos=2587000&amp;dbid=1'>
+	At1g08230.1 and At1g08233.1</a> ) should most likely be merged into a
+      single annotation.
+    </p>
+    <h2 class="report">GAEVAL Results:</h2>
+    <h3>Incongruency Analysis (At1g08230.1)</h3>
+    <pre class="report">
+1:  Putative gene 'Fusion' detected:
+2:   At1g08233.1
+3:    Bridged by contiguous evidence:
+4:     42470476
+    </pre>
+
+      <ul>
+	<li>line 1: GAEVAL has detected a putative 'Fusion' event</li>
+	<li>line 2: Annotation involved in fusion</li>
+	<li>line 4: Identifier of evidence alignment supporting fusion</li>
+      </ul>
+
+    <h2 id="discussion">Discussion:</h2>
+    <p>In this example a full-length cDNA sequence (gi number 42470476) spans
+      both At1g08230.1 and At1g08233.1. In addition the 3` terminus of At1g08233.1
+      is unsupported. These criteria enable GAEVAL to predicted a putative fusion
+      event.
+    </p>
+  </body>
+</html>

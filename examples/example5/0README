@@ -1,0 +1,59 @@
+Example 5 (CpGAT + Update Options)
+
+This is an example dataset consisting of two Ricinus communis scaffolds, along with the est, cdna, put and related species (Arabidopsis and Medicago) proteins that splice-align to them.
+For this example, we assume additional data is to be added, and these data are contained in a subdirectory called new_data.
+We also assume that CpGAT will be run, and that on update CpGAT will also be run.
+	
+Input Data Directory contents: /xGDBvm/examples/Example2
+
+	GenomesExample5.txt - this is the configuration data that will be loaded when user selects this example.
+	
+	Data files:
+	
+	old_scaffold.fasta - genomic sequence for 2 Ricinus communis  scaffolds (fasta formatted)
+	old_Rc_4scaff_GDBest.fasta - cDNA sequences for spliced alignment to genome using GeneSeqer
+	old_Rc_4scaff_GDBcdna.fasta - EST sequences for spliced alignment to genome using GeneSeqer
+	old_Rc_4scaff_GDBput.fasta - transcript assembly (PUT) sequences for spliced alignment to genome using GeneSeqer
+	old_Rc_4scaff_GDBprotein.fasta - transcript assembly (PUT) sequences for spliced alignment to genome using GeneSeqer
+	my_old.gff - gff3-formatted gene models published by JGI for version 1.0 of the Ricinus communis genome.
+	old_Rc4scaff_GDBpep.fasta - protein translations derived from published gene models (same as above)
+	Description.txt - tab-delimited file matching gene IDs with functional descriptions, from the R. communis JGI genome annotation. These descriptions are loaded to the GDB database for display along with the gene models.
+
+Update Data Directory contents: /xGDBvm/examples/Example2/new_data/
+
+	new.scaffold.fasta
+	new.gff 
+	new_put.fasta
+	new_pep.fasta
+	new_est.fasta
+	new_cdna.fasta
+	new_transcript.fasta
+	new_translation.fasta
+	GenomesRc_new.txt
+	Description.txt
+
+CpGAT Directory Contents: /xGDBvm/examples/Example5/cpgat/
+
+	Rc_REFPEP.fasta - (Reference Protein dataset: ) This is simply the same set of peptides as Rc_4scaff_GDBprotein.fasta
+	(index files derived from above)
+
+_______
+
+
+Note- this example uses filename conventions, where [identifier] refers to any user-specified text string (alphanumeric only).
+	
+	FASTA files for spliced alignment:
+		[identifier]scaffold.fasta  - genome
+		[identifier]est.fasta - EST (for GeneSeqer spliced alignment)
+		[identifier]cdna.fasta  - cDNA (for GeneSeqer spliced alignment)
+		[identifier]put.fasta  - Transcript Assembly (for GeneSeqer spliced alignment)
+		[identifier]pep.fasta  - related species protein (Arabidopsis; Medicago) (for GenomeThreader spliced alignment)
+		
+	FASTA files for gene models:
+		[identifier]translation.fasta  - predicted protein from precomputed gene models
+		
+	GFF files:
+		[identifier].gff
+		
+	text files:
+		[identifier]Description.txt

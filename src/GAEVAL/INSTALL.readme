@@ -1,0 +1,154 @@
+--------------------------------
+GAEVAL Installation Instructions
+--------------------------------
+
+This document describes how to install the Gene Annotation EVALuation (GAEVAL)
+package. This document contains installation instructions, examples, and a brief 
+description of what GAEVAL does. For more detailed information, refer to the
+examples in the 'examples' directory of this package or the documentation
+in the 'docs' directory of this package.
+
+
+REQUIREMENTS
+------------
+The following are required for a full GAEVAL installation
+
+1. MySQL
+        - http://www.mysql.com
+        - minimum version tested 4.1.8
+
+2. Perl
+	- minimum version tested 5.8.1
+
+3. Perl Modules.  
+	- Some of these modules are included in standard Perl installations.  
+        - A quick check to see if you have the module installed
+        	% perl -e "use xxx;"
+        - If the response is 'Cant locate XXX in @INC ....' then you
+        need to install this module
+	- All modules can be obtained from http://www.cpan.org 
+	or using the cpan shell:
+        	% cpan
+        	cpan> install xxx  
+
+        where xxx is one of the following:
+
+        a. DBD::mysql ( DBI, DBI::DBD )
+
+	b. Getopt::Long
+
+	c. Data::Dumper
+
+	d. Storable
+
+
+
+GAEVAL INSTALLATION
+-------------------
+GAEVAL is a collection of perl scripts, which provide analysis routines and 
+modular components useful in database interaction and integration.
+
+The GAEVAL package consists of the following directories:
+        conf
+        docs
+	examples
+	perllib
+
+
+0. Confirm you have the requirements listed in the requirements section.
+
+1. Unpack the archive:
+
+        % tar -zxf GAEVAL.tgz
+
+2. Change Directory into the unpacked package
+
+	% cd GAEVAL
+
+3. Create the gaeval MySQL database. 
+	- You will need to excute the following using a MySQL user account 
+	with database creation privleges.
+	
+	% mysql < conf/gaeval_setup.sql
+   
+
+
+
+GAEVAL EXAMPLES
+---------------
+Included in this package are example annotations and evidence alignments 
+provided in GFF3 format (http://song.sourceforge.net/gff3.shtml). Each 
+example is included to highlight features of the GAEVAL algorithm and
+considerations for 'real-world' application. These features and 
+considerations are summarized below. For a more thorough explanation
+of each example and the resulting GAEVAL report, refer to the file
+'docs/getting_started.html'
+
+Individual examples can be run using the following command line format.
+	% perl xGAEVAL.pl --clean_db --GFF examples/example#.gff3
+
+
+-- Example 1: Single Annotation with Evidence (the simple life)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This example introduces the basic report capabilities of GAEVAL including a
+summary of each analyzed annotation showing genomic source, structure, ORF,
+5'UTR, CDS, 3'UTR. Each GAEVAL report also includes a 'Structure Analysis'
+section detailing the support for the given annotation structure based on
+supplied evidence alignments. Also available in each GAEVAL report is an
+'Incongruency Analysis' section describing possible sources of incongruence
+between the annotation and given evidence alignments.
+
+
+-- Example 2: Erroneously Overlaping Annotations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This example illustrates a very specific form of incongruence in which an 
+automated annotation process has erroneously extended an annotation
+structure through the ambiguous inclusion of an evidence alignment in
+multiple adjacent gene structures.
+
+
+-- Example 3: Alternative Splicing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This example illustrates the use of GAEVAL in evaluating alternative splicing.
+In addition to the standard evaluation of observed incongruent introns, this
+example also showcases the ability of GAEVAL to determine if an incongruent 
+structure has previously been documented by an alternatively spliced isoform 
+(alternative transcript of the evaluated annotation) 
+
+
+-- Example 4: Alternative Transcript Termination
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This example illustrates the ability of GAEVAL to determine the presence of
+alternative cleavage/polyadenylation site usage based on the clustering of
+end defining evidence such as three-prime EST alignments.
+
+
+-- Example 5: Annotation Fission / Split
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This example illustrates the ability of GAEVAL to detect evidence suggesting
+that an annotation be split into two individual annotations.
+
+
+-- Example 6: Annotation Fusion / Merger
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This example illustrates the ability of GAEVAL to detect evidence suggesting
+the merger of adjacent annotations.
+
+
+-- Example 7: Pseudo-Introns
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+This example illustrates the ability of GAEVAL to detect annotation structures
+resulting from the use of noncognate / homologous sequence alignments which are
+incongruent with cognate evidence alignments.
+
+
+
+
+CONFIGURING GAEVAL (optional)
+-----------------------------
+This GAEVAL package comes preconfigured to run as a standalone utility. The
+option to configure GAEVAL for use in conjunction with existing database
+tables (such as those of the xGDB package) and multiple evidence and 
+annotation resources exists. For more details on the configuration of these
+options refer to the file 'docs/configuration.html'
+

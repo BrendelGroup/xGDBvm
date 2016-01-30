@@ -1,0 +1,19 @@
+Options -Indexes
+AuthUserFile /xGDBvm/.htpass_xgdb
+AuthName PRIVATE
+AuthType Basic
+<Limit GET>
+require valid-user
+</Limit>
+<Files "dbpass">
+Order allow,deny
+Deny from all
+</Files>
+<Files "UCAimage.pl">
+Satisfy Any
+Allow from all
+</Files>
+<Files "returnFASTA.pl">
+Satisfy Any
+Allow from all
+</Files>

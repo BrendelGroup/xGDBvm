@@ -1,0 +1,3 @@
+Example 1
+
+This is an example dataset consisting of four Ricinus communis scaffolds, along with the est, cdna, put and related species (Arabidopsis and Medicago) proteins that splice-align to them. Also included are precomputed gene models in a gff3 formatted table.

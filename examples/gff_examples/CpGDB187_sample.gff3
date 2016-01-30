@@ -1,0 +1,20 @@
+contig_23646	EVM	gene	3512	3922	.	-	.	ID=evm.TU.contig_23646.1;Name=EVM prediction contig_23646.1
+contig_23646	EVM	CDS	3512	3922	.	-	.	Parent=evm.TU.contig_23646.1
+contig_23646	EVM	gene	5096	5506	.	-	.	ID=evm.TU.contig_23646.2;Name=EVM prediction contig_23646.2
+contig_23646	EVM	CDS	5096	5506	.	-	.	Parent=evm.TU.contig_23646.2
+contig_23646	EVM	gene	5096	5506	.	-	.	ID=evm.TU.contig_23646.3;Name=EVM prediction contig_23646.3
+contig_23646	EVM	CDS	5096	5506	.	-	.	Parent=evm.TU.contig_23646.3
+contig_23646	EVM	gene	8259	8669	.	-	.	ID=evm.TU.contig_23646.4;Name=EVM prediction contig_23646.4
+contig_23646	EVM	CDS	8259	8669	.	-	.	Parent=evm.TU.contig_23646.4
+contig_23646	EVM	gene	42250	42648	.	+	.	ID=evm.TU.contig_23646.5;Name=EVM prediction contig_23646.5
+contig_23646	EVM	CDS	42250	42648	.	+	.	Parent=evm.TU.contig_23646.5
+contig_23646	EVM	gene	81022	81432	.	-	.	ID=evm.TU.contig_23646.6;Name=EVM prediction contig_23646.6
+contig_23646	EVM	CDS	81022	81432	.	-	.	Parent=evm.TU.contig_23646.6
+contig_23646	EVM	gene	82601	83011	.	-	.	ID=evm.TU.contig_23646.7;Name=EVM prediction contig_23646.7
+contig_23646	EVM	CDS	82601	83011	.	-	.	Parent=evm.TU.contig_23646.7
+contig_23646	EVM	gene	131528	132304	.	+	.	ID=evm.TU.contig_23646.8;Name=EVM prediction contig_23646.8
+contig_23646	EVM	CDS	131528	131590	.	+	.	Parent=evm.TU.contig_23646.8
+contig_23646	EVM	CDS	131688	131807	.	+	.	Parent=evm.TU.contig_23646.8
+contig_23646	EVM	CDS	131931	132024	.	+	.	Parent=evm.TU.contig_23646.8
+contig_23646	EVM	CDS	132062	132140	.	+	.	Parent=evm.TU.contig_23646.8
+contig_23646	EVM	CDS	132292	132304	.	+	.	Parent=evm.TU.contig_23646.8

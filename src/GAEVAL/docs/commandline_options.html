@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>xGAEVAL.pl command-line parameters</title>
+  </head>
+  <body>
+    <h1 id="pageTitle">
+      Optional parameters for xGAEVAL.pl command-line execution
+    </h1>
+    <h2>--load_only_annotations (-a) </h2>
+    <p>[Only useful when used with --GFF (-G)] this option allows you to load only the GFF elements recognized as annotations effectively skiping any evidence features found in the same GFF file.</p>
+    <h2>--load_only_evidence (-e)</h2>
+    <p>[Only useful when used with --GFF (-G)] this option allows you to load only the GFF elements recognized as evidence alignments effectively skiping any annotation features found in the same GFF file.</p> 
+    <h2>--clean_db </h2>
+    <p>Initialize the GAEVAL database (defined in the configuration) to an empty state. This will delete any existing data in the GAEVAL defined tables. USE WITH CAUTION!!</p>
+    <h2>--debug </h2>
+    <p> </p>
+    <h2>--skip_analysis (--noanalysis) </h2>
+    <p>Skip the annotation analysis stage. This may be useful for loading evidence source files in batches and delaying analysis.</p>
+    <h2>--skip_report (--noreport) </h2>
+    <p>Skip the report generation loop. Reports are used for textual output. These can be skipped when unwanted such as during database updates.</p>
+    <h2>--skip_ise_reload (--noreload) </h2>
+    <p>Given alignments stored in the GAEVAL DB evidence source tables, xGAEVAL.pl will evaluate the overlap of this evidence with available annotation entries every time it is run. If neither the evidence sources (ESTs, cDNAs,...) or annotations have changed then this update is unnecessary. This option skips the evidence to annotation evaluation stage.</p>
+    <h2>--load_match </h2>
+    <p> </p>
+    <h2>--load_cDNA_match </h2>
+    <p> </p>
+    <h2>--load_EST_match </h2>
+    <p> </p>
+    <h2>--load_translated_nucleotide_match </h2>
+    <p> </p>
+    <h2>--load_nucleotide_to_protein_match </h2>
+    <p> </p>
+    <h2>--load_nucleotide_motif </h2>
+    <p> </p>
+    <h2>--ignore_default_evidence </h2>
+    <p> </p>
+    <h2>--evidence_types = <span id='user_input'>type</span> </h2>
+    <p> </p>
+    <h2>--annotation_uid (-U) = <span id='user_input'>uid</span> </h2>
+    <p> </p>
+    <h2>--annotation_uid_list_sql = <span id='user_input'>sql_query</span> </h2>
+    <p> </p>
+    <h2>--annotation_tablename (-A) = <span id='user_input'>tablename</span> </h2>
+    <p> </p>
+    <h2>--sequence_tablename (-S) = <span id='user_input'>tablename</span> </h2>
+    <p> </p>
+    <h2>--evidence_tablename (-E) = <span id='user_input'>tablename</span> </h2>
+    <p> </p>
+    <h2>--crossref (-X) = <span id='user_input'>filepath</span> </h2>
+    <p> </p>
+    <h2>--GFF (-G) = <span id='user_input'>filepath</span> </h2>
+    <p> </p>
+    <h2>--configuration (-C) = <span id='user_input'>filepath</span> </h2>
+    <p> </p>
+  </body>
+</html>
+

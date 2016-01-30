@@ -1,0 +1,36 @@
+#!/bin/bash
+while true; do
+   while read devloc
+	do
+	   stored=$devloc
+	done < /xGDBvm/admin/devloc
+    echo ""; read -p "Unmount the External Volume from this VM? (Make sure no processes are running) [y/n]:  " yn
+    case $yn in 
+           [Yy]* ) echo ""; read -p "Enter the device location [default= $stored]:  " location;
+           while true; do
+           case $location in
+               "" ) devloc="$stored";
+               break;;
+               * ) devloc=$location; break;;
+           esac
+           done
+
+              sudo umount -l $devloc;
+           mounted=$(df -kh | grep $devloc);
+           if [ ! -n "$mounted" ]
+           then
+               echo ""
+               echo "The volume has been unmounted from device $devloc"
+              echo "Restarting MySQL server to allow access to any local databases on your VM"
+              echo ""
+
+           sudo /sbin/service mysqld restart
+           fi
+              break;; 
+           [Nn]* ) exit;;
+           * ) echo "Please answer yes or no.";;
+    esac
+done
+echo ""
+df -kh
+echo ""
