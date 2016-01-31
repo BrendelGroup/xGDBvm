@@ -814,7 +814,8 @@ FirstPart() {
          PRG="GSQ"
          prg="gsq"
          Prg_HPC="GeneSeqer-MPI"
-         extra_dir="GSQOUTPUT/" # added 12-10-13 - extra directory level for GSQ output
+         #extra_dir="GSQOUTPUT/" # added 12-10-13 - extra directory level for GSQ output
+         extra_dir=""  # 1-30-16
          PRGparameter=$GSQparameter
          PRG_CompResParameter=$GSQ_CompResParameter
          PRG_CompResources=$GSQ_CompResources
@@ -1134,6 +1135,7 @@ FirstPart() {
                      
                      j=0 ; END=$wait_sec  ##  Assign END to the max_job_time
                      
+                     
                      dateTime865=$(date +%Y-%m-%d\ %k:%M:%S)
                      msg865="Waiting for output from HPC-${prg} ($trn) at $ArchiveDIR/$job_dir/${extra_dir}${xGDB}${trn}.${prg} " # we are using the default HPC output directory (Data Store) 'archive/jobs'
                      echo "${space}$msg865 - $dateTime865 (8.65) " >>$WorkDIR/logs/Pipeline_procedure.log
@@ -1163,46 +1165,56 @@ FirstPart() {
                         
                         then  ## We are going to check for output file, and if present, cat it to tmpWorkDIR, count the output number, log it, and then break out of the j loop (8.75)
                          ## (8.8) IF JOB-OUTPUT-EXISTS (if output file present under /data/archive/jobs/ )
-                           if [ -s $ArchiveDIR/$job_dir/${extra_dir}${xGDB}${trn}.${prg} ] ## IF OUTPUT EXISTS - (if HPC returned an output file to archive -- this is not always the case)
+                         
+                         
+                         ## Specify paths for output data from HPC:
+                         
+                         hpc_archive_path=$ArchiveDIR/$job_dir/${extra_dir}${xGDB}${trn}.${prg}
+                           #  We set archive=true during job submission, so job output goes to /iplant/user/archive/jobs/ (on Data Store) by default. 1-30-16 NOTE extra_dir should be "" (empty)
+                         hpc_download_path=$tmpWorkDIR/data/download/${xGDB}${trn}.${prg}        #  This script will copy data to the download directory on the user's mounted volume
+                         hpc_OUT_path=$tmpWorkDIR/data/${PRG}/${PRG}OUT/${xGDB}${trn}.${prg}  #  The script also copies the output data to a location where it will be used to load MySQL database
+                         
+                         
+                           if [ -s $hpc_archive_path ] ## IF OUTPUT EXISTS IN ARCHIVE - (if HPC returned an output file to archive -- this is not always the case)
                         
                            then
                            
                                # 8.81 The Remote process finished with output!! Hurray! Log this.
                            
                                dateTime881=$(date +%Y-%m-%d\ %k:%M:%S)
-                               echo "${space}$tRN remote job is complete; HPC-${prg} output detected at $ArchiveDIR/$job_dir/${extra_dir}${xGDB}${trn}.${prg} - $dateTime881 (8.81)">>$WorkDIR/logs/Pipeline_procedure.log
+                               echo "${space}$tRN remote job is complete; HPC-${prg} output detected at $hpc_archive_path - $dateTime881 (8.81)">>$WorkDIR/logs/Pipeline_procedure.log
                            
                                echo "${space}######### Remote Job Results Returned ############">>$WorkDIR/logs/Pipeline_procedure.log
                            
                                # First copy Remote GeneSeqer output to download directory (for archive)
                            
-                               cat $ArchiveDIR/$job_dir/${extra_dir}${xGDB}${trn}.${prg} >$tmpWorkDIR/data/download/${xGDB}${trn}.${prg} # e.g. GDB001prot.gth
+                               cat $hpc_archive_path >$hpc_download_path # e.g. GDB001prot.gth
                            
                                # 8.82 Now copy Remote GeneSeqer output to ${PRG}OUT directory where it will be picked up and parsed.
                            
-                               cat $ArchiveDIR/$job_dir/${extra_dir}${xGDB}${trn}.${prg} >$tmpWorkDIR/data/${PRG}/${PRG}OUT/${xGDB}${trn}.${prg}
+                               cat $hpc_archive_path >$hpc_OUT_path
                                
                            		# Count the output
                                dateTime882=$(date +%Y-%m-%d\ %k:%M:%S)
-                               count882=$(grep -c "MATCH" $tmpWorkDIR/data/${PRG}/${PRG}OUT/${xGDB}${trn}.${prg})
+                               count882=$(grep -c "MATCH" $hpc_OUT_path)
                            
                                if [ "$count882" -ge "1" ] # IF DATA EXISTS: If more than 0 alignments;
                                then
                                   ## DEPRECATE THIS??? 3-18-15 echo "Update Admin.jobs set status =\"archiving_finished\", job_end_time=\"$dateTime882\" where job_id = \"${job_id}\" "|mysql -p$dbpass -u $mysqluser # just in case the status loop didn't catch this status and update the database already.
-                                  msg882="$count882 Remotely-Computed ${tRN} spliced alignments found in ${ArchiveDIR}/${job_dir}/ - "
+                                  msg882="$count882 Remotely-Computed ${tRN} spliced alignments found at $hpc_archive_path "
                                   echo "${space}${msg882}${dateTime882} (8.82)" >>$WorkDIR/logs/Pipeline_procedure.log
                                   echo "${space}Output file copied to download and $PRG output directories on scratch disk" >>$WorkDIR/logs/Pipeline_procedure.log
                               
                                else ## output is empty;
                                   echo "Update Admin.jobs set status =\"EMPTY\", job_end_time=\"$dateTime882\" where job_id = \"${job_id}\" "|mysql -p$dbpass -u $mysqluser
-                                  msg882="WARNING: HPC-${prg} output file ${ArchiveDIR}/${job_dir}/${xGDB}${trn}.${prg} exists but did not return any spliced alignments. Check your input data to see what might be the problem. "
+                                  msg882="WARNING: HPC-${prg} output file $hpc_archive_path exists but the number of spliced alignments returned was zero. Check your input data to see what might be the problem. "
                                   echo "${space}${msg882}${dateTime882} (8.82)" >>$WorkDIR/logs/Pipeline_procedure.log
                                fi
                                
                             else ## (8.75) No output file, even though HPC job status is ARCHIVING_FINISHED or ARCHIVING_FAILED
                                 dateTime875=$(date +%Y-%m-%d\ %k:%M:%S)
                                 echo "Update Admin.jobs set status =\"NO_OUTPUT\", job_end_time=\"$dateTime875\" where job_id = \"${job_id}\" "|mysql -p$dbpass -u $mysqluser
-                                error875="ERROR: HPC-${prg} output file at not found at ${ArchiveDIR}/${job_dir}/  The segment may be too small or there was a problem with the sequence format  - $dateTime875 (8.75)"
+                                error875="ERROR: HPC-${prg} output file at not found at $hpc_archive_path . The segment may be too small or there was a problem with the sequence format  - $dateTime875 (8.75)"
                                 echo "${space}${error875}" >>$WorkDIR/logs/Pipeline_procedure.log; echo "$error875">>$WorkDIR/logs/Pipeline_error.log
 
                             fi  ## (8.8) END IF JOB-OUTPUT-EXISTS
@@ -1322,10 +1334,10 @@ FirstPart() {
         if [ "$trn_count" -gt 0 ] # IF input data exists for this type
         then 
            dateTime895=$(date +%Y-%m-%d\ %k:%M:%S)
-           if [ -s $tmpWorkDIR/data/${PRG}/${PRG}OUT/${xGDB}${trn}.${prg} ] # Transcript output (MUST be a single file) exists for this job
+           if [ -s $hpc_OUT_path ] # Transcript output (MUST be a single file) exists for this job
            then
-               count895=$(grep -c "MATCH" $tmpWorkDIR/data/${PRG}/${PRG}OUT/${xGDB}${trn}.${prg})
-               msg895=" ${tRN} spliced alignments completed and sent to ${PRG} output directory $tmpWorkDIR/data/${PRG}/${PRG}OUT/${xGDB}${trn}.${prg} "
+               count895=$(grep -c "MATCH" $hpc_OUT_path)
+               msg895=" ${tRN} spliced alignments completed and sent to ${PRG} output directory $hpc_OUT_path "
                echo "$space$count895$msg895$dateTime895 (8.95)">>$WorkDIR/logs/Pipeline_procedure.log
             else
                error895="ERROR: $PRG ${tRN} spliced alignment output is empty or missing $dateTime895 (8.95) "
@@ -1453,7 +1465,7 @@ FirstPart() {
       SPLICEALIGN="T" # flag for CpGAT
    else
       dateTime1001=$(date +%Y-%m-%d\ %k:%M:%S)
-      msg1001="No EST spliced alignments to load">>$WorkDIR/logs/Pipeline_procedure.log
+      msg1001="No EST spliced alignments to load. ">>$WorkDIR/logs/Pipeline_procedure.log
       echo "$space$msg1001$dateTime1001 (10.01)">>$WorkDIR/logs/Pipeline_procedure.log
    fi
    
@@ -1481,7 +1493,7 @@ FirstPart() {
       SPLICEALIGN="T" # flag for CpGAT
    else
       dateTime1002=$(date +%Y-%m-%d\ %k:%M:%S)
-      msg1002="No cDNA spliced alignments to load">>$WorkDIR/logs/Pipeline_procedure.log
+      msg1002="No cDNA spliced alignments to load. ">>$WorkDIR/logs/Pipeline_procedure.log
       echo "$space$msg1002$dateTime1002 (10.02)">>$WorkDIR/logs/Pipeline_procedure.log
    fi
    
@@ -1507,7 +1519,7 @@ FirstPart() {
       SPLICEALIGN="T" # flag for CpGAT
    else
       dateTime1003=$(date +%Y-%m-%d\ %k:%M:%S)
-      msg1003="No TSA spliced alignments to load">>$WorkDIR/logs/Pipeline_procedure.log
+      msg1003="No TSA spliced alignments to load. ">>$WorkDIR/logs/Pipeline_procedure.log
       echo "$space$msg1003$dateTime1003 (10.03)">>$WorkDIR/logs/Pipeline_procedure.log
    fi
 
@@ -1533,7 +1545,7 @@ FirstPart() {
       SPLICEALIGN="T" # flag for CpGAT
    else
       dateTime1004=$(date +%Y-%m-%d\ %k:%M:%S)
-      msg1004="No Protein spliced alignments to load">>$WorkDIR/logs/Pipeline_procedure.log
+      msg1004="No Protein spliced alignments to load. ">>$WorkDIR/logs/Pipeline_procedure.log
       echo "$space$msg1004$dateTime1004 (10.04)">>$WorkDIR/logs/Pipeline_procedure.log
    fi
    

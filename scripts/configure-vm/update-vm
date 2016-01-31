@@ -1,0 +1,15 @@
+#!/bin/bash
+while true; do
+  echo ""; read -p "Update xGDBvm code?  [yn]:  " yn
+    case $yn in
+           [Yy]* )
+	   cd /xGDBvm
+           sudo git pull origin master;
+            echo ""
+              echo "The code has been updated from the github repository."
+            echo ""
+           break;; 
+           [Nn]* ) exit;;
+           * ) echo "Please answer y or n.";;
+    esac
+done
