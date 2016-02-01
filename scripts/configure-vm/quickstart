@@ -8,7 +8,7 @@ Quick start commands for configuring xGDBvm. For details, type 'instructions'
 
 Type these commands at the $ prompt in this order; required responses in [brackets]:
 
-     1. $ update [y] [password] (updates VM to the latest xGDBvm code)  
+     1. $ update-vm [y] [password] (updates VM to the latest xGDBvm code from git repository)  
      2. $ setup-vm [y] [password] [enter new Web access password for 'user']
         (sets up VM environment; required for new VM or resumed VM with a new IP address)
      3. $ iinit [y]  [username] [password]  (login to IRODS user acct; 1-time only)
