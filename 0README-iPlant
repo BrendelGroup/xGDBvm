@@ -9,7 +9,7 @@ For xGDBvm instances on iPlant Atmosphere (https://atmo.iplantcollaborative.org/
 See also:       http://goblinx.soic.indiana.edu/wiki/doku.php?id=user_instructions (xGDBvm wiki)
                 TROUBLESHOOTING tips at end of this document
 
-Latest update: 20-Jan-2016 J Duvick. For xGDBvm-v1.11 or greater.
+Latest update: 2-Feb-2016 J Duvick. For xGDBvm-v1.13 or greater.
 
  1) CONFIGURE YOUR VM USING SHELL COMMANDS:
 
@@ -17,7 +17,7 @@ Latest update: 20-Jan-2016 J Duvick. For xGDBvm-v1.11 or greater.
  
  1B) Carry out steps listed below IN ORDER by typing commands at the $ prompt. Required responses are in [brackets]
 
-     1.    Update xGDBvm code from SVN repository:    $ update [y] [password] (updated files are listed)  
+     1.    Update xGDBvm code from git repository:    $ update-vm [y] [password] (updated files are listed)  
      2.    Run a setup script for your (new) VM       $ setup-vm [password][NOTE: You will also be
                                                        required to set a sitewide Web password for 'user']+++
      3.    Initialize IRODS/FUSE:                     $ iinit [y]  [username] [password]  (1-time only)
@@ -30,8 +30,8 @@ Latest update: 20-Jan-2016 J Duvick. For xGDBvm-v1.11 or greater.
   
   ++ Volume mount is optional, but RECOMMENDED for data portability. The volume must already be attached to the VM to mount it.
   
-  ++ NOTE: The remote storage volume will be populated with all OUTPUT data, configurations, and archives.
-           You can unmount it and remount to a different VM to reproduce the entire GDB display instantly.
+  ++ NOTE: The mounted volume will be populated with all OUTPUT data, configurations, and archives.
+           You can unmount it and remount to another VM to reproduce the entire GDB display (after re-running 'configure-vm').
            DO NOT attach a volume if you have already created one or more GDB on this VM using local storage.
 
   +++ Forgot your VM's Web password? 
@@ -44,8 +44,9 @@ Latest update: 20-Jan-2016 J Duvick. For xGDBvm-v1.11 or greater.
      2.    Unmount Data Store             $ unmount-datastore [y] [password]
           - to remount and reconfigure to the same VM follow steps 4, 5, and 6 above    
  
-2) ACCESS YOUR VM ONLINE. Type the IP address of your instance (the same one you used for ssh) into
-    your web browser, e.g. 123.456.78.90
+2) ACCESS YOUR VM ONLINE (OR USING VNC). For Web access, type the IP address of your instance into
+    your web browser, e.g. 123.456.78.90. For VNC access, follow instructions on the xGDBvm wiki: 
+    http://goblinx.soic.indiana.edu/wiki/doku.php?id=vnc
    
     NOTE: xGDBvm will always connect over https (secure connection), so you will need to click 
     through several Web browser alerts to persuade your Web browser to accept the
@@ -56,7 +57,8 @@ Latest update: 20-Jan-2016 J Duvick. For xGDBvm-v1.11 or greater.
   A quick summary of steps you will take to prepare and annotate a genome using xGDBvm:
      1.    Complete the VM configuration process online (steps 3 - 5 below)       
      2.    Test your VM with sample data provided (step 6)  
-     3.    Prepare your input data an iPlant Data Store directory, e.g. /username/myData/ = /xGDBvm/input/myData/ (step 7)
+     3.    Prepare input data on your Data Store under xgdbvm/, 
+           e.g. /iplant/username/xgdbvm/myInputs/ = /xGDBvm/input/xgdbvm/myInputs/ (step 7)
      4.    Create a GDB configuration, e.g. GDB001 (enter GDB name, path to input data, parameter choices) and save it (step 8)
      5.    Initiate the GDB pipeline and monitor for errors; if necessary, terminate process and start over (step 9)
      6.    When complete, verify results by reviewing output reports and process logs; address any errors (step 10)                 
@@ -72,9 +74,10 @@ Latest update: 20-Jan-2016 J Duvick. For xGDBvm-v1.11 or greater.
     -  Share the password only with persons who have valid reason to access protected pages
 
  4) INSTALL LICENSE KEYS:
-    - Visit Manage -> Config -> License Keys
-    - Follow directions to obtain license keys, store them on your Data store and add them to your xGDBvm 
-    - Note that if you store copies on your Data Store you can easily install them on a new VM
+    - Some license keys are added to your Data Store 'keys' directory at configuration (/iplant/username/xgdbvm/keys)
+    - Install these keys on your VM by visiting Manage -> Config -> License Keys and clicking to install each key
+    - Follow directions to obtain any license keys not already on your Data store, deposit in 'keys' directory, and install. 
+    - Note that when you store license copies on your Data Store you can easily install them on a new VM
 
  5) CONFIGURE REMOTE HPC (optional) 
     - Visit Manage -> Jobs -> Getting Started and check status flags for configuration and job running
@@ -93,12 +96,12 @@ Latest update: 20-Jan-2016 J Duvick. For xGDBvm-v1.11 or greater.
         - GDB Home Page: 'GDBnnn -> Resources -> Pipeline Logs'
         - GDB Config Page: 'Logfile'
         
- 7) PREPARE DATA: Once familiar with the process and prerequisites, prepare your GDB data as follows:
-    - REVIEW DATA SOURCES (Manage -> Config -> Data Sources) and choose input data files,
+ 7) PREPARE INPUTS: Once familiar with the process and prerequisites, prepare your GDB data as follows:
+    - REVIEW INPUT SOURCES (Manage -> Config -> Data Sources) to determine what are appropriate input data files,
       according to what you want to accomplish and what data are available
-    - REVIEW DATA REQUIREMENTS and naming conventions for xGDBvm (Manage -> Config -> Data Requirements)
+    - REVIEW INPUT REQUIREMENTS and naming conventions for xGDBvm (Manage -> Config -> Data Requirements)
     - RENAME INPUT FILES accordingly and double check their FASTA headers and IDs
-    - MOVE INPUT DATA TO DATA STORE (create a new directory under your Data Store username root)
+    - MOVE INPUT FILES TO DATA STORE (first create a new directory on Data Store under /iplant/[username]/xgdbvm/)
     - CHECK VOLUME CAPACITY (Manage -> Config -> Data Volumes) to confirm adequate capacity.
     - DETERMINE REMOTE COMPUTE RESOURCES (optional) (Manage -> Jobs -> Estimate Resources)
     - ADJUST REMOTE COMPUTE PARAMS (optional) (Manage -> Jobs -> Configure) depending on data size
