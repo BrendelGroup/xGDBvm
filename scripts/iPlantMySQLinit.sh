@@ -29,13 +29,14 @@ inputLink="/xGDBvm/input"
 ##### II. OUTPUTS (DATA) #####
 dataRoot="" # Currently we don't insert a root directory here.
 dataMountPoint="/home/xgdb-data"  #Either an attached volume mounted at /home/xgdb-data, or /home/xgdb-data/ on this VM
+dataPath=$dataMountPoint
 dataLink="/xGDBvm/data"
-tmpDirData="${dataMountPoint}/tmp" # see part II.1 below
+tmpDirData="${dataPath}/tmp" # see part II.1 below
 tmpLink="/xGDBvm/tmp" # symbolic link
-scratchDir="${dataMountPoint}/scratch" # see part II.2 below
+scratchDir="${dataPath}/scratch" # see part II.2 below
 scratchLink="/xGDBvm/scratch"  # symbolic link
-archiveDir="${dataMountPoint}/ArchiveGDB" # see part II.3 below
-archiveAllDir="${dataMountPoint}/ArchiveAll" # see part II.4 below
+archiveGDBDir="${dataPath}/ArchiveGDB" # see part II.3 below
+archiveAllDir="${dataPath}/ArchiveAll" # see part II.4 below
 
 ##### III. OTHER INPUT DIRS #####
 keyDir="${inputPath}keys/" # see part III.2 below
@@ -43,13 +44,13 @@ gth_lic_vm="/xGDBvm/admin/gth.lic"  # Currently we keep a copy here and can upda
 vmatch_lic_vm="/xGDBvm/admin/vmatch.lic" # Currently we keep a copy here and can update it in svn if needed
 gth_lic_user="${keyDir}gth.lic"
 vmatch_lic_user="${keyDir}vmatch.lic"
-refprotDir="${inputPath}referenceprotein" # see part II.3 below
-repmaskDir="${inputPath}repeatmask" # see part II.3 below
-archiveDir="${inputPath}archive" # 
-tmpDir="${inputPath}/tmp"
+refprotDir="${inputPath}referenceprotein" # see part III.3 below
+repmaskDir="${inputPath}repeatmask" # see part III.3 below
+archiveJobsDir="${inputPath}archive" # 
+tmpDirInput="${inputPath}/tmp"
 
 ##### IV. MySQL ######
-mysqlDir="${dataMountPoint}/mysql" # see part IV
+mysqlDir="${dataPath}/mysql" # see part IV
 dbpass='xgdb'
 mysqluser='gdbuser'
 mysqlGenomes="$mysqlDir/Genomes"
@@ -61,7 +62,7 @@ mysqlGAEVAL="$mysqlDir/GAEVAL"
 ########### II. Configure Attached Volume ###########
 
 # 1. tmp directory may need to be created if the user has mounted a "new" volume at ${dataMountPoint}
-
+# 1a. Create if not exist
 if [ ! -e $tmpDirData ]
 then
   mkdir $tmpDirData
@@ -69,15 +70,17 @@ then
   echo "$tmpDirData directory has been created."
   echo " - This directory is used for web server-cached files for display or computation."
   echo ""
-  chown -R root:xgdb $tmpDirData
-  chmod -R 777 $tmpDirData
-  echo "$tmpDirData directory permissions modified."
-  echo ""
 else
   echo ""
   echo "xGDB tmp directory $tmpDirData already exists."
   echo " - This directory is used for web server-cached files for display or computation."
 fi
+# 1b. Change permissions (sometimes they get reset on attached volumes so we do this outside of 'if' loop)
+chown -R root:xgdb $tmpDirData
+chmod -R 777 $tmpDirData
+chmod +t $tmpDirData
+echo "$tmpDirData directory permissions have been updated to root:xgdb and 777 (+t)."
+echo ""
 
 if [ ! -L $tmpLink ]
 then
@@ -97,9 +100,8 @@ then
   echo ""
   echo "$scratchDir directory has been created."
   echo " - This directory is used transiently for pipeline computations and should be empty when pipeline is complete."
-  chmod -R 775 $scratchDir
-  echo ""
-  echo "$scratchDir directory permissions modified.";
+
+  echo "$scratchDir directory permissions modified."
   echo ""
 else
   echo ""
@@ -107,8 +109,9 @@ else
   echo " - This directory is used transiently for pipeline computations and should be empty when pipeline is complete."
 fi
   chown -R root:xgdb $scratchDir # this line is outside loop because sometimes permissions get reset to user on external volume
+  chmod -R 775 $scratchDir
   echo ""
-  echo "permissions for scratch directory $scratchDir have been updated to root:xgdb "
+  echo "$scratchDir permissions have been updated to root:xgdb and 775"
   echo ""
 
 if [ ! -L $scratchLink ]
@@ -123,24 +126,22 @@ fi
 
 # 3. ArchiveGDB directory may need to be created if the user has mounted a "new" volume at ${dataPath}; or permission reset
 
-if [ ! -e $archiveDir ]
+if [ ! -e $archiveGDBDir ]
 then
-  mkdir $archiveDir
+  mkdir $archiveGDBDir
   echo ""
-  echo "$archiveDir directory has been created."
-  echo " - This directory is used for archived copies of genome databases (GDB)"
-  chmod -R 775 $archiveDir
+  echo "$archiveGDBDir directory has been created."
+  echo " - This directory is used for archived copies of single genome databases (GDB)"
   echo ""
-  echo "$archiveDir directory permissions modified.";
+else
   echo ""
-  else
-  echo ""
-  echo "$archiveDir directory already exists."
+  echo "$archiveGDBDir directory already exists."
   echo " - This directory is used for archived copies of genome databases (GDB)"
 fi
-  chown -R root:xgdb $archiveDir # this line is outside loop because sometimes permissions get reset to user on external volume
+  chown -R root:xgdb $archiveGDBDir # this line is outside loop because sometimes permissions get reset to user on external volume
+  chmod -R 775 $archiveGDBDir
   echo ""
-  echo "permissions for scratch directory $archiveDir have been updated to root:xgdb "
+  echo "$archiveGDBDir permissions have been updated to root:xgdb and 775"
   echo ""
 
 # 4. ArchiveAll directory may need to be created if the user has mounted a "new" volume at ${dataMountPoint}; or permission reset
@@ -151,27 +152,38 @@ then
   echo ""
   echo "$archiveAllDir directory has been created."
   echo " - This directory is used for archived copies of ALL genome databases (GDB)"
-  chmod -R 775 $archiveAllDir
   echo ""
-  echo "$archiveAllDir directory permissions modified.";
-  echo ""
-  else
+else
   echo ""
   echo "$archiveAllDir directory already exists."
   echo " - This directory is used for archived copies of ALL genome databases (GDB)"
 fi
   chown -R root:xgdb $archiveAllDir # this line is outside loop because sometimes permissions get reset to user on external volume
+  chmod -R 775 $archiveAllDir
   echo ""
-  echo "permissions for scratch directory $archiveAllDir have been updated to root:xgdb "
+  echo "$archiveAllDir permissions have been updated to root:xgdb and 775 "
   echo ""
 
 
+# 5. Adjust permissions on all GDB files (if any) - as they may have gotten reset when the volume was detached/re-attached.
+
+cd $dataPath # e.g. /home/xgdb-data
+GDBdirs=$(ls -d GDB[0-9][0-9][0-9]) # e.g. "GDB001  GDB002" separated by space/tab
+
+for directory in $GDBdirs
+do
+  chown -R root:xgdb $directory
+  chmod -R 775 $directory
+  echo ""
+  echo "permissions for $directory and subdirectories has been set to root:xgdb and 775"
+  echo ""
+done
 
 ########### III. Configure Data Store (input data) ###########
 
 # 1. Data Store root directory for xGDBvm (inputPath) may need to be created if the user is mounting their Data Store at ${inputPath} for the first time, or if a new VM is being configured and no Data Store is being mounted.
 
-if [ ! -e $inputPath ] # This is the xgdbvm directory, typically under the user's iPlant Data Store root
+if [ ! -e $inputPath ] # This is the path to xgdbvm/ directory for user input directories. It is typically under the user's iPlant Data Store root (/iplant/username/xgdbvm/) and addressed at /home/xgdb-input/xgdbvm/ (or /xGDBvm/input/xgdbvm/) on a VM
 then
   mkdir $inputPath
 
@@ -180,12 +192,12 @@ then
   echo ""
   chown -R root:xgdb $inputPath  # if no Data Store is attached, we need permissions as Apache
   chmod -R 775 $inputPath
-  echo "$tmpDirData directory permissions modified."
+  echo "$inputPath directory permissions modified."
   echo ""
 else
   echo ""
-  echo "xGDB tmp directory $tmpDirData already exists."
-  echo " - This directory is used for web server-cached files for display or computation."
+  echo "$inputPath directory already exists."
+  echo " - This is the root level directory for your input data (whether on a mounted Data Store or on the VM)."
 fi
 # 2. /keys/ directory may need to be created if the user has mounted iPlant Data Store for the first time at /xGDBvm/input
 #    This step also copies the latest GenomeThreader and Vmatch licenses (available on 1 year schedule) to the /keys/ directory 
@@ -196,6 +208,9 @@ then
   echo ""
   echo "$keyDir directory has been created."
   echo ""
+  chown -R root:xgdb $keyDir  # if no Data Store is attached, we need permissions as Apache
+  chmod -R 775 $keyDir
+
 else
   echo ""
   echo "$keyDir directory already exists."
@@ -205,7 +220,7 @@ echo " - This directory is used to store user's license keys (GenomeThreader, Ge
 if [ ! -e $gth_lic_user ]
 	then
 	  cp  $gth_lic_vm $gth_lic_user
-	if [ -e $gth_lic_user ]
+	if [ -e $gth_lic_user ]  # if copy was successful
 	then
 	  echo ""
 	  echo "gth.lic file has been copied to your Data Store in the directory ${keyDir}."
@@ -227,7 +242,7 @@ fi
 if [ ! -e $vmatch_lic_user ]
 	then
 	  cp  $vmatch_lic_vm $vmatch_lic_user
-	if [ -e $vmatch_lic_user ]
+	if [ -e $vmatch_lic_user ]  # if copy was successful
 	then
 	  echo ""
 	  echo "vmatch.lic file has been copied to your Data Store in the directory ${keyDir}."
@@ -271,28 +286,30 @@ else
 fi
 echo " - This directory is used to store repeat mask nucleotide files (fasta formatted) "
 
-# 4. archive/jobs/ NOTE: Destination for GDB archives.
-if [ ! -e $archiveDir ]
+# 4. archive/jobs/ NOTE: Destination for HPC Job archives.
+if [ ! -e $archiveJobsDir ]
 then
-  mkdir $archiveDir
+  mkdir $archiveJobsDir
   echo ""
-  echo "$archiveDir directory has been created."
+  echo "$archiveJobsDir directory has been created."
 else
   echo ""
-  echo "$archiveDir directory already exists."
+  echo "$archiveJobsDir directory already exists."
 fi
 echo " - This directory is used for output of HPC (high performance compute) jobs"
 
-if [ ! -e $tmpDir ]
+# 5. tmp/ NOTE: Temporary directory for HPC Job inputs.
+
+if [ ! -e $tmpDirInput ]
 then
-  mkdir $tmpDir
+  mkdir $tmpDirInput
   echo ""
-  echo "$tmpDir directory has been created."
+  echo "$tmpDirInput directory has been created."
 else
   echo ""
-  echo "$tmpDir directory already exists."
+  echo "$tmpDirInput directory already exists."
 fi
-echo " - This directory is used for temporary caching of HPC (high performance compute) job inputs"
+echo " - This directory is used for temporary caching of inputs being sent to HPC (high performance compute) job scripts"
 
 ############## IV. MySQL Databases #################
 
@@ -300,10 +317,10 @@ echo ""
 echo "########## Create MySQL database structure for output data ############"
 echo ""
 
-# 1. MySQL databases. These are copied from their default location to ${dataMountPoint}/mysql if not already exist (using Genomes as a test)
+# 1. MySQL databases. These are copied from their default location to ${dataPath}/mysql if not already exist (using Genomes as a test)
 if [ ! -e $mysqlDir ] # this indicates no mysql data exists in the mysql destination directory so it must be created by copying the "default" data over
 then
-  cp -r /var/lib/mysql $dataMountPoint # creates a ${dataMountPoint}/mysql directory containing all default mysql databases. We will create others below.
+  cp -r /var/lib/mysql $dataPath # creates a ${dataPath}/mysql directory containing all default mysql databases. We will create others below.
   echo "mysql database directory has been copied to new location: $mysqlDir."
   echo ""
   echo "Note:   $mysqlDir should be specified as the mysql data directory 'datadir' in /etc/my.cnf."
@@ -390,29 +407,41 @@ echo "MySQL update script run."
 ########### I. Global Paths ###########
 
 echo ""
-echo "##############  Top level directory on Data Store (for input data) ##############"
+echo "##############  Top level directory for user inputs (on Data Store if mounted) ##############"
 echo ""
-echo "              /iplant/[username]/${inputTopLevel}/"
-echo ""
-
-echo "    #####  Path to access this directory on your VM shell #####"
-echo ""
-echo "              $inputPath or symlink $inputLink"
-echo ""
-echo ""
-echo "##############  Top level directory on Mounted Volume (for output data) ##############"
-echo ""
-echo "             $dataMountPoint"
-echo ""
-echo "    #####  Path to access this directory on your VM shell #####"
-echo ""
-echo "             $dataMountPoint or symlink $dataLink"
+echo "              $inputPath" # e.g. /home/xgdb-input/xgdbvm
 echo ""
 
+echo "    #####  Path to access user input directory: #####"
+echo ""
+echo "              On your Data Store (if mounted): /iplant/[username]/${inputTopLevel}"
+echo "              On this VM: symbolically linked via $inputLink"
+echo ""
+echo "###############################   Directories under $inputPath ################################"
+echo ""
+ls -la  $inputPath/ | grep '^d'
+echo ""
+echo "##############  Top level directory for output data (on External Volume if mounted) ##############"
+echo ""
+echo "             $dataPath" # e.g. /home/xgdb-data/
+echo ""
+echo "    #####  Path to access this directory on your VM shell #####"
+echo ""
+echo "             $dataPath/"
+echo "             symbolically linked via $dataLink"
+echo ""
+echo ""
+echo "###############################   Directories under $dataPath/   ##################################"
+echo ""
+ls -la  $dataPath/ | grep '^d'
+echo ""
+echo "________________________________________________________________________________"
 echo ""
 echo "End of 'configure-vm' script. You should now be ready to access your VM online."
 echo ""
 echo "NOTE: ALWAYS use 'unmount-volume' and 'unmount-datastore' before rebooting or terminating this VM."
+echo ""
+echo "________________________________________________________________________________"
 echo ""
 
 
