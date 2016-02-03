@@ -1,3 +1,6 @@
+.htaccess
+.htpass_xgdb
+admin/xgdbpassword
 admin/auth
 admin/dbpass
 admin/devloc
@@ -13,6 +16,8 @@ scratch
 scripts/.htaccess
 src/CpGAT
 src/.htaccess
+src/GENESEQER
+src/0README
 tmp
 XGDB/css/.htaccess
 XGDB/css.htaccess
