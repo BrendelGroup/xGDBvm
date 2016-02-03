@@ -52,7 +52,7 @@ include_once('/xGDBvm/XGDB/phplib/db.inc.php'); #reads MySQL password from /xGDB
 include_once('/xGDBvm/XGDB/jobs/jobs_functions.inc.php'); #common functions required in this script
 $inputDir=$XGDB_INPUTDIR; # 1-26-15 
 $dataDir=$XGDB_DATADIR; # 1-26-15 
-$inputDirRoot=$XGDB_INPUTDIR_ROOT; # 1-26-16 J Duvick This is the top level path, e.g. /xGDBvm/input/
+$inputDirRoot=$XGDB_INPUTDIR_MOUNT; # 1-26-16 J Duvick This is the top level path, e.g. /xGDBvm/input/  / corrected 2-2-16
 
 
 //access MySQL

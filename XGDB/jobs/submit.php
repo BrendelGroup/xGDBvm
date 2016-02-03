@@ -51,7 +51,7 @@ $Create_Date = date("m-d-Y");
 include_once('/xGDBvm/XGDB/phplib/db.inc.php'); #reads MySQL password from /xGDBvm/admin/dbpass
 include_once('/xGDBvm/XGDB/jobs/jobs_functions.inc.php'); #common functions required in this script
 $inputDir=$XGDB_INPUTDIR; # 1-26-15 from sitedef.php; e.g. /xGDBvm/input/xgdbvm/
-$inputDirRoot=$XGDB_INPUTDIR_ROOT; # 1-26-16 J Duvick This is the top level path, e.g. /xGDBvm/input/
+$inputDirRoot=$XGDB_INPUTDIR_MOUNT; # 1-26-16 J Duvick This is the top level path, e.g. /xGDBvm/input/ 2-2-16 corrected sitedef.php reference
 $inputTopDir=$INPUT_TOPDIR; # 1-26-2016 top level directory for xGDBv -related files on user's iPlant Data Store, e.g. xgdbvm/
 
 //access MySQL
@@ -212,7 +212,10 @@ if (file_exists("/xGDBvm/admin/iplant")) { // xGDBvm-iPlant only
  $data_store_mount="not mounted"; 
 if (file_exists("/xGDBvm/admin/iplant")) { // xGDBvm-iPlant only
 	$dir2="$inputDirRoot"; // 
-	$df_dir2=df_available($dir2); // check if /input/ directory is fuse-mounted (returns array)
+	$df_dir2=df_available($dir2); // check if /input/ directory is fuse-mounted (returns array) 
+	$test0=$df_dir2[0];
+	$test1=$df_dir2[1];
+	$test2=$df_dir2[2];
 	$dir2_status=($df_dir2[0]=="fuse"  || $df_dir2[0]=="irodsFs")?"mounted":"not mounted";
 	$dir2_dropdown=($dir2_status=="mounted")?"/xGDBvm/input/":""; //only show input dir if fuse-mounted
 	$dir2_status_formatted=($dir2_status=="mounted")?"<span class=\"checked_mount nowrap\">DataStore mounted</span>":"<span class=\"lightgrayfont\">DataStore not mounted</span>"; //flag for dir2 mount (Data Store) top of form
@@ -329,7 +332,7 @@ echo'	</div>
 					</colgroup>	
 					<tr>
 					<td>
-						<h1 class=\"jobs\"> <img src=\"/XGDB/images/remote_compute.png\" alt=\"\" /> &nbsp;Submit Standalone Job </h1>
+						<h1 class=\"jobs\"> <img src=\"/XGDB/images/remote_compute.png\" alt=\"\" /> &nbsp;Submit Standalone Job</h1>
 						<span class=\"$debug\">large_scaffold_count=$large_scaffold_count small_scaffold_count=$small_scaffold_count break_point_count=$break_point_count remainder_size=$remainder_size; sizes_display=$scaffold_sizes_display</span>
 				        <span class=\"normalfont\" style=\"font-weight:normal\">&nbsp; $dir1_status  &nbsp; $dir2_status_display </span>
 
