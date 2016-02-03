@@ -4,12 +4,13 @@
 ##    INSTRUCTIONS for xGDBvm-iPlant SETUP, CONFIGURATION, and OPERATION    ##
 ##############################################################################
 
-For xGDBvm instances on iPlant Atmosphere (https://atmo.iplantcollaborative.org/application/)
+For xGDBvm instances on iPlant (CyVerse) Atmosphere (https://atmo.iplantcollaborative.org/application/)
 
-See also:       http://goblinx.soic.indiana.edu/wiki/doku.php?id=user_instructions (xGDBvm wiki)
-                TROUBLESHOOTING tips at end of this document
+See also:       xGDBvm wiki http://goblinx.soic.indiana.edu/wiki/doku.php?id=user_instructions
+                github repository for source code and issue tracking: https://github.com/BrendelGroup/xGDBvm/
+                TROUBLESHOOTING tips at end of this document and on wiki
 
-Latest update: 2-Feb-2016 J Duvick. For xGDBvm-v1.13 or greater.
+Latest update: 3-Feb-2016 J Duvick. For xGDBvm-v1.14 or greater.
 
  1) CONFIGURE YOUR VM USING SHELL COMMANDS:
 
@@ -34,9 +35,9 @@ Latest update: 2-Feb-2016 J Duvick. For xGDBvm-v1.13 or greater.
            You can unmount it and remount to another VM to reproduce the entire GDB display (after re-running 'configure-vm').
            DO NOT attach a volume if you have already created one or more GDB on this VM using local storage.
 
-  +++ Forgot your VM's Web password? 
-     1. Remove the password flag: $ sudo rm /xGDBvm/admin/xgdbpassword
-     2. Re-run the 'setup-vm' script and enter a new password
+  +++ Forgot your VM's Web password (sitewide or admin pages only)? 
+     1. Remove the password flag: $ sudo rm /xGDBvm/admin/xgdbpassword or $ sudo rm /xGDBvm/admin/adminpassword 
+     2. Re-run the 'setup-vm' script (step 2 above) and enter a new password
 
  1C) To unmount volume and Data Store, e.g. before you terminate a VM (make sure no processes are running) 
 
@@ -58,14 +59,14 @@ Latest update: 2-Feb-2016 J Duvick. For xGDBvm-v1.13 or greater.
      1.    Complete the VM configuration process online (steps 3 - 5 below)       
      2.    Test your VM with sample data provided (step 6)  
      3.    Prepare input data on your Data Store under xgdbvm/, 
-           e.g. /iplant/username/xgdbvm/myInputs/ = /xGDBvm/input/xgdbvm/myInputs/ (step 7)
+           e.g. /iplant/[username]/xgdbvm/myInputs/ = /xGDBvm/input/xgdbvm/myInputs/ (step 7)
      4.    Create a GDB configuration, e.g. GDB001 (enter GDB name, path to input data, parameter choices) and save it (step 8)
      5.    Initiate the GDB pipeline and monitor for errors; if necessary, terminate process and start over (step 9)
      6.    When complete, verify results by reviewing output reports and process logs; address any errors (step 10)                 
      7.    Archive your output and copy the archive back to your Data Store if desired (step 11)
      8.    Re-annotate manually or regionally using built-in tools; add or replace track data using Update feature (step 12)
     
-*** The following steps are carried out via Web connection (or vpn) to your Instance:***
+*** The following steps are carried out via Web connection (or VNC) to your Instance:***
 
  3) (OPTIONAL) CHANGE INTERNET PASSWORD PROTECTION ON YOUR VM:
     -  Visit 'Manage -> Admin -> Set Up Passwords'
@@ -74,14 +75,14 @@ Latest update: 2-Feb-2016 J Duvick. For xGDBvm-v1.13 or greater.
     -  Share the password only with persons who have valid reason to access protected pages
 
  4) INSTALL LICENSE KEYS:
-    - Some license keys are added to your Data Store 'keys' directory at configuration (/iplant/username/xgdbvm/keys)
+    - Some license keys are added to your Data Store 'keys' directory at configuration (/iplant/[username]/xgdbvm/keys)
     - Install these keys on your VM by visiting Manage -> Config -> License Keys and clicking to install each key
     - Follow directions to obtain any license keys not already on your Data store, deposit in 'keys' directory, and install. 
     - Note that when you store license copies on your Data Store you can easily install them on a new VM
 
  5) CONFIGURE REMOTE HPC (optional) 
     - Visit Manage -> Jobs -> Getting Started and check status flags for configuration and job running
-    - If VM is new, you MUST register it via Agave API (click 'Authorize/Login), using your credentials.
+    - If VM is new, you MUST register it via the Agave API (click 'Authorize/Login), using your credentials.
     - Once registered (a one-time event), you should be able to log in with the same credentials and submit jobs.
     - Update App IDs if needed (click 'Configure Apps') - check at http://goblinx.soic.indiana.edu/wiki/doku.php?id=hpc#current_app_ids 
     - Update API settings if needed (click 'Configure API') - check at http://goblinx.soic.indiana.edu/wiki/doku.php?id=agave&#current_api_settings
@@ -95,6 +96,10 @@ Latest update: 2-Feb-2016 J Duvick. For xGDBvm-v1.13 or greater.
    - TROUBLESHOOT if necessary by viewing pipeline log and error log 
         - GDB Home Page: 'GDBnnn -> Resources -> Pipeline Logs'
         - GDB Config Page: 'Logfile'
+   - ADDITIONAL TROUBLESHOOTING RESOURCES:
+        - $ sudo tail -f /var/log/httpd/error_log  (pipeline script errors logged to the system)
+        - $ sudo tail -f /var/log/httpd/ssl_error_log (web script errors logged to the system)
+        - You can modify /etc/my.cnf to log MySQL errors (follow instructions there) -- be sure to turn off when done!
         
  7) PREPARE INPUTS: Once familiar with the process and prerequisites, prepare your GDB data as follows:
     - REVIEW INPUT SOURCES (Manage -> Config -> Data Sources) to determine what are appropriate input data files,
@@ -155,7 +160,6 @@ Latest update: 2-Feb-2016 J Duvick. For xGDBvm-v1.13 or greater.
 NOTE: Help documents are available along with contextual help on each Web page (the '?' icon)
 
 For additional information and help, consult the xGDBvm Wiki at http://goblinx.soic.indiana.edu/wiki/
-
 
 ########################  TROUBLESHOOTING your xGDBvm configuration    ###########################
 
