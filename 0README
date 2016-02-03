@@ -17,6 +17,7 @@ favicon.ico - browser window icon
 index.php - top page
 input -> /home/xgdb-input (symlink to directory for user's input data -- on iPlant, typically mounted to user's Data Store
 LICENSE - GPL license for this software
+README.md - used by github to summarize the project
 robots.txt - configured to exclude crawling
 scratch -> /xGDBvm/data/scratch  symlink to temporary directory for pipeline calculations
 scripts - directory of off line process pipelines and templates as well as gdb data processes like parser, loading scripts
