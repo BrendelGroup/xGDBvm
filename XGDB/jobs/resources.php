@@ -38,7 +38,7 @@ date_default_timezone_set("$TIMEZONE"); // from sitedef.php
  	include_once('/xGDBvm/XGDB/jobs/jobs_functions.inc.php'); #common functions required in this script
  	$inputDir=$XGDB_INPUTDIR; # 1-26-15   e.g. /xGDBvm/input/xgdbvm/
 	$dataDir=$XGDB_DATADIR; # 1-26-15 e.g. /xGDBvm/data/
-	$inputDirRoot=$XGDB_INPUTDIR_ROOT; # 1-26-16 J Duvick This is the top level path, e.g. /xGDBvm/input/
+	$inputDirRoot=$XGDB_INPUTDIR_MOUNT; # 1-26-16 J Duvick This is the top level path, e.g. /xGDBvm/input/ corrected 2-2-16
 
 	$dbpass=dbpass();
 		$db = mysql_connect("localhost", "gdbuser", $dbpass);

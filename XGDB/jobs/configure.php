@@ -15,7 +15,7 @@ session_start();
  	include_once('/xGDBvm/XGDB/jobs/login_functions.inc.php'); #common functions required in this script
 	$inputDir=$XGDB_INPUTDIR; # 1-26-16 J Duvick - sitedef.php
 	$dataDir=$XGDB_DATADIR; # 1-26-16 J Duvick
-	$inputDirRoot=$XGDB_INPUTDIR_ROOT; # 1-26-16 J Duvick
+	$inputDirRoot=$XGDB_INPUTDIR_MOUNT; # 1-26-16 J Duvick -corrected 2-2-16
 	
 	$dbpass=dbpass();
 	$db = mysql_connect("localhost", "gdbuser", $dbpass);

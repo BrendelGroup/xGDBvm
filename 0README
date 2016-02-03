@@ -2,30 +2,32 @@
 
 For xGDBvm, a virtual environment for genome annotation
 
-Updated: 7-23-2014 J Duvick
+Updated: 2-3-2016 J Duvick
 
 /xGDBvm is the document root directory which includes: 
  
 0README- this file
 0README-iPlant - instructions specific to the iPlant implementation of xGDBvm
-admin (administrative scripts for online operation).
-dist.htaccess (template for .htaccess file if this directory level is password-protected)
-data -> /home/xgdb-data (symlink to directory used for GDB ouptput data -- on iPlant, typically mounted to block storage volume)
-dist.htacces (can be converted to .htaccess for password protection of top level)
-examples (example data for creating test GDB)
-favicon.ico (browser window icon)
-index.php (top page)
-input -> /home/xgdb-input (symlink to directory for user's input data -- on iPlant, typically mounted to user's Data Store)
-robots.txt - (configured to exclude crawling)
-scratch -> /xGDBvm/data/scratch  (symlink to temporary directory for pipeline calculations)
-scripts (off line process pipelines and templates as well as gdb data processes like parser, loading scripts)
-src (source code for BLAST, GeneSeqer, GAEVAL; as well as yrGATE code and Web scripts)
-tmp -> /xGDBvm/data/tmp (symlink to directory for temporary files cached during page display)
-XGDB (core xGDB modules including Perl, Perl cgi and PHP scripts, Perl and PHP configuration scripts, images, css resources)
+admin - directory of administrative scripts for online operation
+dist.htaccess - template for .htaccess file if this directory level is password-protected
+data -> /home/xgdb-data  - symlink to directory used for GDB ouptput data -- on iPlant, typically mounted to block storage volume
+dist.htacces - can be converted to .htaccess for password protection of top level
+examples - directory of example data for creating test GDB
+favicon.ico - browser window icon
+index.php - top page
+input -> /home/xgdb-input (symlink to directory for user's input data -- on iPlant, typically mounted to user's Data Store
+LICENSE - GPL license for this software
+README.md - used by github to summarize the project
+robots.txt - configured to exclude crawling
+scratch -> /xGDBvm/data/scratch  symlink to temporary directory for pipeline calculations
+scripts - directory of off line process pipelines and templates as well as gdb data processes like parser, loading scripts
+src - source code for BLAST, GeneSeqer, GAEVAL; as well as yrGATE code and Web scripts
+tmp -> /xGDBvm/data/tmp (symlink to directory for temporary files cached during page display
+XGDB - directory of core xGDB modules including Perl, Perl cgi and PHP scripts, Perl and PHP configuration scripts, images, css resources
 
 Startup Instructions:
 
-If this is an iPlant instance, type 'instructions' or follow instructions in:
+If this is an iPlant (CyVerse) instance, type 'quickstart' or 'instructions' and follow instructions therein,  or follow instructions in:
 /xGDBvm/0README-iPlant
 
 For other users, in order to access this site over http, you may need to do the following (not required for iPlant instances):
@@ -33,14 +35,22 @@ For other users, in order to access this site over http, you may need to do the 
 2) start mysql
 3) adjust firewall settings
 
-In addition, you should update the xGDBvm code base from the subversion repository:
+In addition, you should update the xGDBvm code base from the github repository using 'sudo git pull origin master'
 
- sudo svn update /xGDBvm/
+The github repository is at https://github.com/BrendelGroup/xGDBvm/ ( contributions welcome!)
 
 Other directories required for xGDBvm to function include:
 
-/xGDBvm/data/mysql/ (mysql databases)
+/home/xgdb-data/mysql/ (mysql databases)
+
 /usr/local/bin/ and /usr/local/src/ where xGDBvm-related binary code is installed
 
 See wiki (http://goblinx.soic.indiana.edu/wiki/doku.php) for additional details
+
+Other links:
+
+- xGDBvm github repository: https://github.com/BrendelGroup/xGDBvm/ (contributions welcome!)
+- The Brendel Group at Indiana University: http://brendelgroup.org/ 
+- Atmosphere virtual server environment: https://atmo.iplantcollaborative.org/
+- Cyverse (formerly iPlant Collaborative): http://www.cyverse.org/
 

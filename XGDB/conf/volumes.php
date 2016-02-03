@@ -16,7 +16,7 @@ include_once('/xGDBvm/XGDB/phplib/db.inc.php');
 
 $inputDir=$XGDB_INPUTDIR; # 1-26-16 J Duvick
 $dataDir=$XGDB_DATADIR; # 1-26-16 J Duvick
-$inputDirRoot=$XGDB_INPUTDIR_ROOT;
+$inputDirRoot=$XGDB_INPUTDIR_MOUNT; # correcte 2-2-16 
 $dbpass=dbpass();
 
 	$db = mysql_connect("localhost", "gdbuser", $dbpass);
