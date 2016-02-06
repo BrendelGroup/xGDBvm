@@ -1241,11 +1241,12 @@ FirstPart() {
                      
                   else  ## 8.6 If job_status NOT 'RUNNING' and not 'CLEANING_UP' and not 'ARCHIVING' and not 'ARCHIVING_FINISHED' and not 'FINISHED' (success)-- it must have been STOPPED, FAILED, ARCHIVING_FAILED,  timed out - so log that status and go to the 8.6 END IF statement
                         dateTime863=$(date +%Y-%m-%d\ %k:%M:%S)
-                     if [[ "$job_status" == "STOPPED" || "$job_status" == "KILLED" || "$job_status" == "FAILED" || "$job_status" == "ARCHIVING_FAILED" ]]  ## IF JOB-STOPPED
+                     if [[ "$job_status" == "STOPPED" || "$job_status" == "KILLED" || "$job_status" == "FAILED" || "$job_status" == "ARCHIVING_FAILED" ]]  ## Fatal to success. 2-3-2016 Note the API is not consistent, and some jobs that return 'FAILED' status may continue to run, thus making the logic here incorrect.
                      then
-                        echo "${space}WARNING: $tRN remote job status is  $job_status; no output data - $dateTime863 (8.63)" >>$WorkDIR/logs/Pipeline_procedure.log
+                     	error863="${space}WARNING: $tRN remote job status is $job_status; no output data - $dateTime863 (8.63)" 	
+                     	echo "${space}${error863}">>$WorkDIR/logs/Pipeline_procedure.log;echo "${space}${error863}" >>$WorkDIR/logs/Pipeline_error.log
                         echo "update Admin.jobs set job_end_time = \"$dateTime863\" where job_id=\"$job_id\""|mysql -p$dbpass -u $mysqluser
-                        echo "update Genomes.xGDB_Log set $Result = \"KILLED\"  where ID=$Id"|mysql -p$dbpass -u $mysqluser
+                        echo "update Genomes.xGDB_Log set $Result = \"$job_status\"  where ID=$Id"|mysql -p$dbpass -u $mysqluser
                      fi ## END IF JOB-STOPPED
                      
                   fi ## 8.6 END If job_status = 'running' or 'archiving_finished' -- we either have output, or ran over time, or job stopped or failed. Go to 8.91
@@ -1259,7 +1260,7 @@ FirstPart() {
                   then
                      dateTime858=$(date +%Y-%m-%d\ %k:%M:%S)
                      error858="${space}ERROR: No Job ID was retrieved in 10 minutes - skipping Remote Compute:  - $dateTime858 (8.58)"
-                     echo "$error858">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error856a">>$WorkDIR/logs/Pipeline_error.log
+                     echo "$error858">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error858">>$WorkDIR/logs/Pipeline_error.log
                   else
                      dateTime859=$(date +%Y-%m-%d\ %k:%M:%S)
                      error857="${space}ERROR: job submit status blank or returned an error- $dateTime859 (8.59)"
