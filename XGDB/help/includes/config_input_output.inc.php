@@ -22,11 +22,10 @@
 					<th colspan="3"></th>
 					<th colspan="2">Protein Alignments</th>
 				</tr-->
-				
 					<tr>
 						<th align="center" rowspan="2">Input Data Type</th>
 						<th align="center" rowspan="2">Format</th>
-						<th align="center" rowspan="2">Input Data Filename(s) under <pre class="directory">/xGDBvm/input/<br />[myData]/</pre> <img id='config_input_dir' title='Input Directory. Click ? for details.' class='help-button nudge1' src='/XGDB/images/help-icon.png' alt='?' /></th>
+						<th align="center" rowspan="2">Input Data Filename(s) under <pre class="directory">/xGDBvm/input/xgdbvm/<br />[myData]/</pre> <img id='config_input_dir' title='Input Directory. Click ? for details.' class='help-button nudge1' src='/XGDB/images/help-icon.png' alt='?' /></th>
 						<th align="center" rowspan="2">Input For Process(es):</th>
 						<th align="center" colspan="6">Output Data Filename(s) under <pre class="directory">/xGDBvm/data/GDB&#35;/data/</pre></th>
 						<th align="center" rowspan="2" width="100px"><span class="nowrap white">Output Display</span> Locations</th>

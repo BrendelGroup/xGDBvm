@@ -19,9 +19,9 @@ $_SESSION['valid'] = $valid_post;
 	include('sitedef.php');
 	include($XGDB_HEADER);
 	$all_check="checked";
-	$inputDir=$XGDB_INPUTDIR; # 1-26-15 
-	$dataDir=$XGDB_DATADIR; # 1-26-15 
-	$archiveCopyDir=$XGDB_INPUTDIR_MOUNT; # 1-28-15 top level of symlinked DataStore mount, e.g. /xGDBvm/input/.
+	$inputDir=$XGDB_INPUTDIR; # 1-26-16
+	$dataDir=$XGDB_DATADIR; # 1-26-16 
+	$inputdir=$XGDB_INPUTDIR; # 1-28-16 top level of symlinked DataStore mount, e.g. /xGDBvm/input/. 
 	$ArchiveAll_Dir=$XGDB_ARCHALLDIR;
 	
 include_once(dirname(__FILE__).'/conf_functions.inc.php');
@@ -333,7 +333,7 @@ $display_block .= "<table class=\"featuretable bottommargin1 striped\" style=\"f
 
 						$Archive_Date_Display = ($Archive_Date!='' && is_file("/xGDBvm/data/ArchiveGDB/$Archive_File"))? '<br /><a href="/XGDB/phplib/download.php?GDB='.$DBid.'&amp;dir=Archive"><img alt="archive" title="/xGDBvm/data/ArchiveGDB/'.$Archive_File.'" src="/XGDB/images/archive.png" /></a>'.$Archive_Date :'';
 						$Restore_Date_Display = ($Restore_Date!='')? '<br /><img alt="restore" title="/xGDBvm/data/ArchiveGDB/'.$Restore_Source.'")" src="/XGDB/images/restored.png" />'.$Restore_Date :'';
- 						$Archive_All_Date_Display = ($Archive_All_Date!='')? '<br /><a href="/data/ArchiveAllGDB_'.$VM.'/data/'.$DBid.'/"><img alt="archive all" title="Archive All GDB" src="/XGDB/images/archive_all.png" /></a>'.$Archive_All_Date :'';
+ 						$Archive_All_Date_Display = ($Archive_All_Date!='')? '<br /><a href="/data/ArchiveAll/'.$DBid.'/"><img alt="archive all" title="Archive All GDB" src="/XGDB/images/archive_all.png" /></a>'.$Archive_All_Date :'';
 						$Restore_All_Date_Display = ($Restore_All_Date!='')? '<br /><img alt="restore all" title="Restore All GDB" src="/XGDB/images/restored_all.png" />'.$Restore_All_Date :'';
 
  						######## Show or hide Restore/ Delete buttons depending on data/Status (and always hide if Status=Locked) ############
@@ -346,8 +346,8 @@ $display_block .= "<table class=\"featuretable bottommargin1 striped\" style=\"f
  						$display_if_delete=($Archive_Date == '' || $Status == 'Locked')?"display_off":""; # There must be an ArchiveGDB present to delete
  						
  						######## Show or hide checkmark based on file time stamp ############
-
-						$display_if_copied=(is_file("${archiveCopyDir}/archive/$Archive_File"))?"checked":""; # show or hide checkmark depending on last access
+						# /xGDBvm/data/ArchiveGDB/GDB001-Example-4---CpGAT-Option-20160210-121814.tar
+						$display_if_copied=(is_file("${inputdir}/archive/$Archive_File"))?"checked":""; # show or hide checkmark depending on last access
 						
 						################# If DB already exists, get sequence count from EST, cDNA, GSEG, yrGATE tables########
 						

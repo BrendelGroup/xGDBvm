@@ -11,7 +11,7 @@
 			</ul> 
 		<p>In order to install license keys (iPlant VMs):</p>
 		<ul class="bullet1 indent2">
-				<li>Use the <a href="https://de.iplantcollaborative.org/de/">iPlant Discovery Environment tools</a> to upload license keys to your Data Store in the preconfigured directory <span class="plaintext">/xGDBvm/input/keys/</span></li>
+				<li>Use the <a href="https://de.iplantcollaborative.org/de/">iPlant Discovery Environment tools</a> to upload license keys to your Data Store in the preconfigured directory <span class="plaintext">/xGDBvm/input/xgdbvm/keys/</span></li>
 				<li>Navigate to the <a title="Data Volumes" href="/XGDB/conf/licenses.php">Licenses</a> page and click 'Install' to install a copy of each license on the VM</li>
 				<li>The license key copies on your iPlant Data Store can be used again in configuring future VMS as described in the previous step.</li>
 		</ul>

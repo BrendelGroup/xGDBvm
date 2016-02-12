@@ -19,7 +19,7 @@
 					<li>For mounting instructions see <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=user_instructions#mount_data_store_input">xGDBm Wiki:User Instructions:Mount Data Store</a> or <a href="/0README-iPlant"><span class="plaintext largerfont">/xGDBvm/0README-iPlant</span></a></li>
 				</ul>
 			</li>
-			<li>For GenomeThreader (protein) spliced alignments, the <b>GTH license key</b> must be present at <span class="plaintext largerfont">/xGDBvm/input/keys/</span>
+			<li>For GenomeThreader (protein) spliced alignments, the <b>GTH license key</b> must be present at <span class="plaintext largerfont">/xGDBvm/input/xgdbvm/keys/</span>
 				<ul class="bullet1 indent1">
 					<li>Navigate to <i>'Manage'</i> &rarr; <i>'Configure/Create'</i> &rarr; <i>'<a href="/XGDB/conf/licenses.php">License keys</a>'</i> for details</li>
 					<li>A temporary license may be available for testing purposes</li>

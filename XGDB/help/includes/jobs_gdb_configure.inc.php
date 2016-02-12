@@ -3,7 +3,7 @@
 		<h2 class="bottommargin1">GDB configuration for HPC Jobs</h2>
 <p> A <b>valid GDB configuration</b> is necessary for running Remote jobs either as <b>standalone</b> or as part of an xGDBvm <b>pipeline</b></p>
 			<ul class="bullet1" style="list-style-type:none">
-				<li><b>1</b>) Prepare your input files <a title="New GDB" href="/XGDB/conf/data.php">(appropriately named)</a> in a designated subdirectory under <span class="plaintext">/xGDBvm/input/</span> (i.e. your attached Data Store)</li>
+				<li><b>1</b>) Prepare your input files <a title="New GDB" href="/XGDB/conf/data.php">(appropriately named)</a> in a designated subdirectory under <span class="plaintext">/xGDBvm/input/xgdbvm/</span> (i.e. your attached Data Store)</li>
 				<li><b>2</b>) <a title="New GDB" href="/XGDB/conf/new.php">Create</a> or <a title="New GDB" href="/XGDB/conf/new.php">modify</a> a <b>GDB configuration</b> (e.g. <b>GDB001</b>) 
 					<ul class="bullet1">
 						<li> Select any non-default parameters for GSQ or GTH</li>

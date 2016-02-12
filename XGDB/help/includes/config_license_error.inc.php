@@ -4,7 +4,7 @@
 	<p>Input data files are placed in a designated <b>Input Data Directory</b></p>
 	<ul class="bullet1">
 		<li> First read carefully about <a title="Detailed file format and naming conventions (click ? to open new web page)" href="/XGDB/conf/data.php">filename conventions</a> for instruction on how to name files</li>
-		<li>Deposit your renamed data files in a directory under <span class="plaintext largerfont">/xGDBvm/input/</span>, e.g.  <span class="plaintext largerfont">/xGDBvm/input/myData/</span> </li>
+		<li>Deposit your renamed data files in a directory under <span class="plaintext largerfont">/xGDBvm/input/xgdbvm/</span>, e.g.  <span class="plaintext largerfont">/xGDBvm/input/xgdbvm/myData/</span> </li>
 		<li>
 			On the "Configure New" page, select your <b>Input Data Directory</b> from the dropdown under <b>Input Data</b>
 		</li>

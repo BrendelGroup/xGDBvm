@@ -9,8 +9,8 @@
 	<li>In response to  <b>'Do you really want to copy archive?'</b>, click <b>'Yes'</b>.</li>
 	<li>The GDB will be <span class="Locked">Locked</span> during copying. The process can take some time, but you can click the <i>Refresh</i> button to update status.</li>
 	<li>When completed, a <span class="checked"></span> Checkmark will indicate that the archive copy is current (based on file time stamp).</li>
-	<li>Archive copy is stored under the VM directory <span class="plaintext">/xGDBvm/input/archive/</span> </li>
-	<li>This maps to <span class="plaintext">/iplant/home/[username]/archive/</span> on your Data Store (if attached).</li>
+	<li>Archive copy is stored under the VM directory <span class="plaintext">/xGDBvm/input/xgdbvm/archive/</span> </li>
+	<li>This maps to <span class="plaintext">/iplant/home/[username]/xgdbvm/archive/</span> on your Data Store (if attached).</li>
 	<li>The GDB's Pipeline Procedure log and ArchiveGDB log will be updated.</li>
 </ul>
 <p>PLEASE NOTE:</p>

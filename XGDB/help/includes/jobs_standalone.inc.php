@@ -13,7 +13,7 @@
                     <li><b>3.</b> Create a 'New GDB' configuration under xGDBvm's 'Manage' &rarr; 'Config/Create' &rarr; <a href="/XGDB/conf/new.php">Create New GDB</a>, or edit an <a href="/XGDB/conf/viewall.php">existing GDB</a> (Status='Development'). Fill out all required information including a path to your input data:
 	                	<ul class="bullet1 indent2">
 	                	    <li><span class="warning">NOTE: you MUST configure a GDB in order to use the <a href="/XGDB/jobs/submit.agave.php">Submit Jobs</a> (standalone) page in xGDBvm</span></li>
-                            <li>The <b>input data directory</b> should be under your iPlant DataStore home directory (mounted under <span class="plaintext">/xGDBvm/input/</span>)</li>
+                            <li>The <b>input data directory</b> should be under your iPlant DataStore home/xgdbvm/ directory, accessible on the VM as <span class="plaintext">/xGDBvm/input/xgdbvm/MyInputs/</span>)</li>
 						   <li> Make sure your input data files are <a href="/XGDB/conf/data.php">properly named</a> and <span class="checked">valid</span> <img class="nudge3" alt="i" src="/XGDB/images/information_green.png" /> on the Configuration page</li>
 	  					    <li>You do NOT need to select the <i>Remote</i> option under GeneSeqer or GenomeThreader, since you are not running the pipeline at this time.</li>
                         </ul>

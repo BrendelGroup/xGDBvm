@@ -1,7 +1,7 @@
 
 <div class="dialogcontainer">
 	<h2>Input and Output Volumes</h2>
-	    <p>On xGDBvm, you deposit <b>Input</b> files under <span class="plaintext">/xGDBvm/input/</span>, and <b>Output</b> data appear under <span class="plaintext">/xGDBvm/data/</span>. </p>
+	    <p>On xGDBvm, you deposit <b>Input</b> files under <span class="plaintext">/xGDBvm/input/xgdbvm/</span>, and <b>Output</b> data appear under <span class="plaintext">/xGDBvm/data/</span>. </p>
 	    <p>On xGDBvm-<b>iPlant</b>, these paths are actually <b>mounted</b> to your iPlant <b>Data Store</b> and to an Atmosphere <b>block storage volume</b>, respectively, during the VM configuration process.</p>
 	    <p><b>Mount status</b> is indicated on Configuration and Jobs pages: <span class="checked_mount">Mounted</span> or <span class="warning">Not Mounted</span>. Mount status can also be confirmed by checking under <a href="/XGDB/conf/volumes.php">Data Volumes</a>.
  </p>

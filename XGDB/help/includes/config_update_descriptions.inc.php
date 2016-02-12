@@ -16,7 +16,7 @@
 <h3>2) Upload your Description file:</h3>
 
 	<ol class="bullet1">
-	<li>Place the file in an Update directory under <span class="plaintext">/xGDBvm/input/</span> (ideally, NOT the same as your Input data directory).</li>
+	<li>Place the file in an Update directory under <span class="plaintext">/xGDBvm/input/xgdbvm/</span> (ideally, NOT the same as your Input data directory).</li>
 	<li>Click 'Edit Configuration' on your GDB's configuration page</li>
 	<li>Under the 'Update Data' heading, click 'Yes' for 'Update this GDB?' and enter the Update Data Path</li>
 	<li>Under 'Add Descriptions' select either <b>Precomputed</b> or <b>CpGAT</b> annotations</li>
