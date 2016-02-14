@@ -531,14 +531,7 @@ while ($row = mysql_fetch_assoc($records)) {
     
     "
     :
-    "    <form method=\"post\" action=\"copy_exec.php\">
-    <input type=\"hidden\" value=\"copy\" name=\"action\">
-    <input type=\"hidden\" value=\"$valid_post\" name=\"valid\">
-    <input type=\"hidden\" value=\"jobs\" name=\"return\">
-    <input type=\"hidden\" value=\"$job_id\" name=\"job\">
-    <span class=\"\"><input title=\"Copy from archive to input directory as: \n $Input_Data_Path/$copied_filename\" style=\"color:green\" id=\"copy\" type=\"submit\" value=\" COPY  \" name=\"copy\" onclick=\"return confirm('Copy output data to your current Input directory?')\"></span>
-    </form> 
-    ";
+    "";
     // RELOAD PAGE Show 'Reload' button if job is not completed (user doesn't need to be logged in, data are updated automatically from server)
     $reload_page= ($process_complete_time =="" && $status !="FAILED" ) ?   //output complete.
     "
