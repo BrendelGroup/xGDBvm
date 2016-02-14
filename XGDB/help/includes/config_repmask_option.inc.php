@@ -6,7 +6,7 @@
 	
 		<ul class="bullet1 indent2">
 			<li>You will need to designate a <b>Repeat Library</b>, a fasta (~.fa) file containing a repeat masking dataset</li>
-			<li>The <b>Repeat Library</b> is placed in a standard directory: <span class="plaintext">/xGDBvm/input/repeatmask/</span> (which for iPlant users is Data Store home: <span class="plaintext">/home/username/repeatmask/</span>.</li>
+			<li>The <b>Repeat Library</b> is placed in a standard directory: <span class="plaintext">/xGDBvm/input/xgdbvm/repeatmask/</span> (which for iPlant users is Data Store home: <span class="plaintext">/home/[username]/xgdbvm/repeatmask/</span>.</li> 
 			<li> Masked bases are replaced with "N" in the output genome file.</li>
 			<li> After the pipeline is completed, the repeat masked regions will be displayed as a separate track (orange for repeat masked regions) in the genome browser.</li>
 			<li> The repeat-masked genome (<span class="plaintext">GDB001gdna.rm.fa</span>), masked regions (<span class="plaintext">GDB001mask.fa</span>), and the masking library will be indexed for BLAST and available for download, along with other output data</li>

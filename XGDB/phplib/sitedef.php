@@ -25,7 +25,7 @@ $XGDB_INPUTDIR	     = "${INPUT_LINK_PATH}${INPUT_TOPDIR}";   #  e.g. /xGDBvm/inp
 $XGDB_CGIDIR         = "${MAIN_DIR_PATH}XGDB/cgi-bin/";       #conf-UNIQ#
 $XGDB_TMPDIR         = "${XGDB_DATADIR}tmp/";
 $XGDB_ARCHDIR        = "${XGDB_DATADIR}ArchiveGDB/";
-$XGDB_ARCHALLDIR     = "${XGDB_DATADIR}ArchiveAllGDB/";
+$XGDB_ARCHALLDIR     = "${XGDB_DATADIR}ArchiveAll/";           # 2-9-16 corrected
 
 # Web URLs
 $SERVER              = $_SERVER['HTTP_HOST'];                 #conf#

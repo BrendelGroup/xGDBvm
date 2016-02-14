@@ -7,7 +7,7 @@
             <li>Configure your xGDBvm as needed for <a title="License Key Status" href="/XGDB/conf/licenses.php">license keys</a>, <a title="Data Volumes" href="/XGDB/conf/volumes.php">externally mounted volumes</a>, and  <a title="Remote Computing: Getting Started" href="/XGDB/jobs/index.php">remote HPC jobs</a></li>
             <li>Choose <a title="Input data requirements" href="/XGDB/conf/sources.php">Data Sources</a> appropriate for your genome annotation.</li>
             <li>Reformat data according to <a title="Input data requirements" href="/XGDB/conf/data.php">Input Data Requirements</a></li>
-            <li>Place correctly-named data files in a directory under <span class="plaintext normalfont">/xGDBvm/input/</span></li>
+            <li>Place correctly-named data files in a directory under <span class="plaintext normalfont">/xGDBvm/input/xgdbvm/</span></li>
             <li>Enter <a title="configure new GDB" href="/XGDB/conf/new.php" >GDB configuration</a> parameters for data processing.</li>
             <li>Initiate the data processing pipeline and monitor progress.</li>
             <li>When complete, your new GDB will be viewable as a  <a title="configure new GDB" href="/XGDB/index.php" >Current Genome Browser</a> under the <i>View</i> menu.</li>

@@ -4,7 +4,7 @@
 		<p>Use of the <a title="Data Volumes" href="http://www.genomthreader.org/">GenomeThreader</a> program requires an end user license in the form of a 'key' file, easily obtainable from the developer. </p>
 		
 		<ul class="bullet1 indent2">
-			<li>The key file must in a standard location under: <span class="plaintext">/xGDBvm/input/keys/</span> (equivalent to<span class="plaintext">/user/keys/</span> on your iPlant Data Store, if mounted)</li>
+			<li>The key file must in a standard location under: <span class="plaintext">/xGDBvm/input/xgdbvm/keys/</span> (equivalent to<span class="plaintext">/user/keys/</span> on your iPlant Data Store, if mounted)</li>
 			<li>xGDBvm will retrieve your license key file at the time a remote job is run and submit it along with other job inputs. </li>
 			<li>If not present in the specified directory , a <span lass="warning">warning flag </span> will be visible and you will not be able to submit a GTH TACC job</li>
 		</ul>
