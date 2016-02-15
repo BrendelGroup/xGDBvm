@@ -4,7 +4,7 @@ while true; do
     case $yn in
            [Yy]* )
 	   cd /xGDBvm
-           sudo git pull origin master;
+           sudo git pull origin upstream;
             echo ""
               echo "The code has been updated from the github repository."
             echo ""
