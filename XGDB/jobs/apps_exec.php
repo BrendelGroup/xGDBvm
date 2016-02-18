@@ -6,9 +6,9 @@ $dbpass=dbpass();
 $db = mysql_connect("localhost", "gdbuser", $dbpass);
 $error="";
 if(!$db){
-	echo "Error: Could not connect to mysql!";
-	exit;
-	}
+    echo "Error: Could not connect to mysql!";
+    exit;
+    }
 $global_DB= 'Admin';
 mysql_select_db('$global_DB');
 
@@ -75,10 +75,11 @@ if
     if($insert) # 2-17-16 added this loop which will always retrieve the latest uid (for highlighting) even if records were previously deleted.
     {
         $max_query="SELECT MAX(uid) as max_uid from ${global_DB}.apps";
-    	$get_max = mysql_query($max_query);
-		while($row = mysql_fetch_assoc($get_max)){
-			$max_uid=$row['max_uid'];
-		}
+        $get_max = mysql_query($max_query);
+        while($row = mysql_fetch_assoc($get_max))
+        {
+            $max_uid=$row['max_uid'];
+        }
         header("location:apps.php#${max_uid}");
     }
     else
