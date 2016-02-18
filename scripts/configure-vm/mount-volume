@@ -52,7 +52,7 @@ while true; do
               echo "Disk/Filesystem status"
               df -kh
               echo ""
-              echo "NOTE: You MUST run 'configure-vm' if you are mounting this volume for the first time"
+              echo "NOTE: Please run 'configure-vm' before proceeding to use this VM, to make sure the mounted volume is correctly configured"
               echo ""
            else
               echo "The volume could not be mounted to device $devloc"
