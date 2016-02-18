@@ -91,3 +91,16 @@ advised commands one by one.
 It is rather helpful to go through the steps in this way rather than have even
 more automated setup, as this way educates or reminds the user of the data sets,
 conventions, and software being used.
+
+### Task 3: Getting our sample data
+
+```
+xgetseq
+```
+
+
+### Task 4: Setting up the VcarTEST genome data base (GDB)
+
+```
+xsetup
+```
