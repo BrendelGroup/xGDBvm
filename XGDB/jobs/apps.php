@@ -7,39 +7,39 @@ $valid_post = mt_rand();
 $_SESSION['valid'] = $valid_post;
 
 
-	$global_DB1= 'Admin';
-	$PageTitle = 'Configure Apps';
-	$pgdbmenu = 'Manage';
-	$submenu1 = 'Jobs-Home';
-	$submenu2 = 'ConfigApps';
-	$leftmenu='ConfigApps';
-	include('sitedef.php');
+    $global_DB1= 'Admin';
+    $PageTitle = 'Configure Apps';
+    $pgdbmenu = 'Manage';
+    $submenu1 = 'Jobs-Home';
+    $submenu2 = 'ConfigApps';
+    $leftmenu='ConfigApps';
+    include('sitedef.php');
     $Create_Date = date("m-d-Y");
- 	include_once('/xGDBvm/XGDB/phplib/db.inc.php'); #reads MySQL password from /xGDBvm/admin/dbpass
- 	include_once('/xGDBvm/XGDB/jobs/jobs_functions.inc.php'); #common functions required in this script
+    include_once('/xGDBvm/XGDB/phplib/db.inc.php'); #reads MySQL password from /xGDBvm/admin/dbpass
+    include_once('/xGDBvm/XGDB/jobs/jobs_functions.inc.php'); #common functions required in this script
 
-	$all_check="checked";
-	include('sitedef.php');
-	include($XGDB_HEADER);
- 	include_once('/xGDBvm/XGDB/phplib/db.inc.php'); #reads MySQL password from /xGDBvm/admin/dbpass
-	$dbpass=dbpass();
-	$db = mysql_connect("localhost", "gdbuser", $dbpass);
-	if(!$db)
-	{
-		echo "Error: Could not connect to database!";
-		exit;
-	}
-	mysql_select_db("$global_DB1");
+    $all_check="checked";
+    include('sitedef.php');
+    include($XGDB_HEADER);
+    include_once('/xGDBvm/XGDB/phplib/db.inc.php'); #reads MySQL password from /xGDBvm/admin/dbpass
+    $dbpass=dbpass();
+    $db = mysql_connect("localhost", "gdbuser", $dbpass);
+    if(!$db)
+    {
+        echo "Error: Could not connect to database!";
+        exit;
+    }
+    mysql_select_db("$global_DB1");
 
 ### Set default display by assigning css class to show/hide respective td elements
-	$add_app_class = 'display_off';
-	$edit_app_class = 'display_off'; //default - don't show edit data features when page loads
-	$view = 'display_on_block'; //defaults - do show view data features when page loads
-	$cancel = 'display_off'; // default - don't show cancel button when page loads
-	$viewedit = '';
-	$group_dropdown="";
-	$selected_group="";
-	
+    $add_app_class = 'display_off';
+    $edit_app_class = 'display_off'; //default - don't show edit data features when page loads
+    $view = 'display_on_block'; //defaults - do show view data features when page loads
+    $cancel = 'display_off'; // default - don't show cancel button when page loads
+    $viewedit = '';
+    $group_dropdown="";
+    $selected_group="";
+    
 
 ### Modify display based on post values: the following variables set a td css class corresponding to either display:block or display:hidden
 
@@ -47,22 +47,22 @@ $post_mode=isset($_POST['mode'])?$_POST['mode']:"";
 
 if($post_mode == 'Cancel' || $post_mode == 'View'  ){ // Enter View mode (Default).
 
-	$edit_app_class = 'display_off';
-	$add_app_class = 'display_off';
-	$view = 'display_on_block';
-	$cancel = 'display_off';
-	$viewedit = '';
+    $edit_app_class = 'display_off';
+    $add_app_class = 'display_off';
+    $view = 'display_on_block';
+    $cancel = 'display_off';
+    $viewedit = '';
 
-	}
+    }
 $post_mode=isset($_POST['mode'])?$_POST['mode']:"";
 
 if($post_mode == 'AddApp'){ // Enter new group mode.
-	$add_app_class = '';
-	$edit_app_class = 'display_off';
-	$view = 'display_off';
-	$cancel = 'display_on';
-	$viewedit = 'display_off';
-	}
+    $add_app_class = '';
+    $edit_app_class = 'display_off';
+    $view = 'display_off';
+    $cancel = 'display_on';
+    $viewedit = 'display_off';
+    }
 
 
 $apps_list=list_apps(); //jobs_functions.inc.php; lists exising apps as reference
@@ -71,23 +71,52 @@ $display_block ="
 <h2 class=\"$add_app_class  bottommargin1\">
     Add New App
 </h2>
+
+<div class=\"description showhide \"><p title=\"Show additional information directly below this link\" class=\"label\" style=\"cursor:pointer\"> Click to show instructions...</p>
+   <div class=\" hidden\">
+    <div class=\"feature\">
+			<p class=\"bold\">
+			Although your App ID's are updated by default during VM configuration, you may want to update or add to them using this tool.
+			</p>
+            <ul class=\"bullet1 indent2\">
+                <li>To check on latest the App ID's for xGDBvm, search the <a target=\"_blank\" title=\"DE Apps\" href=\"https://de.iplantcollaborative.org/de\">Apps list in CyVerse Discovery Environment</a> </li>
+                <li>
+                    To <b>Add a new App ID</b>, click '<i>Add New App</i>' and fill out the form.
+                </li>
+				<li><span class=\"alertnotice\">NOTE: The App ID must be spelled EXACTLY as specified in the App listing. App ID and some other fields are required<span class=\"required\"></span>; others are optional.
+				</li>
+                <li>If you select 'Yes' for 'Make Default'?, the App ID will be the one used for a pipeline HPC job.
+                </li>
+                <li>Click 'Insert' to insert the new App ID in the list, or 'Cancel' to cancel.
+                </li>
+                <li>
+                    You can designate any App ID as 'default' for that App type by clicking 'D' under'Make Default'. The App will then be listed as (default) for that app type.
+                </li>
+                <li>
+                    You can <b>Remove</b> an app (but not a Default App) by clicking the 'X' under 'Remove from List'.
+                </li>
+            </ul>
+    </div>
+</div>
+
+
 <table style=\"font-size:12px\" width=\"100%\">
 <tbody>
-	<tr>
-		<td align=\"left\" valign=\"bottom\">
-			<form method=\"post\" action=\"/XGDB/jobs/apps.php\" name=\"add_app_on\" class=\"styled\">
-				<input id=\"creategrp\" class=\"submit $view\" type=\"submit\" name=\"add_new_app\" value=\"Add New App...\" />
-				<input type=\"hidden\" name=\"mode\" value=\"AddApp\" />
-			</form>
-		</td>
-		<td width=\"20%\" align = \"right\">
-			<form method=\"post\" action=\"/XGDB/jobs/apps.php\" name=\"view_status_on\" class=\"styled\">
-				<input id=\"cancel\" class=\"$cancel submit\" type=\"submit\" value=\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\" />
-				<input type=\"hidden\" name=\"mode\" value=\"Cancel\" />
-			</form>
-		</td>
-	</tr>
-	</tbody>
+    <tr>
+        <td align=\"left\" valign=\"bottom\">
+            <form method=\"post\" action=\"/XGDB/jobs/apps.php\" name=\"add_app_on\" class=\"styled\">
+                <input id=\"creategrp\" class=\"submit $view\" type=\"submit\" name=\"add_new_app\" value=\"Add New App...\" />
+                <input type=\"hidden\" name=\"mode\" value=\"AddApp\" />
+            </form>
+        </td>
+        <td width=\"20%\" align = \"right\">
+            <form method=\"post\" action=\"/XGDB/jobs/apps.php\" name=\"view_status_on\" class=\"styled\">
+                <input id=\"cancel\" class=\"$cancel submit\" type=\"submit\" value=\"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cancel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\" />
+                <input type=\"hidden\" name=\"mode\" value=\"Cancel\" />
+            </form>
+        </td>
+    </tr>
+    </tbody>
 </table>
 
 ";
@@ -97,29 +126,29 @@ $display_block .= "
 
 
 <table class=\"featuretable bottommargin1 topmargin1\" style=\"font-size:12px\" cellpadding=\"6\">
-		<thead align=\"center\">
-						<tr class=\"$viewedit\">
-							<th class=\"reverse_1\">App ID</th>
-							<th class=\"reverse_1\">Program</th>
-							<th class=\"reverse_1\">Vers</th>
-							<th class=\"reverse_1\">Platform</th>
-							<th class=\"reverse_1\">Nodes</th>
-							<th class=\"reverse_1\">Proc Per Node</th>
-							<th class=\"reverse_1\">Cores</th>
-							<th class=\"reverse_1\">Date Added</th>
-							<th class=\"reverse_1\">Description</th>
-							<th class=\"reverse_1\">Developer</th>
-							<th class=\"reverse_1\">Max (h) </th>
-							<th class=\"reverse_1\">Make Default</th>
-							<th class=\"reverse_1\">Remove From List</th>
-						</tr>
-		
-		</thead>
-		<tbody>
+        <thead align=\"center\">
+                        <tr class=\"$viewedit\">
+                            <th class=\"reverse_1\">App ID</th>
+                            <th class=\"reverse_1\">Program</th>
+                            <th class=\"reverse_1\">Vers</th>
+                            <th class=\"reverse_1\">Platform</th>
+                            <th class=\"reverse_1\">Nodes</th>
+                            <th class=\"reverse_1\">Proc Per Node</th>
+                            <th class=\"reverse_1\">Cores</th>
+                            <th class=\"reverse_1\">Date Added</th>
+                            <th class=\"reverse_1\">Description</th>
+                            <th class=\"reverse_1\">Developer</th>
+                            <th class=\"reverse_1\">Max (h) </th>
+                            <th class=\"reverse_1\">Make Default</th>
+                            <th class=\"reverse_1\">Remove From List</th>
+                        </tr>
+        
+        </thead>
+        <tbody>
 ";
-		
-		
-		## Default Query
+        
+        
+        ## Default Query
 
 $query="SELECT * from ${global_DB1}.apps ORDER BY program, nodes  ASC ";
 $get_records = mysql_query($query);
@@ -177,49 +206,49 @@ $default_class=($is_default =="Y")? "highlight":"";
 
 ######### ''Edit User Accounts' data fields ########
 
- 			$display_block .=
- 				"<tr id=\"$uid\" align=\"right\" class=\"$viewedit $default_class\">
-					<td align=\"left\" >
-						<span class=\"nowrap\">$app_id</span>
-					</td>
-					<td align=\"center\" class=\"bold\">
-						$program
-					</td>
-					<td align=\"left\">
-						$version
+            $display_block .=
+                "<tr id=\"$uid\" align=\"right\" class=\"$viewedit $default_class\">
+                    <td align=\"left\" >
+                        <span class=\"nowrap\">$app_id</span>
+                    </td>
+                    <td align=\"center\" class=\"bold\">
+                        $program
+                    </td>
+                    <td align=\"left\">
+                        $version
 
-					<td align=\"left\">
-						$platform						
-					</td>
-					<td align=\"center\">
-						$nodes
-					</td>		
-					<td align=\"center\">
-						$proc_per_node
-					</td>		
-					<td align=\"center\" class=\"bold\">
-						$cores
-					</td>		
-					<td align=\"center\">
-						$date_added
-					</td>		
-					<td align=\"center\">
-						$description
-					</td>		
-					<td align=\"center\">
-						$developer
-					</td>		
-					<td align=\"center\">
-						$max_job_time
-					</td>		
-					<td align=\"center\">
-						$is_default_display
+                    <td align=\"left\">
+                        $platform                       
+                    </td>
+                    <td align=\"center\">
+                        $nodes
+                    </td>       
+                    <td align=\"center\">
+                        $proc_per_node
+                    </td>       
+                    <td align=\"center\" class=\"bold\">
+                        $cores
+                    </td>       
+                    <td align=\"center\">
+                        $date_added
+                    </td>       
+                    <td align=\"center\">
+                        $description
+                    </td>       
+                    <td align=\"center\">
+                        $developer
+                    </td>       
+                    <td align=\"center\">
+                        $max_job_time
+                    </td>       
+                    <td align=\"center\">
+                        $is_default_display
                         $make_default
                     </td>
                     <td align = \"center\" style=\"width:250px\">
                     $remove_app
                     </td>
-			</tr>";
+            </tr>";
 $i=$i+1;
 
 }
@@ -236,6 +265,7 @@ $max_uid=$row['max_uid'];
 $display_block .=
 "
 
+
 <tr class=\"$add_app_class\">
 <td>
 <form method=\"post\" action=\"/XGDB/jobs/apps_exec.php\" class=\"styled\">
@@ -243,10 +273,10 @@ $display_block .=
 <ul class=\"nobullet  indent1\">
             <li>
                  <label class=\"required\" for=\"App ID\">App ID: </label>
-                    <input class=\"form_class1\" style=\"text-align:left\" type=\"text\" name=\"app_id\" size=\"30\"  />
+                    <input class=\"form_class1\" style=\"text-align:left\" type=\"text\" name=\"app_id\" size=\"40\"  />
             </li>
             <li>
-                <label for=\"program\">Program Name: </label>
+                <label class=\"required\" for=\"program\">Program Name: </label>
                <select class=\"form_class1\" name=\"program\">
                     <option value=\"GeneSeqer-MPI\">GeneSeqer-MPI</option>
                     <option value=\"GenomeThreader\">GenomeThreader</option>
@@ -255,30 +285,30 @@ $display_block .=
                 <label for=\"version\">Program Version: </label>
                     <input class=\"form_class1\"  style=\"text-align:left\" type=\"text\" name=\"version\" size=\"2\" />
             <li>
-                <label for=\"platform\">HPC Platform: </label>
+                <label class=\"required\" for=\"platform\">HPC Platform: </label>
                <select class=\"form_class1\" name=\"platform\">
                     <option value=\"Stampede\">Stampede</option>
                     <option value=\"Lonestar\">Lonestar</option>
                 </select>
             </li>
             <li>
-                 <label for=\"nodes\">Nodes Used: </label>
+                 <label class=\"required\" for=\"nodes\">Nodes Used: </label>
                     <input class=\"form_class1\"  style=\"text-align:left\" type=\"text\" name=\"nodes\" size=\"4\" />
             </li>
             <li>
-                 <label for=\"proc_per_node\">Processors Per Node: </label>
+                 <label class=\"required\" for=\"proc_per_node\">Processors Per Node: </label>
                     <input class=\"form_class1\"  style=\"text-align:left\" type=\"text\" name=\"proc_per_node\" size=\"4\"  />
             </li>
             <li>
                  <label for=\"description\">Description: </label>
-                    <input class=\"form_class1\"  style=\"text-align:left\" type=\"text\" name=\"description\" size=\"35\" />
+                    <input class=\"form_class1\"  style=\"text-align:left\" type=\"text\" name=\"description\" size=\"40\" />
             </li>
             <li>
                  <label for=\"developer\">Developer: </label>
                     <input class=\"form_class1\"  style=\"text-align:left\" type=\"text\" name=\"developer\" size=\"12\"  />
             </li>
             <li>
-                 <label for=\"max_job_time\">Max Job Time (h): </label>
+                 <label class=\"required\" for=\"max_job_time\">Max Job Time (h): </label>
                 <select class=\"form_class1\" name=\"max_job_time\">
                     <option selected =\"selected\" value=\"12:00:00\">12</option>
                     <option value=\"06:00:00\">6</option>
@@ -287,7 +317,7 @@ $display_block .=
                 </select>
             </li>
             <li>
-                 <label for=\"is_default\">Default?: </label>
+                 <label class=\"required\" for=\"is_default\">Default?: </label>
                 <select class=\"form_class1\" name=\"is_default\">
                     <option selected =\"selected\" value=\"No\">No</option>
                     <option value=\"Y\">Yes</option>
@@ -303,44 +333,44 @@ $display_block .=
     </td>
 </tr>
 <tr class=\"$add_app_class\">
-	<td><span class=\"normalfont bold\">Current Apps:</span><br /><br />
-		<ul class=\"nobullet indent1 bottommargin1\">
-			$apps_list
-		</ul>
-	</td>
+    <td><span class=\"normalfont bold\">Current Apps:</span><br /><br />
+        <ul class=\"nobullet indent1 bottommargin1\">
+            $apps_list
+        </ul>
+    </td>
 </tr>
 ";
 //| uid | app_id| program   | version | platform | nodes | proc_per_node | date_added          | description | developer | is_default | max_job_time |
 
 $display_block .= "
-		</tbody>
-	</table>
+        </tbody>
+    </table>
 
 ";
 
 ?>
-	<div id="leftcolumncontainer">
-		<div class="minicolumnleft">
-			<?php include_once("/xGDBvm/XGDB/jobs/leftmenu.inc.php"); ?>
-		</div>
-	</div>
-	<div id="maincontentscontainer" class="twocolumn overflow configure">
-			<div id="maincontentsfull" class="configure">
-			
-			<h1 class="admin bottommargin1"><img src="/XGDB/images/user.png" alt="" /> Configure HPC Apps <img id='jobs_configure_apps' title='Search Help' class='help-button' src='/XGDB/images/help-icon.png' alt='?' /> </h1>
+    <div id="leftcolumncontainer">
+        <div class="minicolumnleft">
+            <?php include_once("/xGDBvm/XGDB/jobs/leftmenu.inc.php"); ?>
+        </div>
+    </div>
+    <div id="maincontentscontainer" class="twocolumn overflow configure">
+            <div id="maincontentsfull" class="configure">
+            
+            <h1 class="admin bottommargin1"><img src="/XGDB/images/user.png" alt="" /> Configure HPC Apps <img id='jobs_configure_apps' title='Search Help' class='help-button' src='/XGDB/images/help-icon.png' alt='?' /> </h1>
             <p>Apps in this list appear in a dropdown menu for <a href="/XGDB/jobs/submit.php">standalone job</a> submission, allowing you to select the appropriate number of cores for your genome (see <a href="/XGDB/jobs/resources.php">Resources</a>). Default app (<span class="highlight"> highlighted </span>) is used when a <a href="/XGDB/jobs/submit_pipeline.php">pipeline job</a> is run (to change default, click 'D'). </p>
             
             <p>You can check the latest App versions for xGDBvm <a title="open xGDBvm wiki" href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=hpc&amp;#current_app_ids">here</a></p>
 
 <?php 
-	echo $display_block;
+    echo $display_block;
 ?>
 
-	  </div>
-					</div><!--end maincontentsfull-->
-				</div><!--end maincontentscontainer-->
-				<?php include($XGDB_FOOTER); ?>
-			</div><!--end innercontainer-->
-		</div><!--end outercontainer-->
-	</body>
+      </div>
+                    </div><!--end maincontentsfull-->
+                </div><!--end maincontentscontainer-->
+                <?php include($XGDB_FOOTER); ?>
+            </div><!--end innercontainer-->
+        </div><!--end outercontainer-->
+    </body>
 </html>

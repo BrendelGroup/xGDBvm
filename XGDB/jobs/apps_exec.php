@@ -6,9 +6,9 @@ $dbpass=dbpass();
 $db = mysql_connect("localhost", "gdbuser", $dbpass);
 $error="";
 if(!$db){
-	echo "Error: Could not connect to mysql!";
-	exit;
-	}
+    echo "Error: Could not connect to mysql!";
+    exit;
+    }
 $global_DB= 'Admin';
 mysql_select_db('$global_DB');
 
@@ -71,9 +71,16 @@ if
     }
     $add_app="INSERT INTO $global_DB.apps (app_id, program, platform, nodes, proc_per_node, date_added, description, developer, is_default, max_job_time) values ('$app_id', '$program', '$platform', $nodes, $proc_per_node, now(), '$description', '$developer', '$is_default', '$max_job_time')"; // ADMIN hard-coded on purpose
     $insert=mysql_query($add_app);
-    if($insert)
+    
+    if($insert) # 2-17-16 added this loop which will always retrieve the latest uid (for highlighting) even if records were previously deleted.
     {
-        header("location:apps.php#${next_uid}");
+        $max_query="SELECT MAX(uid) as max_uid from ${global_DB}.apps";
+        $get_max = mysql_query($max_query);
+        while($row = mysql_fetch_assoc($get_max))
+        {
+            $max_uid=$row['max_uid'];
+        }
+        header("location:apps.php#${max_uid}");
     }
     else
     {

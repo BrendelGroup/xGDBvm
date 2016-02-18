@@ -21,7 +21,7 @@
 FirstPart() {
    
    ################################################################################################################
-   # Step 1. Set up GDB directories under /xGDBvm/data/GDBnnn and /xGDBvm/data/scratch/GDBnnn and copy templates          #
+   # Step 1. Set up GDB directories under /xGDBvm/data/GDBnnn and /xGDBvm/data/scratch/GDBnnn and copy templates  #
    ################################################################################################################
    
    dateTime100=$(date +%Y-%m-%d\ %k:%M:%S)
@@ -1278,7 +1278,7 @@ FirstPart() {
             fi  ##  8.3 END If user is authenticated (Either remote data was processed, or an error exists. In any case, move on to end of REMOTE option)
             
    ############# End of job_status Polling and Logging - either we have output data or we don't ##################
-            
+
             # 8.91 FINALLY, remove the temporary directory since we've (hopefully) already copied its contents to destination files
             dateTime891=$(date +%Y-%m-%d\ %k:%M:%S)
             if [ -d $RemoteDIR ]
@@ -1335,10 +1335,13 @@ FirstPart() {
         if [ "$trn_count" -gt 0 ] # IF input data exists for this type
         then 
            dateTime895=$(date +%Y-%m-%d\ %k:%M:%S)
-           if [ -s $hpc_OUT_path ] # Transcript output (MUST be a single file) exists for this job
+           
+           OUT_path=$tmpWorkDIR/data/${PRG}/${PRG}OUT/${xGDB}${trn}.${prg}  # same for HPC or local.  UPDATED 2-17-16, was using hpc_OUT_path, not consistently defined.
+           
+           if [ -s $OUT_path ] # Transcript or protein spliced aligmnent output (MUST be a single file) exists for this job (HPC or local).
            then
-               count895=$(grep -c "MATCH" $hpc_OUT_path)
-               msg895=" ${tRN} spliced alignments completed and sent to ${PRG} output directory $hpc_OUT_path "
+               count895=$(grep -c "MATCH" $OUT_path)
+               msg895=" ${tRN} spliced alignments completed and sent to ${PRG} output directory $OUT_path "
                echo "$space$count895$msg895$dateTime895 (8.95)">>$WorkDIR/logs/Pipeline_procedure.log
             else
                error895="ERROR: $PRG ${tRN} spliced alignment output is empty or missing $dateTime895 (8.95) "

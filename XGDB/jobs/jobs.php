@@ -710,21 +710,28 @@ $display_block .= "
 <!-- ?php echo "Session Query:".$sessionQuery;
 ?-->
 <div class="description showhide "><p title="Show additional information directly below this link" class="label" style="cursor:pointer"> Click to show instructions...</p>
-   <div class=" hidden">";
+   <div class=" hidden">
     <div class="feature">
-			<ul class="bullet1">
-			    <li>
-                    To show current job status, click '<i>Update Status</i>' in a table cell (<span class="alertnotice">NOTE: You must be logged in)</span>. 
-<a target="_blank" title="Jobs troubleshooting" href="/XGDB/help/remote_jobs.php#status" class="xgdb_button colorR8 largerfont">&nbsp; <?php echo $status_message ?> &nbsp;</a> </li>
-                <li>Job errors/timeout may be the result of <b> HPC server outage</b>; Check <a title="Visit XSEDE User Services newsfeed" href="https://www.xsede.org/news/-/news/search?_usernews_WAR_usernewsportlet_categories=80&_usernews_WAR_usernewsportlet_types=OUTAGE">GSQ (Stampede)</a>; <a target="_blank" title="Visit XSEDE User Services newsfeed" href="https://www.xsede.org/news/-/news/search?_usernews_WAR_usernewsportlet_categories=32&_usernews_WAR_usernewsportlet_keywords=&_usernews_WAR_usernewsportlet_types=OUTAGE">GTH (Lonestar)</a> server status.
-                </li>
-                <li>
-                    To <b>terminate</b> (stop) a job on the remote server, go to <a href="/XGDB/jobs/manage.php">Manage Jobs</a> or use the <a target="_new" href="https://foundation.iplantcollaborative.org/iplant-test/">Foundation API </a> &nbsp; (login required) where you can also delete or troubleshoot job results.
-                </li>
-                <li>
-                    You can <b>Remove</b> job records from this table using the checkboxes in column 1 (this action does not affect job status on remote HPC).
-                </li>
-			</ul>
+			    <p>JOB STATUS, along with other information including elapsed time, is shown for each submitted job in the queue.  Note: you can also check job status and perform other management tasks under 'Manage Jobs'.
+			    </p>
+			    <p>
+			    <a target="_blank" title="Jobs troubleshooting" href="/XGDB/help/remote_jobs.php#status" class="xgdb_button colorR8 largerfont">&nbsp; <?php echo $status_message ?> &nbsp;</a>
+			    </p>
+			    <p>To see more details of a job's history, hover your pointer over the job's STATUS text. Click the STATUS text for an explanation of that status.</p>
+
+                <p>Depending on current job status, buttons may be available for various actions in the Action/Results column (<span class="alertnotice">NOTE: You must be logged in)</span>:</p>
+            <ul class="bullet1 indent2">
+                <li><b>UPDATE</b> - refreshes the browser window to display latest job status</li>
+                <li><b>STOP JOB</b> - stops a job from executing (requires status=RUNNING)</li>
+                <li><b>COUNT</b> - counts job output entries for a job with status=FINISHED. The number of entries will be displayed in the same table cell. </li>
+                <li><b>DELETE</b> - deletes a completed or stopped job from the HPC server (does not affect local storage on your Data Store archive)</li>
+                <li><b>REMOVE</b> - removes a deleted job from this list;</li>
+                <li><b>LOGS</b> - loads the job logs from the HPC server </li>
+                <li><b>COPY</b> - copies job output file to your Data Store input directory (useful if you are planning to use it as input for genome annotation)
+            </ul>
+            
+                <p>Please be aware that job errors/timeout could be the result of <b> HPC server outage</b>; Check <a title="Visit XSEDE User Services newsfeed" href="https://www.xsede.org/news/-/news/search?_usernews_WAR_usernewsportlet_categories=80&_usernews_WAR_usernewsportlet_types=OUTAGE">GSQ (Stampede)</a>; <a target="_blank" title="Visit XSEDE User Services newsfeed" href="https://www.xsede.org/news/-/news/search?_usernews_WAR_usernewsportlet_categories=32&_usernews_WAR_usernewsportlet_keywords=&_usernews_WAR_usernewsportlet_types=OUTAGE">GTH (Lonestar)</a> server status.
+
     </div>
 </div>
 </div>

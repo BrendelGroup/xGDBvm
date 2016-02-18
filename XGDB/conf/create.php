@@ -121,25 +121,23 @@ if(($RepeatMask_Status =="Yes") && $RepeatMask_File !=""){ //require correct con
 	  }
 
 ####### Create GeneSeqer Parameter String (-g flag) ######
-#"Strict" sets the following parameters: "-x 30 -y 45 -z 60". Moderate sets the following parameters: "-x 16 -y 24 -z 48". Low sets the following parameters: "-x 12 -y 12 -z 30"
 
-$GSQparameter = " -x 30 -y 45 -z 60"; # defaults to strict
+$GSQparameter = " -s $Species_Model";  # Updated 2/17/16: the Alignment_Stringency parameters MUST be specified AFTER Species_Model or else they are overridden.
 
 switch ($GSQparameter) {
     case ($Alignment_Stringency == "Strict"):
-        $GSQparameter = " -x 30 -y 45 -z 60 -w 0.80";
+        $GSQparameter .= " -x 30 -y 45 -z 60 -w 0.80";
         break;
      case ($Alignment_Stringency == "Moderate"):
-        $GSQparameter = " -x 16 -y 24 -z 48 -w 0.80";
+        $GSQparameter .= " -x 16 -y 24 -z 48 -w 0.80";
         break;
     case ($Alignment_Stringency == "Low"):
-        $GSQparameter = " -x 12 -y 12 -z 30 -w 0.80";
+        $GSQparameter .= " -x 12 -y 12 -z 30 -w 0.80";
         break;
 	}
 		
 $GSQparameter .= " -m 999999999"; #maxnest, maximum alignments per segment (set to ceiling)
 
-$GSQparameter .= " -s $Species_Model";
 
 ####### Create GenomeThreader Parameter String (-t flag) ######
 
