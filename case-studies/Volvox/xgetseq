@@ -1,0 +1,74 @@
+#Retrieve the Volvox carteri genome assembly:
+#
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000143455.1_v1.0/GCF_000143455.1_v1.0_genomic.fna.gz
+gunzip GCF_000143455.1_v1.0_genomic.fna.gz 
+mv GCF_000143455.1_v1.0_genomic.fna Vcar.gdna.fa
+
+#Retrieve the Volvox carteri NCBI genome annotation (gff3, mrna, and pep files)
+# (note that we choose to eliminate the pseudogene annotations)
+#
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000143455.1_v1.0/GCF_000143455.1_v1.0_genomic.gff.gz
+gunzip GCF_000143455.1_v1.0_genomic.gff.gz 
+egrep -v "gene_biotype=pseudogene" GCF_000143455.1_v1.0_genomic.gff > Vcar.annot.gff3
+\rm GCF_000143455.1_v1.0_genomic.gff
+
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000143455.1_v1.0/GCF_000143455.1_v1.0_protein.faa.gz
+gunzip GCF_000143455.1_v1.0_protein.faa.gz 
+mv GCF_000143455.1_v1.0_protein.faa Vcar.annot.pep.fa
+
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000143455.1_v1.0/GCF_000143455.1_v1.0_rna.fna.gz
+gunzip GCF_000143455.1_v1.0_rna.fna.gz 
+mv GCF_000143455.1_v1.0_rna.fna Vcar.annot.mrna.fa
+
+#Download and save available ESTs from the NCBI web site:
+#
+#http://www.ncbi.nlm.nih.gov/nucest?term="Volvox"[Organism]
+#download as FASTA file (132,038 ESTs) Vcar.est.fa
+
+#Retrieve Chlamydomonas reinhardtii proteins for annotation by similarity:
+# (note that we use GenomeTools to add "stop" amino acids to all entries)
+#
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000002595.1_v3.0/GCF_000002595.1_v3.0_protein.faa.gz
+gunzip GCF_000002595.1_v3.0_protein.faa.gz 
+gt seqtransform -addstopaminos GCF_000002595.1_v3.0_protein.faa > CRprot.fa
+\rm GCF_000002595.1_v3.0_protein.*
+
+
+#Report results:
+#
+
+echo ""
+echo ""
+echo "Download results:"
+
+echo ""
+echo "Vcar.gdna.fa"
+echo " number of sequences:"
+egrep -c "^>" Vcar.gdna.fa 
+
+echo ""
+echo "Vcar.est.fa"
+echo " number of sequences:"
+egrep -c "^>" Vcar.est.fa 
+
+echo ""
+echo "Vcar.annot.gff3"
+echo " number of gene features:"
+egrep -c "	gene	" *ff3
+echo " number of mRNA features:"
+egrep -c "	mRNA	" *ff3
+
+echo ""
+echo "Vcar.annot.pep.fa"
+echo " number of sequences:"
+egrep -c "^>" Vcar.annot.pep.fa 
+
+echo ""
+echo "Vcar.annot.mrna.fa"
+echo " number of sequences:"
+egrep -c "^>" Vcar.annot.mrna.fa 
+
+echo ""
+echo "CRprot.fa"
+echo " number of sequences:"
+egrep -c "^>" CRprot.fa
