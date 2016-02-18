@@ -756,7 +756,7 @@ FirstPart() {
    # Cycle through all transcript types in series (est, cdna, tsa, prot)
    # 1. If present, copy user-provided (pre-computed) transcript GeneSeqer/GenomeThreader output files to scratch directory
    # 2. Else no user-provided GeneSeqer/GenomeThreader output files, check Remote Processing flag. If present, initiate Remote process and copy output to scratch directory.
-   # 3. Else no Remote Processing, initiates splitMakearryGSQ.pl locally (parses input, makes index, initiates GeneSeqer), or GenomeThreader locally, deposit output in scratch directory
+   # 3. Else no Remote Processing, initiates SplitMakeArrayGSQ.pl locally (parses input, makes index, initiates GeneSeqer), or GenomeThreader locally, deposit output in scratch directory
    # 4. Check for GSQ/GTH output in scratch directory and report result.
    # NOTE: Parsing and uploading occur later after all data types are processed.
    
@@ -1304,12 +1304,12 @@ FirstPart() {
                 
                if [ "$PRG" == "GSQ" ]
                then
-                  # GSQ: Start INTERNAL Spliced Alignment Process using splitMakearry${PRG}.pl with "Internal" flag  (Splits transcript into 70K chunks, index and then launch GeneSeqer on local processor)
+                  # GSQ: Start INTERNAL Spliced Alignment Process using SplitMakeArray${PRG}.pl with "Internal" flag (splits transcript file into 70Mib chunks, creates index, and then launches GeneSeqer on local processors)
                   dateTime825=$(date +%Y-%m-%d\ %k:%M:%S)
                   msg825="${tRN} spliced-alignment to genome initiated locally using /xGDBvm/scripts/splitMakearry${PRG}.pl: "
                   echo "$space$msg825$dateTime825 (8.25)">>$WorkDIR/logs/Pipeline_procedure.log
                   echo " - ${PRG} parameter set is $PRGparameter " >>$WorkDIR/logs/Pipeline_procedure.log       
-                  /xGDBvm/scripts/splitMakearryGSQ.pl $tmpWorkDIR/data/GSQ/${DIR}/${xGDB}${trn}.fa 70 $tmpWorkDIR/data/GSQ/SCFDIR/${xGDB}gdna.fa "$GSQparameter"
+                  /xGDBvm/scripts/SplitMakeArrayGSQ.pl $tmpWorkDIR/data/GSQ/${DIR}/${xGDB}${trn}.fa 70 $tmpWorkDIR/data/GSQ/SCFDIR/${xGDB}gdna.fa "$GSQparameter"
                fi
                if [ "$PRG" == "GTH" ]
                then
@@ -2649,7 +2649,7 @@ addGSEG () {
    echo "- EST Spliced Alignment: $countU206a EST sequences are being splice-aligned to $countU206b new genome sequences (U2.06)" >>$WorkDIR/logs/Pipeline_procedure.log
    echo "${space} GSQ parameter set is $GSQparameter (U2.06)" >>$WorkDIR/logs/Pipeline_procedure.log
    
-   /xGDBvm/scripts/splitMakearryGSQ.pl ${WorkDIR}/data/GSQ/MRNADIR/${xGDB}est.fa 70 ${WorkDIR}/data/GSQ/SCFDIR/new_${xGDB}gdna.fa "$GSQparameter"
+   /xGDBvm/scripts/SplitMakeArrayGSQ.pl ${WorkDIR}/data/GSQ/MRNADIR/${xGDB}est.fa 70 ${WorkDIR}/data/GSQ/SCFDIR/new_${xGDB}gdna.fa "$GSQparameter"
    
    #U2.07 EST GeneSeqer results with new scaffolds
    dateTimeU207=$(date +%Y-%m-%d\ %k:%M:%S)
@@ -2665,7 +2665,7 @@ addGSEG () {
    echo "- cDNA Spliced Alignment: $countU208a cDNA sequences are being splice-aligned to $countU208b new genome sequences (U2.08)" >>$WorkDIR/logs/Pipeline_procedure.log
    echo "${space}GSQ parameter set is $GSQparameter (U2.08)" >>$WorkDIR/logs/Pipeline_procedure.log
    
-   /xGDBvm/scripts/splitMakearryGSQ.pl ${WorkDIR}/data/GSQ/MRNADIR/${xGDB}cdna.fa 70 ${WorkDIR}/data/GSQ/SCFDIR/new_${xGDB}gdna.fa "$GSQparameter"
+   /xGDBvm/scripts/SplitMakeArrayGSQ.pl ${WorkDIR}/data/GSQ/MRNADIR/${xGDB}cdna.fa 70 ${WorkDIR}/data/GSQ/SCFDIR/new_${xGDB}gdna.fa "$GSQparameter"
    
    #U2.09 cDNA GeneSeqer results with new scaffolds
    
@@ -2682,7 +2682,7 @@ addGSEG () {
    echo "- TSA Spliced Alignment: $countU210a TSA sequences are being splice-aligned to $countU210b new genome sequences (U2.08)" >>$WorkDIR/logs/Pipeline_procedure.log
    echo "${space}GSQ parameter set is $GSQparameter (U2.10)" >>$WorkDIR/logs/Pipeline_procedure.log
    
-   /xGDBvm/scripts/splitMakearryGSQ.pl ${WorkDIR}/data/GSQ/PUTDIR/${xGDB}tsa.fa 70 ${WorkDIR}/data/GSQ/SCFDIR/new_${xGDB}gdna.fa "$GSQparameter"
+   /xGDBvm/scripts/SplitMakeArrayGSQ.pl ${WorkDIR}/data/GSQ/PUTDIR/${xGDB}tsa.fa 70 ${WorkDIR}/data/GSQ/SCFDIR/new_${xGDB}gdna.fa "$GSQparameter"
    
    #U2.11 TSA GeneSeqer results with new scaffolds
    
@@ -2831,7 +2831,7 @@ addEST () {
       echo "${space}Skipping GeneSeqer spliced alignment, jumping to U3.08">>$WorkDIR/logs/Pipeline_procedure.log
    else
       
-      ## If no user-provided GeneSeqer output files, initiates splitMakearryGSQ.pl (parses input, makes index, initiates GeneSeqer), deposits output in working directory
+      ## If no user-provided GeneSeqer output files, initiates SplitMakeArrayGSQ.pl (parses input, makes index, initiates GeneSeqer), deposits output in working directory
       
       ## U3.07 Split and run GeneSeqer on scratch directory
       
@@ -2840,7 +2840,7 @@ addEST () {
       echo "$space$countU307$msgU307$dateTimeU307 (U3.07)">>$WorkDIR/logs/Pipeline_procedure.log
       echo "${space}GSQ parameter set is $GSQparameter (U3.07)" >>$WorkDIR/logs/Pipeline_procedure.log
       
-      /xGDBvm/scripts/splitMakearryGSQ.pl $tmpWorkDIR/data/GSQ/MRNADIR/${xGDB}est.fa 70 $tmpWorkDIR/data/GSQ/SCFDIR/${xGDB}gdna.fa "$GSQparameter" $GSQ_CompResources  # Output will be sent to $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}est.gsq
+      /xGDBvm/scripts/SplitMakeArrayGSQ.pl $tmpWorkDIR/data/GSQ/MRNADIR/${xGDB}est.fa 70 $tmpWorkDIR/data/GSQ/SCFDIR/${xGDB}gdna.fa "$GSQparameter" $GSQ_CompResources  # Output will be sent to $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}est.gsq
       
       countU3075=$(grep -c "MATCH" $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}est.gsq)
       msgU3075=" EST spliced alignments (not filtered for quality) completed and sent to GSQ output directory $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}est.gsq "
@@ -2992,7 +2992,7 @@ addCDNA () {
       echo "${space}Skipping GeneSeqer spliced alignment, jumping to U4.08">>$WorkDIR/logs/Pipeline_procedure.log
    else
       
-      ## If no user-provided GeneSeqer output files, initiates splitMakearryGSQ.pl (parses input, makes index, initiates GeneSeqer), deposits output in working directory
+      ## If no user-provided GeneSeqer output files, initiates SplitMakeArrayGSQ.pl (parses input, makes index, initiates GeneSeqer), deposits output in working directory
       
       ## U4.07 Split and run GeneSeqer on scratch directory
       
@@ -3001,7 +3001,7 @@ addCDNA () {
       echo "$space$countU407$msgU407$dateTimeU407 (U4.07)">>$WorkDIR/logs/Pipeline_procedure.log
       echo "${space}GSQ parameter set is $GSQparameter (U4.07)" >>$WorkDIR/logs/Pipeline_procedure.log
       
-      /xGDBvm/scripts/splitMakearryGSQ.pl $tmpWorkDIR/data/GSQ/MRNADIR/${xGDB}cdna.fa 70 $tmpWorkDIR/data/GSQ/SCFDIR/${xGDB}gdna.fa "$GSQparameter" $GSQ_CompResources  # Output will be sent to $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}cdna.gsq
+      /xGDBvm/scripts/SplitMakeArrayGSQ.pl $tmpWorkDIR/data/GSQ/MRNADIR/${xGDB}cdna.fa 70 $tmpWorkDIR/data/GSQ/SCFDIR/${xGDB}gdna.fa "$GSQparameter" $GSQ_CompResources  # Output will be sent to $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}cdna.gsq
       
       countU4075=$(grep -c "MATCH" $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}cdna.gsq)
       msgU4075=" cDNA spliced alignments (not filtered for quality) completed and sent to GSQ output directory $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}cdna.gsq "
@@ -3156,7 +3156,7 @@ addTSA () {
       echo "${space}Skipping GeneSeqer spliced alignment, jumping to U5.08">>$WorkDIR/logs/Pipeline_procedure.log
    else
       
-      ## If no user-provided GeneSeqer output files, initiates splitMakearryGSQ.pl (parses input, makes index, initiates GeneSeqer), deposits output in working directory
+      ## If no user-provided GeneSeqer output files, initiates SplitMakeArrayGSQ.pl (parses input, makes index, initiates GeneSeqer), deposits output in working directory
       
       ## U5.07 Split and run GeneSeqer on scratch directory
       
@@ -3165,7 +3165,7 @@ addTSA () {
       echo "$space$countU507$msgU507$dateTimeU507 (U5.07)">>$WorkDIR/logs/Pipeline_procedure.log
       echo "${space}GSQ parameter set is $GSQparameter (U5.07)" >>$WorkDIR/logs/Pipeline_procedure.log
       
-      /xGDBvm/scripts/splitMakearryGSQ.pl $tmpWorkDIR/data/GSQ/PUTDIR/${xGDB}tsa.fa 70 $tmpWorkDIR/data/GSQ/SCFDIR/${xGDB}gdna.fa "$GSQparameter" $GSQ_CompResources  # Output will be sent to $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}tsa.gsq
+      /xGDBvm/scripts/SplitMakeArrayGSQ.pl $tmpWorkDIR/data/GSQ/PUTDIR/${xGDB}tsa.fa 70 $tmpWorkDIR/data/GSQ/SCFDIR/${xGDB}gdna.fa "$GSQparameter" $GSQ_CompResources  # Output will be sent to $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}tsa.gsq
       
       countU5075=$(grep -c "MATCH" $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}tsa.gsq)
       msgU5075=" TSA spliced alignments (not filtered for quality) completed and sent to GSQ output directory $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}tsa.gsq "
