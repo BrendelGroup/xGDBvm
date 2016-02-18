@@ -4,11 +4,11 @@ while true; do
     case $yn in
            [Yy]* )
 	   cd /xGDBvm
-           sudo git pull origin upstream;
+           sudo git pull upstream master;
             echo ""
               echo "The code has been updated from the github repository."
             echo ""
-           break;; 
+           break;;
            [Nn]* ) exit;;
            * ) echo "Please answer y or n.";;
     esac
