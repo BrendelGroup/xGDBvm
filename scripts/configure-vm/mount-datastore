@@ -2,7 +2,7 @@
 input_dir="/home/xgdb-input"
 
 while true; do
-    echo ""; read -p "Mount your Data Store at $input-dir? [y/n]: " yn
+    echo ""; read -p "Mount your Data Store at $input_dir? [y/n]: " yn
     case $yn in
         [Yy]* ) irodsFs $input_dir -o max_readahead=0 -o allow_other -o nonempty;
            success=$(df -kh | egrep -o  -s 'fuse|irodsFs'); 
