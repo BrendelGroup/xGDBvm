@@ -58,6 +58,34 @@ mysqlAdmin="$mysqlDir/Admin"
 mysqlyrGATE="$mysqlDir/yrGATE"
 mysqlGAEVAL="$mysqlDir/GAEVAL"
 
+########### FUNCTIONS (populate with latest values) #############
+
+
+insertAPIvars () {
+
+    dateTime=$(date +%Y-%m-%d\ %k:%M:%S)
+    auth_url='https://agave.iplantc.org'
+    api_version='v2'
+    
+    echo "insert into Admin.admin (auth_update, auth_url, api_version) values ('$dateTime', '$auth_url', '$api_version')"| mysql -p$dbpass -u $mysqluser
+    echo ""
+    echo "API configured for base URL $auth_url / version $api_version in database Admin.amdmin"
+    echo ""
+}
+insertAppIDs () {
+
+    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('geneseqer-small-stampede-5.0.0u2', 'GeneSeqer-MPI', '5.0', 'Stampede', 1, 16, 2, now(), 'For example jobs', 'vaughn', 'N', '00:10:00')"| mysql -p$dbpass -u $mysqluser
+    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('geneseqer-medium-stampede-5.0.0u2', 'GeneSeqer-MPI', '5.0', 'Stampede', 4, 16, 2, now(), 'For medium to large jobs', 'vaughn', 'Y', '00:10:00')"| mysql -p$dbpass -u $mysqluser
+    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('geneseqer-large-stampede-5.0.0u2', 'GeneSeqer-MPI', '5.0', 'Stampede', 8, 16, 2, now(), 'For large jobs', 'vaughn', 'N', '00:10:00')"| mysql -p$dbpass -u $mysqluser
+    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('genomethreader-stampede-1.6.5u1', 'GenomeThreader', '1.6.5', 'Stampede', 1, 16, 2, now(), 'Works for wide range of genome sizes', 'vaughn', 'Y', '00:10:00')"| mysql -p$dbpass -u $mysqluser
+    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('genomethreader-lonestar4-1.6.5u1', 'GenomeThreader', '1.6.5','Lonestar', 1, 12, 2, now(), 'Works for wide range of genome sizes; platform deprecated soon', 'vaughn', 'N', '00:10:00')"| mysql -p$dbpass -u $mysqluser
+    echo "Apps configured for current GenomeThreader and GeneSeqer-MPI App IDs"
+
+  echo ""
+  echo "Current app IDs were loaded to the database Admin.apps. To view them online visit Manage -> Remote Jobs -> Configure Apps"
+  echo ""
+}
+
 
 ########### II. Configure Attached Volume ###########
 
@@ -343,8 +371,6 @@ sudo /sbin/service mysqld restart
 
 # 2. Setting up the xGDB databases (if they don't already exist):
 
-
-
 echo "GRANT ALL PRIVILEGES ON *.* TO 'gdbuser'@'localhost' identified by '$dbpass' WITH GRANT OPTION" | mysql -u root
 if [ ! -e $mysqlGenomes ]
 then
@@ -367,29 +393,38 @@ then
    echo "GRANT ALL ON Admin.admin TO 'gdbuser'@'localhost'"    | mysql -p$dbpass -u $mysqluser
    echo "GRANT SELECT ON Admin.* TO 'xgdbSELECT'@'localhost'" | mysql -p$dbpass -u $mysqluser
    echo "flush privileges" | mysql -p$dbpass -u $mysqluser
- 
-   
-# 3. Insert default remote processing variables (do this only if we just created Admin). TODO: Add a script to update these even if Admin exists.
 
-    dateTime=$(date +%Y-%m-%d\ %k:%M:%S)
-    auth_url='https://agave.iplantc.org'
-    api_version='v2'
+	insertAPIvars  # See FUNCTIONS above
+    sleep 3
+
+
+
+	insertAppIDs  # See FUNCTIONS above
+    sleep 3
     
-    echo "insert into Admin.admin (auth_update, auth_url, api_version) values ('$dateTime', '$auth_url', '$api_version')"| mysql -p$dbpass -u $mysqluser
-    echo "API configured for base URL $auth_url / version $api_version"
+	# If Admin database exists, query the user about whether to overwrite current App IDs
+else
+while true; do
+		echo ""; read -p "Your Admin database already has HPC App IDs loaded to apps, but there is a chance they are out of date. Overwrite with latest App IDs? [y/n]:  " yn
+		case $yn in 
+			   [Yy]* )
 
-    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('geneseqer-small-stampede-5.0.0u2', 'GeneSeqer-MPI', '5.0', 'Stampede', 1, 16, 2, now(), 'For example jobs', 'vaughn', 'N', '00:10:00')"| mysql -p$dbpass -u $mysqluser
-    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('geneseqer-medium-stampede-5.0.0u2', 'GeneSeqer-MPI', '5.0', 'Stampede', 4, 16, 2, now(), 'For medium to large jobs', 'vaughn', 'Y', '00:10:00')"| mysql -p$dbpass -u $mysqluser
-    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('geneseqer-large-stampede-5.0.0u2', 'GeneSeqer-MPI', '5.0', 'Stampede', 8, 16, 2, now(), 'For large jobs', 'vaughn', 'N', '00:10:00')"| mysql -p$dbpass -u $mysqluser
-    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('genomethreader-stampede-1.6.5u1', 'GenomeThreader', '1.6.5', 'Stampede', 1, 16, 2, now(), 'Works for wide range of genome sizes', 'vaughn', 'Y', '00:10:00')"| mysql -p$dbpass -u $mysqluser
-    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('genomethreader-lonestar4-1.6.5u1', 'GenomeThreader', '1.6.5','Lonestar', 1, 12, 2, now(), 'Works for wide range of genome sizes; platform deprecated soon', 'vaughn', 'N', '00:10:00')"| mysql -p$dbpass -u $mysqluser
-    echo "Apps configured for GenomeThreader and GeneSeqer-MPI apps"
-
-  echo ""
-  echo "HPC API settings and app IDs were loaded to the database. To view them online visit Manage -> Remote Jobs "
-  echo ""
-
+				echo "TRUNCATE TABLE Admin.apps"   | mysql -p$dbpass -u $mysqluser
+			
+				insertAppIDs  # See FUNCTIONS above
+				sleep 3
+				break
+				;; 
+				[Nn]* ) echo ""; echo "OK. App IDs are untouched"; echo "";
+				sleep 3
+				break
+				;;
+				*) echo "Please answer yes (y) or no (n). Unless you have custom App IDs you want to preserve, the correct answer is probably yes (y)"
+				;;
+		esac
+	done
 fi
+
 
 if [ ! -e $mysqlGAEVAL ]
 then
@@ -400,49 +435,69 @@ fi
 # 4. Run additional update script to update any tables:
 
 /xGDBvm/scripts/configure-vm/MySQLupdate.sh
+echo ""
 echo "MySQL update script run."
-
-# Report path configuration and End of script
-
-########### I. Global Paths ###########
-
-echo ""
-echo "##############  Top level directory for user inputs (on Data Store if mounted) ##############"
-echo ""
-echo "              $inputPath" # e.g. /home/xgdb-input/xgdbvm
-echo ""
-
-echo "    #####  Path to access user input directory: #####"
-echo ""
-echo "              On your Data Store (if mounted): /iplant/[username]/${inputTopLevel}"
-echo "              On this VM: symbolically linked via $inputLink"
-echo ""
-echo "###############################   Directories under $inputPath ################################"
-echo ""
-ls -la  $inputPath/ | grep '^d'
-echo ""
-echo "##############  Top level directory for output data (on External Volume if mounted) ##############"
-echo ""
-echo "             $dataPath" # e.g. /home/xgdb-data/
-echo ""
-echo "    #####  Path to access this directory on your VM shell #####"
-echo ""
-echo "             $dataPath/"
-echo "             symbolically linked via $dataLink"
-echo ""
-echo ""
-echo "###############################   Directories under $dataPath/   ##################################"
-echo ""
-ls -la  $dataPath/ | grep '^d'
 echo ""
 echo "________________________________________________________________________________"
 echo ""
 echo "End of 'configure-vm' script. You should now be ready to access your VM online."
 echo ""
-echo "NOTE: ALWAYS use 'unmount-volume' and 'unmount-datastore' before rebooting or terminating this VM."
+echo "******* Now review your current VM directory status with the following output: ********"
+sleep 3
+
+# Report path configuration and End of script
+
+########### I. Global Paths ###########
 echo ""
-echo "________________________________________________________________________________"
+echo "___________________________________________________________________________________________________________________"
 echo ""
+echo "______________  INPUT DATA (on Data Store, if mounted) ______________"
+echo ""
+echo "              $inputPath"
+echo ""
+echo "              On your Data Store (if mounted): /iplant/[username]/${inputTopLevel}"
+echo ""
+echo "              On this VM: ${inputMountPoint}/${inputTopLevel}"
+echo "                        or ${inputLink}/${inputTopLevel} (via symbolic link)"
+echo ""
+echo "_______________________________   Directories under INPUT ($inputPath) ________________________________"
+echo ""
+ls -la  $inputPath/ | grep '^d'
+echo ""
+echo "___________________________________________________________________________________________________________________"
+echo ""
+echo "______________  OUTPUT DATA (on External Volume, if mounted) ______________"
+echo ""
+echo "             $dataPath"
+echo ""
+echo "             or $dataLink (via symbolic link)"
+echo ""
+echo ""
+echo "_______________________________   Directories under $dataPath/   __________________________________"
+echo ""
+ls -la  $dataPath/ | grep '^d'
+
+if GDBdir=$(ls -la  $dataPath/ | grep '^d.*\sGDB[0-9][0-9][0-9]$')
+then
+echo ""
+echo "*******************************************************************************************************************"
+echo ""
+echo "********************  NOTE: THERE IS ALREADY ONE OR MORE GENOME DATABASE(S) ON THIS VOLUME: ***********************"
+echo ""
+echo "$GDBdir"
+echo ""
+echo "If you want to START OVER with new GDB on this volume, visit Manage -> Configure/Create -> Archive/Delete and choose Delete All"
+echo ""
+echo "BE AWARE that some of the MySQL settings on this volume may be OUT OF DATE if it has not been used in awhile. Contact the developers for help"
+echo ""
+echo "********************************************************************************************************************"
+sleep 5
+fi
+
+echo ""
+echo "ENJOY YOUR VM! TIP: ALWAYS use 'unmount-volume' and 'unmount-datastore' before rebooting or terminating this VM."
+echo ""
+echo "___________________________________________________________________________________________________________________"
 
 
 
