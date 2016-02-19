@@ -27,3 +27,4 @@ XGDB/images/.htaccess
 XGDB/javascripts/.htaccess
 XGDB/perllib/.htaccess
 XGDB/phplib/.htaccess
+*.swp
