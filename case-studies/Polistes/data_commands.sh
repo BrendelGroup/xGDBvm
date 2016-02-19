@@ -4,7 +4,9 @@ set -eo pipefail
 download_genome()
 {
     curl http://wasp.crg.eu/PCAN.v01.fa.gz | gunzip -c > Pcan.gdna.fa
-    curl http://wasp.crg.eu/PCAN.v01.gff3 > Pcan.annot.gff3
+    curl http://wasp.crg.eu/PCAN.v01.gff3 \
+        | sed $'s/\ttranscript\t/\tmRNA\t/' \
+        > Pcan.annot.gff3
 }
 
 download_refrprot()
