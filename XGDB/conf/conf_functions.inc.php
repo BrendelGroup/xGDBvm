@@ -70,7 +70,7 @@
             {
                 foreach ( $f_list as $f_row )
                 {
-                    $pattern="/^\S+\s+\d+\s+.*\s+(\S+\.(fa|faa|fasta|fna))$/"; // "rwxrwxr-x.  11 apache root  4096 Mar  3 00:42 testfile.fa" =>  "testfile.fa"
+                    $pattern="/^\S+\s+\d+\s+.*\s+(\S+\.fa)$/"; // "rwxrwxr-x.  11 apache root  4096 Mar  3 00:42 testfile.fa" =>  "testfile.fa"
                     $f_pattern=preg_match($pattern, $f_row, $matches);
                     $f_name = isset($matches[1])?$matches[1]:"";
                     if($f_name!="") //at least one subdirectory exists

@@ -33,7 +33,7 @@ date_default_timezone_set("$TIMEZONE");
 	$GFF_Type="CpGAT"; 
 	$Genome_Type="Scaffold";
 	$CPGATparameter="";
-	$CpGAT_ReferenceProt_File ="/xGDBvm/examples/refpep/cegma_core.fasta";
+	$CpGAT_ReferenceProt_File ="/xGDBvm/examples/referenceprotein/cegma_core.fa";
 	$RepeatMask_File="/xGDBvm/examples/repeatmask/mipsREdat_9.3p_ALL.fasta"; 
 	$view_button="display_on";//
 	$save_button =" &nbsp;&nbsp;&nbsp; Save New &nbsp;&nbsp;&nbsp;"; // save button

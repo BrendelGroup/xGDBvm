@@ -8,7 +8,8 @@
 	</ul>
 	<h3>To specify a Reference Protein dataset:</h3>
 	<ul class="bullet1 indent2">
-		<li>Download a suitable <b>reference protein dataset</b> (FASTA-formatted)</li>
+		<li>Download a suitable <b>reference protein dataset</b> (FASTA-formatted).</li>
+		<li>Change the filename, if necessary, so that it ends with <span class="plaintext normalfont">.fa</span>.</li>
 		<li>Upload to a standard directory: <span class="plaintext normalfont">/xGDBvm/input/xgdbvm/<b>referenceprotein</b>/</span>, which corresponds to <span class="plaintext normalfont">/iplant/home/username/xgdbvm/referenceprotein/</span> if the iPlant Data Store is mounted.</li>
 		<li>Select the filename and path from the dropdown under <b>Gene Prediction: Reference Protein Index</b> on the Configuration page.</li>
 		<li>Once you save your Configuration, xGDBvm will validate the filename/path you have entered.</li>

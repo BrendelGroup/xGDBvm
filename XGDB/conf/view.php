@@ -856,7 +856,7 @@ if($post_action == 'Clear') // Clear values and reset to defaults for display on
     $Update_Comments="";
     $Update_History="";
     $CpGAT_Status="";
-    $CpGAT_ReferenceProt_File="/xGDBvm/examples/refpep/cegma_core.fasta"; # CURRENT DEFAULT
+    $CpGAT_ReferenceProt_File="/xGDBvm/examples/referenceprotein/cegma_core.fa"; # CURRENT DEFAULT
     $RepeatMask_File="/xGDBvm/examples/repeatLib/mips_REdat_4.3_rptmsk.lib"; # CURRENT DEFAULT
     $CpGAT_BGF="";
     $CpGAT_Augustus="";
