@@ -2,7 +2,7 @@
 	<h2 class="bottommargin1">CpGAT- Reference Protein Library</h2>
 <p>A fasta-formatted list of well-curated proteins from your taxonomic group, used by CpGAT for best hit evaluation.</p>
 	<ul class="bullet1 indent2">
-		<li>Default is the <a href="http://korflab.ucdavis.edu/Datasets/cegma/index.html#SCT3">CEGMA</a> core protein dataset <b>cegma_core.fasta</b> (1427 proteins).</li>
+		<li>Default is the <a href="http://korflab.ucdavis.edu/Datasets/cegma/index.html#SCT3">CEGMA</a> core protein dataset <b>cegma_core.fa</b> (1427 proteins).</li>
 		<li>For best results, use a custom dataset such as <a href="http://www.uniprot.org/help/uniref">UniRef90</a> tailored to your genome's taxonomic group.</li>
 		<li>See the xGDBvm wiki for instructions for <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=uniref">downloading a UniRef dataset</a> </li>
 	</ul>
