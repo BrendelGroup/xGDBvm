@@ -43,8 +43,8 @@ date_default_timezone_set("$TIMEZONE"); // from sitedef.php
 if(isset($_POST['job']) && isset($_POST['return'])) 
 {
 
-// validate job id, e.g. 0001424105021858-5056a550b8-0001-007, and get valid nonce to compare with posted value.
-    $pattern='/^\d{16}-[a-z0-9]{10}-\d{4}-\d{3}$/';
+// validate job id, e.g. 3407263385550908955-242ac113-0001-007, and get valid nonce to compare with posted value.
+    $pattern='/^\d+-[a-z0-9]+-\d+-\d+$/'; # 2-20-16 I made this check more generic as the structure of this ID string seems to change periodically.
     if(preg_match($pattern, $job_id)) # second level check
     {
 
