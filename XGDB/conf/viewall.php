@@ -317,7 +317,6 @@ $display_block .= "<table class=\"featuretable bottommargin1 striped\" style=\"f
 					<th>Home</th>
 					<th>Sample <br /> region</th>
 					<th>Down  <br /> loads</th>
-					<th class=\"$display_if_lock\">Tmp  <br /> Dir</th>
 					<th>Log Files <br /></th>
 					<th class=\"smallerfont\" >GDB</th>
 					<th class=\"smallerfont\" >All</th>

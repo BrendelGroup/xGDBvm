@@ -1087,7 +1087,7 @@ FirstPart() {
                      
                      # job_status="running" ###### DEBUG ONLY #######
                      
-                     if [[ "$job_status" == "RUNNING" || "$job_status" == "FAILED" || "$job_status" == "KILLED"  || "$job_status" == "STOPPED" || "$job_status" == "PAUSED" ]] # Which means status is no longer submitting, processing_inputs, queued
+                     if [[ "$job_status" == "RUNNING" || "$job_status" == "FAILED" || "$job_status" == "KILLED"  || "$job_status" == "STOPPED" || "$job_status" == "PAUSED" || "$job_status" == "FINISHED" ]] # Which means status is no longer submitting, processing_inputs, queued. Added 'FINISHED' to the choices since sometimes a failed job skips to this status 2-18-16 
                      
                      then
                         dateTime856=$(date +%Y-%m-%d\ %k:%M:%S)
