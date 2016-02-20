@@ -74,11 +74,11 @@ insertAPIvars () {
 }
 insertAppIDs () {
 
-    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('geneseqer-small-stampede-5.0.0u2', 'GeneSeqer-MPI', '5.0', 'Stampede', 1, 16, 2, now(), 'For example jobs', 'vaughn', 'N', '00:10:00')"| mysql -p$dbpass -u $mysqluser
-    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('geneseqer-medium-stampede-5.0.0u2', 'GeneSeqer-MPI', '5.0', 'Stampede', 4, 16, 2, now(), 'For medium to large jobs', 'vaughn', 'Y', '00:10:00')"| mysql -p$dbpass -u $mysqluser
-    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('geneseqer-large-stampede-5.0.0u2', 'GeneSeqer-MPI', '5.0', 'Stampede', 8, 16, 2, now(), 'For large jobs', 'vaughn', 'N', '00:10:00')"| mysql -p$dbpass -u $mysqluser
-    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('genomethreader-stampede-1.6.5u1', 'GenomeThreader', '1.6.5', 'Stampede', 1, 16, 2, now(), 'Works for wide range of genome sizes', 'vaughn', 'Y', '00:10:00')"| mysql -p$dbpass -u $mysqluser
-    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('genomethreader-lonestar4-1.6.5u1', 'GenomeThreader', '1.6.5','Lonestar', 1, 12, 2, now(), 'Works for wide range of genome sizes; platform deprecated soon', 'vaughn', 'N', '00:10:00')"| mysql -p$dbpass -u $mysqluser
+    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('geneseqer-small-stampede-5.0.0u2', 'GeneSeqer-MPI', '5.0', 'Stampede', 1, 16, 2, now(), 'For example jobs', 'vaughn', 'N', '12:00:00')"| mysql -p$dbpass -u $mysqluser
+    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('geneseqer-medium-stampede-5.0.0u2', 'GeneSeqer-MPI', '5.0', 'Stampede', 4, 16, 2, now(), 'For medium to large jobs', 'vaughn', 'Y', '12:00:00')"| mysql -p$dbpass -u $mysqluser
+    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('geneseqer-large-stampede-5.0.0u2', 'GeneSeqer-MPI', '5.0', 'Stampede', 8, 16, 2, now(), 'For large jobs', 'vaughn', 'N', '12:00:00')"| mysql -p$dbpass -u $mysqluser
+    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('genomethreader-stampede-1.6.5u1', 'GenomeThreader', '1.6.5', 'Stampede', 1, 16, 2, now(), 'Works for wide range of genome sizes', 'vaughn', 'Y', '12:00:00')"| mysql -p$dbpass -u $mysqluser
+    echo "INSERT INTO Admin.apps (app_id, program, version, platform, nodes, proc_per_node, memory_per_node, date_added, description, developer, is_default, max_job_time) values ('genomethreader-lonestar4-1.6.5u1', 'GenomeThreader', '1.6.5','Lonestar', 1, 12, 2, now(), 'Works for wide range of genome sizes; platform deprecated soon', 'vaughn', 'N', '12:00:00')"| mysql -p$dbpass -u $mysqluser
     echo "Apps configured for current GenomeThreader and GeneSeqer-MPI App IDs"
 
   echo ""
@@ -488,7 +488,6 @@ echo "$GDBdir"
 echo ""
 echo "If you want to START OVER with new GDB on this volume, visit Manage -> Configure/Create -> Archive/Delete and choose Delete All"
 echo ""
-echo "BE AWARE that some of the MySQL settings on this volume may be OUT OF DATE if it has not been used in awhile. Contact the developers for help"
 echo ""
 echo "********************************************************************************************************************"
 sleep 5
