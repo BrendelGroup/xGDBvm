@@ -16,18 +16,18 @@ for a new genome based on comparison with a related, previously annotated specie
 
 ## Task 1:  Prepare an __xGDBvm__ instance
 
-Log into [Atmosphere](https://atmo.iplantcollaborative.org/) and [launch a new instance](https://atmo.iplantcollaborative.org/application#new_instance) (a
-search for __xGDBvm__ in the _Selecte an Image_ field will show the latest
+Log into [Atmosphere](https://atmo.iplantcollaborative.org/) and [launch a new instance](https://atmo.iplantcollaborative.org/application#new_instance) (a search for __xGDBvm__ in the _Selecte an Image_ field will show the latest
 available __xGDBvm__ image).
-For this study I used a _medium3_-sized instance.
-One deployed, I attached my usual _Volume_ to the instance and ssh'ed into the
-VM.
+For this study I use a _medium3_-sized instance.
+Once deployed, I attach my usual _Volume_ to the instance and
+[ssh](https://pods.iplantcollaborative.org/wiki/display/atmman/Logging+In+to+an+Instance)
+into the VM.
 A first action is customize the VM so that it looks to my liking.
 As this is a recurrent task for every new instance, I keep my customized
-_bash_ initiation scripts on the _Volume_ (mounted be default as /vol1) in a
-directory name _util_.
-I also set up the VNC connection to my liking.
-All this get done conveniently by executing _/vol1/xstartover_, which invokes
+_bash_ initiation scripts on the _Volume_ (mounted by default as /vol1) in a
+directory named _util_.
+I also set up the [VNC](https://pods.iplantcollaborative.org/wiki/display/atmman/Launching+and+Terminating+a+VNC+Viewer+Session) connection.
+All this gets done conveniently by executing _/vol1/xstartover_, which invokes
 the following commands listed in that file:
 
 ```
@@ -74,12 +74,21 @@ yum-complete-transaction
 yum update
 ```
 
-followed by a reboot to use the latest kernel.  Then I connect to the VM via
-VNC.  To get the screen resolution I want I issue (in a terminal window)
+followed by a reboot to use the latest kernel.
+
+After the reboot, I connect to the VM via the recommended
+[VNC standalone viewer](http://www.realvnc.com/download/viewer/).
+To get the screen resolution I want, I issue (in a terminal window)
 
 ```
 xrandr --screen 0 -s 1920x1080
 ```
+
+
+Note: Depending on the particular VM image, you may skip the ssh step above
+and access the VM directly using VNC, open a terminal window, and change the
+resolution via the
+[xrandr command](https://pods.iplantcollaborative.org/wiki/display/atmman/Changing+Screen+Resolution+for+the+VNC+Viewer).
 
 ### Task 2: Configuring the __xGDBvm__ instance
 The next step involves 1) following the instructions provided by typing
@@ -92,14 +101,33 @@ It is rather helpful to go through the steps in this way rather than have even
 more automated setup, as this way educates or reminds the user of the data sets,
 conventions, and software being used.
 
-### Task 3: Getting our sample data
+### Task 3: Manage the __xGDBvm__ instance
+Just like that, we are ready to view the home page of the web server our VM
+has fired up.
+As per instructions, I simply type the IP address Atmosphere assigned to my
+VM into a web browser (to be clear,I do this on my laptop on a separate
+desktop independent of my VNC connection; if I had a smart phone, that would
+do fine, too; any browser, actually!).
+
+On the __xGDBvm__ welcome screen, I follow the _Manage_ link, then
+_Click to get started_; then the promising-sounding _Admin setup/secure_.
+I am asked to set up passwords, and for now the simplest choice seems to be
+_Option 2_, which password-protects the entire web server.
+
+Even a seasoned user like I has had the experience of forgetting the
+password rather too soon after setting it!
+Not good, but not the end of the VM, either.
+Go back to your ssh or VNC access terminal and type _quickstart_ again.
+The last few lines displayed turned out to be relevant after all ...
+
+### Task 4: Getting sample data
 
 ```
 xgetseq
 ```
 
 
-### Task 4: Setting up the VcarTEST genome data base (GDB)
+### Task 5: Setting up the VcarTEST genome data base (GDB)
 
 ```
 xsetup
