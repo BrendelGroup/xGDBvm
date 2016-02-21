@@ -210,13 +210,13 @@ in the _/xGDBvm/input/xgdbvm/referenceprotein/_ folder.
 ```
 mkdir /xGDBvm/input/xgdbvm/VcarTEST
 cp Vcar.annot.gff3 Vcar.annot.mrna.fa Vcar.annot.pep.fa VcarTEST.est.fa VcarTEST
-.gdna.fa  CRprot.fa  /xGDBvm/input/xgdbvm/VcarTEST
+.gdna.fa  CR.prot.fa  /xGDBvm/input/xgdbvm/VcarTEST
 
 mkdir /xGDBvm/input/xgdbvm/Vcar
 cp Vcar.annot.gff3 Vcar.annot.mrna.fa Vcar.annot.pep.fa Vcar.est.fa Vcar.gdna.fa
-  CRprot.fa  /xGDBvm/input/xgdbvm/Vcar
+  CR.prot.fa  /xGDBvm/input/xgdbvm/Vcar
 
-cp CRprot.fa /xGDBvm/input/xgdbvm/referenceprotein/
+cp CR.prot.fa /xGDBvm/input/xgdbvm/referenceprotein/
 
 ```
 
@@ -225,3 +225,12 @@ All the next and fun part of the work is done via the web interface to our
 __xGDBvm__ instance.
 Go again to _Manage_ -> _Configure/Create_ -> _Configure New GDB_, but now instead
 of using example data sets, we'll use the _Volvox carteri_ data.
+Everything is as before for the example data set, except that we specify the
+directory for the input data as _/xGDBvm/input/xgdbvm/VcarTEST_.
+On my VM instance, results came back within a few minutes.
+Poking around, I found a nice region that illustrates the results of the __xGDBvm__
+annotation process (Genome Segment: NW_003307593.1; Left Coordinate: 430701;
+Right Coordinate: 437000).
+You can go back to the configuration screen of the GDB and set this region as
+the default region to show - a nice touch enabling us to look at something
+familiar and exciting whenever we go back to this GDB.
