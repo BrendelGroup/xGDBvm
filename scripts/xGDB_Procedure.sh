@@ -38,6 +38,7 @@ FirstPart() {
    touch $WorkDIR/logs/Pipeline_procedure.log
    touch $WorkDIR/logs/Pipeline_error.log
    touch $WorkDIR/logs/CpGAT_procedure.log #To be used if CpGAT is run either in 'Create' or 'Update' mode.
+   nbproc=`cat /proc/cpuinfo | grep processor | wc -l`
    echo  "$sline">>$WorkDIR/logs/Pipeline_procedure.log
    echo  "* xGDB_Procedure.sh - Create GDB">>$WorkDIR/logs/Pipeline_procedure.log
    echo  "$sline">>$WorkDIR/logs/Pipeline_procedure.log
@@ -53,6 +54,7 @@ FirstPart() {
    echo "${space}Repeat Mask parameters: $RepeatMaskparameter ">>$WorkDIR/logs/Pipeline_procedure.log
    echo "${space}Compute Resources (GSQ): $GSQ_CompResParameter ">>$WorkDIR/logs/Pipeline_procedure.log
    echo "${space}Compute Resources (GTH): $GTH_CompResParameter ">>$WorkDIR/logs/Pipeline_procedure.log   
+   echo "${space}Number of processors on VM: $nbproc ">>$WorkDIR/logs/Pipeline_procedure.log   
    echo  "">>$WorkDIR/logs/Pipeline_procedure.log
    echo "$dline" >>$WorkDIR/logs/Pipeline_procedure.log
    echo -e "| Step 1 : Create $xGDB directories and copy templates, initiated \c" >>$WorkDIR/logs/Pipeline_procedure.log && echo "$dateTime100">>$WorkDIR/logs/Pipeline_procedure.log
@@ -1318,7 +1320,23 @@ FirstPart() {
                   msg825="${tRN} spliced-alignment to genome initiated locally using GenomeThreader: "
                   echo "$space$msg825$dateTime825 (8.25)">>$WorkDIR/logs/Pipeline_procedure.log
                   echo " - ${PRG} parameter set is $PRGparameter " >>$WorkDIR/logs/Pipeline_procedure.log       
-                  /usr/local/bin/gth -genomic $tmpWorkDIR/data/GTH/SCFDIR/${xGDB}gdna.fa -protein $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa $GTHparameter -o $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth
+                  if (( $nb > 1 ))
+                  then
+                     mkdir $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+                     /usr/local/bin/fastasplit.pl -i $tmpWorkDIR/data/GTH/SCFDIR/${xGDB}gdna.fa -n $nbproc -o $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+                     cd $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+                     i=0
+                     for g in *; do
+                       ((i++)); mkdir TMP$i; mv $g TMP$i; cd TMP$i; cp $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa ./;
+                       gth -genomic $g -protein ${xGDB}prot.fa $GTHparameter -o gthout$i &
+                       cd ..
+                     done
+                     wait
+                     cat TMP*/gthout* > $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth
+                     cd $tmpWorkDIR
+                  else
+                     /usr/local/bin/gth -genomic $tmpWorkDIR/data/GTH/SCFDIR/${xGDB}gdna.fa -protein $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa $GTHparameter -o $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth
+                  fi
                fi
                ## (8.25) ELSE IF-TRANSCRIPT-LOCAL
             else
@@ -1756,7 +1774,7 @@ RunCpGAT(){
          msg13075="Running CpGAT on each genome segment using its spliced alignment data. " # IMPORTANT!! DON'T CHANGE THE TEXT "Running CpGAT on" UNLESS YOU UPDATE 'sed' TEXT below!!!! this line will be replaced below in loop
          echo "$space$msg13075$dateTime13075 (13.075)">>$WorkDIR/logs/Pipeline_procedure.log
          
-         echo "$space-See CGAT_procedure.log for detailed information on each segment annotated." >>$WorkDIR/logs/Pipeline_procedure.log
+         echo "$space-See CpGAT_procedure.log for detailed information on each segment annotated." >>$WorkDIR/logs/Pipeline_procedure.log
          
          gdna_total=$(ls $tmpWorkDIR/data/CpGAT/SCFDIR/|wc -l) # total scaffolds
          scaffold_count=0
@@ -1798,12 +1816,9 @@ RunCpGAT(){
                sed -i -e "s/^.*Running CpGAT on.*$/$space$msg1309$dateTime1309/" $WorkDIR/logs/Pipeline_procedure.log
                
                # Now run the CpGAT-xGDB script!!!!
-               /xGDBvm/src/CpGAT/fct/cpgat.xgdb.pl -o $tmpWorkDIR/data/CpGAT -i $file -trans $tmpWorkDIR/data/CpGAT/${gseg_gi}.mRNAgth.tab -prot $tmpWorkDIR/data/CpGAT/${gseg_gi}.protgth.tab $CpGATparameter -config_file /xGDBvm/src/CpGAT/CpGAT.conf>& $tmpWorkDIR/data/CpGAT/${gseg_gi}.err
-   
-               dateTime1310=$(date +%Y-%m-%d\ %k:%M:%S)
-               count1310=$(grep -c -P "\tmRNA\t" $tmpWorkDIR/data/CpGAT/${gseg_gi}.${CpGATfilter}.gff3)
-               msg1310=" gene predictions (${CpGATfilter}) were computed for $gseg_gi. "
-               echo "$space$count1310$msg1310$dateTime1310 (13.10)" >>$WorkDIR/logs/CpGAT_procedure.log
+
+               (/xGDBvm/src/CpGAT/fct/cpgat.xgdb.pl -o $tmpWorkDIR/data/CpGAT -i $file -trans $tmpWorkDIR/data/CpGAT/${gseg_gi}.mRNAgth.tab -prot $tmpWorkDIR/data/CpGAT/${gseg_gi}.protgth.tab $CpGATparameter -config_file /xGDBvm/src/CpGAT/CpGAT.conf>& $tmpWorkDIR/data/CpGAT/${gseg_gi}.err; dateTime1310=$(date +%Y-%m-%d\ %k:%M:%S); count1310=$(grep -c -P "\tmRNA\t" $tmpWorkDIR/data/CpGAT/${gseg_gi}.${CpGATfilter}.gff3); msg1310=" gene predictions (${CpGATfilter}) were computed for $gseg_gi. "; echo "$space$count1310$msg1310$dateTime1310 (13.10)" >>$WorkDIR/logs/CpGAT_procedure.log;) &
+               if (( $scaffold_count % $nb == 0 )); then wait; fi
             fi
          done
          
@@ -2699,9 +2714,25 @@ addGSEG () {
    echo "- Protein Spliced Alignment: $countU212a protein sequences are being splice-aligned to $countU212b new genome sequences (U2.12)" >>$WorkDIR/logs/Pipeline_procedure.log
    echo "$space- GTH parameter set is $GTHparameter (U2.12)" >>$WorkDIR/logs/Pipeline_procedure.log
    
-   /usr/local/bin/gth -genomic ${WorkDIR}/data/download/new_${xGDB}gdna.fa -protein ${WorkDIR}/data/GTH/Protein/${xGDB}prot.fa $GTHparameter -o ${WorkDIR}/data/GTH/GTHOUT/${xGDB}prot.gth
-   #U2.11 Protein GEnomeThreader results with new scaffolds
-   
+   if (( $nb > 1 ))
+   then
+      mkdir ${WorkDIR}/data/GTH/GTHOUT/SPLIT
+      /usr/local/bin/fastasplit.pl -i ${WorkDIR}/data/download/new_${xGDB}gdna.fa -n $nbproc -o ${WorkDIR}/data/GTH/GTHOUT/SPLIT
+      cd ${WorkDIR}/data/GTH/GTHOUT/SPLIT
+      i=0
+      for g in *; do
+        ((i++)); mkdir TMP$i; mv $g TMP$i; cd TMP$i; cp ${WorkDIR}/data/GTH/Protein/${xGDB}prot.fa ./;
+        gth -genomic $g -protein ${xGDB}prot.fa $GTHparameter -o gthout$i &
+        cd ..
+      done
+      wait
+      cat TMP*/gthout* > ${WorkDIR}/data/GTH/GTHOUT/${xGDB}prot.gth
+      cd ${WorkDIR}
+   else
+      /usr/local/bin/gth -genomic ${WorkDIR}/data/download/new_${xGDB}gdna.fa -protein ${WorkDIR}/data/GTH/Protein/${xGDB}prot.fa $GTHparameter -o ${WorkDIR}/data/GTH/GTHOUT/${xGDB}prot.gth
+   fi
+
+   #U2.13 Protein GenomeThreader results with new scaffolds
    dateTimeU213=$(date +%Y-%m-%d\ %k:%M:%S)
    countU213=$(grep -c "MATCH"  ${WorkDIR}/data/GTH/GTHOUT/${xGDB}prot.gth)
    msgU213=" protein spliced alignments to new genome sequence completed and sent to GTH output directory $WorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth "
