@@ -30,7 +30,7 @@ mv GCF_000143455.1_v1.0_rna.fna Vcar.annot.mrna.fa
 #
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF_000002595.1_v3.0/GCF_000002595.1_v3.0_protein.faa.gz
 gunzip GCF_000002595.1_v3.0_protein.faa.gz 
-gt seqtransform -addstopaminos GCF_000002595.1_v3.0_protein.faa > CRprot.fa
+gt seqtransform -addstopaminos GCF_000002595.1_v3.0_protein.faa > CR.prot.fa
 \rm GCF_000002595.1_v3.0_protein.*
 
 
@@ -69,6 +69,6 @@ echo " number of sequences:"
 egrep -c "^>" Vcar.annot.mrna.fa 
 
 echo ""
-echo "CRprot.fa"
+echo "CR.prot.fa"
 echo " number of sequences:"
-egrep -c "^>" CRprot.fa
+egrep -c "^>" CR.prot.fa

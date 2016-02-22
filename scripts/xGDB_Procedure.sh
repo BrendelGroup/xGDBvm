@@ -184,7 +184,7 @@ FirstPart() {
          msg="${space}${count2} $name sequences copied from $input_dir to $download_destination (2.${step})"
          echo "$msg" >>$WorkDIR/logs/Pipeline_procedure.log
       else
-         msg="ERROR: ${space}${count2} $name sequences copied to $download_destination but initial count was $count1 sequences (2.${step})"
+         msg="WARNING: ${space}${count2} $name sequences copied to $download_destination but initial count was $count1 sequences (2.${step})"
          echo "$msg" >>$WorkDIR/logs/Pipeline_procedure.log
          echo "$msg" >>$WorkDIR/logs/Pipeline_error.log
       fi
@@ -538,7 +538,7 @@ FirstPart() {
          msg6015=" EST IDs appear to have been parsed correctly (6.015)"
          echo "$space${msg6015}" >>$WorkDIR/logs/Pipeline_procedure.log
       else
-         error6015="ERROR: Only $count601 EST sequences were loaded to $xGDB est table but input file had $est_count records (6.015) "
+         error6015="WARNING: Only $count601 EST sequences were loaded to $xGDB est table but input file had $est_count records (6.015) "
          echo "$error6015">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error6015">>$WorkDIR/logs/Pipeline_error.log
       fi
    fi
@@ -555,7 +555,7 @@ FirstPart() {
          msg6025=" cDNA IDs appear to have been parsed correctly (6.025)"
          echo "$space${msg6025}" >>$WorkDIR/logs/Pipeline_procedure.log
       else
-         error6025="ERROR: Only $count602 cDNA sequences were loaded to $xGDB cdna table but input file had $cdna_count records (6.025) "
+         error6025="WARNING: Only $count602 cDNA sequences were loaded to $xGDB cdna table but input file had $cdna_count records (6.025) "
          echo "$error6025">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error6025">>$WorkDIR/logs/Pipeline_error.log
       fi
    fi
@@ -571,7 +571,7 @@ FirstPart() {
          msg6035=" TSA IDs appear to have been parsed correctly (6.035)"
          echo "$space${msg6035}" >>$WorkDIR/logs/Pipeline_procedure.log
       else
-         error6035="ERROR: Only $count603 TSA sequences were loaded to $xGDB 'put' (tsa) table but input file had $tsa_count records (6.035) "
+         error6035="WARNING: Only $count603 TSA sequences were loaded to $xGDB 'put' (tsa) table but input file had $tsa_count records (6.035) "
          echo "$error6035">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error6035">>$WorkDIR/logs/Pipeline_error.log
       fi
    fi
@@ -588,7 +588,7 @@ FirstPart() {
          msg6045=" Protein IDs appear to have been parsed correctly (6.045)"
          echo "$space${msg6045}" >>$WorkDIR/logs/Pipeline_procedure.log
       else
-         error6045="ERROR: $count604 protein sequences were loaded to $xGDB pep table but input file had $prot_count records (6.045) "
+         error6045="WARNING: $count604 protein sequences were loaded to $xGDB pep table but input file had $prot_count records (6.045) "
          echo "$error6045">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error6045">>$WorkDIR/logs/Pipeline_error.log
       fi
    fi
@@ -602,7 +602,7 @@ FirstPart() {
       msg6055=" Scaffold (gdna) IDs appear to have been parsed correctly (6.055)"
       echo "$space${msg6055}" >>$WorkDIR/logs/Pipeline_procedure.log
    else
-      error6055="ERROR: A total of $count605 genome sequences were loaded to $xGDB gseg table but aggregate genome inputs had $gdna_count records (6.055) "
+      error6055="WARNING: A total of $count605 genome sequences were loaded to $xGDB gseg table but aggregate genome inputs had $gdna_count records (6.055) "
       echo "$error6055">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error6055">>$WorkDIR/logs/Pipeline_error.log
    fi
    
@@ -628,10 +628,10 @@ FirstPart() {
          rawfile="$tmpWorkDIR/data/BLAST/${xGDB}gdna.fa"
       fi
    dateTime630=$(date +%Y-%m-%d\ %k:%M:%S)
-      msg630="The genome contains N-Masked bases. Now parsing repeat mask regions for display in genome browser. $dateTime630 (6.30)"
+      msg630="The genome contains N-Masked bases. Now parsing N-mask regions for display in genome browser. $dateTime630 (6.30)"
       echo "$space$msg630" >>$WorkDIR/logs/Pipeline_procedure.log
       $ScriptDIR/parseGsegMask.pl $rawfile $maskfile $tmpWorkDIR/data/XGDB_MYSQL/${xGDB}mask.sql $tmpWorkDIR/data/download/${xGDB}mask.fa N
-      # Note we source from BLAST directory because the script will use the ${xGDB}gdna.fa BLAST index. The outputs are .sql and .fa (masked regions) respectively
+      # Note we source from BLAST directory because the script will use the ${xGDB}gdna.fa BLAST index. The outputs are ~mask.sql and ~mask.fa (masked regions) respectively
       # Copy output fasta to BLAST dir and create BLAST index
       cp $tmpWorkDIR/data/download/${xGDB}mask.fa $tmpWorkDIR/data/BLAST/${xGDB}mask.fa
       mask_index_count=$(grep -c "^>" $tmpWorkDIR/data/BLAST/${xGDB}mask.fa)
@@ -652,11 +652,11 @@ FirstPart() {
             msg650=" $count650a records were loaded to 'mask' table and $count650b records were loaded to 'gseg_mask_good_pgs' table $dateTime650 (6.50)"
             echo "${space}${msg650}" >>$WorkDIR/logs/Pipeline_procedure.log
          else
-            error650="ERROR: Only $count650a mask sequences were loaded to $xGDB 'mask' table but fasta file had $mask_index_count records (6.50) "
+            error650="WARNING: Only $count650a mask sequences were loaded to $xGDB 'mask' table but fasta file had $mask_index_count records (6.50) "
             echo "$error650">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error650">>$WorkDIR/logs/Pipeline_error.log
          fi
        else
-            error640="ERROR: No masked regions were detected in $tmpWorkDIR/data/BLAST/${xGDB}gdna.rm.fa and output fasta is empty (6.40) "
+            error640="WARNING: No masked regions were parsed from $maskfile because output file $tmpWorkDIR/data/BLAST/${xGDB}mask.fa is empty (6.40) "
             echo "$error640">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error640">>$WorkDIR/logs/Pipeline_error.log
        fi
 
@@ -691,7 +691,7 @@ FirstPart() {
          msg701=" GFF gene models were loaded to $xGDB gseg_gene_annotation table (7.01)"
          echo "$space$count701$msg701" >>$WorkDIR/logs/Pipeline_procedure.log
       else
-         error701="ERROR: $count701 gene models were loaded to $xGDB gseg_gene_annotation table but GFF table had $anno_count mRNAs (7.01) "
+         error701="WARNING: $count701 gene models were loaded to $xGDB gseg_gene_annotation table but GFF table had $anno_count mRNAs (7.01) "
          echo "$error701">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error701">>$WorkDIR/logs/Pipeline_error.log
       fi
    else
@@ -711,7 +711,7 @@ FirstPart() {
          msg702=" CpGAT GFF gene models were loaded to $xGDB gseg_cpgat_gene_annotation table (7.015)"
          echo "$space$count702$msg702" >>$WorkDIR/logs/Pipeline_procedure.log
       else
-         error702="ERROR: $count702 CpGAT gene models were loaded to $xGDB gseg_gene_annotation table but CpGAT GFF table had $cpgatanno_count mRNAs (7.02) "
+         error702="WARNING: $count702 CpGAT gene models were loaded to $xGDB gseg_gene_annotation table but CpGAT GFF table had $cpgatanno_count mRNAs (7.02) "
          echo "$error702">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error702">>$WorkDIR/logs/Pipeline_error.log
       fi
    else
@@ -833,7 +833,7 @@ FirstPart() {
          dateTime801=$(date +%Y-%m-%d\ %k:%M:%S)
          if [[ "$illegal_1" -gt "0" || "$illegal_2" -gt "0" ]] ## invalid formatted headers found
          then
-             error801="ERROR: some or all $tRN fasta headers are incompatible with GeneSeqer (8.01)"
+             error801="WARNING: some or all $tRN fasta headers are incompatible with GeneSeqer (8.01)"
              echo "$error801">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error801">>$WorkDIR/logs/Pipeline_error.log
          else
              msg801="All $tRN fasta headers appear to be compatible with GeneSeqer (8.01)"
@@ -921,7 +921,7 @@ FirstPart() {
             then
                echo "${space}${gdna_sorted_count} sequences (${xGDB}gdna.fa) are now sorted by size (descending) - $dateTime821 (8.21)">>$WorkDIR/logs/Pipeline_procedure.log
             else
-              error821="ERROR: Only ${gdna_sorted_count} out of ${gdna_count} sequences from ${xGDB}gdna.fa are present in the output. The sorting process may have failed or aborted due to disk space limits. $dateTime821 (8.21)"
+              error821="WARNING: Only ${gdna_sorted_count} out of ${gdna_count} sequences from ${xGDB}gdna.fa are present in the output. The sorting process may have failed or aborted due to disk space limits. $dateTime821 (8.21)"
             echo "${space}${error821}" >>$WorkDIR/logs/Pipeline_procedure.log; echo "$error821">>$WorkDIR/logs/Pipeline_error.log
             fi
             
@@ -1036,7 +1036,7 @@ FirstPart() {
                   then
                      job_status="TIMEDOUT" # This will be final value if no "break"
                      dateTime846=$(date +%Y-%m-%d\ %k:%M:%S)
-                     echo "${space}WARNING: Timed out waiting for job to submit!! - $dateTime846 (8.46)">>$WorkDIR/logs/Pipeline_procedure.log
+                     echo "${space}ERROR: Timed out waiting for job to submit!! - $dateTime846 (8.46)">>$WorkDIR/logs/Pipeline_procedure.log
                   fi # END SUBMIT-TIMEDOUT
                   
                done
@@ -1089,7 +1089,7 @@ FirstPart() {
                      
                      # job_status="running" ###### DEBUG ONLY #######
                      
-                     if [[ "$job_status" == "RUNNING" || "$job_status" == "FAILED" || "$job_status" == "KILLED"  || "$job_status" == "STOPPED" || "$job_status" == "PAUSED" ]] # Which means status is no longer submitting, processing_inputs, queued
+                     if [[ "$job_status" == "RUNNING" || "$job_status" == "FAILED" || "$job_status" == "KILLED"  || "$job_status" == "STOPPED" || "$job_status" == "PAUSED" || "$job_status" == "FINISHED" ]] # Which means status is no longer submitting, processing_inputs, queued. Added 'FINISHED' to the choices since sometimes a failed job skips to this status 2-18-16 
                      
                      then
                         dateTime856=$(date +%Y-%m-%d\ %k:%M:%S)
@@ -1209,7 +1209,7 @@ FirstPart() {
                               
                                else ## output is empty;
                                   echo "Update Admin.jobs set status =\"EMPTY\", job_end_time=\"$dateTime882\" where job_id = \"${job_id}\" "|mysql -p$dbpass -u $mysqluser
-                                  msg882="WARNING: HPC-${prg} output file $hpc_archive_path exists but the number of spliced alignments returned was zero. Check your input data to see what might be the problem. "
+                                  msg882="ERROR: HPC-${prg} output file $hpc_archive_path exists but the number of spliced alignments returned was zero. Check your input data to see what might be the problem. "
                                   echo "${space}${msg882}${dateTime882} (8.82)" >>$WorkDIR/logs/Pipeline_procedure.log
                                fi
                                
@@ -1245,7 +1245,7 @@ FirstPart() {
                         dateTime863=$(date +%Y-%m-%d\ %k:%M:%S)
                      if [[ "$job_status" == "STOPPED" || "$job_status" == "KILLED" || "$job_status" == "FAILED" || "$job_status" == "ARCHIVING_FAILED" ]]  ## Fatal to success. 2-3-2016 Note the API is not consistent, and some jobs that return 'FAILED' status may continue to run, thus making the logic here incorrect.
                      then
-                     	error863="${space}WARNING: $tRN remote job status is $job_status; no output data - $dateTime863 (8.63)" 	
+                     	error863="${space}ERROR: $tRN remote job status is $job_status; no output data - $dateTime863 (8.63)" 	
                      	echo "${space}${error863}">>$WorkDIR/logs/Pipeline_procedure.log;echo "${space}${error863}" >>$WorkDIR/logs/Pipeline_error.log
                         echo "update Admin.jobs set job_end_time = \"$dateTime863\" where job_id=\"$job_id\""|mysql -p$dbpass -u $mysqluser
                         echo "update Genomes.xGDB_Log set $Result = \"$job_status\"  where ID=$Id"|mysql -p$dbpass -u $mysqluser
@@ -1308,7 +1308,7 @@ FirstPart() {
                then
                   # GSQ: Start INTERNAL Spliced Alignment Process using SplitMakeArray${PRG}.pl with "Internal" flag (splits transcript file into 70Mib chunks, creates index, and then launches GeneSeqer on local processors)
                   dateTime825=$(date +%Y-%m-%d\ %k:%M:%S)
-                  msg825="${tRN} spliced-alignment to genome initiated locally using /xGDBvm/scripts/splitMakearry${PRG}.pl: "
+                  msg825="${tRN} spliced-alignment to genome initiated locally using /xGDBvm/scripts/SplitMakeArrayGSQ.pl: "
                   echo "$space$msg825$dateTime825 (8.25)">>$WorkDIR/logs/Pipeline_procedure.log
                   echo " - ${PRG} parameter set is $PRGparameter " >>$WorkDIR/logs/Pipeline_procedure.log       
                   /xGDBvm/scripts/SplitMakeArrayGSQ.pl $tmpWorkDIR/data/GSQ/${DIR}/${xGDB}${trn}.fa 70 $tmpWorkDIR/data/GSQ/SCFDIR/${xGDB}gdna.fa "$GSQparameter"
@@ -1400,7 +1400,7 @@ FirstPart() {
          msg901="${space}All EST spliced alignments were parsed. $dateTime901 (9.01) "
          echo "$msg901">>$WorkDIR/logs/Pipeline_procedure.log
       else
-         error901="${space}WARNING: no EST spliced alignments were parsed from $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}est.gsq; $dateTime901 (9.01). "
+         error901="${space}ERROR: no EST spliced alignments were parsed from $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}est.gsq; $dateTime901 (9.01). "
          echo "$error901">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error901">>$WorkDIR/logs/Pipeline_error.log
       fi
    fi
@@ -1416,7 +1416,7 @@ FirstPart() {
          msg902="${space}All cDNA spliced alignments were parsed. $dateTime902 (9.02) "
          echo "$msg902">>$WorkDIR/logs/Pipeline_procedure.log
       else
-         error902="${space}WARNING: no cDNA spliced alignments were parsed from $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}cdna.gsq; $dateTime902 (9.02). "
+         error902="${space}ERROR: no cDNA spliced alignments were parsed from $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}cdna.gsq; $dateTime902 (9.02). "
          echo "$error902">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error902">>$WorkDIR/logs/Pipeline_error.log
       fi
    fi
@@ -1430,7 +1430,7 @@ FirstPart() {
          msg903="${space}All TSA spliced alignments were parsed. $dateTime903 (9.03) "
          echo "$msg903">>$WorkDIR/logs/Pipeline_procedure.log
       else
-         error903="${space}WARNING: no TSA spliced alignments were parsed from $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}tsa.gsq; $dateTime903 (9.03). "
+         error903="${space}ERROR: no TSA spliced alignments were parsed from $tmpWorkDIR/data/GSQ/GSQOUT/${xGDB}tsa.gsq; $dateTime903 (9.03). "
          echo "$error903">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error903">>$WorkDIR/logs/Pipeline_error.log
       fi
    fi
@@ -1446,7 +1446,7 @@ FirstPart() {
          msg904="${space}All Protein spliced alignments were parsed. $dateTime904 (9.04) "
          echo "$msg904">>$WorkDIR/logs/Pipeline_procedure.log
       else
-         error904="${space}WARNING: no Protein spliced alignments were parsed from $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth $dateTime904 (9.04). "
+         error904="${space}ERROR: no Protein spliced alignments were parsed from $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth $dateTime904 (9.04). "
          echo "$error904">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error902">>$WorkDIR/logs/Pipeline_error.log
       fi
    fi
@@ -1912,7 +1912,7 @@ RunCpGAT(){
                msg1328=" Reference Protein IDs appear to have been parsed correctly. Now appending best hit descriptions to 'gseg_cpgat_gene_annotation' table"
                echo "${space}${msg1328} (13.28)" >>$WorkDIR/logs/Pipeline_procedure.log
             else
-               error1328="ERROR: $count1325 protein sequences were loaded to ${xGDB}.refprot table but input file had $refprot_count records (13.28) "
+               error1328="WARNING: $count1325 protein sequences were loaded to ${xGDB}.refprot table but input file had $refprot_count records (13.28) "
                echo "$error1328">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error1328">>$WorkDIR/logs/Pipeline_error.log
             fi
          

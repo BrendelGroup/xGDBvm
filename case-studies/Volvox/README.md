@@ -187,8 +187,8 @@ the VM as your own machine accessed via _ssh_ or _VNC_, and the web interface
 of the __xGDBvm__ instance!  But you can easily open all these views in different
 windows on your screen, and soon this will be very familiar ...).
 
-__Note__: If you want to follow this example, you will have to download the
-_Volvox_ ESTs as per instructions in the _xgetseq_ file.
+__Note__: If you want to follow this example, you will have to additionally
+download the _Volvox_ ESTs as per instructions in the _xgetseq_ file.
 In order to test our approach, it's always good to run sample data first.
 Here, the _case-studies/Volvox_ directory contains files _VcarrTEST.gdna.fa_,
 _VcarTEST.annot.gff3_, and _VcarTEST.est.fa_.
@@ -198,7 +198,39 @@ EST set.
 We'll use these test sets first.
 
 ## Task 6: Setting up the VcarTEST genome data base (GDB)
+There is one more step to take before configuring our GDBs via the web interface.
+You can use the script _xsetup_ in this folder to copy the relevant data for both
+the _VcarTEST_ and the complete _Vcar_ runs into folders on the data store
+mounted as _home/xgdb-input_, subdirectory _xdgdbvm_.
+These are the places where we'll instruct the code to look for input data when
+we configure the GDBs.
+Also, _CRprot.fa_ will be used as a reference protein set and should be placed
+in the _/xGDBvm/input/xgdbvm/referenceprotein/_ folder.
 
 ```
-xsetup
+mkdir /xGDBvm/input/xgdbvm/VcarTEST
+cp Vcar.annot.gff3 Vcar.annot.mrna.fa Vcar.annot.pep.fa VcarTEST.est.fa VcarTEST
+.gdna.fa  CR.prot.fa  /xGDBvm/input/xgdbvm/VcarTEST
+
+mkdir /xGDBvm/input/xgdbvm/Vcar
+cp Vcar.annot.gff3 Vcar.annot.mrna.fa Vcar.annot.pep.fa Vcar.est.fa Vcar.gdna.fa
+  CR.prot.fa  /xGDBvm/input/xgdbvm/Vcar
+
+cp CR.prot.fa /xGDBvm/input/xgdbvm/referenceprotein/
+
 ```
+
+## Task 7: Configuring our new GDBs
+All the next and fun part of the work is done via the web interface to our
+__xGDBvm__ instance.
+Go again to _Manage_ -> _Configure/Create_ -> _Configure New GDB_, but now instead
+of using example data sets, we'll use the _Volvox carteri_ data.
+Everything is as before for the example data set, except that we specify the
+directory for the input data as _/xGDBvm/input/xgdbvm/VcarTEST_.
+On my VM instance, results came back within a few minutes.
+Poking around, I found a nice region that illustrates the results of the __xGDBvm__
+annotation process (Genome Segment: NW_003307593.1; Left Coordinate: 430701;
+Right Coordinate: 437000).
+You can go back to the configuration screen of the GDB and set this region as
+the default region to show - a nice touch enabling us to look at something
+familiar and exciting whenever we go back to this GDB.
