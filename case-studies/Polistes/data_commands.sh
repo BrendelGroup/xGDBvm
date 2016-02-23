@@ -15,7 +15,9 @@ download_refrprot()
     amel="ftp://ftp.ncbi.nlm.nih.gov/genomes/refseq/invertebrate/Apis_mellifera/all_assembly_versions/GCF_000002195.4_Amel_4.5/GCF_000002195.4_Amel_4.5_protein.faa.gz"
     nvit="ftp://ftp.ncbi.nlm.nih.gov/genomes/refseq/invertebrate/Nasonia_vitripennis/all_assembly_versions/GCF_000002325.3_Nvit_2.1/GCF_000002325.3_Nvit_2.1_protein.faa.gz"
 
-    curl $dmel $amel $nvit | gunzip -c > AmelDmelNvit.refrprot.fa
+    curl $dmel | gunzip -c > Dmel.refrprot.fa
+    curl $amel | gunzip -c > Amel.refrprot.fa
+    curl $nvit | gunzip -c > Nvit.refrprot.fa
 }
 
 download_tsa()
