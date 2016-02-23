@@ -1306,7 +1306,7 @@ FirstPart() {
                 
                if [ "$PRG" == "GSQ" ]
                then
-                  # GSQ: Start INTERNAL Spliced Alignment Process using SplitMakeArray${PRG}.pl with "Internal" flag (splits transcript file into 70Mib chunks, creates index, and then launches GeneSeqer on local processors)
+                  # GSQ: Start INTERNAL Spliced Alignment Process using SplitMakeArray${PRG}.pl with "Internal" flag (splits transcript file into 70Mb chunks, creates index, and then launches GeneSeqer on local processors)
                   dateTime825=$(date +%Y-%m-%d\ %k:%M:%S)
                   msg825="${tRN} spliced-alignment to genome initiated locally using /xGDBvm/scripts/SplitMakeArrayGSQ.pl: "
                   echo "$space$msg825$dateTime825 (8.25)">>$WorkDIR/logs/Pipeline_procedure.log
@@ -1320,15 +1320,16 @@ FirstPart() {
                   msg825="${tRN} spliced-alignment to genome initiated locally using GenomeThreader: "
                   echo "$space$msg825$dateTime825 (8.25)">>$WorkDIR/logs/Pipeline_procedure.log
                   echo " - ${PRG} parameter set is $PRGparameter " >>$WorkDIR/logs/Pipeline_procedure.log       
-                  if (( $nb > 1 ))
+                  if (( $nbproc > 1 ))
                   then
                      mkdir $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
-                     /usr/local/bin/fastasplit.pl -i $tmpWorkDIR/data/GTH/SCFDIR/${xGDB}gdna.fa -n $nbproc -o $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+                     cd $tmpWorkDIR/data/GTH/SCFDIR
+                     /usr/local/bin/fastasplit.pl -i ${xGDB}gdna.fa -n $nbproc -o $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
                      cd $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
                      i=0
                      for g in *; do
                        ((i++)); mkdir TMP$i; mv $g TMP$i; cd TMP$i; cp $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa ./;
-                       gth -genomic $g -protein ${xGDB}prot.fa $GTHparameter -o gthout$i &
+                       /usr/local/bin/gth -genomic $g -protein ${xGDB}prot.fa $GTHparameter -o gthout$i &
                        cd ..
                      done
                      wait
@@ -1654,6 +1655,8 @@ RunCpGAT(){
    ###########################################################################################################################################################
    # NOTE: if ~cpgat.gff3 (precomputed) file was included in Input Dir, these data will already have been parsed and loaded in Step 7. We can skip this step.
 
+   nbproc=`cat /proc/cpuinfo | grep processor | wc -l`
+
    if [ -z "$CpGATparameter" ] # No CpGAT parameter set or parameter string is empty; user did not request CpGAT
    then
       # 13.01 just create a CpGAT directory and put an empty file in it, jump to Step 15
@@ -1818,7 +1821,7 @@ RunCpGAT(){
                # Now run the CpGAT-xGDB script!!!!
 
                (/xGDBvm/src/CpGAT/fct/cpgat.xgdb.pl -o $tmpWorkDIR/data/CpGAT -i $file -trans $tmpWorkDIR/data/CpGAT/${gseg_gi}.mRNAgth.tab -prot $tmpWorkDIR/data/CpGAT/${gseg_gi}.protgth.tab $CpGATparameter -config_file /xGDBvm/src/CpGAT/CpGAT.conf>& $tmpWorkDIR/data/CpGAT/${gseg_gi}.err; dateTime1310=$(date +%Y-%m-%d\ %k:%M:%S); count1310=$(grep -c -P "\tmRNA\t" $tmpWorkDIR/data/CpGAT/${gseg_gi}.${CpGATfilter}.gff3); msg1310=" gene predictions (${CpGATfilter}) were computed for $gseg_gi. "; echo "$space$count1310$msg1310$dateTime1310 (13.10)" >>$WorkDIR/logs/CpGAT_procedure.log;) &
-               if (( $scaffold_count % $nb == 0 )); then wait; fi
+               if (( $scaffold_count % $nbproc == 0 )); then wait; fi
             fi
          done
          
@@ -2714,15 +2717,16 @@ addGSEG () {
    echo "- Protein Spliced Alignment: $countU212a protein sequences are being splice-aligned to $countU212b new genome sequences (U2.12)" >>$WorkDIR/logs/Pipeline_procedure.log
    echo "$space- GTH parameter set is $GTHparameter (U2.12)" >>$WorkDIR/logs/Pipeline_procedure.log
    
-   if (( $nb > 1 ))
+   if (( $nbproc > 1 ))
    then
       mkdir ${WorkDIR}/data/GTH/GTHOUT/SPLIT
-      /usr/local/bin/fastasplit.pl -i ${WorkDIR}/data/download/new_${xGDB}gdna.fa -n $nbproc -o ${WorkDIR}/data/GTH/GTHOUT/SPLIT
+      cd ${WorkDIR}/data/download
+      /usr/local/bin/fastasplit.pl -i new_${xGDB}gdna.fa -n $nbproc -o ${WorkDIR}/data/GTH/GTHOUT/SPLIT
       cd ${WorkDIR}/data/GTH/GTHOUT/SPLIT
       i=0
       for g in *; do
         ((i++)); mkdir TMP$i; mv $g TMP$i; cd TMP$i; cp ${WorkDIR}/data/GTH/Protein/${xGDB}prot.fa ./;
-        gth -genomic $g -protein ${xGDB}prot.fa $GTHparameter -o gthout$i &
+        /usr/local/bin/gth -genomic $g -protein ${xGDB}prot.fa $GTHparameter -o gthout$i &
         cd ..
       done
       wait
@@ -3260,6 +3264,7 @@ addTSA () {
 ## NOTE: If ReplacePROTEIN (U8) was selected, this script went there first and deleted existing set, then came here.
 addPROTEIN () {
    
+   nbproc=`cat /proc/cpuinfo | grep processor | wc -l`
    dateTimeU600=$(date +%Y-%m-%d\ %k:%M:%S)
    msgU600="| Step U6: Add NEW protein sequences. "
    echo "$dline" >>$WorkDIR/logs/Pipeline_procedure.log
@@ -3347,9 +3352,26 @@ addPROTEIN () {
        dateTimeU607=$(date +%Y-%m-%d\ %k:%M:%S)
        countU607a=$(grep -c "^>" $tmpWorkDIR/data/GTH/SCFDIR/${xGDB}gdna.fa)
        countU607b=$(grep -c "^>" $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa)
-       echo "- GenomeThreader Initiated with $countU607a gdna and $countU607b proteins $dateTimeU607 (U6.07)" >>$WorkDIR/logs/Pipeline_procedure.log
+       echo "- GenomeThreader initiated with $nbproc processors, $countU607a gdna segments, and $countU607b proteins $dateTimeU607 (U6.07)" >>$WorkDIR/logs/Pipeline_procedure.log
        
-       /usr/local/bin/gth -genomic $tmpWorkDIR/data/GTH/SCFDIR/${xGDB}gdna.fa -protein $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa $GTHparameter -o $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth
+       if (( $nbproc > 1 ))
+       then
+          mkdir $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+          cd $tmpWorkDIR/data/GTH/SCFDIR
+          /usr/local/bin/fastasplit.pl -i ${xGDB}gdna.fa -n $nbproc -o $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+          cd $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+          i=0
+          for g in *; do
+            ((i++)); mkdir TMP$i; mv $g TMP$i; cd TMP$i; cp $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa ./;
+            /usr/local/bin/gth -genomic $g -protein ${xGDB}prot.fa $GTHparameter -o gthout$i &
+            cd ..
+          done
+          wait
+          cat TMP*/gthout* > $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth
+          cd $tmpWorkDIR
+       else
+          /usr/local/bin/gth -genomic $tmpWorkDIR/data/GTH/SCFDIR/${xGDB}gdna.fa -protein $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa $GTHparameter -o $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth
+       fi
        
        ## U6.08 GenomeThreader Output
        if [ -s $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth ]

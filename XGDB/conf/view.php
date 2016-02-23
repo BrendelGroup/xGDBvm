@@ -1054,7 +1054,7 @@ if($g_exists=="Yes" && mysql_select_db("$DBid")){ #xGDB MySQL database exists.
  $pipeline_errors_display= ($pipeline_errors=="" || !empty($Restore_From_File))?"":"
 <div class=\"showhide\">
     <p class=\" label bold\" style=\"cursor:pointer\" title=\"Show pipeline errors\">
-        <span class=\"normalfont\" style=\"color: red\">Pipeline Errors Exist: </span><span class=\"heading normalfont\">(click for details)</span></p>
+        <span class=\"normalfont\" style=\"color: red\">Pipeline warnings/errors: </span><span class=\"heading normalfont\">(click for details)</span></p>
     <div class=\" hidden error\" style=\"display: none;\">
     <span class=\"normalfont\">$pipeline_errors_formatted </span>
         <div>

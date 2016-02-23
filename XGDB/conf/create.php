@@ -285,7 +285,7 @@ if((($Update_Status =="Yes" && $Update_Data_CpGAT !="") ||  $CpGAT_Status=="Yes"
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<title>Runn xGDBvm script- Error</title>
+<title>Run xGDBvm script- Error</title>
 </head>
 
 <body>
