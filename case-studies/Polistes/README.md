@@ -132,7 +132,7 @@ So far, we have done the following.
 - Authenticated with HPC resources
 
 Having successfully completed all these steps, we are now ready to create the GDB.
-From the GDB configuration page, click the orange `Data Process Options` button again, and then click `Create GDB`.
+From the GDB configuration page, click the orange `Data Process Options` button again, and then click `Create New GDBXXX Database`.
 This will initiate the process to compute transcript and protein alignments and populate the database with the genome sequence and annotations provided.
 Again, progress can be monitored from the configuration listing page, and the status will be set to `Complete` (blue) when all steps have completed.
 
