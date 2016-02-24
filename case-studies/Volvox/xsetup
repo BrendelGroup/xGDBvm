@@ -1,0 +1,7 @@
+mkdir /xGDBvm/input/xgdbvm/VcarTEST
+cp Vcar.annot.gff3 Vcar.annot.mrna.fa Vcar.annot.pep.fa VcarTEST.est.fa VcarTEST.gdna.fa  CR.prot.fa  /xGDBvm/input/xgdbvm/VcarTEST
+
+mkdir /xGDBvm/input/xgdbvm/Vcar
+cp Vcar.annot.gff3 Vcar.annot.mrna.fa Vcar.annot.pep.fa Vcar.est.fa Vcar.gdna.fa  CR.prot.fa  /xGDBvm/input/xgdbvm/Vcar
+
+cp CR.prot.fa /xGDBvm/input/xgdbvm/referenceprotein/

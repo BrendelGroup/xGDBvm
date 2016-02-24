@@ -38,6 +38,7 @@ FirstPart() {
    touch $WorkDIR/logs/Pipeline_procedure.log
    touch $WorkDIR/logs/Pipeline_error.log
    touch $WorkDIR/logs/CpGAT_procedure.log #To be used if CpGAT is run either in 'Create' or 'Update' mode.
+   nbproc=`cat /proc/cpuinfo | grep processor | wc -l`
    echo  "$sline">>$WorkDIR/logs/Pipeline_procedure.log
    echo  "* xGDB_Procedure.sh - Create GDB">>$WorkDIR/logs/Pipeline_procedure.log
    echo  "$sline">>$WorkDIR/logs/Pipeline_procedure.log
@@ -53,6 +54,7 @@ FirstPart() {
    echo "${space}Repeat Mask parameters: $RepeatMaskparameter ">>$WorkDIR/logs/Pipeline_procedure.log
    echo "${space}Compute Resources (GSQ): $GSQ_CompResParameter ">>$WorkDIR/logs/Pipeline_procedure.log
    echo "${space}Compute Resources (GTH): $GTH_CompResParameter ">>$WorkDIR/logs/Pipeline_procedure.log   
+   echo "${space}Number of processors on VM: $nbproc ">>$WorkDIR/logs/Pipeline_procedure.log   
    echo  "">>$WorkDIR/logs/Pipeline_procedure.log
    echo "$dline" >>$WorkDIR/logs/Pipeline_procedure.log
    echo -e "| Step 1 : Create $xGDB directories and copy templates, initiated \c" >>$WorkDIR/logs/Pipeline_procedure.log && echo "$dateTime100">>$WorkDIR/logs/Pipeline_procedure.log
@@ -1304,7 +1306,7 @@ FirstPart() {
                 
                if [ "$PRG" == "GSQ" ]
                then
-                  # GSQ: Start INTERNAL Spliced Alignment Process using SplitMakeArray${PRG}.pl with "Internal" flag (splits transcript file into 70Mib chunks, creates index, and then launches GeneSeqer on local processors)
+                  # GSQ: Start INTERNAL Spliced Alignment Process using SplitMakeArray${PRG}.pl with "Internal" flag (splits transcript file into 70Mb chunks, creates index, and then launches GeneSeqer on local processors)
                   dateTime825=$(date +%Y-%m-%d\ %k:%M:%S)
                   msg825="${tRN} spliced-alignment to genome initiated locally using /xGDBvm/scripts/SplitMakeArrayGSQ.pl: "
                   echo "$space$msg825$dateTime825 (8.25)">>$WorkDIR/logs/Pipeline_procedure.log
@@ -1318,7 +1320,24 @@ FirstPart() {
                   msg825="${tRN} spliced-alignment to genome initiated locally using GenomeThreader: "
                   echo "$space$msg825$dateTime825 (8.25)">>$WorkDIR/logs/Pipeline_procedure.log
                   echo " - ${PRG} parameter set is $PRGparameter " >>$WorkDIR/logs/Pipeline_procedure.log       
-                  /usr/local/bin/gth -genomic $tmpWorkDIR/data/GTH/SCFDIR/${xGDB}gdna.fa -protein $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa $GTHparameter -o $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth
+                  if (( $nbproc > 1 ))
+                  then
+                     mkdir $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+                     cd $tmpWorkDIR/data/GTH/SCFDIR
+                     /usr/local/bin/fastasplit.pl -i ${xGDB}gdna.fa -n $nbproc -o $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+                     cd $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+                     i=0
+                     for g in *; do
+                       ((i++)); mkdir TMP$i; mv $g TMP$i; cd TMP$i; cp $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa ./;
+                       /usr/local/bin/gth -genomic $g -protein ${xGDB}prot.fa $GTHparameter -o gthout$i &
+                       cd ..
+                     done
+                     wait
+                     cat TMP*/gthout* > $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth
+                     cd $tmpWorkDIR
+                  else
+                     /usr/local/bin/gth -genomic $tmpWorkDIR/data/GTH/SCFDIR/${xGDB}gdna.fa -protein $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa $GTHparameter -o $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth
+                  fi
                fi
                ## (8.25) ELSE IF-TRANSCRIPT-LOCAL
             else
@@ -1459,14 +1478,12 @@ FirstPart() {
       then
          msg1001="$count1001 EST spliced alignments loaded to MySQL table $xGDB.gseg_est_good_pgs. "
          echo "${space}${msg1001}${dateTime1001} (10.01)">>$WorkDIR/logs/Pipeline_procedure.log
-         SPLICEALIGN="T" # flag for CpGAT
-         echo "DEBUG: SPLICEALIGN='T' ">>$WorkDIR/logs/Pipeline_procedure.log
       else
          msg1001="$count1001 est spliced alignments loaded to MySQL table $xGDB.gseg_est_good_pgs, but there was an ID mismatch with est table ($gi_match1001 matches) or gseg table ($gseg_match1001 matches). "
          error1001="ERROR: ${msg1001}${dateTime1001} (10.01)"
          echo "$error1001">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error1001">>$WorkDIR/logs/Pipeline_error.log
       fi
-      SPLICEALIGN="T" # flag for CpGAT
+      SPLICEALIGN="T"   # flag for CpGAT
    else
       dateTime1001=$(date +%Y-%m-%d\ %k:%M:%S)
       msg1001="No EST spliced alignments to load. ">>$WorkDIR/logs/Pipeline_procedure.log
@@ -1487,14 +1504,12 @@ FirstPart() {
       then
          msg1002="$count1002 cDNA spliced alignments loaded to MySQL table $xGDB.gseg_cdna_good_pgs. "
          echo "${space}${msg1002}${dateTime1002} (10.02)">>$WorkDIR/logs/Pipeline_procedure.log
-         SPLICEALIGN="T" # flag for CpGAT
-         echo "DEBUG: SPLICEALIGN='T' ">>$WorkDIR/logs/Pipeline_procedure.log
       else
          msg1002="$count1002 cdna spliced alignments loaded to MySQL table $xGDB.gseg_cdna_good_pgs, but there was an ID mismatch with cdna table ($gi_match1002 matches) or gseg table ($gseg_match1002 matches). "
          error1002="ERROR: ${msg1002}${dateTime1002} (10.02)"
          echo "$error1002">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error1002">>$WorkDIR/logs/Pipeline_error.log
       fi
-      SPLICEALIGN="T" # flag for CpGAT
+      SPLICEALIGN="T"   # flag for CpGAT
    else
       dateTime1002=$(date +%Y-%m-%d\ %k:%M:%S)
       msg1002="No cDNA spliced alignments to load. ">>$WorkDIR/logs/Pipeline_procedure.log
@@ -1513,14 +1528,12 @@ FirstPart() {
       then
          msg1003="$count1003 protein spliced alignments loaded to MySQL table $xGDB.gseg_put_good_pgs. "
          echo "${space}${msg1003}${dateTime1003} (10.03)">>$WorkDIR/logs/Pipeline_procedure.log
-         SPLICEALIGN="T" # flag for CpGAT
-         echo "DEBUG: SPLICEALIGN='T' ">>$WorkDIR/logs/Pipeline_procedure.log
       else
          msg1003="$count1003 TSA spliced alignments loaded to MySQL table $xGDB.gseg_put_good_pgs, but there was an ID mismatch with put (TSA) table ($gi_match1003 matches) or gseg table ($gseg_match1003 matches). "
          error1003="ERROR: ${msg1003}${dateTime1003} (10.03)"
          echo "$error1003">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error1003">>$WorkDIR/logs/Pipeline_error.log
       fi
-      SPLICEALIGN="T" # flag for CpGAT
+      SPLICEALIGN="T"   # flag for CpGAT
    else
       dateTime1003=$(date +%Y-%m-%d\ %k:%M:%S)
       msg1003="No TSA spliced alignments to load. ">>$WorkDIR/logs/Pipeline_procedure.log
@@ -1539,14 +1552,12 @@ FirstPart() {
       then
          msg1004="$count1004 protein spliced alignments loaded to MySQL table $xGDB.gseg_pep_good_pgs. "
          echo "${space}${msg1004}${dateTime1004} (10.04)">>$WorkDIR/logs/Pipeline_procedure.log
-         SPLICEALIGN="T" # flag for CpGAT
-         echo "DEBUG: SPLICEALIGN='T' ">>$WorkDIR/logs/Pipeline_procedure.log
       else
          msg1004="$count1004 pep spliced alignments loaded to MySQL table $xGDB.gseg_pep_good_pgs, but there was an ID mismatch with pep table ($gi_match1004 matches) or gseg table ($gseg_match1004 matches). "
          error1004="ERROR: ${msg1004}${dateTime1004} (10.04)"
          echo "$error1004">>$WorkDIR/logs/Pipeline_procedure.log; echo "$error1004">>$WorkDIR/logs/Pipeline_error.log
       fi
-      SPLICEALIGN="T" # flag for CpGAT
+      SPLICEALIGN="T"   # flag for CpGAT
    else
       dateTime1004=$(date +%Y-%m-%d\ %k:%M:%S)
       msg1004="No Protein spliced alignments to load. ">>$WorkDIR/logs/Pipeline_procedure.log
@@ -1636,6 +1647,8 @@ RunCpGAT(){
    ###########################################################################################################################################################
    # NOTE: if ~cpgat.gff3 (precomputed) file was included in Input Dir, these data will already have been parsed and loaded in Step 7. We can skip this step.
 
+   nbproc=`cat /proc/cpuinfo | grep processor | wc -l`
+
    if [ -z "$CpGATparameter" ] # No CpGAT parameter set or parameter string is empty; user did not request CpGAT
    then
       # 13.01 just create a CpGAT directory and put an empty file in it, jump to Step 15
@@ -1663,7 +1676,6 @@ RunCpGAT(){
          echo "CpGAT gene prediction ($mode mode) $dateTime1300 - see also Pipeline_procedure.log. ">>$WorkDIR/logs/CpGAT_procedure.log
          echo "_____________________________________________________________________________">>$WorkDIR/logs/CpGAT_procedure.log
          echo "$msg1300$dateTime1300">>$WorkDIR/logs/CpGAT_procedure.log
-         echo "DEBUG: SPLICEALIGN='T' ">>$WorkDIR/logs/Pipeline_procedure.log
          echo "${space}CpGAT parameters are $CpGATparameter ">>$WorkDIR/logs/CpGAT_procedure.log
          echo "${space}SPLICEALIGN parameter is '$SPLICEALIGN' ">>$WorkDIR/logs/CpGAT_procedure.log
          # 13.02 create a (local) working directory and scaffold subdirectory for CpGAT (note: this is created even if CpGAT is not run)
@@ -1756,7 +1768,7 @@ RunCpGAT(){
          msg13075="Running CpGAT on each genome segment using its spliced alignment data. " # IMPORTANT!! DON'T CHANGE THE TEXT "Running CpGAT on" UNLESS YOU UPDATE 'sed' TEXT below!!!! this line will be replaced below in loop
          echo "$space$msg13075$dateTime13075 (13.075)">>$WorkDIR/logs/Pipeline_procedure.log
          
-         echo "$space-See CGAT_procedure.log for detailed information on each segment annotated." >>$WorkDIR/logs/Pipeline_procedure.log
+         echo "$space-See CpGAT_procedure.log for detailed information on each segment annotated." >>$WorkDIR/logs/Pipeline_procedure.log
          
          gdna_total=$(ls $tmpWorkDIR/data/CpGAT/SCFDIR/|wc -l) # total scaffolds
          scaffold_count=0
@@ -1765,8 +1777,8 @@ RunCpGAT(){
          do
             if [ -s $file ]
             then
-               gseg_gi_tmp=$(echo $file |awk -F/ '{print $NF}')  # e.g. AmTr_v1.0_scaffold00001.fsa which is the scaffold fasta file name
-               gseg_gi=$(echo $gseg_gi_tmp |awk -F.fsa '{print $(NF-1)}') # e.g. chop the .fsa extension leaing AmTr_v1.0_scaffold00001 which is the scaffold ID
+               gseg_gi_tmp=$(echo $file |awk -F/ '{print $NF}')           # e.g. AmTr_v1.0_scaffold00001.fsa which is the scaffold fasta file name
+               gseg_gi=$(echo $gseg_gi_tmp |awk -F.fsa '{print $(NF-1)}') # e.g. chop the .fsa extension leaving AmTr_v1.0_scaffold00001 which is the scaffold ID
                
                # 13.08 Grab transcripts already aligned to each scaffold and create a tabular list of alignment data for each, based on "good_pgs" table data.
                echo "select * from gseg_est_good_pgs where gseg_gi=\"$gseg_gi\"" | mysql -p$dbpass -u $mysqluser $xGDB -N >$tmpWorkDIR/data/CpGAT/${gseg_gi}.mRNAgth.tab
@@ -1797,21 +1809,34 @@ RunCpGAT(){
                
                sed -i -e "s/^.*Running CpGAT on.*$/$space$msg1309$dateTime1309/" $WorkDIR/logs/Pipeline_procedure.log
                
-               # Now run the CpGAT-xGDB script!!!!
-               /xGDBvm/src/CpGAT/fct/cpgat.xgdb.pl -o $tmpWorkDIR/data/CpGAT -i $file -trans $tmpWorkDIR/data/CpGAT/${gseg_gi}.mRNAgth.tab -prot $tmpWorkDIR/data/CpGAT/${gseg_gi}.protgth.tab $CpGATparameter -config_file /xGDBvm/src/CpGAT/CpGAT.conf>& $tmpWorkDIR/data/CpGAT/${gseg_gi}.err
-   
-               dateTime1310=$(date +%Y-%m-%d\ %k:%M:%S)
-               count1310=$(grep -c -P "\tmRNA\t" $tmpWorkDIR/data/CpGAT/${gseg_gi}.${CpGATfilter}.gff3)
-               msg1310=" gene predictions (${CpGATfilter}) were computed for $gseg_gi. "
-               echo "$space$count1310$msg1310$dateTime1310 (13.10)" >>$WorkDIR/logs/CpGAT_procedure.log
+               # Now run the CpGAT-xGDB script ($nbproc simultaneous runs in the background):
+
+               cntmnbp=`expr $scaffold_count % $nbproc`
+               (mkdir $tmpWorkDIR/data/CpGAT/TMP$cntmnbp; /xGDBvm/src/CpGAT/fct/cpgat.xgdb.pl -o $tmpWorkDIR/data/CpGAT/TMP$cntmnbp -i $file -trans $tmpWorkDIR/data/CpGAT/${gseg_gi}.mRNAgth.tab -prot $tmpWorkDIR/data/CpGAT/${gseg_gi}.protgth.tab $CpGATparameter -config_file /xGDBvm/src/CpGAT/CpGAT.conf >& $tmpWorkDIR/data/CpGAT/${gseg_gi}.err; echo "... done with background cpgat job at $(date +%Y-%m-%d\ %k:%M:%S)";) &
+               if (( $scaffold_count % $nbproc == 0 ))
+               then
+                  wait
+                  \mv $tmpWorkDIR/data/CpGAT/TMP*/* $tmpWorkDIR/data/CpGAT/
+                  \rm -rf $tmpWorkDIR/data/CpGAT/TMP*
+               fi
             fi
          done
-         
-         # exit loop
-         # swap out last segment log for CpGAT summary log
+# For the record ...
+         for file in $tmpWorkDIR/data/CpGAT/SCFDIR/*
+         do
+            if [ -s $file ]
+            then
+               gseg_gi_tmp=$(echo $file |awk -F/ '{print $NF}')
+               gseg_gi=$(echo $gseg_gi_tmp |awk -F.fsa '{print $(NF-1)}')
+               count1310=$(grep -c -P "\tmRNA\t" $tmpWorkDIR/data/CpGAT/${gseg_gi}.${CpGATfilter}.gff3)
+               msg1310=" gene predictions (${CpGATfilter}) were computed for $gseg_gi. "
+               echo "$space$count1310$msg1310 (13.10)" >> $WorkDIR/logs/CpGAT_procedure.log
+            fi
+         done
+               
          dateTime1311=$(date +%Y-%m-%d\ %k:%M:%S)
-         msg1311="** CpGAT completed for $scaffold_count out of $gdna_total segments (see CpGAT_procedure.log for details) ** "
-         sed -i -e "s/^.*Running CpGAT on.*$/$space$msg1311$dateTime1311 (13.11)/" $WorkDIR/logs/Pipeline_procedure.log
+         msg1311="** CpGAT completed for $scaffold_count out of $gdna_total segments ** "
+         echo "$space$msg1311 at $dateTime1311 (13.11)" >> $WorkDIR/logs/CpGAT_procedure.log
          
          # 13.12 Create concatenated output gff3 file, place in working directory. Make a copy of the gff3 file in the data download directory (as cpgat.gff3).
          cat $tmpWorkDIR/data/CpGAT/*.${CpGATfilter}.gff3 >$tmpWorkDIR/data/CpGAT/${xGDB}all.${CpGATfilter}.gff3
@@ -2699,9 +2724,26 @@ addGSEG () {
    echo "- Protein Spliced Alignment: $countU212a protein sequences are being splice-aligned to $countU212b new genome sequences (U2.12)" >>$WorkDIR/logs/Pipeline_procedure.log
    echo "$space- GTH parameter set is $GTHparameter (U2.12)" >>$WorkDIR/logs/Pipeline_procedure.log
    
-   /usr/local/bin/gth -genomic ${WorkDIR}/data/download/new_${xGDB}gdna.fa -protein ${WorkDIR}/data/GTH/Protein/${xGDB}prot.fa $GTHparameter -o ${WorkDIR}/data/GTH/GTHOUT/${xGDB}prot.gth
-   #U2.11 Protein GEnomeThreader results with new scaffolds
-   
+   if (( $nbproc > 1 ))
+   then
+      mkdir ${WorkDIR}/data/GTH/GTHOUT/SPLIT
+      cd ${WorkDIR}/data/download
+      /usr/local/bin/fastasplit.pl -i new_${xGDB}gdna.fa -n $nbproc -o ${WorkDIR}/data/GTH/GTHOUT/SPLIT
+      cd ${WorkDIR}/data/GTH/GTHOUT/SPLIT
+      i=0
+      for g in *; do
+        ((i++)); mkdir TMP$i; mv $g TMP$i; cd TMP$i; cp ${WorkDIR}/data/GTH/Protein/${xGDB}prot.fa ./;
+        /usr/local/bin/gth -genomic $g -protein ${xGDB}prot.fa $GTHparameter -o gthout$i &
+        cd ..
+      done
+      wait
+      cat TMP*/gthout* > ${WorkDIR}/data/GTH/GTHOUT/${xGDB}prot.gth
+      cd ${WorkDIR}
+   else
+      /usr/local/bin/gth -genomic ${WorkDIR}/data/download/new_${xGDB}gdna.fa -protein ${WorkDIR}/data/GTH/Protein/${xGDB}prot.fa $GTHparameter -o ${WorkDIR}/data/GTH/GTHOUT/${xGDB}prot.gth
+   fi
+
+   #U2.13 Protein GenomeThreader results with new scaffolds
    dateTimeU213=$(date +%Y-%m-%d\ %k:%M:%S)
    countU213=$(grep -c "MATCH"  ${WorkDIR}/data/GTH/GTHOUT/${xGDB}prot.gth)
    msgU213=" protein spliced alignments to new genome sequence completed and sent to GTH output directory $WorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth "
@@ -3229,6 +3271,7 @@ addTSA () {
 ## NOTE: If ReplacePROTEIN (U8) was selected, this script went there first and deleted existing set, then came here.
 addPROTEIN () {
    
+   nbproc=`cat /proc/cpuinfo | grep processor | wc -l`
    dateTimeU600=$(date +%Y-%m-%d\ %k:%M:%S)
    msgU600="| Step U6: Add NEW protein sequences. "
    echo "$dline" >>$WorkDIR/logs/Pipeline_procedure.log
@@ -3316,9 +3359,26 @@ addPROTEIN () {
        dateTimeU607=$(date +%Y-%m-%d\ %k:%M:%S)
        countU607a=$(grep -c "^>" $tmpWorkDIR/data/GTH/SCFDIR/${xGDB}gdna.fa)
        countU607b=$(grep -c "^>" $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa)
-       echo "- GenomeThreader Initiated with $countU607a gdna and $countU607b proteins $dateTimeU607 (U6.07)" >>$WorkDIR/logs/Pipeline_procedure.log
+       echo "- GenomeThreader initiated with $nbproc processors, $countU607a gdna segments, and $countU607b proteins $dateTimeU607 (U6.07)" >>$WorkDIR/logs/Pipeline_procedure.log
        
-       /usr/local/bin/gth -genomic $tmpWorkDIR/data/GTH/SCFDIR/${xGDB}gdna.fa -protein $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa $GTHparameter -o $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth
+       if (( $nbproc > 1 ))
+       then
+          mkdir $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+          cd $tmpWorkDIR/data/GTH/SCFDIR
+          /usr/local/bin/fastasplit.pl -i ${xGDB}gdna.fa -n $nbproc -o $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+          cd $tmpWorkDIR/data/GTH/GTHOUT/SPLIT
+          i=0
+          for g in *; do
+            ((i++)); mkdir TMP$i; mv $g TMP$i; cd TMP$i; cp $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa ./;
+            /usr/local/bin/gth -genomic $g -protein ${xGDB}prot.fa $GTHparameter -o gthout$i &
+            cd ..
+          done
+          wait
+          cat TMP*/gthout* > $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth
+          cd $tmpWorkDIR
+       else
+          /usr/local/bin/gth -genomic $tmpWorkDIR/data/GTH/SCFDIR/${xGDB}gdna.fa -protein $tmpWorkDIR/data/GTH/Protein/${xGDB}prot.fa $GTHparameter -o $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth
+       fi
        
        ## U6.08 GenomeThreader Output
        if [ -s $tmpWorkDIR/data/GTH/GTHOUT/${xGDB}prot.gth ]
@@ -4029,7 +4089,7 @@ else #### Update existing GDB based on options arguments (each one calls a separ
             cp ${WorkDIR}/data/BLAST/${xGDB}gdna.fa ${WorkDIR}/data/GTH/SCFDIR/${xGDB}gdna.fa #copy existing scaffold(s) to GTH working directory
             mv ${WorkDIR}/data/CpGAT ${WorkDIR}/data/LastRun_CpGAT  #Move the previous CpGAT output to an archive.
             mv ${WorkDIR}/data/XGDB_MYSQL/${xGDB}cpgat_gene_annotation.sql ${WorkDIR}/data/XGDB_MYSQL/old_${xGDB}cpgat_gene_annotation.sql #Move the previous CpGAT .sql to an archive.
-            mv ${WorkDIR}/data/download/${xGDB}cgpat.gff3 ${WorkDIR}/data/download/${xGDB}old_cpgat.gff3 #Move the previous CpGAT gff3 to an archive.
+            mv ${WorkDIR}/data/download/${xGDB}cpgat.gff3 ${WorkDIR}/data/download/${xGDB}old_cpgat.gff3 #Move the previous CpGAT gff3 to an archive.
             # Remove old cpgat MySQL data
             echo "delete from gseg_cpgat_gene_annotation"|mysql -p$dbpass -u $mysqluser $xGDB
             
