@@ -174,10 +174,10 @@ FirstPart() {
    then
       fcount=$(ls $dataPath/*${type}.fa|wc -l)
       echo "- $name sequence  (~${type}.fa; file count=$fcount)"  >>$WorkDIR/logs/Pipeline_procedure.log
-         cat $dataPath/*${type}.fa >$tmpWorkDIR/data/download/${xGDB}${type}.fa #  cat all files to download directory
-         ## validate input fasta deflines, detect duplicate entries, and write results to procedure and error logs (no file conversion!).
-         $ScriptDIR/fasta-validate.pl  --logfile=$WorkDIR/logs/Pipeline_procedure.log --errorfile=$WorkDIR/logs/Pipeline_error.log $tmpWorkDIR/data/download/${xGDB}${type}.fa --step=2.${step}5
-         count1=$(grep -c "^>" $tmpWorkDIR/data/download/${xGDB}${type}.fa)
+      cat $dataPath/*${type}.fa >$tmpWorkDIR/data/download/${xGDB}${type}.fa #  cat all files to download directory
+      ## Validate input fasta deflines, detect duplicate entries, and write results to procedure and error logs (no file conversion):
+      $ScriptDIR/fasta-validate.pl  --logfile=$WorkDIR/logs/Pipeline_procedure.log --errorfile=$WorkDIR/logs/Pipeline_error.log $tmpWorkDIR/data/download/${xGDB}${type}.fa --step=2.${step}5
+      count1=$(cat $dataPath/*${type}.fa | grep -c "^>")
       count2=$(grep -c "^>" $tmpWorkDIR/data/download/${xGDB}${type}.fa)
       if [ "$count1" -eq "$count2" ]
       then
@@ -193,16 +193,12 @@ FirstPart() {
       msg_blast="${space}${count2} $name sequences copied from $download_destination to $blast_destination (2.${step}5)"
       echo "$msg_blast"  >>$WorkDIR/logs/Pipeline_procedure.log
 
-      declare $type_count=$count2 # The value of this variable variable (e.g. est_count, etc) is used later for sanity check on parsing and upload
-      eval \${type_count}=${count2} # force evaluation
-#debug only     echo "${space}$est_count, $cdna_count, $tsa_count, $prot_count, $gdna_count, $gdnarm_count, $annotpep_count, $annotmrna_count, $annotcds_count, $cpgatpep_count, $cpgatmrna_count, $cpgatcds_count" >>$WorkDIR/logs/Pipeline_procedure.log
+      declare $type_count=$count2 # The value of this variable (est_count, etc.) is used later for sanity check on parsing and upload
    else
       echo "- $name sequence"  >>$WorkDIR/logs/Pipeline_procedure.log
       msg="${space}No $name sequences (~${type}.fa) were found in Input Directory (2.${step})"
       echo "$msg" >>$WorkDIR/logs/Pipeline_procedure.log
       declare $type_count="0"
-      eval \${type_count}="0"
-#debug only      echo "${space}$est_count, $cdna_count, $tsa_count, $prot_count, $gdna_count,  $gdnarm_count, $annotpep_count, $annotmrna_count, $annotcds_count, $cpgatpep_count, $cpgatmrna_count, $cpgatcds_count" >>$WorkDIR/logs/Pipeline_procedure.log
    fi
 
    done
@@ -1874,7 +1870,7 @@ RunCpGAT(){
          dateTime13138=$(date +%Y-%m-%d\ %k:%M:%S)
          cp $tmpWorkDIR/data/CpGAT/BLASTDIR/${RefProtDBFile} $WorkDIR/data/BLAST/${xGDB}cpgat.refprot.fa
          /usr/local/bin/makeblastdb -in $WorkDIR/data/BLAST/${xGDB}cpgat.refprot.fa -dbtype prot -parse_seqids -out $WorkDIR/data/BLAST/${xGDB}cpgat.refprot.fa
-         msg13138=" Reference Protein file copied to BLAST directory (as ${xGDB}cpgat.refprot.fa) and indexed for blast"
+         msg13138="Reference Protein file copied to BLAST directory (as ${xGDB}cpgat.refprot.fa) and indexed for blast"
          echo "$space$msg13138$dateTime13138 (13.138)" >>$WorkDIR/logs/Pipeline_procedure.log
 
             
@@ -2047,7 +2043,7 @@ RunCpGAT(){
       CpGAEVALaction="Run";
    fi
 
-   echo "${space} CpGENEMODEL = $CpGENEMODEL; CpGAEVALaction = $CpGAEVALaction (15.00)" >>$WorkDIR/logs/Pipeline_procedure.log
+   echo "${space}CpGENEMODEL = $CpGENEMODEL; CpGAEVALaction = $CpGAEVALaction (15.00)" >>$WorkDIR/logs/Pipeline_procedure.log
 
    dateTime15005=$(date +%Y-%m-%d\ %k:%M:%S)
 
@@ -2305,7 +2301,7 @@ LastPart(){
 
    if [ -d ${WorkDIR} ] # The /xGDBvm/data/GDB00n/ directory exists.
    then
-      msg1610="Output directory is present at ${WorkDIR} (16.10) "
+      msg1610="${space}Output directory is present at ${WorkDIR} (16.10) "
       echo "$msg1610">>$WorkDIR/logs/Pipeline_procedure.log
    else
       error1610="ERROR: Could not create output directory  ${WorkDIR} (16.10) "
@@ -2657,14 +2653,14 @@ addGSEG () {
       cp ${WorkDIR}/data/download/new_${xGDB}gdna.fa $WorkDIR/data/GSQ/SCFDIR/new_${xGDB}gdna.fa
       
       dateTimeU205=$(date +%Y-%m-%d\ %k:%M:%S)
-      countU205=$(ls $WorkDIR/data/GSQ/SCFDIR/|wc -l)
+      countU205=$(ls ${WorkDIR}/data/GSQ/SCFDIR/|wc -l)
       msgU205=" new genome sequences copied to GSQ working dir $WorkDIR/data/GSQ/SCFDIR/new_${xGDB}gdna.fa "
       echo "$space$countU205$msgU205$dateTimeU205 (U2.05a)">>$WorkDIR/logs/Pipeline_procedure.log
       ## U2.05b Repeat masking requested. Run vmatch and deposit output file to working directory (NOT scratch directory)
    else
       /usr/local/bin/vmatch -q ${WorkDIR}/data/download/new_${xGDB}gdna.fa -qmaskmatch X -d -p -l 100 -exdrop 4 -identity 80 $RepeatMaskparameter | grep -v '#' > $WorkDIR/data/GSQ/SCFDIR/new_${xGDB}gdna.fa
       dateTimeU205=$(date +%Y-%m-%d\ %k:%M:%S)
-      countU205=$(ls $WorkDIR/data/GSQ/SCFDIR/|wc -l)
+      countU205=$(ls ${WorkDIR}/data/GSQ/SCFDIR/|wc -l)
       msgU205=" new Repeat Masked genome sequence copied to GSQ working dir $WorkDIR/data/GSQ/SCFDIR/new_${xGDB}gdna.fa "
       echo "$space$countU205$msgU205$dateTimeU205 (U2.05b)" >>$WorkDIR/logs/Pipeline_procedure.log
    fi
