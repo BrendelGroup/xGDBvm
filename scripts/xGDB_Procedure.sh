@@ -1727,7 +1727,7 @@ RunCpGAT(){
             echo "$space$msg1306$dateTime1306 (13.06)">>$WorkDIR/logs/Pipeline_procedure.log
          else  # Make blast directory, copy the file (and any index) to its scratch location and count entries
             mkdir $tmpWorkDIR/data/CpGAT/BLASTDIR
-            msg1306="Copying Reference Protein Dataset $RefProtDBFile to scratch directory"
+            msg1306="Copying Reference Protein Dataset $RefProtDBFile to scratch directory "
             echo "$space$msg1306$dateTime1306 (13.06)">>$WorkDIR/logs/Pipeline_procedure.log
             cp $RefProtDBInput  $tmpWorkDIR/data/CpGAT/BLASTDIR       
             cp $RefProtDBInput.*  $tmpWorkDIR/data/CpGAT/BLASTDIR
@@ -1785,8 +1785,6 @@ RunCpGAT(){
                echo "select * from gseg_cdna_good_pgs where gseg_gi=\"$gseg_gi\"" | mysql -p$dbpass -u $mysqluser $xGDB -N >>$tmpWorkDIR/data/CpGAT/${gseg_gi}.mRNAgth.tab
                echo "select * from gseg_put_good_pgs where gseg_gi=\"$gseg_gi\"" | mysql -p$dbpass -u $mysqluser $xGDB -N >>$tmpWorkDIR/data/CpGAT/${gseg_gi}.mRNAgth.tab
                echo "select * from gseg_pep_good_pgs where gseg_gi=\"$gseg_gi\"" | mysql -p$dbpass -u $mysqluser $xGDB -N >$tmpWorkDIR/data/CpGAT/${gseg_gi}.protgth.tab
-               cut -f2 $tmpWorkDIR/data/CpGAT/${gseg_gi}.mRNAgth.tab >$tmpWorkDIR/data/CpGAT/${gseg_gi}_v_mRNAs.list
-               cut -f2 $tmpWorkDIR/data/CpGAT/${gseg_gi}.protgth.tab >$tmpWorkDIR/data/CpGAT/${gseg_gi}_v_Peps.list
                
                dateTime1308=$(date +%Y-%m-%d\ %k:%M:%S)
                count1308=$(echo "SELECT concat(\"  \", count(*)) as \"- $gseg_gi gene predictions :\"  FROM (SELECT uid from gseg_est_good_pgs where gseg_gi=\"$gseg_gi\"  UNION ALL SELECT uid FROM gseg_cdna_good_pgs where gseg_gi=\"$gseg_gi\" UNION ALL SELECT uid FROM gseg_put_good_pgs where gseg_gi=\"$gseg_gi\" UNION ALL SELECT uid FROM gseg_pep_good_pgs where gseg_gi=\"$gseg_gi\") as total "|mysql -p$dbpass -u $mysqluser $xGDB)
@@ -1812,8 +1810,13 @@ RunCpGAT(){
                # Now run the CpGAT-xGDB script ($nbproc simultaneous runs in the background):
 
                cntmnbp=`expr $scaffold_count % $nbproc`
-               (mkdir $tmpWorkDIR/data/CpGAT/TMP$cntmnbp; /xGDBvm/src/CpGAT/fct/cpgat.xgdb.pl -o $tmpWorkDIR/data/CpGAT/TMP$cntmnbp -i $file -trans $tmpWorkDIR/data/CpGAT/${gseg_gi}.mRNAgth.tab -prot $tmpWorkDIR/data/CpGAT/${gseg_gi}.protgth.tab $CpGATparameter -config_file /xGDBvm/src/CpGAT/CpGAT.conf >& $tmpWorkDIR/data/CpGAT/${gseg_gi}.err; echo "... done with background cpgat job at $(date +%Y-%m-%d\ %k:%M:%S)";) &
-               if (( $scaffold_count % $nbproc == 0 ))
+               (mkdir $tmpWorkDIR/data/CpGAT/TMP$cntmnbp; \
+                cut -f2 $tmpWorkDIR/data/CpGAT/${gseg_gi}.mRNAgth.tab >$tmpWorkDIR/data/CpGAT/TMP$cntmnbp/${gseg_gi}_v_mRNAs.list; \
+                cut -f2 $tmpWorkDIR/data/CpGAT/${gseg_gi}.protgth.tab >$tmpWorkDIR/data/CpGAT/TMP$cntmnbp/${gseg_gi}_v_Peps.list; \
+                /xGDBvm/src/CpGAT/fct/cpgat.xgdb.pl -o $tmpWorkDIR/data/CpGAT/TMP$cntmnbp -i $file -trans $tmpWorkDIR/data/CpGAT/${gseg_gi}.mRNAgth.tab -prot $tmpWorkDIR/data/CpGAT/${gseg_gi}.protgth.tab $CpGATparameter -config_file /xGDBvm/src/CpGAT/CpGAT.conf >& $tmpWorkDIR/data/CpGAT/${gseg_gi}.err; \
+                echo "... done with background cpgat job at $(date +%Y-%m-%d\ %k:%M:%S)"; \
+               ) &
+               if (( $scaffold_count % $nbproc == 0  ||  $scaffold_count == $gdna_total ))
                then
                   wait
                   \mv $tmpWorkDIR/data/CpGAT/TMP*/* $tmpWorkDIR/data/CpGAT/
@@ -1917,7 +1920,7 @@ RunCpGAT(){
             dateTime1325=$(date +%Y-%m-%d\ %k:%M:%S)
             msg1325=" Reference Protein sequences were loaded to MySQL '${xGDB}.refprot' (reference protein) table "
             echo "${space}${count1325}${msg1325}${dateTime1325}" >>$WorkDIR/logs/Pipeline_procedure.log
-            if [ "$count1325" -eq "$refprot_count" ] # initial fasta count at the top of the CpGAT loop
+            if [[ "$count1325" -eq "$refprot_count" ]] # initial fasta count at the top of the CpGAT loop
             then
                msg1328=" Reference Protein IDs appear to have been parsed correctly. Now appending best hit descriptions to 'gseg_cpgat_gene_annotation' table"
                echo "${space}${msg1328} (13.28)" >>$WorkDIR/logs/Pipeline_procedure.log
