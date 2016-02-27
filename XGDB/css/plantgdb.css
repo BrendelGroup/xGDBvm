@@ -886,7 +886,6 @@ a.label, a.label i, span.label, p.label { /* for showhide hyperlinks*/
 	color: #C45601; /*synchronize with global a*/
 	font-size: 12px; /* changed from 12px on 7-27-10 JD*/
 	background: url('/XGDB/images/triangle_yel.gif') no-repeat left #BFFAF5;
-	white-space:nowrap;
 	width: auto; /*20%;*/
 	margin-top: 0.5em; /* Was 0.75em */
 	text-decoration:none;
