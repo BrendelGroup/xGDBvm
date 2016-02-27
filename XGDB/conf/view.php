@@ -2268,7 +2268,7 @@ $update_dirlist=dirlist_dropdown($Input_Data_Path, "", "", $Update_Data_Path);//
 								</tr>
 								<tr class=\"$display_current_only\">
 									<td class=\"indent2\">Features: <img id='config_current_features' title='Feature Track totals for this GDB (click to view). Click ? for details.' class='help-button nudge1' src='/XGDB/images/help-icon.png' alt='?' /></td>
-									<td class=\"no_edit\"><span style='white-space:nowrap; color:#CF0C14'>$feature_totals_string </span> </td>
+									<td class=\"no_edit\"><span style='color:#CF0C14'>$feature_totals_string </span> </td>
 								</tr>
 								<tr class=\"$display_archive\">
 									<td>$DBid Archived: <img id='config_archive_file' title='Archive Help' class='help-button' src='/XGDB/images/help-icon.png' alt='?' /></td>

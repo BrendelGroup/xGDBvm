@@ -40,8 +40,8 @@ $sth2 = $dbh->prepare($query2) or die "Couldn't prepare statement: " . $dbh->err
 while ($array_ref2 = $sth2 -> fetchrow_arrayref()){
                 ($ID,$conf)=@$array_ref2;
 		$ID="GDB00".$ID if ($ID<10);
-		$ID="GDB0".$ID if ($ID<100 and $ID>10);
-		$ID="GDB".$ID if ($ID>100 and $ID<1000);
+		$ID="GDB0".$ID if ($ID<100 and $ID>=10);
+		$ID="GDB".$ID if ($ID>=100 and $ID<1000);
 		$conf_id{$conf}=$ID;
 		push(@conf,$conf_id);
 #		print STDERR "$conf $ID kkkkkkkkkk\n";
