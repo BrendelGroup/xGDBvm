@@ -170,7 +170,7 @@ $(function() {
         $('.logfile-button').mouseout(function(){ this.src = '/XGDB/images/logfile-icon.png'; });
         $('.logfile-button').click(function(event) {
                 $.get(  '/XGDB/phplib/xGDB_logfile.php',
-                        { 'context[]': [this.id, this.title] },
+                        { 'context[]': [this.id, this.name] },
                         function(html) {
                                 $('#logfile_dialog').html(html);
                         }

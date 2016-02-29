@@ -28,34 +28,45 @@ include_once(dirname(__FILE__).'/validate.php');
 	$DBid="GDB001";
 	}
 
-$file="Pipeline_procedure";
+$file="Pipeline_procedure"; # default.
+$file2="CpGAT_procedure"; # default.
+$file3="Pipeline_error"; # default.
 
-if(preg_match("/procedure/", $_GET['file']) || preg_match("/error/", $_GET['file'])){ #URL string shows &file=
-	$file=mysql_real_escape_string($_GET['file']);
+if(preg_match("/procedure/", $_GET['file']) || preg_match("/error/", $_GET['file']))  #URL string shows &file=
+
+{
+	$get_file=$_GET['file'];
 }	
 	
-	switch ($file) // also display links to other logfiles
-		{
-    case "Pipeline_procedure":
+
+switch ($file) // sanitize GET value to prepare link to logfile.php
+{
+	case (preg_match("/Pipeline_procedure/", $get_file) ? true : false):
+	    $file="Pipeline_procedure";
 		$file2="CpGAT_procedure";
 		$file3="Pipeline_error";
-        break;
-    case "CpGAT_procedure":
-		$file2="Pipeline_error";
-		$file3="Pipeline_procedure";
-        break;
-    case "Pipeline_error":
+		break;
+	case (preg_match("/Pipeline_error/", $get_file) ? true : false):
+		$file="Pipeline_error";
 		$file2="Pipeline_procedure";
 		$file3="CpGAT_procedure";
-        break;
+		break;
+	case (preg_match("/CpGAT_procedure/", $get_file) ? true : false):
+		$file="CpGAT_procedure";
+		$file2="Pipeline_procedure";
+		$file3="Pipeline_error";
+		break;
 }
+
+
 
 $filepath = "${XGDB_DATADIR}${DBid}/logs/${file}.log";
 
 		$fd = fopen($filepath, "r");
 		$contents = fread($fd, filesize($filepath));
 		fclose($fd);
-		$contents = ($contents == "")?"-No output-":$contents;	
+		$contents = ($contents == "")?"-No output-":$contents;
+		
 $formatted_contents = "
 <div id=\"maincontentscontainer\" class=\"twocolumn configure $background\">
 	<div style=\"text-align:right; margin:10px 150px -20px 0px\">
