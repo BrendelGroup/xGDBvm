@@ -146,26 +146,7 @@ $(function() {
         $('#help_dialog').dialog({bgiframe:true,autoOpen:false,height:640,width:640,modal:true});
 });
 
-
-// ### This script loads a specified logfile in a Jquery UI dialog window. In your html code, create an image or anchor element with class='logfile-button', ID=[logfile name] (minus the '.log'), and title= [GDBnnn]. 
-// ### The corresponding logfile should be placed in the directory path specified by the php script referenced below.
-$(function() {
-        $('.xgdb-logfile-button').css('cursor','help');
-        $('.xgdb-logfile-button').attr('src', '/XGDB/images/logfile-icon.png');
-        $('.xgdb-logfile-button').mouseover(function(){ this.src = '/XGDB/images/logfile-icon_hover.png'; });
-        $('.xgdb-logfile-button').mouseout(function(){ this.src = '/XGDB/images/logfile-icon.png'; });
-        $('.xgdb-logfile-button').click(function(event) {
-                $.get(  '/XGDB/phplib/xGDB_logfile.php',
-                        { 'context[]': [this.id, this.title] },
-                        function(html) {
-                                $('#logfile_dialog').html(html);
-                        }
-                );
-                $('#logfile_dialog').dialog('open');
-        });
-        $('#logfile_dialog').dialog({bgiframe:true,autoOpen:false,maxHeight:700,width:800,modal:false});
-});
-
+ 
 
 // ### This script loads data about a fasta file in a Jquery UI dialog window. In your html code, create an image or anchor element with class='validatefile-button', ID=[file name and path] (minus the '.fa'), and title= [filename]. 
 // ### The corresponding file should be placed in the directory path specified by the php script referenced below.
