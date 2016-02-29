@@ -67,7 +67,7 @@ foreach $INFILE (@GFFfiles) {
     $flagALLDONE = 0;
     $flagNewGene = 0;
     while (<FILE>) {
-        if ( $_ =~ /^#/ ) { next; }
+        if ( $_ =~ /^#/  ||  $_ =~ /^$/) { next; }
         (
             $tmpchr, $source,    $type,  $tmpl_pos, $tmpr_pos,
             $score,  $tmpstrand, $phase, $attributes
@@ -87,13 +87,10 @@ foreach $INFILE (@GFFfiles) {
             $CDSstart = 0;
             $CDSstop  = 0;
             if ($flagNewGene) {
-
-     # A new gene description segment is initiated.  Finish up the previous one:
+               # A new gene description segment is initiated.  Finish up the previous one:
                 my $even_oddFlag = 1;
                 my @WorkingArray = ();
 
-                # Sort the array
-                @sortedCDSarray = sort { $a <=> $b } @CDSarray;
                 my @sortedWorkingArray = ();
                 my $tmpCDS1;
                 if ( $#CDS_Exonarray > -1 && $UTR eq "NO" ) {
@@ -124,7 +121,10 @@ foreach $INFILE (@GFFfiles) {
                         $even_oddFlag   = 1;
                     }
                 }
-                if ( $strand eq 'f' ) {
+
+                if ( $#CDSarray > -1 ) {
+                  @sortedCDSarray = sort { $a <=> $b } @CDSarray;
+                  if ( $strand eq 'f' ) {
                     $CDSstart = $sortedCDSarray[0];
                     $CDSstop  = $sortedCDSarray[$#sortedCDSarray];
                     if ( $CDSstart eq $l_pos ) {
@@ -147,8 +147,8 @@ foreach $INFILE (@GFFfiles) {
                             $gene_structure = "join(" . $gene_structure . ")";
                         }
                     }
-                }
-                else {
+                  }
+                  else {
                     $CDSstop  = $sortedCDSarray[0];
                     $CDSstart = $sortedCDSarray[$#sortedCDSarray];
                     if ( $CDSstop eq $l_pos ) {
@@ -174,19 +174,18 @@ foreach $INFILE (@GFFfiles) {
                         }
                     }
                 }
-
-                #for /transposable_element_gene/
-                if ( $#CDSarray == -1 ) {
-                    $CDSstart = 0;
-                    $CDSstop  = 0;
-                }
-                print
+              }
+              else {
+                $CDSstart = 0;
+                $CDSstop  = 0;
+              }
+              print
 "INSERT into $table (geneId,gseg_gi,strand,l_pos,r_pos,gene_structure,description,note,CDSstart,CDSstop,transcript_id,locus_id) VALUES ('$geneId','$chr','$strand',$l_pos,$r_pos,'$gene_structure','$description','$note',$CDSstart,$CDSstop,'$transcript_id','$locus_id');\n";
-                $gene_structure = "";
-                @CDSarray       = ();
-                @CDS_UTRarray   = ();
-                @CDS_Exonarray  = ();
-                if ($flagALLDONE) { next FILELOOP; }
+              $gene_structure = "";
+              @CDSarray       = ();
+              @CDS_UTRarray   = ();
+              @CDS_Exonarray  = ();
+              if ($flagALLDONE) { next FILELOOP; }
             }
 
             # Set flagNewGene to 1 (the previous gene having been processed)
@@ -195,7 +194,6 @@ foreach $INFILE (@GFFfiles) {
             $l_pos       = $tmpl_pos;
             $r_pos       = $tmpr_pos;
 
-#		if ($attributes =~ /Name=(\S+?);/i ||$attributes =~ /ID=(\S+?);/i || $attributes =~ /mRNA\s+([0-9]{5}\.m[0-9]{6});/i){
             if (   $attributes =~ /ID=(\S+?);/i
                 || $attributes =~ /mRNA\s+([0-9]{5}\.m[0-9]{6});/i )
             {
@@ -215,12 +213,10 @@ foreach $INFILE (@GFFfiles) {
             }
             else {
                 $locus_id = $geneId;
-
-                #$locus_id =~ s/\.\d//g;
             }
             $chr = $tmpchr;
         }
-        elsif (m/UTR/i) {
+        elsif ($type =~ m/UTR/i) {
             $UTR = 'YES';
             if ( $#CDS_UTRarray == -1 ) {
                 push( @CDS_UTRarray, $tmpl_pos );
@@ -257,14 +253,14 @@ foreach $INFILE (@GFFfiles) {
                 }
             }
         }
-        elsif (/exon/
-            or /pseudogenic_exon/
+        elsif ($type =~ /exon/
+            or $type =~ /pseudogenic_exon/
             or exists $npcGeneOfType{$geneType} )
         {
             push( @CDS_Exonarray, $tmpl_pos );
             push( @CDS_Exonarray, $tmpr_pos );
         }
-        elsif (/CDS/) {
+        elsif ($type =~ /CDS/) {
             push( @CDSarray, $tmpl_pos );
             push( @CDSarray, $tmpr_pos );
             if ( $#CDS_UTRarray == -1 ) {
@@ -296,12 +292,15 @@ foreach $INFILE (@GFFfiles) {
                         push( @CDS_UTRarray, $tmpr_pos );
                     }
                 }
-
             }
         }
-        if ( eof(FILE) ) {
+        if ( eof(FILE) ) {   # finish up if input file ends with a non-comment, non-empty line
             $flagALLDONE = 1;
             goto FINISHUP;
         }
+    }
+    if ( eof(FILE) ) {   # finish up if input file ends with a ^# or empty line
+        $flagALLDONE = 1;
+        goto FINISHUP;
     }
 }

@@ -8,7 +8,7 @@ use warnings;
 opendir(my $DIR, "$ARGV[0]") or die("error: cannot open directory '". $ARGV[0] ."' $!");
 my @FASTAfiles = readdir($DIR);
 closedir($DIR);
-# open(my $LOG, ">", "myErroLOG"); 6/14/15
+
 foreach my $FASTAfile (@FASTAfiles)
 {
   my $seqfile = $ARGV[0] ."/". $FASTAfile;
@@ -25,7 +25,7 @@ foreach my $FASTAfile (@FASTAfiles)
   my $error = system("/usr/local/bin/makeblastdb -in $seqfile -dbtype $dbtype -parse_seqids -out $seqfile");
   if ($error)
   {
-    print LOG "$error\t$FASTAfile\n";
+    print STDERR "makeblastdb gave error $error on file\t$FASTAfile\n";
   }	
 }
 

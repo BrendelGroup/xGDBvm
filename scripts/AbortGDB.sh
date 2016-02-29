@@ -32,7 +32,7 @@ echo "update xGDB_Log set Status=\"Development\", Process_Type=\"\", Create_Date
 
 ### update Processes database table ###
 ProcessTimeStamp=$(echo "select max(ProcessTimeStamp) from Processes where GDB = \"$xGDB\" and Outcome=\"\""|mysql -p$dbpass -u $mysqluser Genomes -N) # most recent process.
-if [ $ProcessTimeStamp != "" ] # check whether there is a GDB pipeline running, as opposed to a validation script
+if [ "$ProcessTimeStamp" != "" ] # check whether there is a GDB pipeline running, as opposed to a validation script
 then
   echo "UPDATE Processes set Outcome=\"aborted\" where ProcessTimeStamp = \"$ProcessTimeStamp\""|mysql -p$dbpass -u $mysqluser Genomes
 fi
