@@ -1,5 +1,5 @@
 #!/bin/bash
-#### Useage: called by user this script validates all correctly-named files in the target directory by iteratively launching xGDB_validatefiles.php ########
+#### Usage: called by user this script validates all correctly-named files in the target directory by iteratively launching xGDB_validatefiles.php ########
 #### The results are stored in MySQL database table Genomes.Datafiles, using a filestamp as unique key.
 #### WE get the filepath from input argument. All script actions take place with reference to that filepath.
 #### 
@@ -119,7 +119,7 @@ then
 ###########################
 ### check multiple fasta files catted together for each file type.###
 			((f = f + 1)) # executed step count
-			echo "${f}. Checking for multiple files of same type in ${InputPath} .... ">>$ValidationDIR/Validation.log
+			echo "${f}. Checking for multiple files of same type in ${InputDir} .... ">>$ValidationDIR/Validation.log
 			echo "">>$ValidationDIR/Validation.log
 			for seqtype in est cdna tsa prot gdna gdna.rm annot.mrna cpgat.mrna annot.pep cpgat.pep
 			do
