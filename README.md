@@ -2,7 +2,7 @@
 A cloud-enabled genome annotation platform
 
 xGDBvm is a web-based platform for annotating and visualizing eukaryotic genomes.
-xGDBvm is available through the iPlant/CyVerse Atmosphere platform, and leverages additional NSF XSEDE cyberinfrastructure resources such as the iPlant Data Store and the Agave API to high-performance computing provided by the Texas Advanced Computing Center.
+xGDBvm is available through the [iPlant/CyVerse Atmosphere platform](http://www.cyverse.org/atmosphere), and leverages additional [NSF XSEDE cyberinfrastructure resources](https://www.xsede.org/) such as the [iPlant Data Store](http://www.iplantcollaborative.org/ci/data-store) and the [Agave API](http://www.iplantcollaborative.org/ci/data-store) to high-performance computing provided by the [Texas Advanced Computing Center](https://www.tacc.utexas.edu/).
 
 Users can deploy an xGDBvm virtual machine (VM) on-demand, upload and validate their data, and configure their genome database.
 xGDBvm's processing pipeline can then compute spliced alignments of transcripts and proteins to the genome and annotate genes.
