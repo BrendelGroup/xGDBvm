@@ -25,19 +25,19 @@ session_start();
                                     <ol class="orderedlist1 larger topmargin1">
                                         <li>Check your VM setup for completeness and capacity:
                                             <ul class="bullet1 indent1">
-                                                <li>Check <a title="Data Volumes" href="/XGDB/conf/volumes.php">Data Volumes</a> for <b>mount status</b> and <b>capacity</b> relative to your genome size</li>
+                                                <li>Check input and output <a title="Data Volumes" href="/XGDB/conf/volumes.php">Data Volumes</a> for <b>mount status</b> and <b>capacity</b> relative to your genome size</li>
                                                 <li>Determine if you have the <b>right VM size</b> for your genome size and complexity: 
                                                     <ul class="bullet1 indent2">
                                                         <li>Review the xGDBvm wiki page <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=my_genome_requirements">My Genome Requirements</a> for details and benchmarks.</li>
                                                         <li>A VM with more processors will decrease the analysis time for both spliced alignment and CpGAT gene prediction.</li>
                                                         <li>If warranted, request a larger VM (more processors), unmount and remount external devices to the new VM, configure and proceed.</li>
-                                                        <li>For even more processing power with large evidence alignment datasets, use the High Performance Compute <b>(HPC)</b> option ('Manage' -> 'Remote Jobs').</li>
+                                                        <li>For even more processing power with large evidence alignment datasets, use the High Performance Compute <b>(HPC)</b> option ('Manage'  &rarr; 'Remote Jobs').</li>
                                                     </ul>
                                                 </li>
                                                 <li>Make sure your <b>attached volume</b> is sufficient for to handle anticipated output data: 
                                                         <ul class="bullet1 indent2">
                                                             <li>Rule of thumb: allow at least <b>10x the aggregate size </b> of ALL your input data for ALL genome workflows to be run.</li>
-                                                            <li>For example, you may want to run the same data twice or more, resulting in 2x the outputs).</li>
+                                                            <li>For example, you may want to run the same data twice or more, resulting in 2x the outputs.</li>
                                                             <li>Planning ahead could save you the effort of having to manually transfer your outputs to a new Volume!</li>
                                                         </ul>
                                                 </li>
@@ -144,31 +144,30 @@ session_start();
                                         <li>Manage your GDB:
                                             <ul class="bullet1 indent1">
                                                 <li>Use the <span class="Update">Update</span> feature to add or replace existing data (genome segments, evidence alignments, CpGAT annotation, etc.)</li>
-                                                <li>You can <b>Drop</b>, <b>Delete</b>, or <b>Archive</b> your GDB ('Manage' -> Configure/Create' -> '<a href="/XGDB/conf/archive.php">Archive/Delete</a>'). An archive can be copied to your Data Store and shared with others for viewing on their own VM</li>
-                                                <li>If you want to make your genome data <b>public</b>, change the password management to 'Admin Protection' (public can view but not alter data): 'Admin' -> '<a href="/admin/setup.php">Setup Passwords</a>'</li>
+                                                <li>You can <b>Drop</b>, <b>Delete</b>, or <b>Archive</b> your GDB ('Manage' &rarr; Configure/Create' &rarr; '<a href="/XGDB/conf/archive.php">Archive/Delete</a>'). An archive can be copied to your Data Store and shared with others for viewing on their own VM</li>
+                                                <li>If you want to make your genome data <b>public</b>, change the password management to 'Admin Protection' (public can view but not alter data): 'Admin' &rarr; '<a href="/admin/setup.php">Setup Passwords</a>'</li>
                                                 <li>To re-annotate questionable gene structures, use the <b>yrGATE tool</b> available in Genome Context View, or re-annotate a region with different parameters using the <b>CpGAT Region</b> tool. </li>
-                                                <li>You can start a <b>community annotation</b> project by allowing users to create yrGATE accounts on your VM ('Annotate' ->'<a href="/src/yrGATE/index.php">Getting Started</a>'). Assign one or more Admin accounts ('Manage'->'Admin'->'Manage Users') to curate submissions.</li>
-
+                                                <li>You can start a <b>community annotation</b> project by allowing users to create yrGATE accounts on your VM ('Annotate' &rarr; '<a href="/src/yrGATE/index.php">Getting Started</a>'). Assign one or more Admin accounts ('Manage' &rarr; 'Admin' &rarr; 'Manage Users') to curate submissions.</li>
                                             </ul>
                                         </li>
-                                        <li><b>Case Studies</b>
+                                        <li><b>Further Resources</b>
                                             <ul class="bullet1 indent1">
-                                                <li>You may want to review the following <b>case studies</b> for examples of how to set and use xGDBvm for genome analysis</li> 
-                                                <li><a href="/case-studies/Volvox/README.md">Volvox</a> - annotating a green algal genome using <i>Chlamydomonas</i> data.</li>
-                                                <li><a href="/case-studies/Polistes/README.md">Polistes</a> - wasp genome annotation using related species data</li>
+                                            	<li>xGDBvm <a href="/XGDB/help/index.php">Help Pages</a> (including links to video tutorials)</li>
+                                                <li>xGDBvm <a href="https://github.com/BrendelGroup/xGDBvm/tree/master/case-studies"case studies">Case Studies</a> - real-world examples employing xGDBvm for genome analysis</li> 
+												<li>Wikis: <a href="https://pods.iplantcollaborative.org/wiki/dashboard.action">CyVerse Wiki</a>,<a href="http://goblinx.soic.indiana.edu/wiki/doku.php">xGDBvm wiki</a></li>
                                             </ul>
                                         </li>
                                     </ol>
                                 </div>
-                            </div><!--end maincontents-->
+                            </div><!--end maincontents- &rarr; 
                           <div style="clear:both; float:right">
                             <a href="http://validator.w3.org/check?uri=referer"><img
                               src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Transitional" height="15" width="44" /></a>
                           </div>                        
-                    </div><!--end maincontentsfull-->
-                </div><!--end maincontentscontainer-->
+                    </div><!--end maincontentsfull- &rarr; 
+                </div><!--end maincontentscontainer- &rarr; 
                 <?php include($XGDB_FOOTER); ?>
-            </div><!--end innercontainer-->
-        </div><!--end outercontainer-->
+            </div><!--end innercontainer- &rarr; 
+        </div><!--end outercontainer- &rarr; 
     </body>
 </html>
