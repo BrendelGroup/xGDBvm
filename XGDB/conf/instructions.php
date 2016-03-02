@@ -147,7 +147,15 @@ session_start();
                                                 <li>You can <b>Drop</b>, <b>Delete</b>, or <b>Archive</b> your GDB ('Manage' &rarr; Configure/Create' &rarr; '<a href="/XGDB/conf/archive.php">Archive/Delete</a>'). An archive can be copied to your Data Store and shared with others for viewing on their own VM</li>
                                                 <li>If you want to make your genome data <b>public</b>, change the password management to 'Admin Protection' (public can view but not alter data): 'Admin' &rarr; '<a href="/admin/setup.php">Setup Passwords</a>'</li>
                                                 <li>To re-annotate questionable gene structures, use the <b>yrGATE tool</b> available in Genome Context View, or re-annotate a region with different parameters using the <b>CpGAT Region</b> tool. </li>
-                                                <li>You can start a <b>community annotation</b> project by allowing users to create yrGATE accounts on your VM ('Annotate' &rarr; '<a href="/src/yrGATE/index.php">Getting Started</a>'). Assign one or more Admin accounts ('Manage' &rarr; 'Admin' &rarr; 'Manage Users') to curate submissions.</li>
+                                                <li>You can start a <b>community annotation</b> project by allowing users to create yrGATE accounts on your VM ('Annotate' &rarr; '<a href="/src/yrGATE/index.php">Getting Started</a>'). Assign one or more Admin accounts ('Manage'&rarr;'Admin'&rarr;'Manage Users') to curate submissions.</li>
+
+                                            </ul>
+                                        </li>
+                                        <li><b>Case Studies</b>
+                                            <ul class="bullet1 indent1">
+                                                <li>You may want to review the following <b>case studies</b> for examples of how to set and use xGDBvm for genome analysis</li> 
+                                                <li><a href="/case-studies/Volvox/README.md">Volvox</a> - annotating a green algal genome using <i>Chlamydomonas</i> data.</li>
+                                                <li><a href="/case-studies/Polistes/README.md">Polistes</a> - wasp genome annotation using related species data</li>
                                             </ul>
                                         </li>
                                         <li><b>Further Resources</b>
@@ -159,15 +167,15 @@ session_start();
                                         </li>
                                     </ol>
                                 </div>
-                            </div><!--end maincontents- &rarr; 
+                            </div><!--end maincontents-->
                           <div style="clear:both; float:right">
                             <a href="http://validator.w3.org/check?uri=referer"><img
                               src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Transitional" height="15" width="44" /></a>
                           </div>                        
-                    </div><!--end maincontentsfull- &rarr; 
-                </div><!--end maincontentscontainer- &rarr; 
+                    </div><!--end maincontentsfull-->
+                </div><!--end maincontentscontainer-->
                 <?php include($XGDB_FOOTER); ?>
-            </div><!--end innercontainer- &rarr; 
-        </div><!--end outercontainer- &rarr; 
+            </div><!--end innercontainer-->
+        </div><!--end outercontainer-->
     </body>
 </html>
