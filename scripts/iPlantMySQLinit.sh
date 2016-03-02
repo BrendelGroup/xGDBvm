@@ -367,7 +367,7 @@ fi
   echo "Permissions for database directory $mysqlDir have been updated to mysql:mysql "
   echo ""
 
-sudo /sbin/service mysqld restart
+/sbin/service mysqld restart
 
 # 2. Setting up the xGDB databases (if they don't already exist):
 
@@ -402,7 +402,7 @@ then
 	insertAppIDs  # See FUNCTIONS above
     sleep 3
     
-	# If Admin database exists, query the user about whether to overwrite current App IDs
+# 3. If Admin database exists, query the user about whether to overwrite current App IDs
 else
 while true; do
 		echo ""; read -p "Your Admin database already has HPC App IDs loaded to apps, but there is a chance they are out of date. Overwrite with latest App IDs? [y/n]:  " yn
@@ -425,16 +425,24 @@ while true; do
 	done
 fi
 
-
+# 4. GAEVAL table
 if [ ! -e $mysqlGAEVAL ]
 then
    echo "CREATE DATABASE IF NOT EXISTS GAEVAL"   | mysql -p$dbpass -u $mysqluser
    mysql -p$dbpass -u $mysqluser < /xGDBvm/scripts/gaeval_setup.sql # 11. GAEVAL table for dynamic assignment of GAEVAL scores in yrGATE
 fi
 
-# 4. Run additional update script to update any tables:
+# 5. Run additional update script to update any tables:
 
 /xGDBvm/scripts/configure-vm/MySQLupdate.sh
+
+
+# 6. Restart the Apache server (if this is a hard reboot, it may not be turned on)
+
+/sbin/service httpd restart
+
+############## V. Report Outcome & Say Goodbye #################
+
 echo ""
 echo "MySQL update script run."
 echo ""
