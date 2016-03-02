@@ -16,9 +16,8 @@ if ($session_valid != $post_valid) // value passed by $_POST should match $_SESS
 $inputDir=$XGDB_INPUTDIR; # 1-26-16 J Duvick
 $dataDir=$XGDB_DATADIR; # 1-26-16 J Duvick
 $gm_dir= $GENEMARK_KEY_DIR; //e.g. "/usr/local/src/GENEMARK/genemark_hmm_euk.linux_64/";
-$gm_key=$GENEMARK_KEY; //e.g. ".gm_key" or gm_key;
-$gm_key_core=str_replace('.','', $gm_key);
-$gm_key_destination=".".$gm_key_core; // make sure "." precedes filename
+$gm_key_destination=$GENEMARK_KEY; //e.g. ".gm_key"
+$gm_key_distribution=str_replace('.','', $gm_key_destination); // distributed without a "."
 $gth_dir=$GENOMETHREADER_KEY_DIR; //e.g. "/usr/local/bin/";
 $gth_key=$GENOMETHREADER_KEY; //e.g. "gth.lic";
 $vm_dir=$VMATCH_KEY_DIR; //e.g. "/usr/local/bin/";
@@ -58,14 +57,19 @@ elseif($_POST['action'] == 'vm')
 }
 elseif($_POST['action'] == 'gm')
 {
-	$source_path="$inputDir/keys/$gm_key_core";
-	$destination_path = "$gm_dir$gm_key_destination";	
+	$source_path="$inputDir/keys/$gm_key_distribution";
+	$source_path_alt="$inputDir/keys/$gm_key_destination"; // "." may be present
+	$destination_path = "${gm_dir}${gm_key_destination}";	
 	
-    if (!copy($source_path, $destination_path))
+    if (file_exists($source_path) && !copy($source_path, $destination_path))
     {
-       $warning ="failed to copy $inputDir/keys/$gm_key_core to $gm_dir$gm_key_destination...\n";
+       $warning ="failed to copy $inputDir/keys/$gm_key_distribution to ${gm_dir}${gm_key_destination}...\n";
     }
-    else
+    elseif (file_exists($source_path_alt) && !copy($source_path_alt, $destination_path))
+    {
+       $warning ="failed to copy $inputDir/keys/$gm_key_destination to ${gm_dir}${gm_key_destination}...\n";
+    }
+    else 
     {
     	header("Location: licenses.php?action=gm#gm");
     }
