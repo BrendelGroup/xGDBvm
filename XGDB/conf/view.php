@@ -1096,10 +1096,6 @@ if($g_exists=="Yes" && mysql_select_db("$DBid")){ #xGDB MySQL database exists.
 							</div>
 						</div>
 						";
-						
-### Display pipeline progress with link to log file.
-
-	$progress_display= ($Status =='Locked' || $Status =='Current' )? "<a id=\"Pipeline_procedure\" title=\"$DBid\" class=\"logfile-button\" src=\"/XGDB/images/help-icon.png\" alt=\"?\" />logfile</a>":"";
 
 ### Create Feature Totals String (Current only)  to include in $curr_msg
   $feature_totals_string =($Status=="Current")? get_feature_totals($DBid):""; // conf_functions.inc.php
@@ -1970,12 +1966,12 @@ $update_dirlist=dirlist_dropdown($Input_Data_Path, "", "", $Update_Data_Path);//
                             <span class=\"nowrap largerfont\" style=\"color:purple\">
                                 Now processing: <br />
                             </span>
-                            <span  id=\"${logfile_path}${logfile}\" title=\"$DBid\" class='logfile-button smallerfont link'> 
+                            <a id='${XGDB_DATADIR}${DBid}/logs/Pipeline_procedure.log' name='$ID' title='Procedure log for $DBid (popup)' class='logfile-button smallerfont link'> 
                                 Logfile <img style='margin-bottom:-5px' src='/XGDB/images/logfile-icon.png' alt='?' />
-                            </span>
-                            <span id='Pipeline_error' title=\"$DBid\" class='logfile-button smallerfont link'> 
+                            </a>
+                            <a  id='${XGDB_DATADIR}${DBid}/logs/Pipeline_error.log' name='$ID' title='Error log for $DBid (popup)'  class='logfile-button smallerfont link'> 
                                 Errors <img style='margin-bottom:-5px' src='/XGDB/images/logfile-icon.png' alt='?' />
-                            </span>
+                            </a>
                         </td>
                         <td>
                             <span class=\"normalfont\">$tail_line1 <br /> $tail_line2</span>
@@ -2538,9 +2534,9 @@ $update_dirlist=dirlist_dropdown($Input_Data_Path, "", "", $Update_Data_Path);//
 						    <span class=\"heading\"> 
 						        (Optional) Running the CpGAT gene prediction tool requires transcript and/or protein spliced alignments. <br /> 
 						        For optimal results you should also provide a reference protein dataset (see below). <br />
-						        <span id='CpGAT_procedure' title=\"$DBid\" class='logfile-button link smallerfont'> 
+						        <a id='${XGDB_DATADIR}${DBid}/logs/CpGAT_procedure.log' name=\"$ID\" title=\"CpGAT procedure log \"  class='logfile-button link smallerfont'> 
 						            View CpGAT Logfile <img style='margin-bottom:-5px' src='/XGDB/images/logfile-icon.png' alt='?' />
-						        </span>
+						        </a>
 						    </span>
 						</div>
 					
