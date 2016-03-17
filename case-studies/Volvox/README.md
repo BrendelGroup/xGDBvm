@@ -229,8 +229,22 @@ Everything is as before for the example data set, except that we specify the
 directory for the input data as _/xGDBvm/input/xgdbvm/VcarTEST_.
 On my VM instance, results came back within a few minutes.
 Poking around, I found a nice region that illustrates the results of the __xGDBvm__
-annotation process (Genome Segment: NW_003307593.1; Left Coordinate: 430701;
-Right Coordinate: 437000).
+annotation process (Genome Segment: NW_003307555.1; Left Coordinate: 94001;
+Right Coordinate: 114000).
+This 20kb region contains three gene models each in both the xGDBvm CpGAT gene
+prediction track and the NCBI annotation track.
+The first pair of models conincide, in the second pair the NCBI model is more
+consistent with the EST evidence, and for the third pair the CpGAT model looks
+like a much better prediction as the gene encoding the translation initiation
+factor 4G (How can we make this assertion? Enter the xGDBvm yrGATE annotation
+tool accessible via the Annotate button.  This is really were xGDBvm shines, as
+the web displays offer utilities to interact with the data shown and even
+organize web-based community annotation updates.)
 You can go back to the configuration screen of the GDB and set this region as
 the default region to show - a nice touch enabling us to look at something
 familiar and exciting whenever we go back to this GDB.
+
+## Where to go from here?
+This little write-up of a case study does not substitute for the xGDBvm
+article nor the tutorials and documentation linked from your instance.
+Have a look around!
