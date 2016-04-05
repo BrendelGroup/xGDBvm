@@ -52,7 +52,7 @@
 								<div class="feature topmargin1">
 										<div class="showhide" id="create_genomes">
 											<p title="Click for more information" style="cursor:pointer">
-												<span class="bigfont bold reverse">Manage<span class="heading reverse"> - Create a Genome Browser  using your own data</span></span></p>
+												<span class="bigfont bold reverse">Manage<span class="heading reverse"> - Create a Genome Browser using your own data</span></span></p>
 											<div class=" hidden">
     											<p>
     											    Splice-align transcripts &amp; proteins and build gene models automatically, then view/search output data in a full-featured genome browser that can be either public or private. 
@@ -71,15 +71,22 @@
 											<p>See xGDBvm in action with <b>video tutorials:</b></p>
 												<div class="big_button">
 												
+                                                        <a title='Video is also available at https://youtu.be/Kcuy-3IZJ_E' class='xgdb_button smallerfont ytvideo-button video  xgdb_button colorGR3 video-button-gr video' id='create_example_gdb' name='Kcuy-3IZJ_E'>
+                                                        1: xGDBvm: An Overview</a>
+                                                        <span class="topmargin1 heading"> (4:48) - xGDBvm: An Overview </span>
+
+												</div>
+												<div class="big_button">
+												
                                                         <a title='Video is also available at http://www.youtube.com/watch?v=3KL9ceP11yo' class='xgdb_button smallerfont ytvideo-button video  xgdb_button colorGR3 video-button-gr video' id='create_example_gdb' name='3KL9ceP11yo'>
-                                                        1: Spin up a new VM</a>
+                                                        2: Create/Configure a new VM</a>
                                                         <span class="topmargin1 heading"> (4:39) - Create/Configure a new xGDBvm instance on iPlant Atmosphere </span>
 
 												</div>
 												<div class="big_button">
 												
                                                         <a title='Video is also available at https://www.youtube.com/watch?v=Pv58RNHDwIA' class='xgdb_button smallerfont ytvideo-button video  xgdb_button colorGR3 video-button-gr video' id='create_example_gdb' name='Pv58RNHDwIA'>
-                                                        2: Test your new VM</a>
+                                                        3: Test your new VM</a>
                                                         <span class="topmargin1 heading"> (6:42) - Test a new xGDBvm instance with pre-configured sample data </span>
 
 												</div>

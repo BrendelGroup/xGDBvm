@@ -18,7 +18,7 @@
 		
 <h1 class="help_style topmargin1 bottommargin1"><img alt="" src="/XGDB/images/circle_help.png" />&nbsp; xGDBvm Help (All Resources)</h1>
 
-<p>See also <a title="Wiki documentation for xGDBvm" href="http://goblinx.soic.indiana.edu/wiki/doku.php">&nbsp;xGDB Wiki</a> which includes a complete <a title="Wiki documentation for xGDBvm" href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=troubleshooting">&nbsp;Troubleshooting Guide</a>
+<p>See also <a title="Wiki documentation for xGDBvm" href="http://goblinx.soic.indiana.edu/wiki/doku.php">&nbsp;xGDB Wiki</a> which includes a <a title="Wiki documentation for xGDBvm" href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=troubleshooting">&nbsp;Troubleshooting Guide</a>
 </p>
 
 <h2 class="help topmargin1 bottommargin1">How xGDBvm works 
@@ -26,35 +26,21 @@
 				<div class="big_button">
 				<p>
 					xGDBvm splice-aligns transcripts &amp; proteins and builds gene models automatically. Users can view/search output data in a full-featured genome browser that can be either public or private. 
-				   </p> <a title='How xGDBvm works' class='image-button' id='xGDBvmFlow_large:550:560'>
-				<p>	    <span class="highlight">(click to view schema)</span>
-					</a>
-				</p>    											
+				   <a title='How xGDBvm works' class='image-button' id='xGDBvmFlow_large:550:450'><span class="highlight">(click to view schema)</span></a></p>    											
 				</div> 
+
+				<div class="big_button">
+				
+						<a title='Video is also available at https://youtu.be/Kcuy-3IZJ_E' class='xgdb_button smallerfont ytvideo-button video  xgdb_button colorGR3 video-button-gr video' id='create_example_gdb' name='Kcuy-3IZJ_E'>
+						xGDBvm: An Overview (4:48)</a>
+
+				</div>
 
 <h2 class="help topmargin1 bottommargin1" name="videos">Video Tutorials
 </h2>
 
- <h2 class="indent2">Administrator Tutorials <span class="heading"> covering all aspects of configuring a new VM and running computational pipelines (with transcripts available on the <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials"> xGDBvm Wiki</a>) </h2>
+<p>See <a href="/XGDB/help/video_tutorials.php">video tutorials page</a></p>
  
-<div class="featurediv indent2">
-		<p class="indent2 topmargin1 bottommargin1">1. Configure a new VM at iPlant Atmosphere: <a title='Video is also available at http://www.youtube.com/watch?v=3KL9ceP11yo' class='xgdb_button smallerfont ytvideo-button video  xgdb_button colorGR3 video-button-gr' id='create_example_gdb' name='3KL9ceP11yo'>Video </a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:configure_vm">Transcript</a></p>
-		<p class="indent2 topmargin1 bottommargin1">2. Test your new xGDBvm instance with sample data: <a title='Video is also available at https://www.youtube.com/watch?v=Pv58RNHDwIA' class='xgdb_button smallerfont ytvideo-button video  xgdb_button colorGR3 video-button-gr' id='create_example_gdb' name='Pv58RNHDwIA'>Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:test_vm_with_sample_data">Transcript</a></p>
-		<p class="indent2 topmargin1 bottommargin1">3. Prepare your input data for xGDBvm: <a href="">Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:prepare_input_data">Transcript</a></p>
-		<p class="indent2 topmargin1 bottommargin1">4. Create a genome annotation based on your own data: <a href="">Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:configure_new_gdb">Transcript</a></p>
-		<p class="indent2 topmargin1 bottommargin1">5. Use High Performance Compute option: <a href="">Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:high_performance_compute">Transcript</a></p>
-		<p class="indent2 topmargin1 bottommargin1">6. Evaluate xGDBvm output: <a href="">Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:high_performance_compute">Transcript</a></p>
-
-
-</div>
-
-
- <h2 class="indent2">User Tutorials <span class="heading">Brief demos of genome browser and community annotation features, organized by task and workflow (<a href="/XGDB/help/video_tutorials.php">under development</a>)</span></h2>
-									<!--ul class="menulist bottommargin2 topmargin1">
-										<li> <a href="/XGDB/help/video_tutorials.php#configure">Configuring a Genome Browser</a></li>
-										<li> <a href="/XGDB/help/video_tutorials.php#use">Using a Genome Browser</a></li>
-										<li> <a href="/XGDB/help/video_tutorials.php#annotation">yrGATE Annotation</a></li>
-									</ul-->
 									
 <h2 class="help topmargin1 bottommargin1">Help pages</h2>
 
