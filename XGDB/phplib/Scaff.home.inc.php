@@ -412,7 +412,7 @@ TODO: GENERALIZE THESE USING THE ABOVE ARRAY AND FOREACH */
 <h2 class="topmargin2"> More resources: </h2>
 <ul class="bullet1 indent2">
 	<li>
-		All <a href="/XGDB/phplib/annotation.php?GDB=<?php echo $DB; ?>">video tutorials for Community Annotation </a>
+		All <a href="/XGDB/help/video_tutorials.php#annotation">video tutorials for Community Annotation </a>
 	</li>
 	<li>
 		<a class="help_style" href="/XGDB/help/yrgate.php">yrGATE Help</a>
