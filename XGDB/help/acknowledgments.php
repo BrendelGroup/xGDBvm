@@ -21,56 +21,16 @@
 <h1 class="topmargin1 bottommargin1">Acknowledgments</h1>
 
 	
-	<h2>Support</h2>
-	
-		<p>
-			xGDBvm is produced with support from the USA National Science Foundation Plant Genome Research Projects grant <a title="view NSF grant page"  href="http://128.150.4.107/awardsearch/showAward.do?AwardNumber=1126267">DBI 1126267</a>, 'IPGA: Characterization, Modeling, Prediction, and Visualization of the Plant Transcriptome.'
-		</p>
-		
-		<p>See <a href="/XGDB/help/about.php">About</a></p>
-	
-				
-	<h2 class="topmargin1 bottommargin1">Contributions to core software</h2>
-	
-	<ul class="menulist">
-							
-		<li>Jinsong Liu - CpaGAT</li>
-		<li>Shannon Schlueter - xGDB platform, GAEVAL</li>							
-		<li>Matthew Wilkerson - yrGATE platform</li>							
-	</ul>
-	
-	<h2 class="topmargin1 bottommargin1">Collaborators</h2>
-	
-		<h3 class="topmargin1 bottommargin1	indent1"><a href="http://www.iplantcollaborative.org/">iPlant Collaborative</a></h3>
-		
-			<ul class="menulist">
-									
-				<li>Nirav Merchant</li>
-				<li>Eric Lyons </li>
-				<li>Edwin Skidmore</li>
-				<li>etc.</li>
-			</ul>
-			
-	
-	<h2 class="topmargin1 bottommargin1">Other Software Packages</h2>
-	
 		<ul class="menulist bottommargin2">
-								
-			<li>Augustus</li>
-			<li>BGF</li>
-			<li>CpGAT</li>
-			<li>Dokuwiki</li>
-			<li>GeneSeqer</li>
-			<li>GenomeThreader</li>
-			<li>GeneMark</li>
-			<li>PASA</li>
-			<li>Solar</li>
-										
+			<li>xGDBvm was developed by the <a href="http://www.brendelgroup.org">Brendel Group</a> with support from the USA National Science Foundation Plant Genome Research Projects grant <a title="view NSF grant page"  href="http://128.150.4.107/awardsearch/showAward.do?AwardNumber=1126267">DBI 1126267</a>.</li>
+			<li>The underlying code was adapted from the xGDB platform and tools originally implemented at <a href="http://plantgdb.org">plantgdb.org</a>.</li>
+			<li>xGDBvm is written in <a href="https://www.perl.org">Perl</a> and <a href="php.net">PHP</a> and relies on the following Javascript tools and libraries: <a href="http://jquery.com">JQuery</a>,<a href="http://jqueryui.com">JQuery UI</a>, and <a href="http://users.tpg.com.au/j_birch/plugins/superfish/">Superfish by Joel Birch</a></li>
+			<li>Some of the icons are from the Silk icon set at <a href="http://www.famfamfam.com/lab/icons/silk/">famfamfam.com</a> </li>
+			<li>For more information on xGDBvm configuration, software, and architecture, visit the <a href="http://goblinx.soic.indiana.edu/wiki/doku.php">wiki</a></li>
 		</ul>
-	
 
-			
-			</div><!--end maincontentsfull-->
+
+					</div><!--end maincontentsfull-->
 			</div><!--end maincontentscontainer-->
 		<?php include($XGDB_FOOTER); ?>
 		</div><!--end pagewidth-->

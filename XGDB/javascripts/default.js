@@ -52,7 +52,7 @@ function refreshPage(){
 //NOTE: the scripts below should be synchronized with default_xgdb.js
 
 $(function() {
-        $('#video_dialog').dialog({bgiframe:true,autoOpen:false,height:600,width:800,modal:true});
+        $('#video_dialog').dialog({bgiframe:true,autoOpen:false,height:600,width:1000,modal:true});
 });
 
 $(function() {

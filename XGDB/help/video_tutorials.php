@@ -27,13 +27,14 @@
 <div class="feature">
 <h2 class="indent1">Administrator videos</h2>		
 
-		<p class="indent2 topmargin1 bottommargin1">1. Configure a new VM at iPlant Atmosphere: <a title='Video is also available at http://www.youtube.com/watch?v=3KL9ceP11yo' class='xgdb_button smallerfont ytvideo-button video  xgdb_button colorGR3 video-button-gr' id='create_example_gdb' name='3KL9ceP11yo'>Video </a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:configure_vm">Transcript</a></p>
-		<p class="indent2 topmargin1 bottommargin1">2. Test your new xGDBvm instance with sample data: <a title='Video is also available at https://www.youtube.com/watch?v=Pv58RNHDwIA' class='xgdb_button smallerfont ytvideo-button video  xgdb_button colorGR3 video-button-gr' id='create_example_gdb' name='Pv58RNHDwIA'>Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:test_vm_with_sample_data">Transcript</a></p>
-		<p class="indent2 topmargin1 bottommargin1">3. Prepare your input data for xGDBvm: <a href="">Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:prepare_input_data">Transcript</a></p>
-		<p class="indent2 topmargin1 bottommargin1">4. Create a genome annotation based on your own data: <a href="">Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:configure_new_gdb">Transcript</a></p>
-		<p class="indent2 topmargin1 bottommargin1">5. Use High Performance Compute option: <a href="">Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:high_performance_compute">Transcript</a></p>
-		<p class="indent2 topmargin1 bottommargin1">6. Evaluate xGDBvm output: <a href="">Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:high_performance_compute">Transcript</a></p>
-
+		<p class="indent2 topmargin1 bottommargin1"><a title='Video is also available at https://youtu.be/Kcuy-3IZJ_E' class='xgdb_button smallerfont ytvideo-button video  xgdb_button colorGR3 video-button-gr' id='create_example_gdb' name='Kcuy-3IZJ_E'>Video </a> 1. xGDBvm: An Overview | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:overview">Transcript</a></p>
+		<p class="indent2 topmargin1 bottommargin1"><a title='Video is also available at http://www.youtube.com/watch?v=3KL9ceP11yo' class='xgdb_button smallerfont ytvideo-button video  xgdb_button colorGR3 video-button-gr' id='create_example_gdb' name='3KL9ceP11yo'>Video </a> 2. Configure a new VM | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:configure_vm">Transcript</a></p>
+		<p class="indent2 topmargin1 bottommargin1"><a title='Video is also available at https://www.youtube.com/watch?v=Pv58RNHDwIA' class='xgdb_button smallerfont ytvideo-button video  xgdb_button colorGR3 video-button-gr' id='create_example_gdb' name='Pv58RNHDwIA'>Video</a> 3. Test your new xGDBvm instance with sample data | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:test_vm_with_sample_data">Transcript</a></p>
+<!--		<p class="indent2 topmargin1 bottommargin1">4. Prepare your input data for xGDBvm: <a href="">Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:prepare_input_data">Transcript</a></p>
+		<p class="indent2 topmargin1 bottommargin1">5. Create a genome annotation based on your own data: <a href="">Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:configure_new_gdb">Transcript</a></p>
+		<p class="indent2 topmargin1 bottommargin1">6. Use High Performance Compute option: <a href="">Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:high_performance_compute">Transcript</a></p>
+		<p class="indent2 topmargin1 bottommargin1">7. Evaluate xGDBvm output: <a href="">Video</a> | <a href="http://goblinx.soic.indiana.edu/wiki/doku.php?id=tutorials:high_performance_compute">Transcript</a></p>
+-->
 </div>
 <div class="feature" id="annotation">
 	<h2 class="topmargin2 bottommargin1 indent1">yrGATE Annotation <span class="heading"><a href="#heading">(top)</a> ; <a href="/XGDB/help/index.php">Help Overview</a></span></h2>

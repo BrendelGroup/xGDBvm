@@ -17,7 +17,7 @@ echo
 <body>
 	<div id=\"video_bckgd\">
 		<h2>$movietitle</h2>
-<iframe width=\"720\" height=\"480\" src=\"//www.youtube.com/embed/${movie}?rel=0&vq=hd720\" frameborder=\"0\" allowfullscreen></iframe>
+<iframe width=\"960\" height=\"540\" src=\"//www.youtube.com/embed/${movie}?rel=0&vq=hd720\" frameborder=\"0\" allowfullscreen></iframe>
 	</div>
 </body>
 </html>"
