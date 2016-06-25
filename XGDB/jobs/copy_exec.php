@@ -1,4 +1,4 @@
-<?php // this script copies output data from archive to the GDB input directory and returns to the initiating script page.
+<?php // this script copies output data from archive to the GDB input directory and returns to the initiating script page. Updated 6/23/16 JDuvick
 #error_reporting(E_ALL & ~E_NOTICE); //disable undeclared variable error
 # Start the php session to be able to pull login and password tokens
 session_start();
@@ -71,7 +71,7 @@ if(isset($_POST['job']) && isset($_POST['return']))
 		$err_file="${job_name}-${job_id}.err"; // gth-gdb006-example-1---4-scaffold-hpc-standalone-gth-0001425504861447-5056a550b8-0001-007.err
 		#$extra_dir=($program=="gsq")?"GSQOUTPUT/":""; // Added 12-10-13 to accomodate extra directory level for GSQ
 		$extra_dir=""; # 8/25/15
-		$source_path="${inputDirMount}/archive/jobs/${source_dir}/${extra_dir}${source_file}"; // e.g. /xGDBvm/input/archive/jobs/job-10073-q3ejd-20130429-202001/GSQOUTPUT/GDB003est.gsq
+		$source_path="${inputDirMount}archive/jobs/${source_dir}/${extra_dir}${source_file}"; // e.g. /xGDBvm/input/archive/jobs/job-10073-q3ejd-20130429-202001/GSQOUTPUT/GDB003est.gsq
  		$out_path="/${inputDirMount}/archive/jobs/${source_dir}/${out_file}";
  		$err_path="${inputDirMount}/archive/jobs/${source_dir}/${err_file}";
 		## Get 'Destination' MySQL values from 'xGDB_Log.Input_Data_Path', and validate against the possible input paths
@@ -79,22 +79,23 @@ if(isset($_POST['job']) && isset($_POST['return']))
 		$check_get_path = mysql_query($path_query);
 		$get_result = mysql_fetch_assoc($check_get_path);
 	
-		$destination_dir = $get_result['Input_Data_Path']; // e.g. /xGDBvm/input/MyInputData/
-		$pattern1 = '/^\/xGDBvm\/data\/[0-9A-Za-z\/]+/'; // we might want to copyt to user input that is here
-		$pattern2 = '/^\/xGDBvm\/input\/[0-9A-Za-z\/]+/'; //.. or here
-		$pattern3 = '/^\/xGDBvm\/examples\/[0-9A-Za-z\/]+/'; //.. but we want to block attempts to copy here
+		$destination_dir = $get_result['Input_Data_Path']; // e.g. /xGDBvm/input/xgdbvm/MyInputData/
+		
+		$input_dir_escaped=str_replace("/". "\/", $inputDir);
+		$pattern1 = "/^".${input_dir_escaped}."[0-9A-Za-z\/]+/"; // we want to copy to user input that is here 
+		$pattern2 = '/^\/xGDBvm\/examples\/[0-9A-Za-z\/]+/'; //.. but we want to block attempts to copy here
 
-		# Put together a DESTINATION PATH for the HPC output file:
-		$destination_file="job-$job_id.$source_file"; // e.g.  job-10073_GDB003est.gsq
-		$destination_out_file="${program}-${DBid}-${job_id}.out"; // shorten it a bit - remove job_name
-		$destination_err_file="${program}-${DBid}-${job_id}.err";  // shorten it a bit - remove job_name
+		# Put together a DESTINATION PATH for the HPC data file and .out and .err files:
+		$destination_file="job-${job_id}_${source_file}"; // e.g.  job-2808872740996321766-242ac114-0001-007_GDB003_est.gsq
+		$destination_out_file="job-${job_id}.out"; // e.g. job-2808872740996321766-242ac114-0001-007_GDB003.out
+		$destination_err_file="job-${job_id}.err";  // 
 		$destination_path="$destination_dir/$destination_file";
 		$destination_out_path="$destination_dir/$destination_out_file";
 		$destination_err_path="$destination_dir/$destination_err_file";
 		
 		## If directory exists and path is valid, create distination path, and then copy source file to destination
-		if(file_exists($destination_dir) && ((preg_match($pattern1, $destination_dir) || preg_match($pattern2, $destination_dir))))
-	#    if(file_exists($destination_dir)) # debug
+		if(file_exists($destination_dir) && (preg_match($pattern1, $destination_dir)))
+	    #if(file_exists($destination_dir)) # debug
 		{
 			if (!copy($source_path, $destination_path))
 			{
@@ -142,13 +143,13 @@ if(isset($_POST['job']) && isset($_POST['return']))
 			   $execute_update = mysql_query($update);
 			}
 		}
-		elseif(preg_match($pattern3, $destination_dir))
+		elseif(preg_match($pattern2, $destination_dir))
 		{
 		$result ="cannot_copy_to_example_dir";
 		}
 		else
 		{
-		 $result ="input_data_path_invalid";
+		 $result ="input_data_path_invalid - $input_dir_escaped";
 		 echo $result;
 		}
 	}
