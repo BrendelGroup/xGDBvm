@@ -8,11 +8,12 @@ It communicates with a wrapper script that parses json output to create a GTH co
 Input  directories are fixed so that the xGDBvm pipeline can deposit input files from standardized pathnames.
 Output is sent by default to the users' DataStore directory /archive/jobs/
 Parameter names/values included in the json string are below (some user-configurable, others not)
+Updated 7-11-2016 JDuvick
 */
 
 include('sitedef.php');
 include_once('/xGDBvm/XGDB/phplib/db.inc.php'); #reads MySQL password from /xGDBvm/admin/dbpass
-include_once('/xGDBvm/XGDB/jobs/jobs_functions.inc.php'); # to estimate file sizes
+include_once('/xGDBvm/XGDB/jobs/jobs_functions.inc.php'); # to estimate file sizes and other functions
 include_once('/xGDBvm/XGDB/jobs/login_functions.inc.php'); # To get refresh token
 
 $inputDIR=$XGDB_INPUTDIR; # 1-26-2016 e.g. /xGDBvm/input/xgdbvm/
@@ -194,12 +195,12 @@ echo "\n DBid=$DBid \n";
 	{
 		$auth_error .= "No access token could be obtained; ";
 	}
-	if ($auth_error!="")
-	{
-	error_log("\n Authentication FAILED - ".$auth_error."\n");
-	}
-	else
-	{
+if ($auth_error!="")
+{
+error_log("\n Authentication FAILED - ".$auth_error."\n");
+}
+else
+{
 ############## Part IV. Populate CURL object and submit #############
 
 	error_log("\n Authentication returned http_code $http_code.\n"); #  
@@ -219,43 +220,8 @@ echo "\n DBid=$DBid \n";
     $callbackUrl="https://".$server."/XGDB/jobs/webhook.php?nonce=".$nonce."&ID=".$ID."&type=prot&job_id=\${JOB_ID}&status=\${JOB_STATUS}&error=\${JOB_ERROR}"; // this script will update status in MySQL tables monitored by the pipeline
 	//Setting post array that we will jsonify. See http://agaveapi.co/live-docs/#!/jobs/submit_post_1
 
-	//If amin_email missing, don't include email webhooks.
+$notifications = build_notifications_array($callbackUrl, $admin_email); # see jobs_functions.inc.php; an array for alerts to the VM / user (if admin email configured)
 
-	$notifications=($admin_email=="")
-	?
-	array
-		   (
-				array(
-				   "url" =>  "$callbackUrl",
-				   "event" => "*",
-				   "persistent" => true
-				)
-			)
-	:
-	array
-		   (
-			   array(
-					 "url" => "$admin_email",
-					 "event" => "RUNNING",
-				   "persistent" => false
-				),
-				array(
-				   "url" => "$admin_email",
-				   "event" =>  "FAILED",
-				   "persistent" => false
-				),
-				array(
-				   "url" => "$admin_email",
-				   "event" =>  "FINISHED",
-				   "persistent" => false
-				),
-				array(
-				   "url" =>  "$callbackUrl",
-				   "event" => "*",
-				   "persistent" => true
-				)
-			)
-	;
 	//create array
 		$job_data = array
 		(
@@ -291,10 +257,7 @@ echo "\n DBid=$DBid \n";
 		curl_setopt($ch, CURLOPT_POST, true);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $postField );
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array( "Content-Type:application/json", "Authorization: Bearer  $access_token"));
-	 $attempts=0;
-	 $max_attempts=5;
-     for ($i = 1; $i <= $max_attempts; $i++)
-     {
+
 	//Execute the php curl and grab the response
 		$response = curl_exec($ch);
 		$resultStatus = curl_getinfo($ch);
@@ -309,12 +272,7 @@ echo "\n DBid=$DBid \n";
 
 	#/* comment out this block to debug
 	$http_code=$resultStatus['http_code'];
-	$attempts=$attempts+1;
-	if($http_code == 200 || $http_code == 201)
-	break;
-	sleep(30);
-	}
-	// After up to 5 tries, 
+	
 	if($http_code == 200 || $http_code == 201)
 	{
 		$message=$handled_json['result']['message']; // status message
@@ -330,8 +288,7 @@ echo "\n DBid=$DBid \n";
 		$status=strtolower($STATUS); # for styling
 		$nodeCount=$handled_json['nodeCount']; #not using this at present
 		$archive_path=($STATUS=="PENDING")?"/${username}/archive/jobs/job-${job_id}/":"N/A";
-		$comment="$attempts attempts; ";
-        $comment.="${STATUS}: $submit_time | "; // This is the actual submit time returned by the server. Subsequent status updates will be concatenated here.
+        $comment="${STATUS}: $submit_time | "; // This is the actual submit time returned by the server. Subsequent status updates will be concatenated here.
 		// Store job data in Admin.jobs database table.
 
 		$statement="Insert into $global_DB1.jobs (nonce, job_id, job_name, status, db_id, job_type, program, softwareName, job_URL, HPC_name, user, admin_email, seq_type, genome_file_size, 
@@ -358,22 +315,21 @@ error_log("\n gth_remote.php cURL SUCCEEDED. Submitted to URL:".$job_url." \n po
 	else
 	{ //Curl submit failed
 
-        error_log("\n gth_remote.php FAILED. cURL submitted to URL:".$job_url." http_code=".$http_code." \n \n postField=".$postField."\n \n parameters=".$parameters."\n \n message=".$message."\n \n response=".$response."\n \n");
+error_log("\n gth_remote.php FAILED. cURL submitted to URL:".$job_url." http_code=".$http_code." \n \n postField=".$postField."\n \n parameters=".$parameters."\n \n message=".$message."\n \n response=".$response."\n \n");
 		$STATUS="ERROR";
 		$status=$handled_json['status'];// error is the typical response (NOTE: this is different from $STATUS where a job has been successfully submitted)
-		$comment="$attempts attempts; ";
-		$comment .= $handled_json['message'];// Failed to submit job is the typical response
+		$message=$handled_json['message'];// Failed to submit job is the typical response
 	
 # Create job_name, a text identifier for failed job (no job ID assigned, so just use failure result, e.g. 'null')
 		$job_id ="error-".$job_name; // combination of 'null' and local job name. e.g. error-Q2Ejd-20130313-203456
 		
-        $response_display = str_replace('>', ' ', (str_replace('>', ' ', $response))); // we will be displaying this in a table; it may be formatted
+$response_display = str_replace('>', ' ', (str_replace('>', ' ', $response))); // we will be displaying this in a table; it may be formatted
 
 # Store job data in Admin.jobs database table.
 		$statement="Insert into $global_DB1.jobs 
 		(job_id, job_name, status, db_id, job_type, program, softwareName, job_URL, HPC_name, user, admin_email, seq_type, genome_file_size, genome_segments, split_count, input_file_size, parameters, requested_time, processors, memory, comments, job_submitted_time, error)
 		values
-		('$job_id', '$job_name', '$STATUS', $ID, 'Pipeline', 'GTH ', '$app_id', '$job_url', '$HPC_name', '$username', '$admin_email', '$type', '$genome_file_size', '$total_scaffold_count', '$splitSize', '$input_file_size', '$parameters', '$requested_time', '$proc_per_node', '$memory_per_node', '$comment', '$submitted', 'job submission FAILED - http code: $http_code - response: $response_display')";
+		('$job_id', '$job_name', '$STATUS', $ID, 'Pipeline', 'GTH ', '$app_id', '$job_url', '$HPC_name', '$username', '$admin_email', '$type', '$genome_file_size', '$total_scaffold_count', '$splitSize', '$input_file_size', '$parameters', '$requested_time', '$proc_per_node', '$memory_per_node', '$message', '$submitted', 'job submission FAILED - http code: $http_code - response: $response_display')";
 	
 		$do_statement = mysql_query($statement);
 
