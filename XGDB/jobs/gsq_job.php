@@ -224,43 +224,8 @@ else
 
 //Setting post array that we will jsonify. See http://agaveapi.co/live-docs/#!/jobs/submit_post_1
 
-//If amin_email missing, don't include email webhooks.
+$notifications = build_notifications_array($callbackUrl, $admin_email); # see jobs_functions.inc.php; an array for alerts to the VM / user (if admin email configured)
 
-$notifications=($admin_email=="")
-?
-array
-	   (
-			array(
-			   "url" =>  "$callbackUrl",
-			   "event" => "*",
-			   "persistent" => true
-			)
-		)
-:
-array
-	   (
-		   array(
-				 "url" => "$admin_email",
-				 "event" => "RUNNING",
-			   "persistent" => false
-			),
-			array(
-			   "url" => "$admin_email",
-			   "event" =>  "FINISHED",
-			   "persistent" => false
-			),
-			array(
-			   "url" => "$admin_email",
-			   "event" =>  "FAILED",
-			   "persistent" => false
-			),
-			array(
-			   "url" =>  "$callbackUrl",
-			   "event" => "*",
-			   "persistent" => true
-			)
-		)
-;
 //create array
 	$job_data = array
 	(
