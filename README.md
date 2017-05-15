@@ -19,4 +19,4 @@ When the initial processing is complete, xGDBvm provides a fully-featured analys
 
 ## Reference
 
-__Duvick J, Standage DS, Merchant N, Brendel VP__ (2016) xGDBvm: A Web GUI-driven workflow for annotating eukaryotic genomes in the cloud. _The Plant Cell_, __28__, 840-854 [[online article]](http://onlinelibrary.wiley.com/doi/10.1111/mec.13578/full).
+__Duvick J, Standage DS, Merchant N, Brendel VP__ (2016) xGDBvm: A Web GUI-driven workflow for annotating eukaryotic genomes in the cloud. _The Plant Cell_, __28__, 840-854 [[online article]](http://www.plantcell.org/content/28/4/840.long).
